@@ -231,14 +231,14 @@ public class Canvas {
 		if(!States.EMPTY_BOT_POS_1) {
 			//System.out.println("money");
 			emptyBotPos1.setVisible(false);
-			System.out.println(States.EMPTY_BOT_POS_1);
+//			System.out.println(States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
 		}
 		else {
 			emptyBotPos1.setVisible(true);
-			System.out.println(States.EMPTY_BOT_POS_1);
+//			System.out.println(States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
@@ -275,7 +275,7 @@ public class Canvas {
 		if(!States.FILLED_BOT_POS_3) {
 		//	System.out.println("3");
 			filledBotPos3.setVisible(false);
-			System.out.println(States.EMPTY_BOT_POS_1);
+//			System.out.println(States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
@@ -284,7 +284,7 @@ public class Canvas {
 		else {
 			//System.out.println("3_5");
 			filledBotPos3.setVisible(true);
-			System.out.println(States.EMPTY_BOT_POS_1);
+//			System.out.println(States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
@@ -299,7 +299,7 @@ public class Canvas {
 		if(!States.CAP_SCREWED_POS_4) {
 			//System.out.println("4");
 			capScrewedPos4.setVisible(false);
-			System.out.println(States.EMPTY_BOT_POS_1);
+//			System.out.println(States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
@@ -308,7 +308,7 @@ public class Canvas {
 		else {
 			//System.out.println("4_5");
 			capScrewedPos4.setVisible(true);
-			System.out.println(States.EMPTY_BOT_POS_1);
+//			System.out.println(States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
@@ -335,14 +335,14 @@ public class Canvas {
 		btnNewButton.addActionListener(e -> {
 			
 			if(!States.EMPTY_BOT_POS_0) {
-				System.out.println("a");
+//				System.out.println("a");
 				emptyBotPos0.setVisible(false);
 				frmAbs.getContentPane().revalidate();
 				frmAbs.getContentPane().repaint();;
 
 			}
 			else {
-				System.out.println("1");
+//				System.out.println("1");
 				emptyBotPos0.setVisible(true);
 				frmAbs.getContentPane().revalidate();
 				frmAbs.getContentPane().repaint();;
@@ -351,13 +351,13 @@ public class Canvas {
 			
 			
 			if(!States.FILLED_BOT_POS_2) {
-				System.out.println("b");
+//				System.out.println("b");
 				filledBotPos2.setVisible(false);
 				frmAbs.getContentPane().revalidate();
 				frmAbs.getContentPane().repaint();;
 			}
 			else {
-				System.out.println("2");
+//				System.out.println("2");
 				filledBotPos2.setVisible(true);
 				emptyBotPos0.setVisible(false);
 				frmAbs.getContentPane().revalidate();
@@ -380,7 +380,7 @@ public class Canvas {
 			
 			
 			if(!States.CAP_SCREWED_POS_4) {
-				System.out.println("d");
+//				System.out.println("d");
 				capScrewedPos4.setVisible(false);
 				frmAbs.getContentPane().revalidate();
 				frmAbs.getContentPane().repaint();;
@@ -388,21 +388,21 @@ public class Canvas {
 
 			}
 			else {
-				System.out.println("4");
+//				System.out.println("4");
 				capScrewedPos4.setVisible(true);
 				emptyBotPos0.setVisible(false);
 				frmAbs.getContentPane().revalidate();
 				frmAbs.getContentPane().repaint();;
 			}
 			if(!States.DONE_BOT_POS_6) {
-				System.out.println("e");
+//				System.out.println("e");
 				doneBotPos6.setVisible(false);
 				frmAbs.getContentPane().revalidate();
 				frmAbs.getContentPane().repaint();;
 
 			}
 			else {
-				System.out.println("5");
+//				System.out.println("5");
 				doneBotPos6.setVisible(true);
 				emptyBotPos0.setVisible(false);
 				frmAbs.getContentPane().revalidate();
