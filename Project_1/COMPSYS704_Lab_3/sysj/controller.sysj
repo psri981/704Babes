@@ -11,8 +11,6 @@ Controller(
 			System.out.println("Table Aligned Sustaining BotPos1");
 			emit bottleAtPos1;
 		}
-		
-		await();
 
 		abort(botPos2){
 			System.out.println("botPos2");
