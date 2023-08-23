@@ -12,34 +12,48 @@ Plant(
 
 	{// 
 		while(true){
-			
+
 			abort(rotate){
-				emit tableAligned;
+				while(true) {
+					emit tableAligned;
+					pause;
+				}
 			}
 
 			abort(bottleAtPos1 && rotate){
-				System.out.println("bottleAtPos1 aborted");
-				emit botPos2;
+				while(true) {
+					//System.out.println("bottleAtPos1 aborted");
+					emit botPos2;
+					pause;
+				}
 			}
-			
+
 			await(!rotate);
-			
+
 			abort(bottleAtPos2 && rotate){
-				System.out.println("bottleAtPos2 aborted");
-				emit botPos3;
+				while(true) {
+					emit botPos3;
+					pause;
+				}
 			}
 			await(!rotate);
-			
+
 			abort(bottleAtPos3 && rotate){
-				emit botPos4;
+				while(true) {
+					emit botPos4;
+					pause;
+				}
 			}
 			await(!rotate);
-			
+
 			abort(bottleAtPos4 && rotate){
-				emit botPos5;
+				while(true) {
+					emit botPos5;
+					pause;
+				}
 			}
 			await(!rotate);
-			
+
 			abort(bottleAtPos5 && rotate){
 				emit tableAligned;
 			}

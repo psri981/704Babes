@@ -8,27 +8,22 @@ Controller(
 	while(true) {
 	
 		abort(tableAligned){
-			System.out.println("Table Aligned Sustaining BotPos1");
 			emit bottleAtPos1;
 		}
 
 		abort(botPos2){
-			System.out.println("botPos2");
 			emit bottleAtPos2;
 		}
 
 		abort(botPos3){
-			System.out.println("botPos3");
 			emit bottleAtPos3;
 		}
 
 		abort(botPos4){
-			System.out.println("botPos4");
 			emit bottleAtPos4;
 		}
 
 		abort(botPos5){
-			System.out.println("botPos5");
 			emit bottleAtPos5;
 		}
 		pause;
