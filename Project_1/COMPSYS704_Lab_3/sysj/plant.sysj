@@ -10,33 +10,38 @@ Plant(
 {
 	new Thread(new GUI()).start();
 
-	{// If there is a cap on bottle at pos1
+	{// 
 		while(true){
+			
+			abort(rotate){
+				emit tableAligned;
+			}
 
 			abort(bottleAtPos1 && rotate){
 				System.out.println("bottleAtPos1 aborted");
-				sustain botPos2;
+				emit botPos2;
 			}
 			
 			await(!rotate);
 			
 			abort(bottleAtPos2 && rotate){
-				sustain botPos3;
+				System.out.println("bottleAtPos2 aborted");
+				emit botPos3;
 			}
 			await(!rotate);
 			
 			abort(bottleAtPos3 && rotate){
-				sustain botPos4;
+				emit botPos4;
 			}
 			await(!rotate);
 			
 			abort(bottleAtPos4 && rotate){
-				sustain botPos5;
+				emit botPos5;
 			}
 			await(!rotate);
 			
-			abort(bottleAtPos4 && rotate){
-				sustain tableAlignedWithSensor;
+			abort(bottleAtPos5 && rotate){
+				emit tableAligned;
 			}
 			pause;
 		}

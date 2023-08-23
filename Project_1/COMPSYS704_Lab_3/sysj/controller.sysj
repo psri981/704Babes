@@ -1,46 +1,38 @@
 Controller(
-        input signal capOnPos1,tableAligned,botPos1,botPos2,botPos3,botPos4,botPos5;
-//        output signal rotaryTableTrigger;
-        output signal bottleAtPos1, bottleAtPos2, bottleAtPos3, bottleAtPos4, bottleAtPos5;
-        )
+		input signal capOnPos1,tableAligned,botPos1,botPos2,botPos3,botPos4,botPos5;
+		//        output signal rotaryTableTrigger;
+		output signal bottleAtPos1, bottleAtPos2, bottleAtPos3, bottleAtPos4, bottleAtPos5;
+		)
 ->{
-    /* TODO: Write control-logic */
-    while(true) {
-            
-            abort(botPos1){
-                while(true) {
-                    System.out.println("Table Aligned Sustaining BotPos1");
-                    sustain bottleAtPos1;
-                }
-            }
-            
-            abort(botPos2){
-                while(true) {
-                    System.out.println("botPos2");
-                    sustain bottleAtPos2;
-                }
-            }
+	/* TODO: Write control-logic */
+	while(true) {
+	
+		abort(tableAligned){
+			System.out.println("Table Aligned Sustaining BotPos1");
+			emit bottleAtPos1;
+		}
+		
+		await();
 
-            abort(botPos3){
-                while(true) {
-                    System.out.println("botPos3");
-                    sustain bottleAtPos3;
-                }
-            }
-        
-            abort(botPos4){
-                while(true) {
-                    System.out.println("botPos4");
-                    sustain bottleAtPos4;
-                }
-            }
+		abort(botPos2){
+			System.out.println("botPos2");
+			emit bottleAtPos2;
+		}
 
-            abort(botPos5){
-                while(true) {
-                    System.out.println("botPos5");
-                    sustain bottleAtPos5;
-                }
-            }
-        pause;
-    }
+		abort(botPos3){
+			System.out.println("botPos3");
+			emit bottleAtPos3;
+		}
+
+		abort(botPos4){
+			System.out.println("botPos4");
+			emit bottleAtPos4;
+		}
+
+		abort(botPos5){
+			System.out.println("botPos5");
+			emit bottleAtPos5;
+		}
+		pause;
+	}
 }
