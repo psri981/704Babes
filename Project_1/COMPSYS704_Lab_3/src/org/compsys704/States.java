@@ -2,7 +2,7 @@ package org.compsys704;
 
 public class States {
 	
-	public static volatile boolean EMPTY_BOT_POS_0 = false;//
+	public static volatile boolean EMPTY_BOT_POS_0 = true;//
 	public static volatile boolean EMPTY_BOT_POS_1 = false;
 	public static volatile boolean EMPTY_BOT_POS_2 = false;
 	public static volatile boolean FILLED_BOT_POS_2 = false;//

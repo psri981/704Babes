@@ -12,11 +12,10 @@ Plant(
 
 	{// 
 		while(true){
-
 			abort(rotate){
 				while(true) {
-					emit tableAligned;
 					emit botPos1;
+					emit tableAligned;
 					pause;
 				}
 			}

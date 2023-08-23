@@ -54,8 +54,8 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(botPos5.getprestatus()){//sysj\plant.sysj line: 74, column: 24
-          labelTriggerE.setPresent();//sysj\plant.sysj line: 74, column: 33
+        if(botPos5.getprestatus()){//sysj\plant.sysj line: 73, column: 24
+          labelTriggerE.setPresent();//sysj\plant.sysj line: 73, column: 33
           currsigs.addElement(labelTriggerE);
           active[8]=1;
           ends[8]=1;
@@ -80,8 +80,8 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(botPos4.getprestatus()){//sysj\plant.sysj line: 72, column: 24
-          capScrewTriggerE.setPresent();//sysj\plant.sysj line: 72, column: 33
+        if(botPos4.getprestatus()){//sysj\plant.sysj line: 71, column: 24
+          capScrewTriggerE.setPresent();//sysj\plant.sysj line: 71, column: 33
           currsigs.addElement(capScrewTriggerE);
           active[7]=1;
           ends[7]=1;
@@ -106,8 +106,8 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(botPos3.getprestatus()){//sysj\plant.sysj line: 70, column: 24
-          lidloaderTriggerE.setPresent();//sysj\plant.sysj line: 70, column: 33
+        if(botPos3.getprestatus()){//sysj\plant.sysj line: 69, column: 24
+          lidloaderTriggerE.setPresent();//sysj\plant.sysj line: 69, column: 33
           currsigs.addElement(lidloaderTriggerE);
           active[6]=1;
           ends[6]=1;
@@ -132,8 +132,8 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(botPos2.getprestatus()){//sysj\plant.sysj line: 68, column: 24
-          fillerTriggerE.setPresent();//sysj\plant.sysj line: 68, column: 33
+        if(botPos2.getprestatus()){//sysj\plant.sysj line: 67, column: 24
+          fillerTriggerE.setPresent();//sysj\plant.sysj line: 67, column: 33
           currsigs.addElement(fillerTriggerE);
           active[5]=1;
           ends[5]=1;
@@ -158,8 +158,8 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(botPos1.getprestatus()){//sysj\plant.sysj line: 66, column: 24
-          conBeltTriggerE.setPresent();//sysj\plant.sysj line: 66, column: 33
+        if(botPos1.getprestatus()){//sysj\plant.sysj line: 65, column: 24
+          conBeltTriggerE.setPresent();//sysj\plant.sysj line: 65, column: 33
           currsigs.addElement(conBeltTriggerE);
           active[4]=1;
           ends[4]=1;
@@ -233,17 +233,17 @@ public class Plant extends ClockDomain{
       case 1 : 
         switch(S99){
           case 0 : 
-            if(rotate.getprestatus()){//sysj\plant.sysj line: 16, column: 10
+            if(rotate.getprestatus()){//sysj\plant.sysj line: 15, column: 10
               S99=1;
               active[2]=1;
               ends[2]=1;
               tdone[2]=1;
             }
             else {
+              botPos1.setPresent();//sysj\plant.sysj line: 17, column: 6
+              currsigs.addElement(botPos1);
               tableAligned.setPresent();//sysj\plant.sysj line: 18, column: 6
               currsigs.addElement(tableAligned);
-              botPos1.setPresent();//sysj\plant.sysj line: 19, column: 6
-              currsigs.addElement(botPos1);
               active[2]=1;
               ends[2]=1;
               tdone[2]=1;
@@ -251,9 +251,9 @@ public class Plant extends ClockDomain{
             break;
           
           case 1 : 
-            if(!rotate.getprestatus()){//sysj\plant.sysj line: 23, column: 10
+            if(!rotate.getprestatus()){//sysj\plant.sysj line: 22, column: 10
               S99=2;
-              botPos2.setPresent();//sysj\plant.sysj line: 27, column: 6
+              botPos2.setPresent();//sysj\plant.sysj line: 26, column: 6
               currsigs.addElement(botPos2);
               active[2]=1;
               ends[2]=1;
@@ -267,14 +267,14 @@ public class Plant extends ClockDomain{
             break;
           
           case 2 : 
-            if(bottleAtPos1.getprestatus() && rotate.getprestatus()){//sysj\plant.sysj line: 24, column: 10
+            if(bottleAtPos1.getprestatus() && rotate.getprestatus()){//sysj\plant.sysj line: 23, column: 10
               S99=3;
               active[2]=1;
               ends[2]=1;
               tdone[2]=1;
             }
             else {
-              botPos2.setPresent();//sysj\plant.sysj line: 27, column: 6
+              botPos2.setPresent();//sysj\plant.sysj line: 26, column: 6
               currsigs.addElement(botPos2);
               active[2]=1;
               ends[2]=1;
@@ -283,9 +283,9 @@ public class Plant extends ClockDomain{
             break;
           
           case 3 : 
-            if(!rotate.getprestatus()){//sysj\plant.sysj line: 32, column: 10
+            if(!rotate.getprestatus()){//sysj\plant.sysj line: 31, column: 10
               S99=4;
-              botPos3.setPresent();//sysj\plant.sysj line: 36, column: 6
+              botPos3.setPresent();//sysj\plant.sysj line: 35, column: 6
               currsigs.addElement(botPos3);
               active[2]=1;
               ends[2]=1;
@@ -299,14 +299,14 @@ public class Plant extends ClockDomain{
             break;
           
           case 4 : 
-            if(bottleAtPos2.getprestatus() && rotate.getprestatus()){//sysj\plant.sysj line: 34, column: 10
+            if(bottleAtPos2.getprestatus() && rotate.getprestatus()){//sysj\plant.sysj line: 33, column: 10
               S99=5;
               active[2]=1;
               ends[2]=1;
               tdone[2]=1;
             }
             else {
-              botPos3.setPresent();//sysj\plant.sysj line: 36, column: 6
+              botPos3.setPresent();//sysj\plant.sysj line: 35, column: 6
               currsigs.addElement(botPos3);
               active[2]=1;
               ends[2]=1;
@@ -315,9 +315,9 @@ public class Plant extends ClockDomain{
             break;
           
           case 5 : 
-            if(!rotate.getprestatus()){//sysj\plant.sysj line: 40, column: 10
+            if(!rotate.getprestatus()){//sysj\plant.sysj line: 39, column: 10
               S99=6;
-              botPos4.setPresent();//sysj\plant.sysj line: 44, column: 6
+              botPos4.setPresent();//sysj\plant.sysj line: 43, column: 6
               currsigs.addElement(botPos4);
               active[2]=1;
               ends[2]=1;
@@ -331,14 +331,14 @@ public class Plant extends ClockDomain{
             break;
           
           case 6 : 
-            if(bottleAtPos3.getprestatus() && rotate.getprestatus()){//sysj\plant.sysj line: 42, column: 10
+            if(bottleAtPos3.getprestatus() && rotate.getprestatus()){//sysj\plant.sysj line: 41, column: 10
               S99=7;
               active[2]=1;
               ends[2]=1;
               tdone[2]=1;
             }
             else {
-              botPos4.setPresent();//sysj\plant.sysj line: 44, column: 6
+              botPos4.setPresent();//sysj\plant.sysj line: 43, column: 6
               currsigs.addElement(botPos4);
               active[2]=1;
               ends[2]=1;
@@ -347,9 +347,9 @@ public class Plant extends ClockDomain{
             break;
           
           case 7 : 
-            if(!rotate.getprestatus()){//sysj\plant.sysj line: 48, column: 10
+            if(!rotate.getprestatus()){//sysj\plant.sysj line: 47, column: 10
               S99=8;
-              botPos5.setPresent();//sysj\plant.sysj line: 52, column: 6
+              botPos5.setPresent();//sysj\plant.sysj line: 51, column: 6
               currsigs.addElement(botPos5);
               active[2]=1;
               ends[2]=1;
@@ -363,14 +363,14 @@ public class Plant extends ClockDomain{
             break;
           
           case 8 : 
-            if(bottleAtPos4.getprestatus() && rotate.getprestatus()){//sysj\plant.sysj line: 50, column: 10
+            if(bottleAtPos4.getprestatus() && rotate.getprestatus()){//sysj\plant.sysj line: 49, column: 10
               S99=9;
               active[2]=1;
               ends[2]=1;
               tdone[2]=1;
             }
             else {
-              botPos5.setPresent();//sysj\plant.sysj line: 52, column: 6
+              botPos5.setPresent();//sysj\plant.sysj line: 51, column: 6
               currsigs.addElement(botPos5);
               active[2]=1;
               ends[2]=1;
@@ -379,8 +379,8 @@ public class Plant extends ClockDomain{
             break;
           
           case 9 : 
-            if(!rotate.getprestatus()){//sysj\plant.sysj line: 56, column: 10
-              tableAligned.setPresent();//sysj\plant.sysj line: 59, column: 5
+            if(!rotate.getprestatus()){//sysj\plant.sysj line: 55, column: 10
+              tableAligned.setPresent();//sysj\plant.sysj line: 58, column: 5
               currsigs.addElement(tableAligned);
               S99=10;
               active[2]=1;
@@ -397,10 +397,10 @@ public class Plant extends ClockDomain{
           case 10 : 
             S99=10;
             S99=0;
+            botPos1.setPresent();//sysj\plant.sysj line: 17, column: 6
+            currsigs.addElement(botPos1);
             tableAligned.setPresent();//sysj\plant.sysj line: 18, column: 6
             currsigs.addElement(tableAligned);
-            botPos1.setPresent();//sysj\plant.sysj line: 19, column: 6
-            currsigs.addElement(botPos1);
             active[2]=1;
             ends[2]=1;
             tdone[2]=1;
@@ -414,8 +414,8 @@ public class Plant extends ClockDomain{
 
   public void thread484(int [] tdone, int [] ends){
         S281=1;
-    if(botPos5.getprestatus()){//sysj\plant.sysj line: 74, column: 24
-      labelTriggerE.setPresent();//sysj\plant.sysj line: 74, column: 33
+    if(botPos5.getprestatus()){//sysj\plant.sysj line: 73, column: 24
+      labelTriggerE.setPresent();//sysj\plant.sysj line: 73, column: 33
       currsigs.addElement(labelTriggerE);
       active[8]=1;
       ends[8]=1;
@@ -430,8 +430,8 @@ public class Plant extends ClockDomain{
 
   public void thread483(int [] tdone, int [] ends){
         S273=1;
-    if(botPos4.getprestatus()){//sysj\plant.sysj line: 72, column: 24
-      capScrewTriggerE.setPresent();//sysj\plant.sysj line: 72, column: 33
+    if(botPos4.getprestatus()){//sysj\plant.sysj line: 71, column: 24
+      capScrewTriggerE.setPresent();//sysj\plant.sysj line: 71, column: 33
       currsigs.addElement(capScrewTriggerE);
       active[7]=1;
       ends[7]=1;
@@ -446,8 +446,8 @@ public class Plant extends ClockDomain{
 
   public void thread482(int [] tdone, int [] ends){
         S265=1;
-    if(botPos3.getprestatus()){//sysj\plant.sysj line: 70, column: 24
-      lidloaderTriggerE.setPresent();//sysj\plant.sysj line: 70, column: 33
+    if(botPos3.getprestatus()){//sysj\plant.sysj line: 69, column: 24
+      lidloaderTriggerE.setPresent();//sysj\plant.sysj line: 69, column: 33
       currsigs.addElement(lidloaderTriggerE);
       active[6]=1;
       ends[6]=1;
@@ -462,8 +462,8 @@ public class Plant extends ClockDomain{
 
   public void thread481(int [] tdone, int [] ends){
         S257=1;
-    if(botPos2.getprestatus()){//sysj\plant.sysj line: 68, column: 24
-      fillerTriggerE.setPresent();//sysj\plant.sysj line: 68, column: 33
+    if(botPos2.getprestatus()){//sysj\plant.sysj line: 67, column: 24
+      fillerTriggerE.setPresent();//sysj\plant.sysj line: 67, column: 33
       currsigs.addElement(fillerTriggerE);
       active[5]=1;
       ends[5]=1;
@@ -478,8 +478,8 @@ public class Plant extends ClockDomain{
 
   public void thread480(int [] tdone, int [] ends){
         S249=1;
-    if(botPos1.getprestatus()){//sysj\plant.sysj line: 66, column: 24
-      conBeltTriggerE.setPresent();//sysj\plant.sysj line: 66, column: 33
+    if(botPos1.getprestatus()){//sysj\plant.sysj line: 65, column: 24
+      conBeltTriggerE.setPresent();//sysj\plant.sysj line: 65, column: 33
       currsigs.addElement(conBeltTriggerE);
       active[4]=1;
       ends[4]=1;
@@ -525,10 +525,10 @@ public class Plant extends ClockDomain{
   public void thread478(int [] tdone, int [] ends){
         S241=1;
     S99=0;
+    botPos1.setPresent();//sysj\plant.sysj line: 17, column: 6
+    currsigs.addElement(botPos1);
     tableAligned.setPresent();//sysj\plant.sysj line: 18, column: 6
     currsigs.addElement(tableAligned);
-    botPos1.setPresent();//sysj\plant.sysj line: 19, column: 6
-    currsigs.addElement(botPos1);
     active[2]=1;
     ends[2]=1;
     tdone[2]=1;

@@ -359,6 +359,7 @@ public class Canvas {
 			else {
 				System.out.println("2");
 				filledBotPos2.setVisible(true);
+				emptyBotPos0.setVisible(false);
 				frmAbs.getContentPane().revalidate();
 				frmAbs.getContentPane().repaint();;
 			}
@@ -371,6 +372,7 @@ public class Canvas {
 			}
 			else {
 				lidLoadedPos3.setVisible(true);
+				emptyBotPos0.setVisible(false);
 				frmAbs.getContentPane().revalidate();
 				frmAbs.getContentPane().repaint();;
 
@@ -388,6 +390,7 @@ public class Canvas {
 			else {
 				System.out.println("4");
 				capScrewedPos4.setVisible(true);
+				emptyBotPos0.setVisible(false);
 				frmAbs.getContentPane().revalidate();
 				frmAbs.getContentPane().repaint();;
 			}
@@ -401,6 +404,7 @@ public class Canvas {
 			else {
 				System.out.println("5");
 				doneBotPos6.setVisible(true);
+				emptyBotPos0.setVisible(false);
 				frmAbs.getContentPane().revalidate();
 				frmAbs.getContentPane().repaint();;
 
