@@ -16,10 +16,11 @@ Plant(
 			abort(rotate){
 				while(true) {
 					emit tableAligned;
+					emit botPos1;
 					pause;
 				}
 			}
-
+			await(!rotate);
 			abort(bottleAtPos1 && rotate){
 				while(true) {
 					//System.out.println("bottleAtPos1 aborted");
