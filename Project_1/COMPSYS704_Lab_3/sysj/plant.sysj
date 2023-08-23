@@ -1,112 +1,63 @@
 import run.GUI;
 
 Plant(
-		input signal pusherExtend,vacOn,armSource,armDest;
-		input signal enable,refill;
-		output signal pusherRetracted,pusherExtended,WPgripped,armAtSource,armAtDest,empty;
-		output signal pusherRetractedE,pusherExtendedE,WPgrippedE,armAtSourceE,armAtDestE,emptyE;
+		input signal capOnBottleAtPos1, tableAlignedWithSensor, bottleAtPos1, bottleAtPos2, bottleAtPos3, bottleAtPos4, bottleAtPos5;
+		input signal rotate;
+		output signal capOnPos1, tableAligned, botPos1, botPos2, botPos3, botPos4, botPos5;
+		output signal conBeltTriggerE, fillerTriggerE, lidloaderTriggerE, capScrewTriggerE, labelTriggerE;
 		)
 ->
 {
 	new Thread(new GUI()).start();
 
-	signal capDec;
-	int signal capPos;
-	emit capPos(0);
-	{// Arm
+	{// If there is a cap on bottle at pos1
 		while(true){
-			abort(armSource && enable){
-				sustain armAtDest;
-			}
-			await(!enable);
-			abort(armDest && enable){
-				sustain armAtSource;
-			}
-			await(!enable);
-		}
-	}
-	||
-	{// Pusher
-		while(true){
-			abort(pusherExtend && enable){
-				sustain pusherRetracted;
-			}
-			await(!enable);
-			abort(!pusherExtend && enable){
-				sustain pusherExtended;
-			}
-			await(!enable);
-		}
-	}
-	||
-	{// Vacuum
-		while(true){
-			present(vacOn && armAtSource){
-				if((Integer)#capPos == 1){
-					emit capPos(0);
-					abort(!vacOn){
-						sustain WPgripped; 
-					}
-					present(armAtSource){
-						emit capPos(1);
-					}
-				}
-			}
-			pause;
-		}
-	}
-	||
-	{
-		/*
-		 * Cap positions
-		 * 0 = at Mag
-		 * 1 = at pick-up
-		 */
-		while(true){
-			// At mag
-			abort(empty){
-				while(true){
-						await(pusherRetracted);
-						await(pusherExtended);
-						// At pick-up
-						emit capPos(1);
-						await(pusherRetracted);
-						emit capDec;
-				}
-			}
-			await(refill);
-		}
-	}
-	||
-	{
-		int capcount = 5;
-		while(true){
-			present(capDec){
-				if(capcount > 0)
-					capcount--;
-			}
-			present(refill){
-				capcount = 5;
-			}
-//			present(pusherRetracted){
-				if(capcount == 0)
-					emit empty;
+			
+//			abort(tableAlignedWithSensor && ){
+//				System.out.println("Table Aligned");
+//				sustain tableAligned;	
 //			}
-			pause;
+//			
+//			
+//			await(!rotate);
+
+			abort(bottleAtPos1 && rotate){
+				System.out.println("bottleAtPos1");
+				sustain botPos2;
+			}
+			
+			await(!rotate);
+			
+			abort(bottleAtPos2 && rotate){
+				sustain botPos3;
+			}
+			await(!rotate);
+			
+			abort(bottleAtPos3 && rotate){
+				sustain botPos4;
+			}
+			await(!rotate);
+			
+			abort(bottleAtPos4 && rotate){
+				sustain botPos5;
+			}
+			await(!rotate);
+			
+			abort(bottleAtPos4 && rotate){
+				sustain tableAlignedWithSensor;
+			}
 		}
 	}
 	||
 	{// To viz
-		{while(true){present(pusherRetracted){emit pusherRetractedE;} pause;}}
+		{while(true){present(botPos1){emit conBeltTriggerE;} pause;}}
 		||
-		{while(true){present(pusherExtended){emit pusherExtendedE;} pause;}}
+		{while(true){present(botPos2){emit fillerTriggerE;} pause;}}
 		||
-		{while(true){present(WPgripped){emit WPgrippedE;} pause;}}
+		{while(true){present(botPos3){emit lidloaderTriggerE;} pause;}}
 		||
-		{while(true){present(armAtSource){emit armAtSourceE;} pause;}}
+		{while(true){present(botPos4){emit capScrewTriggerE;} pause;}}
 		||
-		{while(true){present(armAtDest){emit armAtDestE;} pause;}}
-		||
-		{while(true){present(empty){emit emptyE;} pause;}}
+		{while(true){present(botPos5){emit labelTriggerE;} pause;}}
 	}
 }

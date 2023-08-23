@@ -31,7 +31,8 @@ import javax.swing.SwingConstants;
 
 
 import javax.swing.ImageIcon;
-import javax.swing.UIManager; 
+import javax.swing.UIManager;
+import javax.swing.JCheckBox; 
 
 public class Canvas {
 
@@ -42,6 +43,8 @@ public class Canvas {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		SignalServer<RotaryVizWorker> server = new SignalServer<RotaryVizWorker>(Ports.PORT_LOADER_VIZ, RotaryVizWorker.class);
+		new Thread(server).start();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -60,6 +63,7 @@ public class Canvas {
 	 */
 	public Canvas() {
 		initialize();
+		// Listener for Cap at Pos 1
 	}
 	
 	
@@ -230,29 +234,17 @@ public class Canvas {
 		btnNewButton.setBorder(UIManager.getBorder("Button.border"));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+		        new SignalClient(Ports.PORT_LOADER_PLANT, Ports.ROTATE_SIGNAL);
 			}
 		});
 		btnNewButton.setBounds(296, 486, 122, 32);
 		frmAbs.getContentPane().add(btnNewButton);
+
 		
 		JLabel lblNewLabel_2 = new JLabel("Rotary");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setBounds(308, 444, 98, 14);
 		frmAbs.getContentPane().add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_2_1 = new JLabel("Liquid Filler");
-		lblNewLabel_2_1.setBounds(10, 171, 99, 14);
-		frmAbs.getContentPane().add(lblNewLabel_2_1);
-		
-		JLabel lblNewLabel_2_1_1 = new JLabel("Cap Screwer");
-		lblNewLabel_2_1_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_2_1_1.setBounds(552, 171, 122, 14);
-		frmAbs.getContentPane().add(lblNewLabel_2_1_1);
-		
-		JLabel lblNewLabel_2_1_1_1 = new JLabel("Lid Loader");
-		lblNewLabel_2_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1_1_1.setBounds(430, 11, 88, 14);
-		frmAbs.getContentPane().add(lblNewLabel_2_1_1_1);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(new ImageIcon("res\\resizedConBeltLeft.png"));
@@ -264,19 +256,33 @@ public class Canvas {
 		lblNewLabel_4.setBounds(430, 331, 368, 92);
 		frmAbs.getContentPane().add(lblNewLabel_4);
 		
-		JLabel lblNewLabel_2_2 = new JLabel("Conveyor Belt - Bottle In");
-		lblNewLabel_2_2.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_2_2.setBounds(11, 444, 162, 14);
-		frmAbs.getContentPane().add(lblNewLabel_2_2);
-		
-		JLabel lblNewLabel_2_2_1 = new JLabel("Conveyor Belt - Labelling");
-		lblNewLabel_2_2_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_2_2_1.setBounds(512, 444, 162, 14);
-		frmAbs.getContentPane().add(lblNewLabel_2_2_1);
-		
 		JLabel lblNewLabel_9_1 = new JLabel("");
 		lblNewLabel_9_1.setBounds(207, 216, 102, 77);
 		frmAbs.getContentPane().add(lblNewLabel_9_1);
+		
+		JButton btnNewButton_1 = new JButton("Lid Loader");
+		btnNewButton_1.setBounds(466, 11, 122, 23);
+		frmAbs.getContentPane().add(btnNewButton_1);
+
+		JButton btnNewButton_2 = new JButton("Liquid Filler");
+		btnNewButton_2.setBounds(11, 167, 122, 23);
+		frmAbs.getContentPane().add(btnNewButton_2);
+
+		JButton btnNewButton_3 = new JButton("Conveyor - Bottle In");
+		btnNewButton_3.setBounds(11, 440, 160, 23);
+		frmAbs.getContentPane().add(btnNewButton_3);
+
+		JButton btnNewButton_4 = new JButton("Conveyor - Bottle Out");
+		btnNewButton_4.setBounds(512, 440, 162, 23);
+		frmAbs.getContentPane().add(btnNewButton_4);
+
+		JButton btnNewButton_5 = new JButton("Cap Screwer");
+		btnNewButton_5.setBounds(552, 167, 122, 23);
+		frmAbs.getContentPane().add(btnNewButton_5);
+
+		JButton btnNewButton_6 = new JButton("Cap Pos 1");
+		btnNewButton_6.setBounds(11, 139, 122, 23);
+		frmAbs.getContentPane().add(btnNewButton_6);
 		
 		
 	}

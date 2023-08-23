@@ -1,26 +1,28 @@
 <System xmlns="http://systemjtechnology.com">
 	<SubSystem Name="SS2" Local="true">
 		<ClockDomain Name="PlantCD" Class="Plant">
-			<iSignal Name="pusherExtend" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
-			<iSignal Name="vacOn"        Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
-			<iSignal Name="armSource"    Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
-			<iSignal Name="armDest"      Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
-			<iSignal Name="enable"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
-			<iSignal Name="refill"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="capOnBottleAtPos1" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="tableAlignedWithSensor"        Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="bottleAtPos1"    Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="bottleAtPos2"      Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="bottleAtPos3"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="bottleAtPos4"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="bottleAtPos5"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="rotate"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 
-			<oSignal Name="pusherRetracted" To="ControllerCD.pusherRetracted" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
-			<oSignal Name="pusherExtended"  To="ControllerCD.pusherExtended"  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
-			<oSignal Name="WPgripped"       To="ControllerCD.WPgripped"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
-			<oSignal Name="armAtSource"     To="ControllerCD.armAtSource"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
-			<oSignal Name="armAtDest"       To="ControllerCD.armAtDest"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
-			<oSignal Name="empty"           To="ControllerCD.empty"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="capOnPos1" To="ControllerCD.capOnPos1" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="tableAligned"  To="ControllerCD.tableAligned"  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="botPos1"       To="ControllerCD.botPos1"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="botPos2"     To="ControllerCD.botPos2"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="botPos3"       To="ControllerCD.botPos3"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="botPos4"     To="ControllerCD.botPos4"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="botPos5"       To="ControllerCD.botPos5"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
 
-			<oSignal Name="pusherRetractedE" To="UI.pusherRetractedE" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
-			<oSignal Name="pusherExtendedE"  To="UI.pusherExtendedE"  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
-			<oSignal Name="WPgrippedE"       To="UI.WPgrippedE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
-			<oSignal Name="armAtSourceE"     To="UI.armAtSourceE"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
-			<oSignal Name="armAtDestE"       To="UI.armAtDestE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
-			<oSignal Name="emptyE"           To="UI.emptyE"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
+			<oSignal Name="conBeltTriggerE" To="UI.conBeltTriggerE" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
+			<oSignal Name="fillerTriggerE"  To="UI.fillerTriggerE"  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
+			<oSignal Name="lidloaderTriggerE"       To="UI.lidloaderTriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
+			<oSignal Name="capScrewTriggerE"     To="UI.capScrewTriggerE"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
+			<oSignal Name="labelTriggerE"       To="UI.labelTriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
 		</ClockDomain>
 	</SubSystem>
 </System>
