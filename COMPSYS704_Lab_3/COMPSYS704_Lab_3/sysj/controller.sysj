@@ -1,0 +1,69 @@
+Controller(
+		input signal pusherRetracted,pusherExtended,WPgripped,armAtSource,armAtDest,empty,request;
+		output signal pusherExtend,vacOn,armSource,armDest;
+		input Integer signal mode;
+		input signal pusherExtendM,vacOnM,armSourceM,armDestM;
+		)
+->{
+/* TODO: Write control-logic */
+	
+	// Check if operation mode is automatic or manual
+	
+	{ // Arm
+		while(true){
+			present(request){
+				System.out.println("Got request");
+				// SWIVEL ARM TO EXTENDED POSITION
+				abort(armAtDest){
+					sustain armDest;
+				}
+				System.out.println("Extended arm");
+				
+				// EXTEND PUSHER
+				abort(pusherExtended){
+					sustain pusherExtend;
+				}
+				System.out.println("Pusher extended");
+				
+				// RETRACT PUSHER
+				await(pusherRetracted);
+				System.out.println("Retracted Pusher");
+				
+				// SWIVEL ARM TO RETRACTED POSITION
+				abort(armAtSource){
+					sustain armSource;
+					sustain vacOn;				
+				}
+				System.out.println("Retracted Arm");
+				
+				// VACCUM ON
+				abort(armAtDest){
+					
+				{
+					await(!WPgripped);
+					sustain vacOn;	
+				}
+				
+				||
+				
+				{
+					await(WPgripped);
+					sustain armDest;
+				}
+				}
+				System.out.println("Vaccum Off");
+
+				// SWIVEL ARM TO RETRACTED POSITION
+				abort(armAtSource){
+					sustain armSource;
+					sustain vacOn;				
+				}
+				System.out.println("Cycle End");
+
+				
+
+			}
+			pause;
+		}
+	}
+}
