@@ -11,7 +11,7 @@ public class RotaryVizWorker extends Worker{
 		switch(signame){
 
 		case "conBeltTriggerE":
-			States.EMPTY_BOT_POS_1 = status;
+			States.EMPTY_BOT_POS_0 = status;
 			break;
 		case "fillerTriggerE":
 			States.FILLED_BOT_POS_2 = status;

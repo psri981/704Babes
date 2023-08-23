@@ -41,20 +41,34 @@ public class Canvas {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		Canvas window = new Canvas();
-		window.frmAbs.setVisible(true);
-		SignalServer<RotaryVizWorker> server = new SignalServer<RotaryVizWorker>(Ports.PORT_LOADER_VIZ, RotaryVizWorker.class);
-		new Thread(server).start();
-
-		while(true) {
-			try {
-				Thread.sleep(5);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+//	public static void main(String[] args) {
+//		Canvas window = new Canvas();
+//		window.frmAbs.setVisible(true);
+//		SignalServer<RotaryVizWorker> server = new SignalServer<RotaryVizWorker>(Ports.PORT_LOADER_VIZ, RotaryVizWorker.class);
+//		new Thread(server).start();
+//
+//		while(true) {
+//			try {
+//				Thread.sleep(5);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	}
+	   public static void main(String[] args) {
+		   SignalServer<RotaryVizWorker> server = new SignalServer<RotaryVizWorker>(Ports.PORT_LOADER_VIZ, RotaryVizWorker.class);
+		   new Thread(server).start(); 
+		   EventQueue.invokeLater(new Runnable() {
+	            public void run() {
+	                try {
+	                    Canvas window = new Canvas();
+	                    window.frmAbs.setVisible(true);
+	                } catch (Exception e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	        });
+	    }
 
 
 	/**
@@ -186,25 +200,36 @@ public class Canvas {
 
 		//emptyBotPos0
 		JLabel emptyBotPos0 = new JLabel("");
+		emptyBotPos0.setIcon(new ImageIcon("res\\Empty_100.png"));
+		emptyBotPos0.setBounds(69, 339, 102, 77);
+		frmAbs.getContentPane().add(emptyBotPos0);
 		if(!States.EMPTY_BOT_POS_0) {
+			//System.out.println("swag");
 			emptyBotPos0.setVisible(false);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
 		}
 		else {
+			//System.out.println("ligma");
 			emptyBotPos0.setVisible(true);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
 		}
-		emptyBotPos0.setIcon(new ImageIcon("res\\Empty_100.png"));
-		emptyBotPos0.setBounds(69, 339, 102, 77);
-		frmAbs.getContentPane().add(emptyBotPos0);
+		
 
+		
+		
 		//emptyBotPos1
 		JLabel emptyBotPos1 = new JLabel("");
+		
+		emptyBotPos1.setIcon(new ImageIcon("res\\Empty_100.png"));
+		emptyBotPos1.setBounds(249, 319, 102, 77);
+		frmAbs.getContentPane().add(emptyBotPos1);
+		
 		if(!States.EMPTY_BOT_POS_1) {
+			//System.out.println("money");
 			emptyBotPos1.setVisible(false);
 			System.out.println(States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
@@ -220,15 +245,17 @@ public class Canvas {
 
 		}
 
-		emptyBotPos1.setIcon(new ImageIcon("res\\Empty_100.png"));
-		emptyBotPos1.setBounds(249, 319, 102, 77);
-		frmAbs.getContentPane().add(emptyBotPos1);
-
 		//emptyBotPos2
 		JLabel emptyBotPos2 = new JLabel("");
+		
+		emptyBotPos2.setIcon(new ImageIcon("res\\Empty_100.png"));
+		emptyBotPos2.setBounds(217, 223, 102, 77);
+		frmAbs.getContentPane().add(emptyBotPos2);
+		
 		if(!States.EMPTY_BOT_POS_2) {
+		//	System.out.println("sbitch");
 			emptyBotPos2.setVisible(false);
-			System.out.println(States.EMPTY_BOT_POS_1);
+		//	System.out.println(States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
@@ -236,20 +263,17 @@ public class Canvas {
 		}
 		else {
 			emptyBotPos2.setVisible(true);
-			System.out.println(States.EMPTY_BOT_POS_1);
+			//System.out.println(States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
 
 		}
 
-		emptyBotPos2.setIcon(new ImageIcon("res\\Empty_100.png"));
-		emptyBotPos2.setBounds(217, 223, 102, 77);
-		frmAbs.getContentPane().add(emptyBotPos2);
-
 		//filledBotPos3
 		JLabel filledBotPos3 = new JLabel("");
 		if(!States.FILLED_BOT_POS_3) {
+		//	System.out.println("3");
 			filledBotPos3.setVisible(false);
 			System.out.println(States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
@@ -258,6 +282,7 @@ public class Canvas {
 
 		}
 		else {
+			//System.out.println("3_5");
 			filledBotPos3.setVisible(true);
 			System.out.println(States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
@@ -272,6 +297,7 @@ public class Canvas {
 		//capScrewedPos4
 		JLabel capScrewedPos4 = new JLabel("");
 		if(!States.CAP_SCREWED_POS_4) {
+			//System.out.println("4");
 			capScrewedPos4.setVisible(false);
 			System.out.println(States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
@@ -280,6 +306,7 @@ public class Canvas {
 
 		}
 		else {
+			//System.out.println("4_5");
 			capScrewedPos4.setVisible(true);
 			System.out.println(States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
@@ -287,6 +314,9 @@ public class Canvas {
 
 
 		}
+		
+		
+		//System.out.println("Whopps");
 		capScrewedPos4.setIcon(new ImageIcon("res\\Bottle_100.png"));
 		capScrewedPos4.setBounds(398, 216, 82, 84);
 		frmAbs.getContentPane().add(capScrewedPos4);
@@ -301,6 +331,85 @@ public class Canvas {
 		btnNewButton.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.ROTATE_SIGNAL));
 		btnNewButton.setBounds(296, 486, 122, 32);
 		frmAbs.getContentPane().add(btnNewButton);
+		
+		btnNewButton.addActionListener(e -> {
+			
+			if(!States.EMPTY_BOT_POS_0) {
+				System.out.println("a");
+				emptyBotPos0.setVisible(false);
+				frmAbs.getContentPane().revalidate();
+				frmAbs.getContentPane().repaint();;
+
+			}
+			else {
+				System.out.println("1");
+				emptyBotPos0.setVisible(true);
+				frmAbs.getContentPane().revalidate();
+				frmAbs.getContentPane().repaint();;
+
+			}
+			
+			
+			if(!States.FILLED_BOT_POS_2) {
+				System.out.println("b");
+				filledBotPos2.setVisible(false);
+				frmAbs.getContentPane().revalidate();
+				frmAbs.getContentPane().repaint();;
+			}
+			else {
+				System.out.println("2");
+				filledBotPos2.setVisible(true);
+				frmAbs.getContentPane().revalidate();
+				frmAbs.getContentPane().repaint();;
+			}
+			
+			if(!States.LID_LOADED_POS_3) {
+				lidLoadedPos3.setVisible(false);
+				frmAbs.getContentPane().revalidate();
+				frmAbs.getContentPane().repaint();;
+
+			}
+			else {
+				lidLoadedPos3.setVisible(true);
+				frmAbs.getContentPane().revalidate();
+				frmAbs.getContentPane().repaint();;
+
+			}
+			
+			
+			if(!States.CAP_SCREWED_POS_4) {
+				System.out.println("d");
+				capScrewedPos4.setVisible(false);
+				frmAbs.getContentPane().revalidate();
+				frmAbs.getContentPane().repaint();;
+
+
+			}
+			else {
+				System.out.println("4");
+				capScrewedPos4.setVisible(true);
+				frmAbs.getContentPane().revalidate();
+				frmAbs.getContentPane().repaint();;
+			}
+			if(!States.DONE_BOT_POS_6) {
+				System.out.println("e");
+				doneBotPos6.setVisible(false);
+				frmAbs.getContentPane().revalidate();
+				frmAbs.getContentPane().repaint();;
+
+			}
+			else {
+				System.out.println("5");
+				doneBotPos6.setVisible(true);
+				frmAbs.getContentPane().revalidate();
+				frmAbs.getContentPane().repaint();;
+
+			}
+			
+
+			
+	    });
+		
 
 
 		JLabel lblNewLabel_2 = new JLabel("Rotary");
