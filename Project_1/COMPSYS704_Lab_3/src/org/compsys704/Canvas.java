@@ -115,9 +115,15 @@ public class Canvas {
 		JLabel lidLoadedPos3 = new JLabel("");
 		if(!States.LID_LOADED_POS_3) {
 			lidLoadedPos3.setVisible(false);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 		}
 		else {
 			lidLoadedPos3.setVisible(true);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 		}
 
 		lidLoadedPos3.setIcon(new ImageIcon("res\\Bottle_100.png"));
@@ -128,9 +134,14 @@ public class Canvas {
 		JLabel filledBotPos2 = new JLabel("");
 		if(!States.FILLED_BOT_POS_2) {
 			filledBotPos2.setVisible(false);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
 		}
 		else {
 			filledBotPos2.setVisible(true);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 		}
 		filledBotPos2.setIcon(new ImageIcon("res\\Filled_100.png"));
 		filledBotPos2.setBounds(217, 211, 147, 97);
@@ -140,9 +151,15 @@ public class Canvas {
 		JLabel doneBotPos6 = new JLabel("");
 		if(!States.DONE_BOT_POS_6) {
 			doneBotPos6.setVisible(false);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 		}
 		else {
 			doneBotPos6.setVisible(true);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 		}
 		doneBotPos6.setIcon(new ImageIcon("res\\Bottle_100.png"));
 		doneBotPos6.setBounds(517, 337, 82, 84);
@@ -152,9 +169,15 @@ public class Canvas {
 		JLabel doneBotPos5 = new JLabel("");
 		if(!States.DONE_BOT_POS_5) {
 			doneBotPos5.setVisible(false);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 		}
 		else {
 			doneBotPos5.setVisible(true);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 		}
 
 		doneBotPos5.setIcon(new ImageIcon("res\\Bottle_100.png"));
@@ -165,9 +188,15 @@ public class Canvas {
 		JLabel emptyBotPos0 = new JLabel("");
 		if(!States.EMPTY_BOT_POS_0) {
 			emptyBotPos0.setVisible(false);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 		}
 		else {
 			emptyBotPos0.setVisible(true);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 		}
 		emptyBotPos0.setIcon(new ImageIcon("res\\Empty_100.png"));
 		emptyBotPos0.setBounds(69, 339, 102, 77);
@@ -178,10 +207,16 @@ public class Canvas {
 		if(!States.EMPTY_BOT_POS_1) {
 			emptyBotPos1.setVisible(false);
 			System.out.println(States.EMPTY_BOT_POS_1);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 		}
 		else {
 			emptyBotPos1.setVisible(true);
 			System.out.println(States.EMPTY_BOT_POS_1);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 
 		}
 
@@ -194,11 +229,17 @@ public class Canvas {
 		if(!States.EMPTY_BOT_POS_2) {
 			emptyBotPos2.setVisible(false);
 			System.out.println(States.EMPTY_BOT_POS_1);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 
 		}
 		else {
 			emptyBotPos2.setVisible(true);
 			System.out.println(States.EMPTY_BOT_POS_1);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 
 		}
 
@@ -211,11 +252,17 @@ public class Canvas {
 		if(!States.FILLED_BOT_POS_3) {
 			filledBotPos3.setVisible(false);
 			System.out.println(States.EMPTY_BOT_POS_1);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 
 		}
 		else {
 			filledBotPos3.setVisible(true);
 			System.out.println(States.EMPTY_BOT_POS_1);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 
 		}
 		filledBotPos3.setIcon(new ImageIcon("res\\Filled_100.png"));
@@ -227,11 +274,17 @@ public class Canvas {
 		if(!States.CAP_SCREWED_POS_4) {
 			capScrewedPos4.setVisible(false);
 			System.out.println(States.EMPTY_BOT_POS_1);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 
 		}
 		else {
 			capScrewedPos4.setVisible(true);
 			System.out.println(States.EMPTY_BOT_POS_1);
+			frmAbs.getContentPane().revalidate();
+			frmAbs.getContentPane().repaint();;
+
 
 		}
 		capScrewedPos4.setIcon(new ImageIcon("res\\Bottle_100.png"));
