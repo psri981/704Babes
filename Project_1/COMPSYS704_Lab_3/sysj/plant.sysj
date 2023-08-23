@@ -12,17 +12,9 @@ Plant(
 
 	{// If there is a cap on bottle at pos1
 		while(true){
-			
-//			abort(tableAlignedWithSensor && ){
-//				System.out.println("Table Aligned");
-//				sustain tableAligned;	
-//			}
-//			
-//			
-//			await(!rotate);
 
 			abort(bottleAtPos1 && rotate){
-				System.out.println("bottleAtPos1");
+				System.out.println("bottleAtPos1 aborted");
 				sustain botPos2;
 			}
 			
@@ -46,6 +38,7 @@ Plant(
 			abort(bottleAtPos4 && rotate){
 				sustain tableAlignedWithSensor;
 			}
+			pause;
 		}
 	}
 	||

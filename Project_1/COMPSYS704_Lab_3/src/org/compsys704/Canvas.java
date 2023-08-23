@@ -232,11 +232,7 @@ public class Canvas {
 		
 		JButton btnNewButton = new JButton("Rotate");
 		btnNewButton.setBorder(UIManager.getBorder("Button.border"));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-		        new SignalClient(Ports.PORT_LOADER_PLANT, Ports.ROTATE_SIGNAL);
-			}
-		});
+		btnNewButton.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.ROTATE_SIGNAL));
 		btnNewButton.setBounds(296, 486, 122, 32);
 		frmAbs.getContentPane().add(btnNewButton);
 

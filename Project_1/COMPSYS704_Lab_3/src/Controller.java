@@ -23,8 +23,8 @@ public class Controller extends ClockDomain{
   public Signal bottleAtPos3 = new Signal("bottleAtPos3", Signal.OUTPUT);
   public Signal bottleAtPos4 = new Signal("bottleAtPos4", Signal.OUTPUT);
   public Signal bottleAtPos5 = new Signal("bottleAtPos5", Signal.OUTPUT);
-  private int S148 = 1;
-  private int S24 = 1;
+  private int S409 = 1;
+  private int S45 = 1;
   
   private int[] ends = new int[2];
   private int[] tdone = new int[2];
@@ -36,36 +36,36 @@ public class Controller extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S148){
+      switch(S409){
         case 0 : 
-          S148=0;
+          S409=0;
           break RUN;
         
         case 1 : 
-          S148=2;
-          S148=2;
-          S24=0;
-          System.out.println("Table Aligned Sustaining BotPos1");//sysj\controller.sysj line: 11, column: 5
-          bottleAtPos1.setPresent();//sysj\controller.sysj line: 12, column: 5
+          S409=2;
+          S409=2;
+          S45=0;
+          System.out.println("Table Aligned Sustaining BotPos1");//sysj\controller.sysj line: 12, column: 21
+          bottleAtPos1.setPresent();//sysj\controller.sysj line: 13, column: 21
           currsigs.addElement(bottleAtPos1);
           active[1]=1;
           ends[1]=1;
           break RUN;
         
         case 2 : 
-          switch(S24){
+          switch(S45){
             case 0 : 
-              if(tableAligned.getprestatus()){//sysj\controller.sysj line: 10, column: 10
-                S24=1;
-                System.out.println("botPos2");//sysj\controller.sysj line: 16, column: 5
-                bottleAtPos2.setPresent();//sysj\controller.sysj line: 17, column: 5
+              if(botPos1.getprestatus()){//sysj\controller.sysj line: 10, column: 19
+                S45=1;
+                System.out.println("botPos2");//sysj\controller.sysj line: 19, column: 21
+                bottleAtPos2.setPresent();//sysj\controller.sysj line: 20, column: 21
                 currsigs.addElement(bottleAtPos2);
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
               }
               else {
-                bottleAtPos1.setPresent();//sysj\controller.sysj line: 12, column: 5
+                bottleAtPos1.setPresent();//sysj\controller.sysj line: 13, column: 21
                 currsigs.addElement(bottleAtPos1);
                 active[1]=1;
                 ends[1]=1;
@@ -73,16 +73,17 @@ public class Controller extends ClockDomain{
               }
             
             case 1 : 
-              if(botPos2.getprestatus()){//sysj\controller.sysj line: 15, column: 10
-                S24=2;
-                bottleAtPos3.setPresent();//sysj\controller.sysj line: 21, column: 5
+              if(botPos2.getprestatus()){//sysj\controller.sysj line: 17, column: 19
+                S45=2;
+                System.out.println("botPos3");//sysj\controller.sysj line: 26, column: 21
+                bottleAtPos3.setPresent();//sysj\controller.sysj line: 27, column: 21
                 currsigs.addElement(bottleAtPos3);
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
               }
               else {
-                bottleAtPos2.setPresent();//sysj\controller.sysj line: 17, column: 5
+                bottleAtPos2.setPresent();//sysj\controller.sysj line: 20, column: 21
                 currsigs.addElement(bottleAtPos2);
                 active[1]=1;
                 ends[1]=1;
@@ -90,16 +91,17 @@ public class Controller extends ClockDomain{
               }
             
             case 2 : 
-              if(botPos3.getprestatus()){//sysj\controller.sysj line: 20, column: 10
-                S24=3;
-                bottleAtPos4.setPresent();//sysj\controller.sysj line: 25, column: 5
+              if(botPos3.getprestatus()){//sysj\controller.sysj line: 24, column: 19
+                S45=3;
+                System.out.println("botPos4");//sysj\controller.sysj line: 33, column: 21
+                bottleAtPos4.setPresent();//sysj\controller.sysj line: 34, column: 21
                 currsigs.addElement(bottleAtPos4);
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
               }
               else {
-                bottleAtPos3.setPresent();//sysj\controller.sysj line: 21, column: 5
+                bottleAtPos3.setPresent();//sysj\controller.sysj line: 27, column: 21
                 currsigs.addElement(bottleAtPos3);
                 active[1]=1;
                 ends[1]=1;
@@ -107,16 +109,17 @@ public class Controller extends ClockDomain{
               }
             
             case 3 : 
-              if(botPos4.getprestatus()){//sysj\controller.sysj line: 24, column: 10
-                S24=4;
-                bottleAtPos5.setPresent();//sysj\controller.sysj line: 29, column: 5
+              if(botPos4.getprestatus()){//sysj\controller.sysj line: 31, column: 19
+                S45=4;
+                System.out.println("botPos5");//sysj\controller.sysj line: 40, column: 21
+                bottleAtPos5.setPresent();//sysj\controller.sysj line: 41, column: 21
                 currsigs.addElement(bottleAtPos5);
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
               }
               else {
-                bottleAtPos4.setPresent();//sysj\controller.sysj line: 25, column: 5
+                bottleAtPos4.setPresent();//sysj\controller.sysj line: 34, column: 21
                 currsigs.addElement(bottleAtPos4);
                 active[1]=1;
                 ends[1]=1;
@@ -124,14 +127,14 @@ public class Controller extends ClockDomain{
               }
             
             case 4 : 
-              if(botPos5.getprestatus()){//sysj\controller.sysj line: 28, column: 10
-                S24=5;
+              if(botPos5.getprestatus()){//sysj\controller.sysj line: 38, column: 19
+                S45=5;
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
               }
               else {
-                bottleAtPos5.setPresent();//sysj\controller.sysj line: 29, column: 5
+                bottleAtPos5.setPresent();//sysj\controller.sysj line: 41, column: 21
                 currsigs.addElement(bottleAtPos5);
                 active[1]=1;
                 ends[1]=1;
@@ -139,10 +142,10 @@ public class Controller extends ClockDomain{
               }
             
             case 5 : 
-              S24=5;
-              S24=0;
-              System.out.println("Table Aligned Sustaining BotPos1");//sysj\controller.sysj line: 11, column: 5
-              bottleAtPos1.setPresent();//sysj\controller.sysj line: 12, column: 5
+              S45=5;
+              S45=0;
+              System.out.println("Table Aligned Sustaining BotPos1");//sysj\controller.sysj line: 12, column: 21
+              bottleAtPos1.setPresent();//sysj\controller.sysj line: 13, column: 21
               currsigs.addElement(bottleAtPos1);
               active[1]=1;
               ends[1]=1;
