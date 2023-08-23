@@ -1,0 +1,3 @@
+INDEX VERSION 1.134+D:\uni\704\Project github\704Babes\.metadata\.plugins\org.eclipse.jdt.core
+2451258609.index
+1477027366.index
