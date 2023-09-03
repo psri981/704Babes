@@ -1,6 +1,6 @@
 package org.ecs;
 
-public class States {
+public class ECS_States {
 	
 	public static volatile boolean EMPTY_BOT_POS_0 = true;//
 	public static volatile boolean EMPTY_BOT_POS_1 = false;

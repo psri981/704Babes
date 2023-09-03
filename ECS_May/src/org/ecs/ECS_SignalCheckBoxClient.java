@@ -8,9 +8,9 @@ import java.net.ConnectException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
-public class SignalCheckBoxClient extends SignalClient implements ItemListener{
+public class ECS_SignalCheckBoxClient extends ECS_SignalClient implements ItemListener{
 
-	public SignalCheckBoxClient(int p, String dest) {
+	public ECS_SignalCheckBoxClient(int p, String dest) {
 		super(p, dest);
 	}
 

@@ -3,7 +3,7 @@ package org.ecs;
 import java.util.Arrays;
 import java.util.List;
 
-public class RotaryVizWorker extends Worker{
+public class ECSVizWorker extends ECS_Worker{
 
 	@Override
 	public void setSignal(boolean status) {
@@ -11,19 +11,19 @@ public class RotaryVizWorker extends Worker{
 		switch(signame){
 
 		case "conBeltTriggerE":
-			States.EMPTY_BOT_POS_0 = status;
+			ECS_States.EMPTY_BOT_POS_0 = status;
 			break;
 		case "fillerTriggerE":
-			States.FILLED_BOT_POS_2 = status;
+			ECS_States.FILLED_BOT_POS_2 = status;
 			break;
 		case "lidloaderTriggerE":
-			States.LID_LOADED_POS_3 = status;
+			ECS_States.LID_LOADED_POS_3 = status;
 			break;
 		case "capScrewTriggerE":
-			States.CAP_SCREWED_POS_4 = status;
+			ECS_States.CAP_SCREWED_POS_4 = status;
 			break;
 		case "labelTriggerE":
-			States.DONE_BOT_POS_6 = status;
+			ECS_States.DONE_BOT_POS_6 = status;
 			break;
 		default: 
 			System.err.println("Wrong sig name : "+signame);

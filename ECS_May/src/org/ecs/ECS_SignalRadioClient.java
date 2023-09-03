@@ -1,36 +1,37 @@
 package org.ecs;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.ConnectException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
+import javax.swing.JPanel;
 
-public class SignalClient implements ActionListener{
+public class ECS_SignalRadioClient extends ECS_SignalClient {
 
-	Socket s = new Socket();
-	ObjectOutputStream oos = null;
-	int port;
-	final String ip = "127.0.0.1";
+	protected Component[] comp;
 	
-	String dest;
+	public ECS_SignalRadioClient(int p, String dest) {
+		super(p, dest);
+	}
 	
-	public SignalClient(int p, String dest){
-		this.dest = dest;
-		port = p;
-		try {
-			s.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-			System.exit(1);;
-		}
+	public void setCheckBoxComponent(JPanel panel){
+		comp = panel.getComponents();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(e.getActionCommand().equals("0")){
+			for(Component c : comp)
+				c.setEnabled(false);
+		}
+		else if(e.getActionCommand().equals("1")){
+			for(Component c : comp)
+				c.setEnabled(true);
+		}
 		try {
 			if(s.isClosed()){
 				s = new Socket();
@@ -41,16 +42,13 @@ public class SignalClient implements ActionListener{
 				if(resp < 0)
 					throw new ConnectException("Not thru");
 			}
-			oos.writeObject(new Object[]{true});
-			Thread.sleep(50);
-			oos.writeObject(new Object[]{false});
+			oos.writeObject(new Object[]{true, Integer.valueOf(e.getActionCommand())});
 		}
-		catch (IOException | InterruptedException ee) {
+		catch (IOException ee) {
 			try {s.close();} catch (IOException e1) {
 				e1.printStackTrace();
 				System.exit(1);
 			}
 		}
-		
 	}
 }

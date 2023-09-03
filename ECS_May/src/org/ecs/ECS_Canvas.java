@@ -33,7 +33,7 @@ import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import javax.swing.JCheckBox; 
 
-public class Canvas {
+public class ECS_Canvas {
 
 
 	private JFrame frmAbs;
@@ -43,12 +43,12 @@ public class Canvas {
 	 */
 
 	   public static void main(String[] args) {
-		   SignalServer<RotaryVizWorker> server = new SignalServer<RotaryVizWorker>(Ports.PORT_LOADER_VIZ, RotaryVizWorker.class);
+		   ECS_SignalServer<ECSVizWorker> server = new ECS_SignalServer<ECSVizWorker>(ECS_Ports.PORT_LOADER_VIZ, ECSVizWorker.class);
 		   new Thread(server).start(); 
 		   EventQueue.invokeLater(new Runnable() {
 	            public void run() {
 	                try {
-	                    Canvas window = new Canvas();
+	                    ECS_Canvas window = new ECS_Canvas();
 	                    window.frmAbs.setVisible(true);
 	                } catch (Exception e) {
 	                    e.printStackTrace();
@@ -61,7 +61,7 @@ public class Canvas {
 	/**
 	 * Create the application.
 	 */
-	public Canvas() {
+	public ECS_Canvas() {
 		initialize();		// Listener for Cap at Pos 1
 	}
 
@@ -114,7 +114,7 @@ public class Canvas {
 
 		//lidLoadedPos3
 		JLabel lidLoadedPos3 = new JLabel("");
-		if(!States.LID_LOADED_POS_3) {
+		if(!ECS_States.LID_LOADED_POS_3) {
 			lidLoadedPos3.setVisible(false);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
@@ -133,7 +133,7 @@ public class Canvas {
 
 		//filledBotPos2
 		JLabel filledBotPos2 = new JLabel("");
-		if(!States.FILLED_BOT_POS_2) {
+		if(!ECS_States.FILLED_BOT_POS_2) {
 			filledBotPos2.setVisible(false);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
@@ -150,7 +150,7 @@ public class Canvas {
 
 		//doneBotPos6
 		JLabel doneBotPos6 = new JLabel("");
-		if(!States.DONE_BOT_POS_6) {
+		if(!ECS_States.DONE_BOT_POS_6) {
 			doneBotPos6.setVisible(false);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
@@ -168,7 +168,7 @@ public class Canvas {
 
 		//doneBotPos5
 		JLabel doneBotPos5 = new JLabel("");
-		if(!States.DONE_BOT_POS_5) {
+		if(!ECS_States.DONE_BOT_POS_5) {
 			doneBotPos5.setVisible(false);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
@@ -190,7 +190,7 @@ public class Canvas {
 		emptyBotPos0.setIcon(new ImageIcon("res\\Empty_100.png"));
 		emptyBotPos0.setBounds(69, 339, 102, 77);
 		frmAbs.getContentPane().add(emptyBotPos0);
-		if(!States.EMPTY_BOT_POS_0) {
+		if(!ECS_States.EMPTY_BOT_POS_0) {
 			//System.out.println("swag");
 			emptyBotPos0.setVisible(false);
 			frmAbs.getContentPane().revalidate();
@@ -215,17 +215,17 @@ public class Canvas {
 		emptyBotPos1.setBounds(249, 319, 102, 77);
 		frmAbs.getContentPane().add(emptyBotPos1);
 		
-		if(!States.EMPTY_BOT_POS_1) {
+		if(!ECS_States.EMPTY_BOT_POS_1) {
 			//System.out.println("money");
 			emptyBotPos1.setVisible(false);
-//			System.out.println(States.EMPTY_BOT_POS_1);
+//			System.out.println(ECS_States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
 		}
 		else {
 			emptyBotPos1.setVisible(true);
-//			System.out.println(States.EMPTY_BOT_POS_1);
+//			System.out.println(ECS_States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
@@ -239,10 +239,10 @@ public class Canvas {
 		emptyBotPos2.setBounds(217, 223, 102, 77);
 		frmAbs.getContentPane().add(emptyBotPos2);
 		
-		if(!States.EMPTY_BOT_POS_2) {
+		if(!ECS_States.EMPTY_BOT_POS_2) {
 		//	System.out.println("sbitch");
 			emptyBotPos2.setVisible(false);
-		//	System.out.println(States.EMPTY_BOT_POS_1);
+		//	System.out.println(ECS_States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
@@ -250,7 +250,7 @@ public class Canvas {
 		}
 		else {
 			emptyBotPos2.setVisible(true);
-			//System.out.println(States.EMPTY_BOT_POS_1);
+			//System.out.println(ECS_States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
@@ -259,10 +259,10 @@ public class Canvas {
 
 		//filledBotPos3
 		JLabel filledBotPos3 = new JLabel("");
-		if(!States.FILLED_BOT_POS_3) {
+		if(!ECS_States.FILLED_BOT_POS_3) {
 		//	System.out.println("3");
 			filledBotPos3.setVisible(false);
-//			System.out.println(States.EMPTY_BOT_POS_1);
+//			System.out.println(ECS_States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
@@ -271,7 +271,7 @@ public class Canvas {
 		else {
 			//System.out.println("3_5");
 			filledBotPos3.setVisible(true);
-//			System.out.println(States.EMPTY_BOT_POS_1);
+//			System.out.println(ECS_States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
@@ -283,10 +283,10 @@ public class Canvas {
 
 		//capScrewedPos4
 		JLabel capScrewedPos4 = new JLabel("");
-		if(!States.CAP_SCREWED_POS_4) {
+		if(!ECS_States.CAP_SCREWED_POS_4) {
 			//System.out.println("4");
 			capScrewedPos4.setVisible(false);
-//			System.out.println(States.EMPTY_BOT_POS_1);
+//			System.out.println(ECS_States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
@@ -295,7 +295,7 @@ public class Canvas {
 		else {
 			//System.out.println("4_5");
 			capScrewedPos4.setVisible(true);
-//			System.out.println(States.EMPTY_BOT_POS_1);
+//			System.out.println(ECS_States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
 
@@ -315,13 +315,13 @@ public class Canvas {
 
 		JButton btnNewButton = new JButton("Rotate");
 		btnNewButton.setBorder(UIManager.getBorder("Button.border"));
-		btnNewButton.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.ROTATE_SIGNAL));
+		btnNewButton.addActionListener(new ECS_SignalClient(ECS_Ports.PORT_LOADER_PLANT, ECS_Ports.ROTATE_SIGNAL));
 		btnNewButton.setBounds(296, 486, 122, 32);
 		frmAbs.getContentPane().add(btnNewButton);
 		
 		btnNewButton.addActionListener(e -> {
 			
-			if(!States.EMPTY_BOT_POS_0) {
+			if(!ECS_States.EMPTY_BOT_POS_0) {
 //				System.out.println("a");
 				emptyBotPos0.setVisible(false);
 				frmAbs.getContentPane().revalidate();
@@ -337,7 +337,7 @@ public class Canvas {
 			}
 			
 			
-			if(!States.FILLED_BOT_POS_2) {
+			if(!ECS_States.FILLED_BOT_POS_2) {
 //				System.out.println("b");
 				filledBotPos2.setVisible(false);
 				frmAbs.getContentPane().revalidate();
@@ -351,7 +351,7 @@ public class Canvas {
 				frmAbs.getContentPane().repaint();;
 			}
 			
-			if(!States.LID_LOADED_POS_3) {
+			if(!ECS_States.LID_LOADED_POS_3) {
 				lidLoadedPos3.setVisible(false);
 				frmAbs.getContentPane().revalidate();
 				frmAbs.getContentPane().repaint();;
@@ -366,7 +366,7 @@ public class Canvas {
 			}
 			
 			
-			if(!States.CAP_SCREWED_POS_4) {
+			if(!ECS_States.CAP_SCREWED_POS_4) {
 //				System.out.println("d");
 				capScrewedPos4.setVisible(false);
 				frmAbs.getContentPane().revalidate();
@@ -381,7 +381,7 @@ public class Canvas {
 				frmAbs.getContentPane().revalidate();
 				frmAbs.getContentPane().repaint();;
 			}
-			if(!States.DONE_BOT_POS_6) {
+			if(!ECS_States.DONE_BOT_POS_6) {
 //				System.out.println("e");
 				doneBotPos6.setVisible(false);
 				frmAbs.getContentPane().revalidate();
