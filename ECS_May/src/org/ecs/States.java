@@ -1,4 +1,4 @@
-package org.compsys704;
+package org.ecs;
 
 public class States {
 	

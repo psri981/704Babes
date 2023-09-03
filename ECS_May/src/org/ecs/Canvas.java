@@ -1,4 +1,4 @@
-package org.compsys704;
+package org.ecs;
 
 import java.awt.EventQueue;
 import java.awt.Graphics;
@@ -41,20 +41,7 @@ public class Canvas {
 	/**
 	 * Launch the application.
 	 */
-//	public static void main(String[] args) {
-//		Canvas window = new Canvas();
-//		window.frmAbs.setVisible(true);
-//		SignalServer<RotaryVizWorker> server = new SignalServer<RotaryVizWorker>(Ports.PORT_LOADER_VIZ, RotaryVizWorker.class);
-//		new Thread(server).start();
-//
-//		while(true) {
-//			try {
-//				Thread.sleep(5);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//	}
+
 	   public static void main(String[] args) {
 		   SignalServer<RotaryVizWorker> server = new SignalServer<RotaryVizWorker>(Ports.PORT_LOADER_VIZ, RotaryVizWorker.class);
 		   new Thread(server).start(); 

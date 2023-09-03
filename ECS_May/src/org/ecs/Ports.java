@@ -1,4 +1,4 @@
-package org.compsys704;
+package org.ecs;
 
 public class Ports {
 	public static final String ROTATE_SIGNAL = "PlantCD.rotate";
