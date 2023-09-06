@@ -47,7 +47,8 @@ import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
-import javax.swing.JTextPane; 
+import javax.swing.JTextPane;
+import javax.swing.JProgressBar; 
 
 public class ECS_Canvas {
 
@@ -144,6 +145,261 @@ public class ECS_Canvas {
 		ZONES.setBounds(0, 0, 783, 351);
 		COMPONENTS.add(ZONES);
 		ZONES.setLayout(null);
+		
+		JLabel powerZ5 = new JLabel("");
+		powerZ5.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\power.png"));
+		powerZ5.setBounds(555, 137, 25, 30);
+		ZONES.add(powerZ5);
+		
+		JLabel powerZ7 = new JLabel("");
+		powerZ7.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\power.png"));
+		powerZ7.setBounds(113, 134, 25, 30);
+		ZONES.add(powerZ7);
+		
+		JLabel powerZ3 = new JLabel("");
+		powerZ3.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\power.png"));
+		powerZ3.setBounds(651, 312, 25, 30);
+		ZONES.add(powerZ3);
+		
+		JLabel powerZ6 = new JLabel("");
+		powerZ6.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\power.png"));
+		powerZ6.setBounds(751, 137, 25, 30);
+		ZONES.add(powerZ6);
+		
+		JLabel powerZ2 = new JLabel("");
+		powerZ2.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\power.png"));
+		powerZ2.setBounds(424, 312, 25, 30);
+		ZONES.add(powerZ2);
+		
+		JLabel powerZ4 = new JLabel("");
+		powerZ4.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\power.png"));
+		powerZ4.setBounds(422, 137, 25, 30);
+		ZONES.add(powerZ4);
+		
+		JLabel powerZ1 = new JLabel("");
+		powerZ1.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\power.png"));
+		powerZ1.setBounds(115, 312, 25, 30);
+		ZONES.add(powerZ1);
+		
+		JLabel humZ4 = new JLabel("");
+		humZ4.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\hum.png"));
+		humZ4.setEnabled(false);
+		humZ4.setBounds(405, 137, 25, 30);
+		ZONES.add(humZ4);
+		
+		JLabel humZ5 = new JLabel("");
+		humZ5.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\hum.png"));
+		humZ5.setEnabled(false);
+		humZ5.setBounds(537, 137, 25, 30);
+		ZONES.add(humZ5);
+		
+		JLabel humZ7 = new JLabel("");
+		humZ7.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\hum.png"));
+		humZ7.setEnabled(false);
+		humZ7.setBounds(94, 135, 25, 30);
+		ZONES.add(humZ7);
+		
+		JLabel humZ2 = new JLabel("");
+		humZ2.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\hum.png"));
+		humZ2.setEnabled(false);
+		humZ2.setBounds(405, 312, 25, 30);
+		ZONES.add(humZ2);
+		
+		JLabel humZ3 = new JLabel("");
+		humZ3.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\hum.png"));
+		humZ3.setEnabled(false);
+		humZ3.setBounds(634, 312, 25, 30);
+		ZONES.add(humZ3);
+		
+		JLabel humZ6 = new JLabel("");
+		humZ6.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\hum.png"));
+		humZ6.setEnabled(false);
+		humZ6.setBounds(733, 137, 25, 30);
+		ZONES.add(humZ6);
+		
+		JLabel humZ1 = new JLabel("");
+		humZ1.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\hum.png"));
+		humZ1.setEnabled(false);
+		humZ1.setBounds(95, 312, 25, 30);
+		ZONES.add(humZ1);
+		
+		JLabel deHumZ1 = new JLabel("");
+		deHumZ1.setEnabled(false);
+		deHumZ1.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\dehum.png"));
+		deHumZ1.setBounds(72, 312, 25, 30);
+		ZONES.add(deHumZ1);
+		
+		JLabel deHumZ7 = new JLabel("");
+		deHumZ7.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\dehum.png"));
+		deHumZ7.setEnabled(false);
+		deHumZ7.setBounds(72, 135, 25, 30);
+		ZONES.add(deHumZ7);
+		
+		JLabel deHumZ4 = new JLabel("");
+		deHumZ4.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\dehum.png"));
+		deHumZ4.setEnabled(false);
+		deHumZ4.setBounds(384, 137, 25, 30);
+		ZONES.add(deHumZ4);
+		
+		JLabel deHumZ6 = new JLabel("");
+		deHumZ6.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\dehum.png"));
+		deHumZ6.setEnabled(false);
+		deHumZ6.setBounds(712, 137, 25, 30);
+		ZONES.add(deHumZ6);
+		
+		JLabel deHumZ2 = new JLabel("");
+		deHumZ2.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\dehum.png"));
+		deHumZ2.setEnabled(false);
+		deHumZ2.setBounds(384, 312, 25, 30);
+		ZONES.add(deHumZ2);
+		
+		JLabel deHumZ5 = new JLabel("");
+		deHumZ5.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\dehum.png"));
+		deHumZ5.setEnabled(false);
+		deHumZ5.setBounds(516, 137, 25, 30);
+		ZONES.add(deHumZ5);
+		
+		JLabel deHumZ3 = new JLabel("");
+		deHumZ3.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\dehum.png"));
+		deHumZ3.setEnabled(false);
+		deHumZ3.setBounds(612, 312, 25, 30);
+		ZONES.add(deHumZ3);
+		
+		JLabel heatAirConZ3 = new JLabel("");
+		heatAirConZ3.setEnabled(false);
+		heatAirConZ3.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\heatAirOn.png"));
+		heatAirConZ3.setBounds(588, 312, 26, 30);
+		ZONES.add(heatAirConZ3);
+		
+		JLabel heatAirConZ5 = new JLabel("");
+		heatAirConZ5.setEnabled(false);
+		heatAirConZ5.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\heatAirOn.png"));
+		heatAirConZ5.setBounds(492, 137, 26, 30);
+		ZONES.add(heatAirConZ5);
+		
+		JLabel heatAirConZ4 = new JLabel("");
+		heatAirConZ4.setEnabled(false);
+		heatAirConZ4.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\heatAirOn.png"));
+		heatAirConZ4.setBounds(361, 137, 26, 30);
+		ZONES.add(heatAirConZ4);
+		
+		JLabel heatAirConZ6 = new JLabel("");
+		heatAirConZ6.setEnabled(false);
+		heatAirConZ6.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\heatAirOn.png"));
+		heatAirConZ6.setBounds(689, 137, 26, 30);
+		ZONES.add(heatAirConZ6);
+		
+		JLabel heatAirConZ2 = new JLabel("");
+		heatAirConZ2.setEnabled(false);
+		heatAirConZ2.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\heatAirOn.png"));
+		heatAirConZ2.setBounds(361, 312, 26, 30);
+		ZONES.add(heatAirConZ2);
+		
+		JLabel sAlarmDActZ2 = new JLabel("");
+		sAlarmDActZ2.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\smokeAlarmAct.png"));
+		sAlarmDActZ2.setEnabled(false);
+		sAlarmDActZ2.setBounds(426, 180, 32, 30);
+		ZONES.add(sAlarmDActZ2);
+		
+		JLabel sAlarmDActZ1 = new JLabel("");
+		sAlarmDActZ1.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\smokeAlarmAct.png"));
+		sAlarmDActZ1.setEnabled(false);
+		sAlarmDActZ1.setBounds(146, 180, 32, 30);
+		ZONES.add(sAlarmDActZ1);
+		
+		JLabel sAlarmDActZ7 = new JLabel("");
+		sAlarmDActZ7.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\smokeAlarmAct.png"));
+		sAlarmDActZ7.setEnabled(false);
+		sAlarmDActZ7.setBounds(146, 5, 32, 30);
+		ZONES.add(sAlarmDActZ7);
+		
+		JLabel sAlarmDActZ6 = new JLabel("");
+		sAlarmDActZ6.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\smokeAlarmAct.png"));
+		sAlarmDActZ6.setEnabled(false);
+		sAlarmDActZ6.setBounds(704, 5, 32, 30);
+		ZONES.add(sAlarmDActZ6);
+		
+		JLabel sAlarmDActZ4 = new JLabel("");
+		sAlarmDActZ4.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\smokeAlarmAct.png"));
+		sAlarmDActZ4.setEnabled(false);
+		sAlarmDActZ4.setBounds(374, 5, 32, 30);
+		ZONES.add(sAlarmDActZ4);
+		
+		JLabel sAlarmDActZ5 = new JLabel("");
+		sAlarmDActZ5.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\smokeAlarmAct.png"));
+		sAlarmDActZ5.setEnabled(false);
+		sAlarmDActZ5.setBounds(539, 4, 32, 30);
+		ZONES.add(sAlarmDActZ5);
+		
+		JLabel sAlarmDActZ3 = new JLabel("");
+		sAlarmDActZ3.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\smokeAlarmAct.png"));
+		sAlarmDActZ3.setEnabled(false);
+		sAlarmDActZ3.setBounds(653, 180, 32, 30);
+		ZONES.add(sAlarmDActZ3);
+		
+		JLabel coolAirZ4 = new JLabel("");
+		coolAirZ4.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\coolAirCon.png"));
+		coolAirZ4.setEnabled(false);
+		coolAirZ4.setBounds(334, 137, 30, 30);
+		ZONES.add(coolAirZ4);
+		
+		JLabel coolAirZ6 = new JLabel("");
+		coolAirZ6.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\coolAirCon.png"));
+		coolAirZ6.setEnabled(false);
+		coolAirZ6.setBounds(663, 137, 30, 30);
+		ZONES.add(coolAirZ6);
+		
+		JLabel coolAirZ5 = new JLabel("");
+		coolAirZ5.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\coolAirCon.png"));
+		coolAirZ5.setEnabled(false);
+		coolAirZ5.setBounds(465, 137, 30, 30);
+		ZONES.add(coolAirZ5);
+		
+		JLabel coolAirZ3_1 = new JLabel("");
+		coolAirZ3_1.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\coolAirCon.png"));
+		coolAirZ3_1.setEnabled(false);
+		coolAirZ3_1.setBounds(561, 312, 30, 30);
+		ZONES.add(coolAirZ3_1);
+		
+		JLabel coolAirZ3 = new JLabel("");
+		coolAirZ3.setEnabled(false);
+		coolAirZ3.setBounds(566, 312, 30, 30);
+		ZONES.add(coolAirZ3);
+		
+		JLabel coolAirZ2 = new JLabel("");
+		coolAirZ2.setEnabled(false);
+		coolAirZ2.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\coolAirCon.png"));
+		coolAirZ2.setBounds(334, 314, 30, 30);
+		ZONES.add(coolAirZ2);
+		
+		JLabel heatOnZ7 = new JLabel("");
+		heatOnZ7.setDisabledIcon(null);
+		heatOnZ7.setEnabled(false);
+		heatOnZ7.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\heaterOn.png"));
+		heatOnZ7.setBounds(46, 133, 26, 32);
+		ZONES.add(heatOnZ7);
+		
+		JLabel heatOnZ1 = new JLabel("");
+		heatOnZ1.setDisabledIcon(null);
+		heatOnZ1.setEnabled(false);
+		heatOnZ1.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\heaterOn.png"));
+		heatOnZ1.setBounds(46, 310, 26, 32);
+		ZONES.add(heatOnZ1);
+		
+		JLabel fanOnZ7 = new JLabel("");
+		fanOnZ7.setBackground(new Color(255, 255, 255));
+		fanOnZ7.setEnabled(false);
+		fanOnZ7.setDisabledIcon(null);
+		fanOnZ7.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\fanOn.png"));
+		fanOnZ7.setBounds(10, 132, 34, 34);
+		ZONES.add(fanOnZ7);
+		
+		JLabel fanOnZ1 = new JLabel("");
+		fanOnZ1.setEnabled(false);
+		fanOnZ1.setDisabledIcon(null);
+		fanOnZ1.setIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\appliances\\fanOn.png"));
+		fanOnZ1.setBounds(10, 308, 34, 34);
+		ZONES.add(fanOnZ1);
 		
 		JLabel Zone4 = new JLabel("");
 		Zone4.setBounds(325, 0, 130, 176);
@@ -314,11 +570,27 @@ public class ECS_Canvas {
 		CLEANtglbtn.setSelectedIcon(new ImageIcon("C:\\Users\\psri981\\OneDrive - The University of Auckland\\Documents\\704Babes\\ECS_May\\ECS_res\\controls\\dustSelected.png"));
 		
 		JButton Simulatebtn = new JButton("SIMULATE");
-		Simulatebtn.setBounds(497, 383, 99, 25);
+		Simulatebtn.setBounds(498, 383, 99, 25);
 		COMPONENTS.add(Simulatebtn);
-		Simulatebtn.setEnabled(false);
 		Simulatebtn.setBackground(new Color(255, 255, 255));
 		Simulatebtn.setFont(new Font("Arial", Font.PLAIN, 14));
+		
+		JProgressBar progressBar = new JProgressBar();
+		progressBar.setForeground(new Color(128, 128, 255));
+		progressBar.setBackground(new Color(255, 255, 255));
+		progressBar.setFont(new Font("Arial", Font.PLAIN, 11));
+		progressBar.setStringPainted(true);
+		progressBar.setBounds(409, 518, 333, 23);
+		frmAbs.getContentPane().add(progressBar);
+		
+		JTextPane txtpnProgressBar = new JTextPane();
+		txtpnProgressBar.setForeground(new Color(255, 255, 255));
+		txtpnProgressBar.setCaretColor(new Color(255, 255, 255));
+		txtpnProgressBar.setBackground(new Color(87, 87, 130));
+		txtpnProgressBar.setFont(new Font("Arial", Font.PLAIN, 14));
+		txtpnProgressBar.setText("PROGRESS BAR");
+		txtpnProgressBar.setBounds(518, 495, 117, 23);
+		frmAbs.getContentPane().add(txtpnProgressBar);
 		frmAbs.setTitle("ECS");
 		frmAbs.setBounds(100, 100, 1160, 600);
 		frmAbs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
