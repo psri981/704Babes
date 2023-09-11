@@ -7,33 +7,102 @@ public class ECSVizWorker extends ECS_Worker{
 
 	@Override
 	public void setSignal(boolean status) {
-//		System.out.println(signame+"  "+status);
 		switch(signame){
+		// -------------- FIRE CASES -------------- //
+		case "alarmZone1TriggerE":
+			ECS_States.FIRE_ZONE_1 = status;
+			break;
+		case "alarmZone2TriggerE":
+			ECS_States.FIRE_ZONE_2 = status;
+			break;
+		case "alarmZone3TriggerE":
+			ECS_States.FIRE_ZONE_3 = status;
+			break;
+		case "alarmZone4TriggerE":
+			ECS_States.FIRE_ZONE_4 = status;
+			break;
+		case "alarmZone5TriggerE":
+			ECS_States.FIRE_ZONE_5 = status;
+			break;
+		case "alarmZone6TriggerE":
+			ECS_States.FIRE_ZONE_6 = status;
+			break;
+		case "alarmZone7TriggerE":
+			ECS_States.FIRE_ZONE_7 = status;
+			break;
+		// -------------- FIRE CASES END -------------- //
 
-		case "conBeltTriggerE":
-			ECS_States.EMPTY_BOT_POS_0 = status;
+		// -------------- CLEANING CASES -------------- //
+		case "cleanZone1TriggerE":
+			ECS_States.CLEAN_ZONE_1 = status;
 			break;
-		case "fillerTriggerE":
-			ECS_States.FILLED_BOT_POS_2 = status;
+		case "cleanZone2TriggerE":
+			ECS_States.CLEAN_ZONE_2 = status;
 			break;
-		case "lidloaderTriggerE":
-			ECS_States.LID_LOADED_POS_3 = status;
+		case "cleanZone3TriggerE":
+			ECS_States.CLEAN_ZONE_3 = status;
 			break;
-		case "capScrewTriggerE":
-			ECS_States.CAP_SCREWED_POS_4 = status;
+		case "cleanZone4TriggerE":
+			ECS_States.CLEAN_ZONE_4 = status;
 			break;
-		case "labelTriggerE":
-			ECS_States.DONE_BOT_POS_6 = status;
+		case "cleanZone5TriggerE":
+			ECS_States.CLEAN_ZONE_5 = status;
 			break;
+		case "cleanZone6TriggerE":
+			ECS_States.CLEAN_ZONE_6 = status;
+			break;
+		case "cleanZone7TriggerE":
+			ECS_States.CLEAN_ZONE_7 = status;
+			break;
+		// -------------- CLEANING CASES END -------------- //
+
+		// ----------- APPLIANCES CASES END ----------- //
+		case "fanOnZone1_7TriggerE":
+			ECS_States.FAN_ZONE_1_7 = status;
+			break;
+		case "heatOnZone1_7TriggerE":
+			ECS_States.HEAT_ZONE_1_7 = status;
+			break;
+		case "airOnZone2_3TriggerE":
+			ECS_States.AC_COOL_ZONE_2_3 = status;
+			break;
+		case "airOnZone4_5_6TriggerE":
+			ECS_States.AC_COOL_ZONE_4_5_6 = status;
+			break;
+		case "heatOnZone2_3TriggerE":
+			ECS_States.AC_HEAT_ZONE_2_3 = status;
+			break;
+		case "heatOnZone4_5_6TriggerE":
+			ECS_States.AC_HEAT_ZONE_4_5_6 = status;
+			break;
+		case "humOnZone1_7TriggerE":
+			ECS_States.HUM_ZONE_1_7 = status;
+			break;
+		case "humOnZone2_3TriggerE":
+			ECS_States.HUM_ZONE_2_3 = status;
+			break;
+		case "humOnZone4_5_6TriggerE":
+			ECS_States.HUM_ZONE_4_5_6 = status;
+			break;
+		case "deHumOnZone1_7TriggerE":
+			ECS_States.DEHUM_ZONE_1_7 = status;
+			break;
+		case "deHumOnZone2_3TriggerE":
+			ECS_States.DEHUM_ZONE_2_3 = status;
+			break;
+		case "deHumOnZone4_5_6TriggerE":
+			ECS_States.DEHUM_ZONE_4_5_6 = status;
+			break;
+		// ----------- APPLIANCES CASES END ----------- //
+
 		default: 
 			System.err.println("Wrong sig name : "+signame);
 			System.exit(1);
 		}
 	}
-	
-	
+
 	static final List<String> signames = Arrays.asList("capOnBottleAtPos1E, conBeltTriggerE","fillerTriggerE","lidloaderTriggerE","capScrewTriggerE","labelTriggerE");
-	
+
 	@Override
 	public boolean hasSignal(String sn) {
 		return signames.contains(sn);
