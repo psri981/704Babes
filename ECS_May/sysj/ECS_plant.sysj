@@ -1,8 +1,9 @@
 import run.GUI;
 
 Plant(
-		input signal tempZone1&7, tempZone2&3, tempZone4&5&6;
-		input signal humidZone1&2, humidZone2&3, humidZone4&5&6;
+		input signal tempZone1_7, tempZone2_3, tempZone4_5_6;
+		input signal humidZone1_2, humidZone2_3, humidZone4_5_6;
+		input signal lightIntZ1, lightIntZ2, lightZ3Int, lightIntZ4, lightIntZ5, lightIntZ6, lightIntZ7;
 		input signal dust, fire, smoke; 
 		input signal zone1, zone2, zone3, zone4, zone5, zone6, zone7;
 		input signal run;
@@ -10,10 +11,14 @@ Plant(
 
 		output signal fireZone1, fireZone2, fireZone3, fireZone4, fireZone5, fireZone6, fireZone7;
 		output signal cleanZone1, cleanZone2, cleanZone3, cleanZone4, cleanZone5, cleanZone6, cleanZone7;
-		output signal fanOnZone1&7, heatOnZone1&7, airOnZone2&3, airOnZone4&5&6, heatOnZone2&3, heatOnZone4&5&6;
-		output signal blindsDownZone1&7; blindsDownZone2&3; blindsDownZone4&5&6;  
+		output signal fanOnZone1_7, heatOnZone1_7, airOnZone2_3, airOnZone4_5_6, heatOnZone2_3, heatOnZone4_5_6;
+		output signal blindsDownZone1_7; blindsDownZone2_3; blindsDownZone4_5_6;  
+		output signal humOnZone1_7, humOnZone2_3, humOnZone4_5_6, deHumOnZone1_7, deHumOnZone2_3, deHumOnZone4_5_6,
 		
-		output signal blindsDownZone1&7TriggerE, blindsDownZone2&3TriggerE, blindsDownZone4&5&6TriggerE;
+		output signal alarmZone1TriggerE, alarmZone2TriggerE, alarmZone3TriggerE, alarmZone4TriggerE; alarmZone5TriggerE; alarmZone6TriggerE, alarmZone7TriggerE;
+		output signal cleanZone1TriggerE, cleanZone2TriggerE, cleanZone3TriggerE, cleanZone4TriggerE, cleanZone5TriggerE, cleanZone6TriggerE, cleanZone7TriggerE;
+		output signal fanOnZone1_7TriggerE, heatOnZone1_7TriggerE, airOnZone2_3TriggerE, airOnZone4_5_6TriggerE, heatOnZone2_3TriggerE, heatOnZone4_5_6TriggerE;
+		output signal humOnZone1_7TriggerE, humOnZone2_3TriggerE, humOnZone4_5_6TriggerE, deHumOnZone1_7TriggerE, deHumOnZone2_3TriggerE, deHumOnZone4_5_6TriggerE,
 		)
 ->
 {
@@ -21,23 +26,6 @@ Plant(
 
 	{// 
 		while(true){
-			abort(rotate){
-				while(true) {
-					emit botPos1;
-					emit tableAligned;
-					pause;
-				}
-			}
-			await(!rotate);
-			abort(bottleAtPos1 && rotate){
-				while(true) {
-					//System.out.println("bottleAtPos1 aborted");
-					emit botPos2;
-					pause;
-				}
-			}
-
-			await(!rotate);
 
 			abort(bottleAtPos2 && rotate){
 				while(true) {
@@ -71,14 +59,56 @@ Plant(
 	}
 	||
 	{// To viz
-		{while(true){present(botPos1){emit conBeltTriggerE;} pause;}}
+		{while(true){present(fireZone1){emit alarmZone1TriggerE;} pause;}}
 		||
-		{while(true){present(botPos2){emit fillerTriggerE;} pause;}}
+		{while(true){present(fireZone2){emit alarmZone2TriggerE;} pause;}}
 		||
-		{while(true){present(botPos3){emit lidloaderTriggerE;} pause;}}
+		{while(true){present(fireZone3){emit alarmZone3TriggerE;} pause;}}
 		||
-		{while(true){present(botPos4){emit capScrewTriggerE;} pause;}}
+		{while(true){present(fireZone4){emit alarmZone4TriggerE;} pause;}}
 		||
-		{while(true){present(botPos5){emit labelTriggerE;} pause;}}
+		{while(true){present(fireZone5){emit alarmZone5TriggerE;} pause;}}
+		||
+		{while(true){present(fireZone6){emit alarmZone6TriggerE;} pause;}}
+		||
+		{while(true){present(fireZone7){emit alarmZone7TriggerE;} pause;}}
+		||
+		{while(true){present(cleanZone1){emit cleanZone1TriggerE;} pause;}}
+		||
+		{while(true){present(cleanZone2){emit cleanZone2TriggerE;} pause;}}
+		||
+		{while(true){present(cleanZone3){emit cleanZone3TriggerE;} pause;}}
+		||
+		{while(true){present(cleanZone4){emit cleanZone4TriggerE;} pause;}}
+		||
+		{while(true){present(cleanZone5){emit cleanZone5TriggerE;} pause;}}
+		||
+		{while(true){present(cleanZone6){emit cleanZone6TriggerE;} pause;}}
+		||
+		{while(true){present(cleanZone7){emit cleanZone7TriggerE;} pause;}}
+		||
+		{while(true){present(fanOnZone1_7){emit fanOnZone1_7TriggerE;} pause;}}
+		||
+		{while(true){present(heatOnZone1_7){emit heatOnZone1_7TriggerE;} pause;}}
+		||
+		{while(true){present(airOnZone2_3){emit airOnZone2_3TriggerE;} pause;}}
+		||
+		{while(true){present(airOnZone4_5_6){emit airOnZone4_5_6TriggerE;} pause;}}
+		||
+		{while(true){present(heatOnZone2_3){emit heatOnZone2_3TriggerE;} pause;}}
+		||
+		{while(true){present(heatOnZone4_5_6){emit heatOnZone4_5_6TriggerE;} pause;}}
+		||
+		{while(true){present(humOnZone1_7){emit humOnZone1_7TriggerE;} pause;}}
+		||
+		{while(true){present(humOnZone2_3){emit humOnZone2_3TriggerE;} pause;}}
+		||
+		{while(true){present(humOnZone4_5_6){emit humOnZone4_5_6TriggerE;} pause;}}
+		||
+		{while(true){present(deHumOnZone1_7){emit deHumOnZone1_7TriggerE;} pause;}}
+		||
+		{while(true){present(deHumOnZone2_3){emit deHumOnZone2_3TriggerE;} pause;}}
+		||
+		{while(true){present(deHumOnZone4_5_6){emit deHumOnZone4_5_6TriggerE;} pause;}}
 	}
 }
