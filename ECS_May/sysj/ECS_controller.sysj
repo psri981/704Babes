@@ -1,7 +1,11 @@
 Controller(
-		input signal capOnPos1,tableAligned,botPos1,botPos2,botPos3,botPos4,botPos5;
-		//        output signal rotaryTableTrigger;
-		output signal bottleAtPos1, bottleAtPos2, bottleAtPos3, bottleAtPos4, bottleAtPos5;
+		input signal fireZone1, fireZone2, fireZone3, fireZone4, fireZone5, fireZone6, fireZone7;
+		input signal cleanZone1, cleanZone2, cleanZone3, cleanZone4, cleanZone5, cleanZone6, cleanZone7;
+		input signal fanOnZone1_7, heatOnZone1_7, airOnZone2_3, airOnZone4_5_6, heatOnZone2_3, heatOnZone4_5_6;
+		input signal blindsDownZone1_7; blindsDownZone2_3; blindsDownZone4_5_6;  
+		input signal humOnZone1_7, humOnZone2_3, humOnZone4_5_6, deHumOnZone1_7, deHumOnZone2_3, deHumOnZone4_5_6,
+		
+		output signal powerOff, roomCleaned, fireOut, alarmOff, blindsDown, evacuated;
 		)
 ->{
 	/* TODO: Write control-logic */

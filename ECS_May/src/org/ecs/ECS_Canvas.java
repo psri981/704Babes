@@ -65,7 +65,6 @@ public class ECS_Canvas {
 
 	private JFrame frmECS;
 	private final ButtonGroup zoneGroup = new ButtonGroup();
-	private final ButtonGroup controlGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -106,7 +105,7 @@ public class ECS_Canvas {
 	 * 
 	 * 
 	 */
-	
+
 	// Create global variables to hold the values
 	int lightValue = 5;
     int temperatureValue = 10;
@@ -580,10 +579,9 @@ public class ECS_Canvas {
 		CONTROLS.setLayout(null);
 		
 		JToggleButton FIREtglbtn = new JToggleButton("");
-		FIREtglbtn.setBounds(0, 2, 49, 69);
+		FIREtglbtn.setBounds(160, 11, 49, 69);
 		CONTROLS.add(FIREtglbtn);
 		FIREtglbtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		controlGroup.add(FIREtglbtn);
 		FIREtglbtn.setContentAreaFilled(false);
 		FIREtglbtn.setPressedIcon(new ImageIcon("ECS_res\\controls\\fireSelected.png"));
 		FIREtglbtn.setSelectedIcon(new ImageIcon("ECS_res\\controls\\fireSelected.png"));
@@ -593,22 +591,10 @@ public class ECS_Canvas {
 		FIREtglbtn.setIcon(new ImageIcon("ECS_res\\controls\\fire.png"));
 		FIREtglbtn.setOpaque(true);
 		
-		JToggleButton POWERtglbtn = new JToggleButton("");
-		POWERtglbtn.setBounds(170, 2, 75, 79);
-		CONTROLS.add(POWERtglbtn);
-		POWERtglbtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		controlGroup.add(POWERtglbtn);
-		POWERtglbtn.setIcon(new ImageIcon("ECS_res\\controls\\power.png"));
-		POWERtglbtn.setContentAreaFilled(false);
-		POWERtglbtn.setBorderPainted(false);
-		POWERtglbtn.setBackground(new Color(87, 87, 130));
-		POWERtglbtn.setSelectedIcon(new ImageIcon("ECS_res\\controls\\powerSelected.png"));
-		
 		JToggleButton CLEANtglbtn = new JToggleButton("");
-		CLEANtglbtn.setBounds(50, 0, 127, 91);
+		CLEANtglbtn.setBounds(10, 0, 127, 91);
 		CONTROLS.add(CLEANtglbtn);
 		CLEANtglbtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		controlGroup.add(CLEANtglbtn);
 		CLEANtglbtn.setContentAreaFilled(false);
 		CLEANtglbtn.setBorderPainted(false);
 		CLEANtglbtn.setIcon(new ImageIcon("ECS_res\\controls\\dust.png"));
@@ -644,7 +630,7 @@ public class ECS_Canvas {
 		                // Emit the value to ECS Plant CD
 		                SimpleClient selectedZoneClient = null;
 						try {
-							selectedZoneClient = new SimpleClient("127.0.0.1", 10001, "ECSPlantCD", "zone");
+							selectedZoneClient = new SimpleClient("127.0.0.1", 10001, "ECSPlantCD", "selectedZone");
 						} catch (IOException e2) {
 							// TODO Auto-generated catch block
 							e2.printStackTrace();
@@ -715,29 +701,6 @@ public class ECS_Canvas {
 	    txtpnTime.setBounds(29, 47, 68, 20);
 	    frmECS.getContentPane().add(txtpnTime);
 	    clockThread.start();
-	    
-	    	    
-//	    if (selectedZoneButton == 1) {
-//	    	
-//	    	if(ECS_States.CLEAN_ZONE_1) {
-//	    		 
-//	    	}else if(ECS_States.FAN_ZONE_1_7) {
-//	    		
-//	    	}
-//	    	
-//	    }else if (selectedZoneButton == 2){
-//	    	
-//	    }else if (selectedZoneButton == 3){
-//	    	
-//	    }else if (selectedZoneButton == 4){
-//	    	
-//	    }else if (selectedZoneButton == 5){
-//	    	
-//	    }else if (selectedZoneButton == 6){
-//	    	
-//	    }else{
-//	    	
-//	    }
 		
 //	    btnNewButton.addActionListener(e -> {
 	    
