@@ -1,46 +1,19 @@
 Controller(
-		input signal reset, laserProximity, firePresent, door1req, door2req, door3req, manuPerm, officePerm, zoneOcc1_t, zoneOcc2_t, zoneOcc3_t, zoneOcc4_t, zoneOcc5_t, zoneOcc6_t, zoneOcc7_t;
-		output signal absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7;
-		)
-->{
-	while(true) {
-		while(!firePresent) {
-			{
-				await(door1req);
-				abort(!(officePerm){//no unlock if no access
-						sustain unlock1;
-					}
-				}
-				
-				||
-				{
-					await(door2req);
-					abort(!(officePerm && manuPerm)){
-						sustain unlock1;
-					}
-				}
-				
-				||
-				{
-					await(door3req);
-					abort(officePerm){
-						sustain unlock1;
-					}
-				}
+    input signal unlock1_t, lock1, laserProximity, firePresent, door1req, door2req, door3req, manuPerm, officePerm, zoneOcc1_t, zoneOcc2_t, zoneOcc3_t, zoneOcc4_t, zoneOcc5_t, zoneOcc6_t, zoneOcc7_t;
+    input Integer signal person1zone, person1doorreq, person2zone, person2doorreq, person3zone, person3doorreq, person4zone, person4doorreq;
+    output signal absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7;
+)
+-> {
+while(true) {
+	//System.out.println("a");
+	
+	
+	abort(unlock1_t){
+		while(true) {
+			emit unlock1;
+			pause;
 		}
-		while(firePresent){
-			{
-				sustain unlock1;
-			}
-			||
-			{
-				sustain unlock2;
-			}
-			||
-			{
-				sustain unlock3;
-			}
-		}
-	pause;	
+	} 
+	pause;
 	}
 }

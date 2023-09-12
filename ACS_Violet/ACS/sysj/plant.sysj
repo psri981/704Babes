@@ -1,112 +1,44 @@
 import run.GUI;
 
 Plant(
-		input signal pusherExtend,vacOn,armSource,armDest;
-		input signal enable,refill;
-		output signal pusherRetracted,pusherExtended,WPgripped,armAtSource,armAtDest,empty;
-		output signal pusherRetractedE,pusherExtendedE,WPgrippedE,armAtSourceE,armAtDestE,emptyE;
+		input signal testbtn, absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7;
+		output signal unlock1GUI, lock1GUI, laserProximity, firePresent, door1req, door2req, door3req, manuPerm, officePerm, zoneOcc1_t, zoneOcc2_t, zoneOcc3_t, zoneOcc4_t, zoneOcc5_t, zoneOcc6_t, zoneOcc7_t;
+		output Integer signal person1zone, person1doorreq, person2zone, person2doorreq, person3zone, person3doorreq, person4zone, person4doorreq;
+		output signal unlock1_t, lock1_t;
 		)
 ->
 {
 	new Thread(new GUI()).start();
 
-	signal capDec;
-	int signal capPos;
-	emit capPos(0);
-	{// Arm
+	{
+		
+		
 		while(true){
-			abort(armSource && enable){
-				sustain armAtDest;
-			}
-			await(!enable);
-			abort(armDest && enable){
-				sustain armAtSource;
-			}
-			await(!enable);
-		}
-	}
-	||
-	{// Pusher
-		while(true){
-			abort(pusherExtend && enable){
-				sustain pusherRetracted;
-			}
-			await(!enable);
-			abort(!pusherExtend && enable){
-				sustain pusherExtended;
-			}
-			await(!enable);
-		}
-	}
-	||
-	{// Vacuum
-		while(true){
-			present(vacOn && armAtSource){
-				if((Integer)#capPos == 1){
-					emit capPos(0);
-					abort(!vacOn){
-						sustain WPgripped; 
-					}
-					present(armAtSource){
-						emit capPos(1);
-					}
+			
+			await(testbtn);
+			System.out.println("BUTTON WORKS");
+			emit unlock1_t;
+			
+			abort(unlock1){
+				while(true) {
+					//System.out.println("b");
+					emit lock1_t;
+					pause;
 				}
 			}
-			pause;
-		}
-	}
-	||
-	{
-		/*
-		 * Cap positions
-		 * 0 = at Mag
-		 * 1 = at pick-up
-		 */
-		while(true){
-			// At mag
-			abort(empty){
-				while(true){
-						await(pusherRetracted);
-						await(pusherExtended);
-						// At pick-up
-						emit capPos(1);
-						await(pusherRetracted);
-						emit capDec;
+			abort(!unlock1){
+				while(true) {
+					//System.out.println("a");
+					emit unlock1_t;
+					pause;
 				}
 			}
-			await(refill);
 		}
 	}
 	||
-	{
-		int capcount = 5;
-		while(true){
-			present(capDec){
-				if(capcount > 0)
-					capcount--;
-			}
-			present(refill){
-				capcount = 5;
-			}
-//			present(pusherRetracted){
-				if(capcount == 0)
-					emit empty;
-//			}
-			pause;
-		}
-	}
-	||
-	{// To viz
-		{while(true){present(pusherRetracted){emit pusherRetractedE;} pause;}}
+	{//to Viz
+		{while(true) {present(unlock1_t){System.out.println("a"); emit unlock1GUI;} pause;}}
 		||
-		{while(true){present(pusherExtended){emit pusherExtendedE;} pause;}}
-		||
-		{while(true){present(WPgripped){emit WPgrippedE;} pause;}}
-		||
-		{while(true){present(armAtSource){emit armAtSourceE;} pause;}}
-		||
-		{while(true){present(armAtDest){emit armAtDestE;} pause;}}
-		||
-		{while(true){present(empty){emit emptyE;} pause;}}
+		{while(true) {present(lock1_t){emit lock1GUI;} pause;}}
 	}
 }

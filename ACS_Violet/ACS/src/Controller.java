@@ -11,7 +11,8 @@ public class Controller extends ClockDomain{
   private char [] active;
   private char [] paused;
   private char [] suspended;
-  public Signal reset = new Signal("reset", Signal.INPUT);
+  public Signal unlock1_t = new Signal("unlock1_t", Signal.INPUT);
+  public Signal lock1 = new Signal("lock1", Signal.INPUT);
   public Signal laserProximity = new Signal("laserProximity", Signal.INPUT);
   public Signal firePresent = new Signal("firePresent", Signal.INPUT);
   public Signal door1req = new Signal("door1req", Signal.INPUT);
@@ -26,6 +27,14 @@ public class Controller extends ClockDomain{
   public Signal zoneOcc5_t = new Signal("zoneOcc5_t", Signal.INPUT);
   public Signal zoneOcc6_t = new Signal("zoneOcc6_t", Signal.INPUT);
   public Signal zoneOcc7_t = new Signal("zoneOcc7_t", Signal.INPUT);
+  public Signal person1zone = new Signal("person1zone", Signal.INPUT);
+  public Signal person1doorreq = new Signal("person1doorreq", Signal.INPUT);
+  public Signal person2zone = new Signal("person2zone", Signal.INPUT);
+  public Signal person2doorreq = new Signal("person2doorreq", Signal.INPUT);
+  public Signal person3zone = new Signal("person3zone", Signal.INPUT);
+  public Signal person3doorreq = new Signal("person3doorreq", Signal.INPUT);
+  public Signal person4zone = new Signal("person4zone", Signal.INPUT);
+  public Signal person4doorreq = new Signal("person4doorreq", Signal.INPUT);
   public Signal absResume = new Signal("absResume", Signal.OUTPUT);
   public Signal absSuspend = new Signal("absSuspend", Signal.OUTPUT);
   public Signal proxLaser = new Signal("proxLaser", Signal.OUTPUT);
@@ -39,402 +48,12 @@ public class Controller extends ClockDomain{
   public Signal zoneOcc5 = new Signal("zoneOcc5", Signal.OUTPUT);
   public Signal zoneOcc6 = new Signal("zoneOcc6", Signal.OUTPUT);
   public Signal zoneOcc7 = new Signal("zoneOcc7", Signal.OUTPUT);
-  private int S754 = 1;
-  private int S250 = 1;
-  private int S10 = 1;
-  private int S9 = 1;
-  private int S21 = 1;
-  private int S20 = 1;
-  private int S32 = 1;
-  private int S31 = 1;
-  private int S107 = 1;
-  private int S112 = 1;
-  private int S117 = 1;
+  private int S16 = 1;
+  private int S4 = 1;
   
-  private int[] ends = new int[8];
-  private int[] tdone = new int[8];
+  private int[] ends = new int[2];
+  private int[] tdone = new int[2];
   
-  public void thread790(int [] tdone, int [] ends){
-        S117=1;
-    unlock3.setPresent();//sysj\controller.sysj line: 41, column: 5
-    currsigs.addElement(unlock3);
-    active[7]=1;
-    ends[7]=1;
-    tdone[7]=1;
-  }
-
-  public void thread789(int [] tdone, int [] ends){
-        S112=1;
-    unlock2.setPresent();//sysj\controller.sysj line: 37, column: 5
-    currsigs.addElement(unlock2);
-    active[6]=1;
-    ends[6]=1;
-    tdone[6]=1;
-  }
-
-  public void thread788(int [] tdone, int [] ends){
-        S107=1;
-    unlock1.setPresent();//sysj\controller.sysj line: 33, column: 5
-    currsigs.addElement(unlock1);
-    active[5]=1;
-    ends[5]=1;
-    tdone[5]=1;
-  }
-
-  public void thread786(int [] tdone, int [] ends){
-        S32=1;
-    S31=0;
-    active[4]=1;
-    ends[4]=1;
-    tdone[4]=1;
-  }
-
-  public void thread785(int [] tdone, int [] ends){
-        S21=1;
-    S20=0;
-    active[3]=1;
-    ends[3]=1;
-    tdone[3]=1;
-  }
-
-  public void thread784(int [] tdone, int [] ends){
-        S10=1;
-    S9=0;
-    active[2]=1;
-    ends[2]=1;
-    tdone[2]=1;
-  }
-
-  public void thread782(int [] tdone, int [] ends){
-        S117=1;
-    unlock3.setPresent();//sysj\controller.sysj line: 41, column: 5
-    currsigs.addElement(unlock3);
-    active[7]=1;
-    ends[7]=1;
-    tdone[7]=1;
-  }
-
-  public void thread781(int [] tdone, int [] ends){
-        S112=1;
-    unlock2.setPresent();//sysj\controller.sysj line: 37, column: 5
-    currsigs.addElement(unlock2);
-    active[6]=1;
-    ends[6]=1;
-    tdone[6]=1;
-  }
-
-  public void thread780(int [] tdone, int [] ends){
-        S107=1;
-    unlock1.setPresent();//sysj\controller.sysj line: 33, column: 5
-    currsigs.addElement(unlock1);
-    active[5]=1;
-    ends[5]=1;
-    tdone[5]=1;
-  }
-
-  public void thread778(int [] tdone, int [] ends){
-        switch(S117){
-      case 0 : 
-        active[7]=0;
-        ends[7]=0;
-        tdone[7]=1;
-        break;
-      
-      case 1 : 
-        unlock3.setPresent();//sysj\controller.sysj line: 41, column: 5
-        currsigs.addElement(unlock3);
-        active[7]=1;
-        ends[7]=1;
-        tdone[7]=1;
-        break;
-      
-    }
-  }
-
-  public void thread777(int [] tdone, int [] ends){
-        switch(S112){
-      case 0 : 
-        active[6]=0;
-        ends[6]=0;
-        tdone[6]=1;
-        break;
-      
-      case 1 : 
-        unlock2.setPresent();//sysj\controller.sysj line: 37, column: 5
-        currsigs.addElement(unlock2);
-        active[6]=1;
-        ends[6]=1;
-        tdone[6]=1;
-        break;
-      
-    }
-  }
-
-  public void thread776(int [] tdone, int [] ends){
-        switch(S107){
-      case 0 : 
-        active[5]=0;
-        ends[5]=0;
-        tdone[5]=1;
-        break;
-      
-      case 1 : 
-        unlock1.setPresent();//sysj\controller.sysj line: 33, column: 5
-        currsigs.addElement(unlock1);
-        active[5]=1;
-        ends[5]=1;
-        tdone[5]=1;
-        break;
-      
-    }
-  }
-
-  public void thread774(int [] tdone, int [] ends){
-        S117=1;
-    unlock3.setPresent();//sysj\controller.sysj line: 41, column: 5
-    currsigs.addElement(unlock3);
-    active[7]=1;
-    ends[7]=1;
-    tdone[7]=1;
-  }
-
-  public void thread773(int [] tdone, int [] ends){
-        S112=1;
-    unlock2.setPresent();//sysj\controller.sysj line: 37, column: 5
-    currsigs.addElement(unlock2);
-    active[6]=1;
-    ends[6]=1;
-    tdone[6]=1;
-  }
-
-  public void thread772(int [] tdone, int [] ends){
-        S107=1;
-    unlock1.setPresent();//sysj\controller.sysj line: 33, column: 5
-    currsigs.addElement(unlock1);
-    active[5]=1;
-    ends[5]=1;
-    tdone[5]=1;
-  }
-
-  public void thread770(int [] tdone, int [] ends){
-        S32=1;
-    S31=0;
-    active[4]=1;
-    ends[4]=1;
-    tdone[4]=1;
-  }
-
-  public void thread769(int [] tdone, int [] ends){
-        S21=1;
-    S20=0;
-    active[3]=1;
-    ends[3]=1;
-    tdone[3]=1;
-  }
-
-  public void thread768(int [] tdone, int [] ends){
-        S10=1;
-    S9=0;
-    active[2]=1;
-    ends[2]=1;
-    tdone[2]=1;
-  }
-
-  public void thread766(int [] tdone, int [] ends){
-        switch(S32){
-      case 0 : 
-        active[4]=0;
-        ends[4]=0;
-        tdone[4]=1;
-        break;
-      
-      case 1 : 
-        switch(S31){
-          case 0 : 
-            if(door3req.getprestatus()){//sysj\controller.sysj line: 25, column: 12
-              S31=1;
-              unlock1.setPresent();//sysj\controller.sysj line: 27, column: 7
-              currsigs.addElement(unlock1);
-              active[4]=1;
-              ends[4]=1;
-              tdone[4]=1;
-            }
-            else {
-              active[4]=1;
-              ends[4]=1;
-              tdone[4]=1;
-            }
-            break;
-          
-          case 1 : 
-            if(officePerm.getprestatus()){//sysj\controller.sysj line: 26, column: 12
-              S32=0;
-              active[4]=0;
-              ends[4]=0;
-              tdone[4]=1;
-            }
-            else {
-              unlock1.setPresent();//sysj\controller.sysj line: 27, column: 7
-              currsigs.addElement(unlock1);
-              active[4]=1;
-              ends[4]=1;
-              tdone[4]=1;
-            }
-            break;
-          
-        }
-        break;
-      
-    }
-  }
-
-  public void thread765(int [] tdone, int [] ends){
-        switch(S21){
-      case 0 : 
-        active[3]=0;
-        ends[3]=0;
-        tdone[3]=1;
-        break;
-      
-      case 1 : 
-        switch(S20){
-          case 0 : 
-            if(door2req.getprestatus()){//sysj\controller.sysj line: 17, column: 12
-              S20=1;
-              unlock1.setPresent();//sysj\controller.sysj line: 19, column: 7
-              currsigs.addElement(unlock1);
-              active[3]=1;
-              ends[3]=1;
-              tdone[3]=1;
-            }
-            else {
-              active[3]=1;
-              ends[3]=1;
-              tdone[3]=1;
-            }
-            break;
-          
-          case 1 : 
-            if(!(officePerm.getprestatus() && manuPerm.getprestatus())){//sysj\controller.sysj line: 18, column: 12
-              S21=0;
-              active[3]=0;
-              ends[3]=0;
-              tdone[3]=1;
-            }
-            else {
-              unlock1.setPresent();//sysj\controller.sysj line: 19, column: 7
-              currsigs.addElement(unlock1);
-              active[3]=1;
-              ends[3]=1;
-              tdone[3]=1;
-            }
-            break;
-          
-        }
-        break;
-      
-    }
-  }
-
-  public void thread764(int [] tdone, int [] ends){
-        switch(S10){
-      case 0 : 
-        active[2]=0;
-        ends[2]=0;
-        tdone[2]=1;
-        break;
-      
-      case 1 : 
-        switch(S9){
-          case 0 : 
-            if(door1req.getprestatus()){//sysj\controller.sysj line: 9, column: 11
-              S9=1;
-              unlock1.setPresent();//sysj\controller.sysj line: 11, column: 7
-              currsigs.addElement(unlock1);
-              active[2]=1;
-              ends[2]=1;
-              tdone[2]=1;
-            }
-            else {
-              active[2]=1;
-              ends[2]=1;
-              tdone[2]=1;
-            }
-            break;
-          
-          case 1 : 
-            if(!officePerm.getprestatus()){//sysj\controller.sysj line: 10, column: 11
-              S10=0;
-              active[2]=0;
-              ends[2]=0;
-              tdone[2]=1;
-            }
-            else {
-              unlock1.setPresent();//sysj\controller.sysj line: 11, column: 7
-              currsigs.addElement(unlock1);
-              active[2]=1;
-              ends[2]=1;
-              tdone[2]=1;
-            }
-            break;
-          
-        }
-        break;
-      
-    }
-  }
-
-  public void thread762(int [] tdone, int [] ends){
-        S117=1;
-    unlock3.setPresent();//sysj\controller.sysj line: 41, column: 5
-    currsigs.addElement(unlock3);
-    active[7]=1;
-    ends[7]=1;
-    tdone[7]=1;
-  }
-
-  public void thread761(int [] tdone, int [] ends){
-        S112=1;
-    unlock2.setPresent();//sysj\controller.sysj line: 37, column: 5
-    currsigs.addElement(unlock2);
-    active[6]=1;
-    ends[6]=1;
-    tdone[6]=1;
-  }
-
-  public void thread760(int [] tdone, int [] ends){
-        S107=1;
-    unlock1.setPresent();//sysj\controller.sysj line: 33, column: 5
-    currsigs.addElement(unlock1);
-    active[5]=1;
-    ends[5]=1;
-    tdone[5]=1;
-  }
-
-  public void thread758(int [] tdone, int [] ends){
-        S32=1;
-    S31=0;
-    active[4]=1;
-    ends[4]=1;
-    tdone[4]=1;
-  }
-
-  public void thread757(int [] tdone, int [] ends){
-        S21=1;
-    S20=0;
-    active[3]=1;
-    ends[3]=1;
-    tdone[3]=1;
-  }
-
-  public void thread756(int [] tdone, int [] ends){
-        S10=1;
-    S9=0;
-    active[2]=1;
-    ends[2]=1;
-    tdone[2]=1;
-  }
-
   public void runClockDomain(){
     for(int i=0;i<ends.length;i++){
       ends[i] = 0;
@@ -442,254 +61,46 @@ public class Controller extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S754){
+      switch(S16){
         case 0 : 
-          S754=0;
+          S16=0;
           break RUN;
         
         case 1 : 
-          S754=2;
-          S754=2;
-          S250=0;
-          if(!firePresent){//sysj\controller.sysj line: 7, column: 9
-            thread756(tdone,ends);
-            thread757(tdone,ends);
-            thread758(tdone,ends);
-            int biggest759 = 0;
-            if(ends[2]>=biggest759){
-              biggest759=ends[2];
-            }
-            if(ends[3]>=biggest759){
-              biggest759=ends[3];
-            }
-            if(ends[4]>=biggest759){
-              biggest759=ends[4];
-            }
-            if(biggest759 == 1){
-              active[1]=1;
-              ends[1]=1;
-              break RUN;
-            }
-          }
-          else {
-            ends[1]=2;
-            ;//sysj\controller.sysj line: 7, column: 3
-            S250=1;
-            if(firePresent){//sysj\controller.sysj line: 31, column: 3
-              thread760(tdone,ends);
-              thread761(tdone,ends);
-              thread762(tdone,ends);
-              int biggest763 = 0;
-              if(ends[5]>=biggest763){
-                biggest763=ends[5];
-              }
-              if(ends[6]>=biggest763){
-                biggest763=ends[6];
-              }
-              if(ends[7]>=biggest763){
-                biggest763=ends[7];
-              }
-              if(biggest763 == 1){
-                active[1]=1;
-                ends[1]=1;
-                break RUN;
-              }
-            }
-            else {
-              ends[1]=2;
-              ;//sysj\controller.sysj line: 31, column: 3
-              S250=2;
-              active[1]=1;
-              ends[1]=1;
-              break RUN;
-            }
-          }
+          S16=2;
+          S16=2;
+          S4=0;
+          unlock1.setPresent();//sysj\controller.sysj line: 13, column: 4
+          currsigs.addElement(unlock1);
+          active[1]=1;
+          ends[1]=1;
+          break RUN;
         
         case 2 : 
-          switch(S250){
+          switch(S4){
             case 0 : 
-              thread764(tdone,ends);
-              thread765(tdone,ends);
-              thread766(tdone,ends);
-              int biggest767 = 0;
-              if(ends[2]>=biggest767){
-                biggest767=ends[2];
-              }
-              if(ends[3]>=biggest767){
-                biggest767=ends[3];
-              }
-              if(ends[4]>=biggest767){
-                biggest767=ends[4];
-              }
-              if(biggest767 == 1){
+              if(unlock1_t.getprestatus()){//sysj\controller.sysj line: 11, column: 8
+                S4=1;
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
               }
-              //FINXME code
-              if(biggest767 == 0){
-                if(!firePresent){//sysj\controller.sysj line: 7, column: 9
-                  thread768(tdone,ends);
-                  thread769(tdone,ends);
-                  thread770(tdone,ends);
-                  int biggest771 = 0;
-                  if(ends[2]>=biggest771){
-                    biggest771=ends[2];
-                  }
-                  if(ends[3]>=biggest771){
-                    biggest771=ends[3];
-                  }
-                  if(ends[4]>=biggest771){
-                    biggest771=ends[4];
-                  }
-                  if(biggest771 == 1){
-                    active[1]=1;
-                    ends[1]=1;
-                    break RUN;
-                  }
-                }
-                else {
-                  ends[1]=2;
-                  ;//sysj\controller.sysj line: 7, column: 3
-                  S250=1;
-                  if(firePresent){//sysj\controller.sysj line: 31, column: 3
-                    thread772(tdone,ends);
-                    thread773(tdone,ends);
-                    thread774(tdone,ends);
-                    int biggest775 = 0;
-                    if(ends[5]>=biggest775){
-                      biggest775=ends[5];
-                    }
-                    if(ends[6]>=biggest775){
-                      biggest775=ends[6];
-                    }
-                    if(ends[7]>=biggest775){
-                      biggest775=ends[7];
-                    }
-                    if(biggest775 == 1){
-                      active[1]=1;
-                      ends[1]=1;
-                      break RUN;
-                    }
-                  }
-                  else {
-                    ends[1]=2;
-                    ;//sysj\controller.sysj line: 31, column: 3
-                    S250=2;
-                    active[1]=1;
-                    ends[1]=1;
-                    break RUN;
-                  }
-                }
+              else {
+                unlock1.setPresent();//sysj\controller.sysj line: 13, column: 4
+                currsigs.addElement(unlock1);
+                active[1]=1;
+                ends[1]=1;
+                break RUN;
               }
             
             case 1 : 
-              thread776(tdone,ends);
-              thread777(tdone,ends);
-              thread778(tdone,ends);
-              int biggest779 = 0;
-              if(ends[5]>=biggest779){
-                biggest779=ends[5];
-              }
-              if(ends[6]>=biggest779){
-                biggest779=ends[6];
-              }
-              if(ends[7]>=biggest779){
-                biggest779=ends[7];
-              }
-              if(biggest779 == 1){
-                active[1]=1;
-                ends[1]=1;
-                break RUN;
-              }
-              //FINXME code
-              if(biggest779 == 0){
-                if(firePresent){//sysj\controller.sysj line: 31, column: 3
-                  thread780(tdone,ends);
-                  thread781(tdone,ends);
-                  thread782(tdone,ends);
-                  int biggest783 = 0;
-                  if(ends[5]>=biggest783){
-                    biggest783=ends[5];
-                  }
-                  if(ends[6]>=biggest783){
-                    biggest783=ends[6];
-                  }
-                  if(ends[7]>=biggest783){
-                    biggest783=ends[7];
-                  }
-                  if(biggest783 == 1){
-                    active[1]=1;
-                    ends[1]=1;
-                    break RUN;
-                  }
-                }
-                else {
-                  ends[1]=2;
-                  ;//sysj\controller.sysj line: 31, column: 3
-                  S250=2;
-                  active[1]=1;
-                  ends[1]=1;
-                  break RUN;
-                }
-              }
-            
-            case 2 : 
-              S250=2;
-              S250=0;
-              if(!firePresent){//sysj\controller.sysj line: 7, column: 9
-                thread784(tdone,ends);
-                thread785(tdone,ends);
-                thread786(tdone,ends);
-                int biggest787 = 0;
-                if(ends[2]>=biggest787){
-                  biggest787=ends[2];
-                }
-                if(ends[3]>=biggest787){
-                  biggest787=ends[3];
-                }
-                if(ends[4]>=biggest787){
-                  biggest787=ends[4];
-                }
-                if(biggest787 == 1){
-                  active[1]=1;
-                  ends[1]=1;
-                  break RUN;
-                }
-              }
-              else {
-                ends[1]=2;
-                ;//sysj\controller.sysj line: 7, column: 3
-                S250=1;
-                if(firePresent){//sysj\controller.sysj line: 31, column: 3
-                  thread788(tdone,ends);
-                  thread789(tdone,ends);
-                  thread790(tdone,ends);
-                  int biggest791 = 0;
-                  if(ends[5]>=biggest791){
-                    biggest791=ends[5];
-                  }
-                  if(ends[6]>=biggest791){
-                    biggest791=ends[6];
-                  }
-                  if(ends[7]>=biggest791){
-                    biggest791=ends[7];
-                  }
-                  if(biggest791 == 1){
-                    active[1]=1;
-                    ends[1]=1;
-                    break RUN;
-                  }
-                }
-                else {
-                  ends[1]=2;
-                  ;//sysj\controller.sysj line: 31, column: 3
-                  S250=2;
-                  active[1]=1;
-                  ends[1]=1;
-                  break RUN;
-                }
-              }
+              S4=1;
+              S4=0;
+              unlock1.setPresent();//sysj\controller.sysj line: 13, column: 4
+              currsigs.addElement(unlock1);
+              active[1]=1;
+              ends[1]=1;
+              break RUN;
             
           }
         
@@ -698,9 +109,9 @@ public class Controller extends ClockDomain{
   }
 
   public void init(){
-    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1};
-    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0};
-    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0};
+    char [] active1 = {1, 1};
+    char [] paused1 = {0, 0};
+    char [] suspended1 = {0, 0};
     paused = paused1;
     active = active1;
     suspended = suspended1;
@@ -719,7 +130,8 @@ public class Controller extends ClockDomain{
       if(paused[1]!=0 || suspended[1]!=0 || active[1]!=1);
       else{
         if(!df){
-          reset.gethook();
+          unlock1_t.gethook();
+          lock1.gethook();
           laserProximity.gethook();
           firePresent.gethook();
           door1req.gethook();
@@ -734,11 +146,20 @@ public class Controller extends ClockDomain{
           zoneOcc5_t.gethook();
           zoneOcc6_t.gethook();
           zoneOcc7_t.gethook();
+          person1zone.gethook();
+          person1doorreq.gethook();
+          person2zone.gethook();
+          person2doorreq.gethook();
+          person3zone.gethook();
+          person3doorreq.gethook();
+          person4zone.gethook();
+          person4doorreq.gethook();
           df = true;
         }
         runClockDomain();
       }
-      reset.setpreclear();
+      unlock1_t.setpreclear();
+      lock1.setpreclear();
       laserProximity.setpreclear();
       firePresent.setpreclear();
       door1req.setpreclear();
@@ -753,6 +174,14 @@ public class Controller extends ClockDomain{
       zoneOcc5_t.setpreclear();
       zoneOcc6_t.setpreclear();
       zoneOcc7_t.setpreclear();
+      person1zone.setpreclear();
+      person1doorreq.setpreclear();
+      person2zone.setpreclear();
+      person2doorreq.setpreclear();
+      person3zone.setpreclear();
+      person3doorreq.setpreclear();
+      person4zone.setpreclear();
+      person4doorreq.setpreclear();
       absResume.setpreclear();
       absSuspend.setpreclear();
       proxLaser.setpreclear();
@@ -772,9 +201,12 @@ public class Controller extends ClockDomain{
         ((Signal)currsigs.elementAt(qw)).setpreval(((Signal)currsigs.elementAt(qw)).getValue());
       }
       currsigs.removeAllElements();
-      dummyint = reset.getStatus() ? reset.setprepresent() : reset.setpreclear();
-      reset.setpreval(reset.getValue());
-      reset.setClear();
+      dummyint = unlock1_t.getStatus() ? unlock1_t.setprepresent() : unlock1_t.setpreclear();
+      unlock1_t.setpreval(unlock1_t.getValue());
+      unlock1_t.setClear();
+      dummyint = lock1.getStatus() ? lock1.setprepresent() : lock1.setpreclear();
+      lock1.setpreval(lock1.getValue());
+      lock1.setClear();
       dummyint = laserProximity.getStatus() ? laserProximity.setprepresent() : laserProximity.setpreclear();
       laserProximity.setpreval(laserProximity.getValue());
       laserProximity.setClear();
@@ -817,6 +249,30 @@ public class Controller extends ClockDomain{
       dummyint = zoneOcc7_t.getStatus() ? zoneOcc7_t.setprepresent() : zoneOcc7_t.setpreclear();
       zoneOcc7_t.setpreval(zoneOcc7_t.getValue());
       zoneOcc7_t.setClear();
+      dummyint = person1zone.getStatus() ? person1zone.setprepresent() : person1zone.setpreclear();
+      person1zone.setpreval(person1zone.getValue());
+      person1zone.setClear();
+      dummyint = person1doorreq.getStatus() ? person1doorreq.setprepresent() : person1doorreq.setpreclear();
+      person1doorreq.setpreval(person1doorreq.getValue());
+      person1doorreq.setClear();
+      dummyint = person2zone.getStatus() ? person2zone.setprepresent() : person2zone.setpreclear();
+      person2zone.setpreval(person2zone.getValue());
+      person2zone.setClear();
+      dummyint = person2doorreq.getStatus() ? person2doorreq.setprepresent() : person2doorreq.setpreclear();
+      person2doorreq.setpreval(person2doorreq.getValue());
+      person2doorreq.setClear();
+      dummyint = person3zone.getStatus() ? person3zone.setprepresent() : person3zone.setpreclear();
+      person3zone.setpreval(person3zone.getValue());
+      person3zone.setClear();
+      dummyint = person3doorreq.getStatus() ? person3doorreq.setprepresent() : person3doorreq.setpreclear();
+      person3doorreq.setpreval(person3doorreq.getValue());
+      person3doorreq.setClear();
+      dummyint = person4zone.getStatus() ? person4zone.setprepresent() : person4zone.setpreclear();
+      person4zone.setpreval(person4zone.getValue());
+      person4zone.setClear();
+      dummyint = person4doorreq.getStatus() ? person4doorreq.setprepresent() : person4doorreq.setpreclear();
+      person4doorreq.setpreval(person4doorreq.getValue());
+      person4doorreq.setClear();
       absResume.sethook();
       absResume.setClear();
       absSuspend.sethook();
@@ -845,7 +301,8 @@ public class Controller extends ClockDomain{
       zoneOcc7.setClear();
       if(paused[1]!=0 || suspended[1]!=0 || active[1]!=1);
       else{
-        reset.gethook();
+        unlock1_t.gethook();
+        lock1.gethook();
         laserProximity.gethook();
         firePresent.gethook();
         door1req.gethook();
@@ -860,6 +317,14 @@ public class Controller extends ClockDomain{
         zoneOcc5_t.gethook();
         zoneOcc6_t.gethook();
         zoneOcc7_t.gethook();
+        person1zone.gethook();
+        person1doorreq.gethook();
+        person2zone.gethook();
+        person2doorreq.gethook();
+        person3zone.gethook();
+        person3doorreq.gethook();
+        person4zone.gethook();
+        person4doorreq.gethook();
       }
       runFinisher();
       if(active[1] == 0){
