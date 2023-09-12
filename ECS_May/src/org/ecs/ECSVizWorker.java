@@ -101,7 +101,10 @@ public class ECSVizWorker extends ECS_Worker{
 		}
 	}
 
-	static final List<String> signames = Arrays.asList("capOnBottleAtPos1E, conBeltTriggerE","fillerTriggerE","lidloaderTriggerE","capScrewTriggerE","labelTriggerE");
+	static final List<String> signames = Arrays.asList("alarmZone1TriggerE, alarmZone2TriggerE","alarmZone3TriggerE","alarmZone4TriggerE","alarmZone5TriggerE","alarmZone6TriggerE","alarmZone7TriggerE",
+"cleanZone1TriggerE","cleanZone2TriggerE","cleanZone3TriggerE","cleanZone4TriggerE","cleanZone5TriggerE","cleanZone6TriggerE","cleanZone7TriggerE",
+"fanOnZone1_7TriggerE","heatOnZone1_7TriggerE","airOnZone2_3TriggerE","airOnZone4_5_6TriggerE","airOnZone4_5_6TriggerE",
+"humOnZone1_7TriggerE","humOnZone2_3TriggerE","humOnZone4_5_6TriggerE","deHumOnZone1_7TriggerE","deHumOnZone2_3TriggerE","deHumOnZone4_5_6TriggerE");
 
 	@Override
 	public boolean hasSignal(String sn) {

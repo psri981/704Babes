@@ -42,6 +42,8 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import java.awt.Font;
 import javax.swing.border.SoftBevelBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import java.awt.Component;
@@ -55,12 +57,13 @@ import javax.swing.JTextPane;
 import javax.swing.JProgressBar;
 import javax.swing.AbstractAction;
 import javax.swing.Action; 
-
+import com.systemj.netapi.SimpleClient; 
+import com.systemj.netapi.SimpleServer;
 
 
 public class ECS_Canvas {
 
-	private JFrame frmAbs;
+	private JFrame frmECS;
 	private final ButtonGroup zoneGroup = new ButtonGroup();
 	private final ButtonGroup controlGroup = new ButtonGroup();
 
@@ -75,7 +78,7 @@ public class ECS_Canvas {
 	            public void run() {
 	                try {
 	                    ECS_Canvas window = new ECS_Canvas();
-	                    window.frmAbs.setVisible(true);
+	                    window.frmECS.setVisible(true);
 	                    
 	                 // Create an instance of ClockThread and start it
 	                    JLabel timeLabel = new JLabel(); // Replace this with your actual time label
@@ -93,31 +96,39 @@ public class ECS_Canvas {
 	 * Create the application.
 	 */
 	public ECS_Canvas() {
-		initialize();		// Listener for Cap at Pos 1
+		initialize();
 	}
 
 	
 
 	/**
 	 * Initialize the contents of the frame.
+	 * 
+	 * 
 	 */
+	
+	// Create global variables to hold the values
+	int lightValue = 5;
+    int temperatureValue = 10;
+    int humidityValue = 50;
+	
 	private void initialize() {
-		frmAbs = new JFrame();
-		frmAbs.setResizable(false);
-		frmAbs.getContentPane().setBackground(new Color(87, 87, 130));
-		frmAbs.getContentPane().setLayout(null);
-		
+		frmECS = new JFrame();
+		frmECS.setResizable(false);
+		frmECS.getContentPane().setBackground(new Color(87, 87, 130));
+		frmECS.getContentPane().setLayout(null);
 		JPanel COMPONENTS = new JPanel();
 		COMPONENTS.setBackground(new Color(87, 87, 130));
 		COMPONENTS.setBounds(29, 81, 1096, 408);
-		frmAbs.getContentPane().add(COMPONENTS);
+		frmECS.getContentPane().add(COMPONENTS);
 		COMPONENTS.setLayout(null);
-		
 		JPanel UNITS = new JPanel();
 		UNITS.setBounds(809, 291, 287, 57);
 		COMPONENTS.add(UNITS);
 		UNITS.setBackground(new Color(87, 87, 130));
 		UNITS.setLayout(null);
+		
+		// -------------------- Capture of int values -------------------- //
 		
 		JSpinner LightIntensity = new JSpinner();
 		LightIntensity.setBounds(253, -1, 34, 24);
@@ -154,6 +165,28 @@ public class ECS_Canvas {
 		UNITS.add(txtpnLightIntensity);
 		txtpnLightIntensity.setText("Light Intensity");
 		txtpnLightIntensity.setFont(new Font("Arial", Font.PLAIN, 14));
+		
+		 // Add change listeners to the spinners
+		LightIntensity.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                lightValue = (int) LightIntensity.getValue();
+            }
+        });
+
+		Temperature.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                temperatureValue = (int) Temperature.getValue();
+
+            }
+        });
+
+		Humidity.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                humidityValue = (int) Humidity.getValue();
+            }
+        });
+		
+		// -------------------- Capture of int values -------------------- //
 		
 		JPanel ZONES = new JPanel();
 		ZONES.setBounds(0, 0, 783, 351);
@@ -583,7 +616,7 @@ public class ECS_Canvas {
 		CLEANtglbtn.setBackground(new Color(87, 87, 130));
 		CLEANtglbtn.setSelectedIcon(new ImageIcon("ECS_res\\controls\\dustSelected.png"));
 		
-		// --------- CODE FOR SELECTION OF ZONES --------- //
+		// -------------- CODE FOR SELECTION OF ZONES -------------- //
 		// Create an array of zone JToggleButtons //
 		JToggleButton[] zoneButtons = new JToggleButton[7];
 		JButton Simulatebtn = new JButton("RUN");
@@ -600,18 +633,35 @@ public class ECS_Canvas {
 
 		// Define the ItemListener for zone buttons
 		ItemListener zoneSelectionListener = new ItemListener() {
-		    public void itemStateChanged(ItemEvent e) {
+		    @SuppressWarnings("resource")
+			public void itemStateChanged(ItemEvent e) {
+		        int selectedZoneButton = -1; // Initialize to -1 or another default value
 		        // Check if any zone button is selected
-		        boolean anyZoneSelected = false;
-		        for (JToggleButton button : zoneButtons) {
-		            if (button.isSelected()) {
-		                anyZoneSelected = true;
-		                break; // If any zone is selected, no need to check the rest
+		        for (int i = 0; i < zoneButtons.length; i++) {
+		            if (zoneButtons[i].isSelected()) {
+		                // Store the index of the selected button
+		                selectedZoneButton = i;
+		                // Emit the value to ECS Plant CD
+		                SimpleClient selectedZoneClient = null;
+						try {
+							selectedZoneClient = new SimpleClient("127.0.0.1", 10001, "ECSPlantCD", "zone");
+						} catch (IOException e2) {
+							// TODO Auto-generated catch block
+							e2.printStackTrace();
+						}
+		                try {
+		                	// emit for 20ms
+							selectedZoneClient.emit(i, 20);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}        
+		                break;
 		            }
 		        }
 
 		        // Enable/disable the "RUN" button based on zone selection
-		        Simulatebtn.setEnabled(anyZoneSelected);
+		        Simulatebtn.setEnabled(selectedZoneButton != -1);
 		    }
 		};
 
@@ -628,7 +678,8 @@ public class ECS_Canvas {
 		        boolean zoneIsPressed = true;
 
 		        if (zoneIsPressed) {
-		            // do what with what signal?
+		            // do what with what signal
+//		        	System.out.println(selectedZoneButton);
 		        }
 		    }
 		};
@@ -641,17 +692,17 @@ public class ECS_Canvas {
 		Simulatebtn.setFont(new Font("Arial", Font.PLAIN, 14));
 		Simulatebtn.setEnabled(false); // Initially, disable the "RUN" button
 		
-		// ---- CODE FOR CLOCK ---- //
+		// -------------- CODE FOR CLOCK ------------- //
 		JLabel timeLabel = new JLabel("00:00:00");
 		timeLabel.setFont(new Font("Arial", Font.PLAIN, 16));
 		timeLabel.setForeground(new Color(255, 255, 255));
 		timeLabel.setBounds(76, 51, 68, 19);
-		frmAbs.getContentPane().add(timeLabel);
-		frmAbs.setTitle("ECS");
-		frmAbs.setBounds(100, 100, 1160, 600);
-		frmAbs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmECS.getContentPane().add(timeLabel);
+		frmECS.setTitle("ECS");
+		frmECS.setBounds(100, 100, 1160, 600);
+		frmECS.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		// Start the clock thread
+		// Start the clock thread yay!!
 	    ClockThread clockThread = new ClockThread(timeLabel);
 	    
 	    JTextPane txtpnTime = new JTextPane();
@@ -662,102 +713,123 @@ public class ECS_Canvas {
 	    txtpnTime.setBackground(new Color(87, 87, 130));
 	    txtpnTime.setForeground(new Color(255, 255, 255));
 	    txtpnTime.setBounds(29, 47, 68, 20);
-	    frmAbs.getContentPane().add(txtpnTime);
+	    frmECS.getContentPane().add(txtpnTime);
 	    clockThread.start();
+	    
+	    	    
+//	    if (selectedZoneButton == 1) {
+//	    	
+//	    	if(ECS_States.CLEAN_ZONE_1) {
+//	    		 
+//	    	}else if(ECS_States.FAN_ZONE_1_7) {
+//	    		
+//	    	}
+//	    	
+//	    }else if (selectedZoneButton == 2){
+//	    	
+//	    }else if (selectedZoneButton == 3){
+//	    	
+//	    }else if (selectedZoneButton == 4){
+//	    	
+//	    }else if (selectedZoneButton == 5){
+//	    	
+//	    }else if (selectedZoneButton == 6){
+//	    	
+//	    }else{
+//	    	
+//	    }
 		
+//	    btnNewButton.addActionListener(e -> {
+	    
 //		if(!ECS_States.LID_LOADED_POS_3) {
 //			lidLoadedPos3.setVisible(false);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //		}
 //		else {
 //			lidLoadedPos3.setVisible(true);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //		}
 //		if(!ECS_States.FILLED_BOT_POS_2) {
 //			filledBotPos2.setVisible(false);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //		}
 //		else {
 //			filledBotPos2.setVisible(true);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //		}
 //		if(!ECS_States.DONE_BOT_POS_6) {
 //			doneBotPos6.setVisible(false);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //		}
 //		else {
 //			doneBotPos6.setVisible(true);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //		}
 //		if(!ECS_States.DONE_BOT_POS_5) {
 //			doneBotPos5.setVisible(false);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //		}
 //		else {
 //			doneBotPos5.setVisible(true);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //		}
 //		if(!ECS_States.EMPTY_BOT_POS_0) {
-//			//System.out.println("swag");
 //			emptyBotPos0.setVisible(false);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //		}
 //		else {
-//			//System.out.println("ligma");
 //			emptyBotPos0.setVisible(true);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //		}
 //		
 //		if(!ECS_States.EMPTY_BOT_POS_1) {
-//			//System.out.println("money");
 //			emptyBotPos1.setVisible(false);
 ////			System.out.println(ECS_States.EMPTY_BOT_POS_1);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //		}
 //		else {
 //			emptyBotPos1.setVisible(true);
 ////			System.out.println(ECS_States.EMPTY_BOT_POS_1);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //
 //		}
 //		
 //		if(!ECS_States.EMPTY_BOT_POS_2) {
-//		//	System.out.println("sbitch");
 //			emptyBotPos2.setVisible(false);
 //		//	System.out.println(ECS_States.EMPTY_BOT_POS_1);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //
 //		}
 //		else {
 //			emptyBotPos2.setVisible(true);
 //			//System.out.println(ECS_States.EMPTY_BOT_POS_1);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //
 //		}
@@ -765,8 +837,8 @@ public class ECS_Canvas {
 //		//	System.out.println("3");
 //			filledBotPos3.setVisible(false);
 ////			System.out.println(ECS_States.EMPTY_BOT_POS_1);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //
 //		}
@@ -774,8 +846,8 @@ public class ECS_Canvas {
 //			//System.out.println("3_5");
 //			filledBotPos3.setVisible(true);
 ////			System.out.println(ECS_States.EMPTY_BOT_POS_1);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //
 //		}
@@ -783,8 +855,8 @@ public class ECS_Canvas {
 //			//System.out.println("4");
 //			capScrewedPos4.setVisible(false);
 ////			System.out.println(ECS_States.EMPTY_BOT_POS_1);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //
 //		}
@@ -792,11 +864,11 @@ public class ECS_Canvas {
 //			//System.out.println("4_5");
 //			capScrewedPos4.setVisible(true);
 ////			System.out.println(ECS_States.EMPTY_BOT_POS_1);
-//			frmAbs.getContentPane().revalidate();
-//			frmAbs.getContentPane().repaint();;
+//			frmECS.getContentPane().revalidate();
+//			frmECS.getContentPane().repaint();;
 //
 //
-//		}
+//		}});
 
 	}
 }

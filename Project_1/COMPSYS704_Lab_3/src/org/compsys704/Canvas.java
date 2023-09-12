@@ -298,12 +298,9 @@ public class Canvas {
 //			System.out.println(States.EMPTY_BOT_POS_1);
 			frmAbs.getContentPane().revalidate();
 			frmAbs.getContentPane().repaint();;
-
-
 		}
 		
 		
-		//System.out.println("Whopps");
 		capScrewedPos4.setIcon(new ImageIcon("res\\Bottle_100.png"));
 		capScrewedPos4.setBounds(398, 216, 82, 84);
 		frmAbs.getContentPane().add(capScrewedPos4);

@@ -1,24 +1,28 @@
 import run.GUI;
 
 Plant(
-		input signal tempZone1_7, tempZone2_3, tempZone4_5_6;
-		input signal humidZone1_2, humidZone2_3, humidZone4_5_6;
-		input signal lightIntZ1, lightIntZ2, lightZ3Int, lightIntZ4, lightIntZ5, lightIntZ6, lightIntZ7;
-		input signal dust, fire, smoke; 
-		input signal zone1, zone2, zone3, zone4, zone5, zone6, zone7;
+		input Integer signal tempZone1_7, tempZone2_3, tempZone4_5_6;
+		input Integer signal humidZone1_7, humidZone2_3, humidZone4_5_6;
+		input Integer signal lightIntZ1, lightIntZ2, lightZ3Int, lightIntZ4, lightIntZ5, lightIntZ6, lightIntZ7;
+		input signal humanZ1, humanZ2, humanZ3, humanZ4, humanZ5, humanZ6, humanZ7,
+		input signal dust, fire, power; 
+		input String signal time;
+		input signal zone;
 		input signal run;
-		input signal time;
 
 		output signal fireZone1, fireZone2, fireZone3, fireZone4, fireZone5, fireZone6, fireZone7;
 		output signal cleanZone1, cleanZone2, cleanZone3, cleanZone4, cleanZone5, cleanZone6, cleanZone7;
 		output signal fanOnZone1_7, heatOnZone1_7, airOnZone2_3, airOnZone4_5_6, heatOnZone2_3, heatOnZone4_5_6;
 		output signal blindsDownZone1_7; blindsDownZone2_3; blindsDownZone4_5_6;  
 		output signal humOnZone1_7, humOnZone2_3, humOnZone4_5_6, deHumOnZone1_7, deHumOnZone2_3, deHumOnZone4_5_6,
+		output signal cutPowZ1, cutPowZ2, cutPowZ3, cutPowZ4, cutPowZ5E, cutPowZ6, cutPowZ7E;
+		output signal powZ1, powZ2, powZ3, powZ4, powZ5E, powZ6, powZ7E;
 		
 		output signal alarmZone1TriggerE, alarmZone2TriggerE, alarmZone3TriggerE, alarmZone4TriggerE; alarmZone5TriggerE; alarmZone6TriggerE, alarmZone7TriggerE;
 		output signal cleanZone1TriggerE, cleanZone2TriggerE, cleanZone3TriggerE, cleanZone4TriggerE, cleanZone5TriggerE, cleanZone6TriggerE, cleanZone7TriggerE;
 		output signal fanOnZone1_7TriggerE, heatOnZone1_7TriggerE, airOnZone2_3TriggerE, airOnZone4_5_6TriggerE, heatOnZone2_3TriggerE, heatOnZone4_5_6TriggerE;
 		output signal humOnZone1_7TriggerE, humOnZone2_3TriggerE, humOnZone4_5_6TriggerE, deHumOnZone1_7TriggerE, deHumOnZone2_3TriggerE, deHumOnZone4_5_6TriggerE,
+		output signal cutPowZ1_TriggerE, cutPowZ2_TriggerE, cutPowZ3_TriggerE, cutPowZ4_TriggerE, cutPowZ5_TriggerE, cutPowZ6_TriggerE, cutPowZ7_TriggerE;
 		)
 ->
 {
@@ -26,34 +30,278 @@ Plant(
 
 	{// 
 		while(true){
-
-			abort(bottleAtPos2 && rotate){
-				while(true) {
-					emit botPos3;
-					pause;
+			
+			// WAIT FOR USER TO START SIMULATION
+			await(run);
+			
+			// CHECK FOR FIREEEEEE (MOST IMPORTANT)
+			abort(fire){
+			
+				if(zone == 1){
+					while(true){
+						emit fireZone1;
+						pause;
+					}
+				}
+				
+				if(zone == 2){
+					while(true){
+						emit fireZone2;
+						pause;
+					}
+				}
+				
+				if(zone == 3){
+					while(true){
+						emit fireZone3;
+						pause;
+					}
+				}
+				
+				if(zone == 4){
+					while(true){
+						emit fireZone4;
+						pause;
+					}
+				}
+				
+				if(zone == 5){
+					while(true){
+						emit fireZone5;
+						pause;
+					}
+				}
+				
+				if(zone == 6){
+					while(true){
+						emit fireZone7;
+						pause;
+					}
+				}
+				
+				if(zone == 7){
+					while(true){
+						emit fireZone7;
+						pause;				
+					}
 				}
 			}
-			await(!rotate);
 
-			abort(bottleAtPos3 && rotate){
-				while(true) {
-					emit botPos4;
-					pause;
+
+			// CHECK FOR CLEANLINESS
+			abort(dust){
+			
+				if(zone == 1){
+					while(true){
+						emit cleanZone1;
+						pause;
+					}
+				}
+				
+				if(zone == 2){
+					while(true){
+						emit cleanZone2;
+						pause;
+					}
+				}
+				
+				if(zone == 3){
+					while(true){
+						emit cleanZone3;
+						pause;
+					}
+				}
+				
+				if(zone == 4){
+					while(true){
+						emit cleanZone4;
+						pause;
+					}
+				}
+				
+				if(zone == 5){
+					while(true){
+						emit cleanZone5;
+						pause;
+					}
+				}
+				
+				if(zone == 6){
+					while(true){
+						emit cleanZone7;
+						pause;
+					}
+				}
+				
+				if(zone == 7){
+					while(true){
+						emit cleanZone7;
+						pause;				
+					}
 				}
 			}
-			await(!rotate);
-
-			abort(bottleAtPos4 && rotate){
-				while(true) {
-					emit botPos5;
-					pause;
+			
+			// CHECK FOR POWER SWITCH EDIT LATER
+			abort(power){
+			
+				if(zone == 1){
+					while(true){
+						emit cutPowZ1;
+						pause;
+					}
+				}
+				
+				if(zone == 2){
+					while(true){
+						emit cutPowZ2;
+						pause;
+					}
+				}
+				
+				if(zone == 3){
+					while(true){
+						emit cutPowZ3;
+						pause;
+					}
+				}
+				
+				if(zone == 4){
+					while(true){
+						emit cutPowZ4;
+						pause;
+					}
+				}
+				
+				if(zone == 5){
+					while(true){
+						emit cutPowZ5;
+						pause;
+					}
+				}
+				
+				if(zone == 6){
+					while(true){
+						emit cutPowZ6;
+						pause;
+					}
+				}
+				
+				if(zone == 7){
+					while(true){
+						emit cutPowZ7;
+						pause;				
+					}
 				}
 			}
-			await(!rotate);
-
-			abort(bottleAtPos5 && rotate){
-				emit tableAligned;
+			
+			
+			
+					
+			
+			// CHECK TEMPERATURES FOR ZONES 1 & 7
+			if(zone == 1 || zone == 7){
+				int temp17 = 0;
+				temp17 = #tempZone1_7;
+				if(temp17 > 22){
+					white(true){
+						System.out.println("");
+						System.out.println("Room temperature is too high at " + temp17);
+						emit fanOnZone1_7;
+						pause;
+					}
+				} else if(temp17 < 21){
+					white(true){
+						System.out.println("Room temperature is too low at " + temp17);
+						emit heatOnZone1_7;
+						pause;
+					}
+				} else {
+					System.out.println("");
+					System.out.println("Room temperature is safe at" + temp17);
+				}	
 			}
+			
+			// CHECK TEMPERATURES FOR ZONES 2 & 3
+			if(zone == 2 || zone == 3){
+				int temp23 = 0;
+				temp23 = #tempZone2_3;
+				if(temp23 > 22){
+					white(true){
+						System.out.println("");
+						System.out.println("Room temperature is too high at " + temp23);
+						emit airOnZone2_3;
+						pause;
+					}
+				} else if(temp23 < 21){
+					white(true){
+						emit heatOnZone2_3;
+						pause;
+					}
+				} else {
+					System.out.println("");
+					System.out.println("Room temperature is safe at" + temp23);
+				}	
+			}
+			
+				
+			// CHECK TEMPERATURE FOR ZONES 4 & 5 & 6
+			if(zone == 4 || zone == 5 || zone == 6){
+				int temp456 = 0;
+				temp456 = #tempZone4_5_6;
+				if(temp456 > 22){
+					white(true){
+						System.out.println("");
+						System.out.println("Room temperature is too high at " + temp456);
+						emit airOnZone4_5_6;
+						pause;
+					}
+				} else if(temp456 < 21){
+					white(true){
+						System.out.println("");
+						System.out.println("Room temperature is too low at " + temp456);
+						emit heatOnZone4_5_6;
+						pause;
+					}
+				} else {
+					System.out.println("");
+					System.out.println("Room temperature is safe at" + temp456);
+				}	
+			}
+			
+			
+			
+			
+			
+			
+			
+			// CHECK HUMIDITY FOR ZONES 1 & 7
+			if(zone == 1 || zone == 7){
+				int humid17 = 0;
+				humid17 = #humidZone1_7;
+				if(humid17 > 60){
+					white(true){
+						System.out.println("");
+						System.out.println("Room humidity is too high at " + humid17);
+						System.out.println("Turning off humidifier");
+						emit deHumOnZone1_7;
+						pause;
+					}
+				} else if(humid17 < 30){
+					white(true){
+						System.out.println("");
+						System.out.println("Room humidity is too low at " + humid17);
+						System.out.println("Turning on humidifier");
+						emit humOnZone1_7;
+						pause;
+					}
+				} else {
+					System.out.println("");
+					System.out.println("Room humidity is safe at" + humid17);
+				}	
+			}
+			
+						
+			
 			pause;
 		}
 	}
