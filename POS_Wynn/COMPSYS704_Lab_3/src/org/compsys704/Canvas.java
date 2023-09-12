@@ -76,227 +76,233 @@ public class Canvas {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		
 		frmAbs = new JFrame();
 		frmAbs.getContentPane().setBackground(new Color(87, 87, 130));
 		frmAbs.setForeground(new Color(87, 87, 130));
 		frmAbs.getContentPane().setForeground(new Color(87, 87, 130));
-		frmAbs.setTitle("ABS");
+		frmAbs.setTitle("Purchase Order System");
 		frmAbs.setBounds(100, 100, 700, 600);
 		frmAbs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAbs.getContentPane().setLayout(null);
 		
-		JSlider slider = new JSlider();
-		slider.setBackground(new Color(87, 87, 130));
-		slider.setPaintLabels(true);
-		slider.setSnapToTicks(true);
-		slider.setValue(0);
-		slider.setBounds(141, 151, 437, 26);
-		frmAbs.getContentPane().add(slider);
+		JSlider sliderRedWine = new JSlider();
+		sliderRedWine.setBackground(new Color(87, 87, 130));
+		sliderRedWine.setPaintLabels(true);
+		sliderRedWine.setSnapToTicks(true);
+		sliderRedWine.setValue(0);
+		sliderRedWine.setBounds(141, 151, 437, 26);
+		frmAbs.getContentPane().add(sliderRedWine);
 		
 		
-		JLabel lblNewLabel = new JLabel("Sangria Cocktail Mix");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 31));
-		lblNewLabel.setBounds(181, 47, 321, 46);
-		frmAbs.getContentPane().add(lblNewLabel);
+		JLabel titleSangria = new JLabel("Sangria Cocktail Mix");
+		titleSangria.setHorizontalAlignment(SwingConstants.CENTER);
+		titleSangria.setForeground(new Color(255, 255, 255));
+		titleSangria.setFont(new Font("Arial", Font.BOLD, 31));
+		titleSangria.setBounds(181, 47, 321, 46);
+		frmAbs.getContentPane().add(titleSangria);
 		
-		JSlider slider_1 = new JSlider();
-		slider_1.setBackground(new Color(87, 87, 130));
-		slider_1.setValue(0);
-		slider_1.setSnapToTicks(true);
-		slider_1.setPaintLabels(true);
-		slider_1.setBounds(141, 214, 437, 26);
-		frmAbs.getContentPane().add(slider_1);
+		JSlider sliderLemonade = new JSlider();
+		sliderLemonade.setBackground(new Color(87, 87, 130));
+		sliderLemonade.setValue(0);
+		sliderLemonade.setSnapToTicks(true);
+		sliderLemonade.setPaintLabels(true);
+		sliderLemonade.setBounds(141, 214, 437, 26);
+		frmAbs.getContentPane().add(sliderLemonade);
 		
-		JLabel lblNewLabel_1 = new JLabel("Orange Juice");
-		lblNewLabel_1.setFont(new Font("Arial", Font.BOLD, 13));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBounds(46, 282, 85, 16);
-		frmAbs.getContentPane().add(lblNewLabel_1);
+		JLabel labelOrangeJuice = new JLabel("Orange Juice");
+		labelOrangeJuice.setFont(new Font("Arial", Font.BOLD, 13));
+		labelOrangeJuice.setHorizontalAlignment(SwingConstants.RIGHT);
+		labelOrangeJuice.setForeground(new Color(255, 255, 255));
+		labelOrangeJuice.setBounds(46, 282, 85, 16);
+		frmAbs.getContentPane().add(labelOrangeJuice);
 		
-		JSlider slider_2 = new JSlider();
-		slider_2.setBackground(new Color(87, 87, 130));
-		slider_2.setValue(0);
-		slider_2.setSnapToTicks(true);
-		slider_2.setPaintLabels(true);
-		slider_2.setBounds(141, 277, 437, 26);
-		frmAbs.getContentPane().add(slider_2);
+		JSlider sliderOrangeJuice = new JSlider();
+		sliderOrangeJuice.setBackground(new Color(87, 87, 130));
+		sliderOrangeJuice.setValue(0);
+		sliderOrangeJuice.setSnapToTicks(true);
+		sliderOrangeJuice.setPaintLabels(true);
+		sliderOrangeJuice.setBounds(141, 277, 437, 26);
+		frmAbs.getContentPane().add(sliderOrangeJuice);
 		
-		JLabel lblNewLabel_2 = new JLabel("Sugar Syrup");
-		lblNewLabel_2.setFont(new Font("Arial", Font.BOLD, 13));
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		lblNewLabel_2.setBounds(52, 345, 79, 16);
-		frmAbs.getContentPane().add(lblNewLabel_2);
+		JLabel labelSugarSyrup = new JLabel("Sugar Syrup");
+		labelSugarSyrup.setFont(new Font("Arial", Font.BOLD, 13));
+		labelSugarSyrup.setHorizontalAlignment(SwingConstants.RIGHT);
+		labelSugarSyrup.setForeground(new Color(255, 255, 255));
+		labelSugarSyrup.setBounds(52, 345, 79, 16);
+		frmAbs.getContentPane().add(labelSugarSyrup);
 				
-		JSlider slider_3 = new JSlider();
-		slider_3.setBackground(new Color(87, 87, 130));
-		slider_3.setValue(0);
-		slider_3.setSnapToTicks(true);
-		slider_3.setPaintLabels(true);
-		slider_3.setBounds(141, 340, 437, 26);
-		frmAbs.getContentPane().add(slider_3);
+		JSlider sliderSugarSyrup = new JSlider();
+		sliderSugarSyrup.setBackground(new Color(87, 87, 130));
+		sliderSugarSyrup.setValue(0);
+		sliderSugarSyrup.setSnapToTicks(true);
+		sliderSugarSyrup.setPaintLabels(true);
+		sliderSugarSyrup.setBounds(141, 340, 437, 26);
+		frmAbs.getContentPane().add(sliderSugarSyrup);
 		
-		JLabel lblNewLabel_3 = new JLabel("Bottles");
-		lblNewLabel_3.setFont(new Font("Arial", Font.BOLD, 13));
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_3.setForeground(new Color(255, 255, 255));
-		lblNewLabel_3.setBounds(88, 408, 43, 16);
-		frmAbs.getContentPane().add(lblNewLabel_3);
+		JLabel labelBottles = new JLabel("Bottles");
+		labelBottles.setFont(new Font("Arial", Font.BOLD, 13));
+		labelBottles.setHorizontalAlignment(SwingConstants.RIGHT);
+		labelBottles.setForeground(new Color(255, 255, 255));
+		labelBottles.setBounds(88, 408, 43, 16);
+		frmAbs.getContentPane().add(labelBottles);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Lemonade");
-		lblNewLabel_1_1.setFont(new Font("Arial", Font.BOLD, 13));
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1_1.setBounds(63, 219, 68, 16);
-		frmAbs.getContentPane().add(lblNewLabel_1_1);
+		JLabel labelLemonade = new JLabel("Lemonade");
+		labelLemonade.setFont(new Font("Arial", Font.BOLD, 13));
+		labelLemonade.setHorizontalAlignment(SwingConstants.RIGHT);
+		labelLemonade.setForeground(new Color(255, 255, 255));
+		labelLemonade.setBounds(63, 219, 68, 16);
+		frmAbs.getContentPane().add(labelLemonade);
 		
-		JLabel lblNewLabel_3_1 = new JLabel("0%");
-		lblNewLabel_3_1.setFont(new Font("Arial", Font.PLAIN, 15));
-		lblNewLabel_3_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_3_1.setBounds(596, 346, 46, 14);
-		frmAbs.getContentPane().add(lblNewLabel_3_1);
+		JLabel totalSugarSyrup = new JLabel("0%");
+		totalSugarSyrup.setFont(new Font("Arial", Font.PLAIN, 15));
+		totalSugarSyrup.setForeground(new Color(255, 255, 255));
+		totalSugarSyrup.setBounds(596, 346, 46, 14);
+		frmAbs.getContentPane().add(totalSugarSyrup);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("0%");
-		lblNewLabel_2_1.setFont(new Font("Arial", Font.PLAIN, 15));
-		lblNewLabel_2_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_2_1.setBounds(596, 283, 46, 14);
-		frmAbs.getContentPane().add(lblNewLabel_2_1);
-		
-
-		JLabel lblNewLabel_1_2 = new JLabel("0%");
-		lblNewLabel_1_2.setFont(new Font("Arial", Font.PLAIN, 15));
-		lblNewLabel_1_2.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1_2.setBounds(596, 220, 46, 14);
-		frmAbs.getContentPane().add(lblNewLabel_1_2);
-		
-		JLabel lblNewLabel_1_1_1 = new JLabel("");
-		lblNewLabel_1_1_1.setFont(new Font("Arial", Font.PLAIN, 15));
-		lblNewLabel_1_1_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1_1_1.setBounds(596, 157, 46, 14);
-		lblNewLabel_1_1_1.setText(slider.getValue() + "%");
-		
-		frmAbs.getContentPane().add(lblNewLabel_1_1_1);
+		JLabel totalOrangeJuice = new JLabel("0%");
+		totalOrangeJuice.setFont(new Font("Arial", Font.PLAIN, 15));
+		totalOrangeJuice.setForeground(new Color(255, 255, 255));
+		totalOrangeJuice.setBounds(596, 283, 46, 14);
+		frmAbs.getContentPane().add(totalOrangeJuice);
 		
 
+		JLabel totalLemonade = new JLabel("0%");
+		totalLemonade.setFont(new Font("Arial", Font.PLAIN, 15));
+		totalLemonade.setForeground(new Color(255, 255, 255));
+		totalLemonade.setBounds(596, 220, 46, 14);
+		frmAbs.getContentPane().add(totalLemonade);
 		
-		JButton btnNewButton = new JButton("Place Order");
-		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 14));
-		btnNewButton.setEnabled(false);
-		btnNewButton.addActionListener(new ActionListener() {
+		JLabel totalRedWine = new JLabel("");
+		totalRedWine.setFont(new Font("Arial", Font.PLAIN, 15));
+		totalRedWine.setForeground(new Color(255, 255, 255));
+		totalRedWine.setBounds(596, 157, 46, 14);
+		totalRedWine.setText(sliderRedWine.getValue() + "%");
+		
+		frmAbs.getContentPane().add(totalRedWine);
+		
+
+		
+		JButton buttonPlaceOrder = new JButton("Place Order");
+		buttonPlaceOrder.setFont(new Font("Arial", Font.PLAIN, 14));
+		buttonPlaceOrder.setEnabled(false);
+		buttonPlaceOrder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(286, 470, 111, 23);
-		frmAbs.getContentPane().add(btnNewButton);
+		buttonPlaceOrder.setBounds(286, 470, 111, 23);
+		frmAbs.getContentPane().add(buttonPlaceOrder);
 		
-		JLabel lblNewLabel_3_2 = new JLabel("Red Wine");
-		lblNewLabel_3_2.setFont(new Font("Arial", Font.BOLD, 13));
-		lblNewLabel_3_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_3_2.setForeground(new Color(255, 255, 255));
-		lblNewLabel_3_2.setBounds(69, 156, 62, 16);
-		frmAbs.getContentPane().add(lblNewLabel_3_2);
+		JLabel labelRedWine = new JLabel("Red Wine");
+		labelRedWine.setFont(new Font("Arial", Font.BOLD, 13));
+		labelRedWine.setHorizontalAlignment(SwingConstants.RIGHT);
+		labelRedWine.setForeground(new Color(255, 255, 255));
+		labelRedWine.setBounds(69, 156, 62, 16);
+		frmAbs.getContentPane().add(labelRedWine);
 	
 
-		JSlider slider_3_1 = new JSlider();
-		slider_3_1.setMinimum(10);
-		slider_3_1.setBackground(new Color(87, 87, 130));
-		slider_3_1.setValue(0);
-		slider_3_1.setSnapToTicks(true);
-		slider_3_1.setPaintLabels(true);
-		slider_3_1.setBounds(141, 403, 437, 26);
-		frmAbs.getContentPane().add(slider_3_1);
+		JSlider sliderBottles = new JSlider();
+		sliderBottles.setMinimum(10);
+		sliderBottles.setBackground(new Color(87, 87, 130));
+		sliderBottles.setValue(0);
+		sliderBottles.setSnapToTicks(true);
+		sliderBottles.setPaintLabels(true);
+		sliderBottles.setBounds(141, 403, 437, 26);
+		frmAbs.getContentPane().add(sliderBottles);
 		
 
-		JLabel lblNewLabel_3_1_1 = new JLabel("10");
-		lblNewLabel_3_1_1.setFont(new Font("Arial", Font.PLAIN, 15));
-		lblNewLabel_3_1_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_3_1_1.setBounds(596, 409, 46, 14);
-		frmAbs.getContentPane().add(lblNewLabel_3_1_1);
+		JLabel totalBottles = new JLabel("10");
+		totalBottles.setFont(new Font("Arial", Font.PLAIN, 15));
+		totalBottles.setForeground(new Color(255, 255, 255));
+		totalBottles.setBounds(596, 409, 46, 14);
+		frmAbs.getContentPane().add(totalBottles);
 		
-	    slider_3_1.addChangeListener(new ChangeListener() {
+		// BOTTLE EVENT LISTENER
+	    sliderBottles.addChangeListener(new ChangeListener() {
 	        public void stateChanged(ChangeEvent event) {
-	        	lblNewLabel_3_1_1.setText(slider_3_1.getValue() + "");
+	        	totalBottles.setText(sliderBottles.getValue() + "");
 	        }
 	      });
 
 	    
-	    slider.addChangeListener(new ChangeListener() {
+	    // RED WINE EVENT LISTENER
+	    sliderRedWine.addChangeListener(new ChangeListener() {
 	        public void stateChanged(ChangeEvent event) {
-	        	lblNewLabel_1_1_1.setText(slider.getValue() + "%");
-	    		slider_3.setExtent(100 - (100 - slider.getValue() - slider_1.getValue() - slider_2.getValue()));
-	    		slider_2.setExtent(100 - (100 - slider.getValue() - slider_3.getValue() - slider_1.getValue()));
-	    		slider_1.setExtent(100 - (100 - slider_2.getValue() - slider_3.getValue() - slider.getValue()));
-	    		if (slider.getValue() + slider_1.getValue() + slider_2.getValue() + slider_3.getValue() == 100) {
-	    			btnNewButton.setEnabled(true);
+	        	totalRedWine.setText(sliderRedWine.getValue() + "%");
+	    		sliderSugarSyrup.setExtent(100 - (100 - sliderRedWine.getValue() - sliderLemonade.getValue() - sliderOrangeJuice.getValue()));
+	    		sliderOrangeJuice.setExtent(100 - (100 - sliderRedWine.getValue() - sliderSugarSyrup.getValue() - sliderLemonade.getValue()));
+	    		sliderLemonade.setExtent(100 - (100 - sliderOrangeJuice.getValue() - sliderSugarSyrup.getValue() - sliderRedWine.getValue()));
+	    		if (sliderRedWine.getValue() + sliderLemonade.getValue() + sliderOrangeJuice.getValue() + sliderSugarSyrup.getValue() == 100) {
+	    			buttonPlaceOrder.setEnabled(true);
 	    		}
 	    		else {
-	    			btnNewButton.setEnabled(false);
+	    			buttonPlaceOrder.setEnabled(false);
 	    		}
 	        }
 	      });
-
-	    slider_1.addChangeListener(new ChangeListener() {
+	    
+	    // LEMONADE EVENT LISTENER
+	    sliderLemonade.addChangeListener(new ChangeListener() {
 	        public void stateChanged(ChangeEvent event) {
-	        	lblNewLabel_1_2.setText(slider_1.getValue() + "%");
-	    		slider_3.setExtent(100 - (100 - slider.getValue() - slider_1.getValue() - slider_2.getValue()));
-	    		slider_2.setExtent(100 - (100 - slider.getValue() - slider_3.getValue() - slider_1.getValue()));
-	    		slider.setExtent(100 - (100 - slider_2.getValue() - slider_3.getValue() - slider_1.getValue()));
-	    		if (slider.getValue() + slider_1.getValue() + slider_2.getValue() + slider_3.getValue() == 100) {
-	    			btnNewButton.setEnabled(true);
+	        	totalLemonade.setText(sliderLemonade.getValue() + "%");
+	    		sliderSugarSyrup.setExtent(100 - (100 - sliderRedWine.getValue() - sliderLemonade.getValue() - sliderOrangeJuice.getValue()));
+	    		sliderOrangeJuice.setExtent(100 - (100 - sliderRedWine.getValue() - sliderSugarSyrup.getValue() - sliderLemonade.getValue()));
+	    		sliderRedWine.setExtent(100 - (100 - sliderOrangeJuice.getValue() - sliderSugarSyrup.getValue() - sliderLemonade.getValue()));
+	    		if (sliderRedWine.getValue() + sliderLemonade.getValue() + sliderOrangeJuice.getValue() + sliderSugarSyrup.getValue() == 100) {
+	    			buttonPlaceOrder.setEnabled(true);
 	    		}
 	    		else {
-	    			btnNewButton.setEnabled(false);
-	    		}
-
-	        }
-	      });
-
-	    slider_2.addChangeListener(new ChangeListener() {
-	        public void stateChanged(ChangeEvent event) {
-	        	lblNewLabel_2_1.setText(slider_2.getValue() + "%");
-//	    		slider_3.setMaximum(100 - slider.getValue() - slider_1.getValue() - slider_2.getValue());
-	    		slider_3.setExtent(100 - (100 - slider.getValue() - slider_1.getValue() - slider_2.getValue()));
-	    		slider.setExtent(100 - (100 - slider_2.getValue() - slider_3.getValue() - slider_1.getValue()));
-	    		slider_1.setExtent(100 - (100 - slider_2.getValue() - slider_3.getValue() - slider.getValue()));
-	    		if (slider.getValue() + slider_1.getValue() + slider_2.getValue() + slider_3.getValue() == 100) {
-	    			btnNewButton.setEnabled(true);
-	    		}
-	    		else {
-	    			btnNewButton.setEnabled(false);
+	    			buttonPlaceOrder.setEnabled(false);
 	    		}
 
 	        }
 	      });
 
-	    slider_3.addChangeListener(new ChangeListener() {
+	    // ORANGE JUICE EVENT LISTENER
+	    sliderOrangeJuice.addChangeListener(new ChangeListener() {
 	        public void stateChanged(ChangeEvent event) {
-	        	lblNewLabel_3_1.setText(slider_3.getValue() + "%");
-	    		slider.setExtent(100 - (100 - slider_3.getValue() - slider_1.getValue() - slider_2.getValue()));
-	    		slider_2.setExtent(100 - (100 - slider.getValue() - slider_3.getValue() - slider_1.getValue()));
-	    		slider_1.setExtent(100 - (100 - slider_2.getValue() - slider_3.getValue() - slider.getValue()));
-	    		if (slider.getValue() + slider_1.getValue() + slider_2.getValue() + slider_3.getValue() == 100) {
-	    			btnNewButton.setEnabled(true);
+	        	totalOrangeJuice.setText(sliderOrangeJuice.getValue() + "%");
+	    		sliderSugarSyrup.setExtent(100 - (100 - sliderRedWine.getValue() - sliderLemonade.getValue() - sliderOrangeJuice.getValue()));
+	    		sliderRedWine.setExtent(100 - (100 - sliderOrangeJuice.getValue() - sliderSugarSyrup.getValue() - sliderLemonade.getValue()));
+	    		sliderLemonade.setExtent(100 - (100 - sliderOrangeJuice.getValue() - sliderSugarSyrup.getValue() - sliderRedWine.getValue()));
+	    		if (sliderRedWine.getValue() + sliderLemonade.getValue() + sliderOrangeJuice.getValue() + sliderSugarSyrup.getValue() == 100) {
+	    			buttonPlaceOrder.setEnabled(true);
 	    		}
 	    		else {
-	    			btnNewButton.setEnabled(false);
+	    			buttonPlaceOrder.setEnabled(false);
+	    		}
+
+	        }
+	      });
+
+	    // SUGAR SYRUP EVENT LISTENER
+	    sliderSugarSyrup.addChangeListener(new ChangeListener() {
+	        public void stateChanged(ChangeEvent event) {
+	        	totalSugarSyrup.setText(sliderSugarSyrup.getValue() + "%");
+	        	sliderRedWine.setExtent(100 - (100 - sliderSugarSyrup.getValue() - sliderLemonade.getValue() - sliderOrangeJuice.getValue()));
+	    		sliderOrangeJuice.setExtent(100 - (100 - sliderRedWine.getValue() - sliderSugarSyrup.getValue() - sliderLemonade.getValue()));
+	    		sliderLemonade.setExtent(100 - (100 - sliderOrangeJuice.getValue() - sliderSugarSyrup.getValue() - sliderRedWine.getValue()));
+	    		if (sliderRedWine.getValue() + sliderLemonade.getValue() + sliderOrangeJuice.getValue() + sliderSugarSyrup.getValue() == 100) {
+	    			buttonPlaceOrder.setEnabled(true);
+	    		}
+	    		else {
+	    			buttonPlaceOrder.setEnabled(false);
 	    		}
 
 	        }
 	      });
 
 
-		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon("res\\sangriamix.png"));
-		lblNewLabel_4.setBounds(96, 32, 75, 73);
-		frmAbs.getContentPane().add(lblNewLabel_4);
+		JLabel sangriaImageLeft = new JLabel("");
+		sangriaImageLeft.setIcon(new ImageIcon("res\\sangriamix.png"));
+		sangriaImageLeft.setBounds(96, 32, 75, 73);
+		frmAbs.getContentPane().add(sangriaImageLeft);
 		
-		JLabel lblNewLabel_4_1 = new JLabel("");
-		lblNewLabel_4_1.setIcon(new ImageIcon("res\\sangriamix.png"));
-		lblNewLabel_4_1.setBounds(522, 32, 75, 73);
-		frmAbs.getContentPane().add(lblNewLabel_4_1);
+		JLabel sangriaImageRight = new JLabel("");
+		sangriaImageRight.setIcon(new ImageIcon("res\\sangriamix.png"));
+		sangriaImageRight.setBounds(522, 32, 75, 73);
+		frmAbs.getContentPane().add(sangriaImageRight);
 				
 	}
 }
