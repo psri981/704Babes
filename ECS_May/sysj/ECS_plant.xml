@@ -20,6 +20,11 @@
 			<iSignal Name="time"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			<iSignal Name="selectedZone"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			
+			<iSignal Name="powerOff"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="alarmOff"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="roomCleaned"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="safeOpTemp"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			
 			<iSignal Name="run"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 
 			<oSignal Name="fireZone1" To="ECSControllerCD.capOnPos1" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />

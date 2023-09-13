@@ -9,7 +9,7 @@ Plant(
 		input String signal time;
 		
 		input signal humanZ1, humanZ2, humanZ3, humanZ4, humanZ5, humanZ6, humanZ7,
-		input signal dust, fire, powerOff; 
+		input signal dust, fire, powerOff, alarmOn, roomCleaned;
 		input signal run;
 
 		output signal fireZone1, fireZone2, fireZone3, fireZone4, fireZone5, fireZone6, fireZone7;
@@ -57,6 +57,8 @@ Plant(
 						emit fireZone1;
 						pause;
 					}
+					await(alarmOff);
+					System.out.println("Fire Out");
 				}	
 				if(zone == 2){
 					while(true){
@@ -125,7 +127,9 @@ Plant(
 					}
 				}
 			}
-
+			
+			// Only run rest of code when there is no fire
+			await(run);
 
 			// CHECK FOR CLEANLINESS
 			abort(dust){

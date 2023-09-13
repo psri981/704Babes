@@ -2,34 +2,44 @@ Controller(
 		input signal fireZone1, fireZone2, fireZone3, fireZone4, fireZone5, fireZone6, fireZone7;
 		input signal cleanZone1, cleanZone2, cleanZone3, cleanZone4, cleanZone5, cleanZone6, cleanZone7;
 		input signal fanOnZone1_7, heatOnZone1_7, airOnZone2_3, airOnZone4_5_6, heatOnZone2_3, heatOnZone4_5_6;
-		input signal blindsDownZone1_7; blindsDownZone2_3; blindsDownZone4_5_6;  
+		//input signal blindsDownZone1_7; blindsDownZone2_3; blindsDownZone4_5_6;  
 		input signal humOnZone1_7, humOnZone2_3, humOnZone4_5_6, deHumOnZone1_7, deHumOnZone2_3, deHumOnZone4_5_6,
 		
+		output safeOpTemp; safeOpHumid;
 		output signal powerOff, roomCleaned, fireOut, alarmOff, blindsDown, evacuated;
 		)
 ->{
 	/* TODO: Write control-logic */
 	while(true) {
+		
+		// CHECK FOR POWER CUTS
+		abort(cutPowZ1 || cutPowZ2 || cutPowZ3 || cutPowZ4 || cutPowZ5 || cutPowZ6 || cutPowZ7){
+			wait 5000ms; // wait 5 seconds
+			emit powerOff;
+			pause;
+		}
 	
-		abort(tableAligned){
-			emit bottleAtPos1;
+		// CHECK FOR FIRE
+		abort(fireZone1 || fireZone2 || fireZone3 || fireZone4 || fireZone5 || fireZone6 || fireZone7){
+			wait 5000ms; // wait 5 seconds
+			alarmOff;
+			pause;
 		}
 
-		abort(botPos2){
-			emit bottleAtPos2;
+		// CHECK FOR CLEANLINESS
+		abort(cleanZone1 || cleanZone2 || cleanZone3 || cleanZone4 || cleanZone5 || cleanZone6 || cleanZone7){
+			wait 5000ms; // wait 5 seconds
+			emit roomCleaned;
+			pause;
 		}
-
-		abort(botPos3){
-			emit bottleAtPos3;
+		
+		// CHECK FOR TEMPERATURE AND HUMIDITY CHANGES
+		abort(fanOnZone1_7 || heatOnZone1_7 || airOnZone2_3 || airOnZone4_5_6 || heatOnZone2_3 || heatOnZone4_5_6){
+			wait 5000ms; // wait 5 seconds
+			emit safeOpTemp;
+			pause;
 		}
-
-		abort(botPos4){
-			emit bottleAtPos4;
-		}
-
-		abort(botPos5){
-			emit bottleAtPos5;
-		}
+		
 		pause;
 	}
 }

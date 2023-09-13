@@ -25,11 +25,11 @@
 			<iSignal Name="cleanZone6"           Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
 			<iSignal Name="cleanZone7"         Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
 	
-			<oSignal Name="powerOff" To="ECSPlantCD.bottleAtPos1" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="roomCleaned" To="ECSPlantCD.bottleAtPos2" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="alarmOff" To="ECSPlantCD.bottleAtPos3" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="blindsDown" To="ECSPlantCD.bottleAtPos4" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="evacuated" To="ECSPlantCD.bottleAtPos5" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="powerOff" To="ECSPlantCD.powerOff" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="roomCleaned" To="ECSPlantCD.roomCleaned" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="alarmOff" To="ECSPlantCD.alarmOff" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="blindsDown" To="ECSPlantCD.blindsDown" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="evacuated" To="ECSPlantCD.evacuated" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
 
 		</ClockDomain>
 	</SubSystem>
