@@ -15,13 +15,105 @@ public class Plant extends ClockDomain{
   public Signal orderStart = new Signal("orderStart", Signal.INPUT);
   public Signal liquidMix = new Signal("liquidMix", Signal.INPUT);
   public Signal bottleQuantity = new Signal("bottleQuantity", Signal.INPUT);
-  private Integer y_thread_1;//sysj\plant.sysj line: 15, column: 5
-  private String x_thread_1;//sysj\plant.sysj line: 16, column: 5
-  private int S112 = 1;
+  public Signal orderDoneFlag = new Signal("orderDoneFlag", Signal.INPUT);
+  public Signal orderDoneGUIFlag = new Signal("orderDoneGUIFlag", Signal.OUTPUT);
+  private Integer y_thread_2;//sysj\plant.sysj line: 18, column: 5
+  private String x_thread_2;//sysj\plant.sysj line: 19, column: 5
+  private int S48 = 1;
+  private int S19 = 1;
+  private int S27 = 1;
   
-  private int[] ends = new int[2];
-  private int[] tdone = new int[2];
+  private int[] ends = new int[4];
+  private int[] tdone = new int[4];
   
+  public void thread54(int [] tdone, int [] ends){
+        switch(S27){
+      case 0 : 
+        active[3]=0;
+        ends[3]=0;
+        tdone[3]=1;
+        break;
+      
+      case 1 : 
+        if(orderDoneFlag.getprestatus()){//sysj\plant.sysj line: 32, column: 24
+          orderDoneGUIFlag.setPresent();//sysj\plant.sysj line: 32, column: 39
+          currsigs.addElement(orderDoneGUIFlag);
+          active[3]=1;
+          ends[3]=1;
+          tdone[3]=1;
+        }
+        else {
+          active[3]=1;
+          ends[3]=1;
+          tdone[3]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread53(int [] tdone, int [] ends){
+        switch(S19){
+      case 0 : 
+        active[2]=0;
+        ends[2]=0;
+        tdone[2]=1;
+        break;
+      
+      case 1 : 
+        if(orderStart.getprestatus()){//sysj\plant.sysj line: 17, column: 12
+                              y_thread_2 = (bottleQuantity.getpreval() == null ? null : ((Integer)bottleQuantity.getpreval()));//sysj\plant.sysj line: 21, column: 5
+          x_thread_2 = (liquidMix.getpreval() == null ? null : ((String)liquidMix.getpreval()));//sysj\plant.sysj line: 22, column: 5
+          System.out.println("Bottle Quantity: " + y_thread_2);//sysj\plant.sysj line: 24, column: 5
+          System.out.println("Liquid Mix: " + x_thread_2);//sysj\plant.sysj line: 25, column: 5
+          active[2]=1;
+          ends[2]=1;
+          tdone[2]=1;
+        }
+        else {
+          active[2]=1;
+          ends[2]=1;
+          tdone[2]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread51(int [] tdone, int [] ends){
+        S27=1;
+    if(orderDoneFlag.getprestatus()){//sysj\plant.sysj line: 32, column: 24
+      orderDoneGUIFlag.setPresent();//sysj\plant.sysj line: 32, column: 39
+      currsigs.addElement(orderDoneGUIFlag);
+      active[3]=1;
+      ends[3]=1;
+      tdone[3]=1;
+    }
+    else {
+      active[3]=1;
+      ends[3]=1;
+      tdone[3]=1;
+    }
+  }
+
+  public void thread50(int [] tdone, int [] ends){
+        S19=1;
+    if(orderStart.getprestatus()){//sysj\plant.sysj line: 17, column: 12
+                  y_thread_2 = (bottleQuantity.getpreval() == null ? null : ((Integer)bottleQuantity.getpreval()));//sysj\plant.sysj line: 21, column: 5
+      x_thread_2 = (liquidMix.getpreval() == null ? null : ((String)liquidMix.getpreval()));//sysj\plant.sysj line: 22, column: 5
+      System.out.println("Bottle Quantity: " + y_thread_2);//sysj\plant.sysj line: 24, column: 5
+      System.out.println("Liquid Mix: " + x_thread_2);//sysj\plant.sysj line: 25, column: 5
+      active[2]=1;
+      ends[2]=1;
+      tdone[2]=1;
+    }
+    else {
+      active[2]=1;
+      ends[2]=1;
+      tdone[2]=1;
+    }
+  }
+
   public void runClockDomain(){
     for(int i=0;i<ends.length;i++){
       ends[i] = 0;
@@ -29,43 +121,51 @@ public class Plant extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S112){
+      switch(S48){
         case 0 : 
-          S112=0;
+          S48=0;
           break RUN;
         
         case 1 : 
-          S112=2;
-          S112=2;
-          new Thread(new GUI()).start();//sysj\plant.sysj line: 10, column: 2
-          if(orderStart.getprestatus()){//sysj\plant.sysj line: 14, column: 12
-                                    y_thread_1 = (bottleQuantity.getpreval() == null ? null : ((Integer)bottleQuantity.getpreval()));//sysj\plant.sysj line: 18, column: 5
-            x_thread_1 = (liquidMix.getpreval() == null ? null : ((String)liquidMix.getpreval()));//sysj\plant.sysj line: 19, column: 5
-            System.out.println("Bottle Quantity: " + y_thread_1);//sysj\plant.sysj line: 21, column: 5
-            System.out.println("Liquid Mix: " + x_thread_1);//sysj\plant.sysj line: 22, column: 5
-            active[1]=1;
-            ends[1]=1;
-            break RUN;
+          S48=2;
+          S48=2;
+          new Thread(new GUI()).start();//sysj\plant.sysj line: 13, column: 2
+          thread50(tdone,ends);
+          thread51(tdone,ends);
+          int biggest52 = 0;
+          if(ends[2]>=biggest52){
+            biggest52=ends[2];
           }
-          else {
+          if(ends[3]>=biggest52){
+            biggest52=ends[3];
+          }
+          if(biggest52 == 1){
             active[1]=1;
             ends[1]=1;
             break RUN;
           }
         
         case 2 : 
-          if(orderStart.getprestatus()){//sysj\plant.sysj line: 14, column: 12
-                                    y_thread_1 = (bottleQuantity.getpreval() == null ? null : ((Integer)bottleQuantity.getpreval()));//sysj\plant.sysj line: 18, column: 5
-            x_thread_1 = (liquidMix.getpreval() == null ? null : ((String)liquidMix.getpreval()));//sysj\plant.sysj line: 19, column: 5
-            System.out.println("Bottle Quantity: " + y_thread_1);//sysj\plant.sysj line: 21, column: 5
-            System.out.println("Liquid Mix: " + x_thread_1);//sysj\plant.sysj line: 22, column: 5
+          thread53(tdone,ends);
+          thread54(tdone,ends);
+          int biggest55 = 0;
+          if(ends[2]>=biggest55){
+            biggest55=ends[2];
+          }
+          if(ends[3]>=biggest55){
+            biggest55=ends[3];
+          }
+          if(biggest55 == 1){
             active[1]=1;
             ends[1]=1;
             break RUN;
           }
-          else {
-            active[1]=1;
-            ends[1]=1;
+          //FINXME code
+          if(biggest55 == 0){
+            S48=0;
+            active[1]=0;
+            ends[1]=0;
+            S48=0;
             break RUN;
           }
         
@@ -74,9 +174,9 @@ public class Plant extends ClockDomain{
   }
 
   public void init(){
-    char [] active1 = {1, 1};
-    char [] paused1 = {0, 0};
-    char [] suspended1 = {0, 0};
+    char [] active1 = {1, 1, 1, 1};
+    char [] paused1 = {0, 0, 0, 0};
+    char [] suspended1 = {0, 0, 0, 0};
     paused = paused1;
     active = active1;
     suspended = suspended1;
@@ -98,6 +198,7 @@ public class Plant extends ClockDomain{
           orderStart.gethook();
           liquidMix.gethook();
           bottleQuantity.gethook();
+          orderDoneFlag.gethook();
           df = true;
         }
         runClockDomain();
@@ -105,6 +206,8 @@ public class Plant extends ClockDomain{
       orderStart.setpreclear();
       liquidMix.setpreclear();
       bottleQuantity.setpreclear();
+      orderDoneFlag.setpreclear();
+      orderDoneGUIFlag.setpreclear();
       int dummyint = 0;
       for(int qw=0;qw<currsigs.size();++qw){
         dummyint = ((Signal)currsigs.elementAt(qw)).getStatus() ? ((Signal)currsigs.elementAt(qw)).setprepresent() : ((Signal)currsigs.elementAt(qw)).setpreclear();
@@ -120,11 +223,17 @@ public class Plant extends ClockDomain{
       dummyint = bottleQuantity.getStatus() ? bottleQuantity.setprepresent() : bottleQuantity.setpreclear();
       bottleQuantity.setpreval(bottleQuantity.getValue());
       bottleQuantity.setClear();
+      dummyint = orderDoneFlag.getStatus() ? orderDoneFlag.setprepresent() : orderDoneFlag.setpreclear();
+      orderDoneFlag.setpreval(orderDoneFlag.getValue());
+      orderDoneFlag.setClear();
+      orderDoneGUIFlag.sethook();
+      orderDoneGUIFlag.setClear();
       if(paused[1]!=0 || suspended[1]!=0 || active[1]!=1);
       else{
         orderStart.gethook();
         liquidMix.gethook();
         bottleQuantity.gethook();
+        orderDoneFlag.gethook();
       }
       runFinisher();
       if(active[1] == 0){

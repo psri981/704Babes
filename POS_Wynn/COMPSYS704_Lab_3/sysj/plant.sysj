@@ -4,6 +4,9 @@ Plant(
 		input signal orderStart;
 		input String signal liquidMix;
 		input Integer signal bottleQuantity;
+		input signal orderDoneFlag;
+		
+		output signal orderDoneGUIFlag;
 		)
 ->
 {
@@ -23,5 +26,10 @@ Plant(
 			}
 			pause;
 		}
+	}	
+	||
+	{// To viz
+		{while(true){present(orderDoneFlag){emit orderDoneGUIFlag;} pause;}}
 	}
+	
 }

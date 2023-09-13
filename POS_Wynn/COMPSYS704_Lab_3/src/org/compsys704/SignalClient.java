@@ -42,7 +42,7 @@ public class SignalClient implements ActionListener{
 					throw new ConnectException("Not thru");
 			}
 			oos.writeObject(new Object[]{true});
-			Thread.sleep(2);
+			Thread.sleep(1);
 			oos.writeObject(new Object[]{false});
 		}
 		catch (IOException | InterruptedException ee) {
