@@ -49,8 +49,8 @@ public class ECS_controller extends ClockDomain{
   public Signal evacuated = new Signal("evacuated", Signal.OUTPUT);
   private int S317 = 1;
   
-  private int[] ends = new int[4];
-  private int[] tdone = new int[4];
+  private int[] ends = new int[5];
+  private int[] tdone = new int[5];
   
   public void runClockDomain(){
     for(int i=0;i<ends.length;i++){
@@ -763,9 +763,9 @@ public class ECS_controller extends ClockDomain{
   }
 
   public void init(){
-    char [] active1 = {1, 1, 1, 1};
-    char [] paused1 = {0, 0, 0, 0};
-    char [] suspended1 = {0, 0, 0, 0};
+    char [] active1 = {1, 1, 1, 1, 1};
+    char [] paused1 = {0, 0, 0, 0, 0};
+    char [] suspended1 = {0, 0, 0, 0, 0};
     paused = paused1;
     active = active1;
     suspended = suspended1;

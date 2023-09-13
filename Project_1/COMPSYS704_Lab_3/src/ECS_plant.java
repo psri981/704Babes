@@ -6,6 +6,7 @@ import com.systemj.output_Channel;
 import run.GUI;//sysj\plant.sysj line: 1, column: 1
 import run.POS_GUI;//sysj\plant.sysj line: 2, column: 1
 import run.ECS_GUI;//sysj\plant.sysj line: 3, column: 1
+import run.ACS_GUI;//sysj\plant.sysj line: 4, column: 1
 
 public class ECS_plant extends ClockDomain{
   public ECS_plant(String name){super(name);}
@@ -105,47 +106,47 @@ public class ECS_plant extends ClockDomain{
   public Signal lightIntZ5Trigger = new Signal("lightIntZ5Trigger", Signal.OUTPUT);
   public Signal lightIntZ6Trigger = new Signal("lightIntZ6Trigger", Signal.OUTPUT);
   public Signal lightIntZ7Trigger = new Signal("lightIntZ7Trigger", Signal.OUTPUT);
-  private long __start_thread_13;//sysj\plant.sysj line: 210, column: 25
-  private Integer zone_thread_13;//sysj\plant.sysj line: 190, column: 5
-  private Integer firePresent_thread_13;//sysj\plant.sysj line: 197, column: 5
-  private Integer lightIntensity_thread_13;//sysj\plant.sysj line: 201, column: 5
-  private String clock_thread_13;//sysj\plant.sysj line: 205, column: 5
-  private Integer temp17_thread_13;//sysj\plant.sysj line: 227, column: 6
-  private Integer temp23_thread_13;//sysj\plant.sysj line: 244, column: 6
-  private Integer temp456_thread_13;//sysj\plant.sysj line: 261, column: 6
-  private int S14884 = 1;
-  private int S11101 = 1;
-  private int S8817 = 1;
-  private int S7678 = 1;
-  private int S11279 = 1;
-  private int S11109 = 1;
-  private int S11117 = 1;
-  private int S11125 = 1;
-  private int S11133 = 1;
-  private int S11141 = 1;
-  private int S11149 = 1;
-  private int S11157 = 1;
-  private int S11165 = 1;
-  private int S11173 = 1;
-  private int S11181 = 1;
-  private int S11189 = 1;
-  private int S11197 = 1;
-  private int S11205 = 1;
-  private int S11213 = 1;
-  private int S11221 = 1;
-  private int S11229 = 1;
-  private int S11237 = 1;
-  private int S11245 = 1;
-  private int S11253 = 1;
-  private int S11261 = 1;
-  private int S11269 = 1;
-  private int S11277 = 1;
+  private long __start_thread_13;//sysj\plant.sysj line: 211, column: 25
+  private Integer zone_thread_13;//sysj\plant.sysj line: 191, column: 5
+  private Integer firePresent_thread_13;//sysj\plant.sysj line: 198, column: 5
+  private Integer lightIntensity_thread_13;//sysj\plant.sysj line: 202, column: 5
+  private String clock_thread_13;//sysj\plant.sysj line: 206, column: 5
+  private Integer temp17_thread_13;//sysj\plant.sysj line: 228, column: 6
+  private Integer temp23_thread_13;//sysj\plant.sysj line: 245, column: 6
+  private Integer temp456_thread_13;//sysj\plant.sysj line: 262, column: 6
+  private int S66882 = 1;
+  private int S63099 = 1;
+  private int S60815 = 1;
+  private int S59676 = 1;
+  private int S63277 = 1;
+  private int S63107 = 1;
+  private int S63115 = 1;
+  private int S63123 = 1;
+  private int S63131 = 1;
+  private int S63139 = 1;
+  private int S63147 = 1;
+  private int S63155 = 1;
+  private int S63163 = 1;
+  private int S63171 = 1;
+  private int S63179 = 1;
+  private int S63187 = 1;
+  private int S63195 = 1;
+  private int S63203 = 1;
+  private int S63211 = 1;
+  private int S63219 = 1;
+  private int S63227 = 1;
+  private int S63235 = 1;
+  private int S63243 = 1;
+  private int S63251 = 1;
+  private int S63259 = 1;
+  private int S63267 = 1;
+  private int S63275 = 1;
   
-  private int[] ends = new int[37];
-  private int[] tdone = new int[37];
+  private int[] ends = new int[65];
+  private int[] tdone = new int[65];
   
-  public void thread14959(int [] tdone, int [] ends){
-        switch(S11277){
+  public void thread68363(int [] tdone, int [] ends){
+        switch(S63275){
       case 0 : 
         active[36]=0;
         ends[36]=0;
@@ -153,8 +154,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(cutPow.getprestatus()){//sysj\plant.sysj line: 325, column: 24
-          cutPow_TriggerE.setPresent();//sysj\plant.sysj line: 325, column: 32
+        if(cutPow.getprestatus()){//sysj\plant.sysj line: 326, column: 24
+          cutPow_TriggerE.setPresent();//sysj\plant.sysj line: 326, column: 32
           currsigs.addElement(cutPow_TriggerE);
           active[36]=1;
           ends[36]=1;
@@ -170,8 +171,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14958(int [] tdone, int [] ends){
-        switch(S11269){
+  public void thread68362(int [] tdone, int [] ends){
+        switch(S63267){
       case 0 : 
         active[35]=0;
         ends[35]=0;
@@ -179,8 +180,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(deHumOnZone4_5_6.getprestatus()){//sysj\plant.sysj line: 323, column: 24
-          deHumOnZone4_5_6TriggerE.setPresent();//sysj\plant.sysj line: 323, column: 42
+        if(deHumOnZone4_5_6.getprestatus()){//sysj\plant.sysj line: 324, column: 24
+          deHumOnZone4_5_6TriggerE.setPresent();//sysj\plant.sysj line: 324, column: 42
           currsigs.addElement(deHumOnZone4_5_6TriggerE);
           active[35]=1;
           ends[35]=1;
@@ -196,8 +197,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14957(int [] tdone, int [] ends){
-        switch(S11261){
+  public void thread68361(int [] tdone, int [] ends){
+        switch(S63259){
       case 0 : 
         active[34]=0;
         ends[34]=0;
@@ -205,8 +206,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(deHumOnZone2_3.getprestatus()){//sysj\plant.sysj line: 321, column: 24
-          deHumOnZone2_3TriggerE.setPresent();//sysj\plant.sysj line: 321, column: 40
+        if(deHumOnZone2_3.getprestatus()){//sysj\plant.sysj line: 322, column: 24
+          deHumOnZone2_3TriggerE.setPresent();//sysj\plant.sysj line: 322, column: 40
           currsigs.addElement(deHumOnZone2_3TriggerE);
           active[34]=1;
           ends[34]=1;
@@ -222,8 +223,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14956(int [] tdone, int [] ends){
-        switch(S11253){
+  public void thread68360(int [] tdone, int [] ends){
+        switch(S63251){
       case 0 : 
         active[33]=0;
         ends[33]=0;
@@ -231,8 +232,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(deHumOnZone1_7.getprestatus()){//sysj\plant.sysj line: 319, column: 24
-          deHumOnZone1_7TriggerE.setPresent();//sysj\plant.sysj line: 319, column: 40
+        if(deHumOnZone1_7.getprestatus()){//sysj\plant.sysj line: 320, column: 24
+          deHumOnZone1_7TriggerE.setPresent();//sysj\plant.sysj line: 320, column: 40
           currsigs.addElement(deHumOnZone1_7TriggerE);
           active[33]=1;
           ends[33]=1;
@@ -248,8 +249,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14955(int [] tdone, int [] ends){
-        switch(S11245){
+  public void thread68359(int [] tdone, int [] ends){
+        switch(S63243){
       case 0 : 
         active[32]=0;
         ends[32]=0;
@@ -257,8 +258,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(humOnZone4_5_6.getprestatus()){//sysj\plant.sysj line: 317, column: 24
-          humOnZone4_5_6TriggerE.setPresent();//sysj\plant.sysj line: 317, column: 40
+        if(humOnZone4_5_6.getprestatus()){//sysj\plant.sysj line: 318, column: 24
+          humOnZone4_5_6TriggerE.setPresent();//sysj\plant.sysj line: 318, column: 40
           currsigs.addElement(humOnZone4_5_6TriggerE);
           active[32]=1;
           ends[32]=1;
@@ -274,8 +275,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14954(int [] tdone, int [] ends){
-        switch(S11237){
+  public void thread68358(int [] tdone, int [] ends){
+        switch(S63235){
       case 0 : 
         active[31]=0;
         ends[31]=0;
@@ -283,8 +284,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(humOnZone2_3.getprestatus()){//sysj\plant.sysj line: 315, column: 24
-          humOnZone2_3TriggerE.setPresent();//sysj\plant.sysj line: 315, column: 38
+        if(humOnZone2_3.getprestatus()){//sysj\plant.sysj line: 316, column: 24
+          humOnZone2_3TriggerE.setPresent();//sysj\plant.sysj line: 316, column: 38
           currsigs.addElement(humOnZone2_3TriggerE);
           active[31]=1;
           ends[31]=1;
@@ -300,8 +301,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14953(int [] tdone, int [] ends){
-        switch(S11229){
+  public void thread68357(int [] tdone, int [] ends){
+        switch(S63227){
       case 0 : 
         active[30]=0;
         ends[30]=0;
@@ -309,8 +310,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(humOnZone1_7.getprestatus()){//sysj\plant.sysj line: 313, column: 24
-          humOnZone1_7TriggerE.setPresent();//sysj\plant.sysj line: 313, column: 38
+        if(humOnZone1_7.getprestatus()){//sysj\plant.sysj line: 314, column: 24
+          humOnZone1_7TriggerE.setPresent();//sysj\plant.sysj line: 314, column: 38
           currsigs.addElement(humOnZone1_7TriggerE);
           active[30]=1;
           ends[30]=1;
@@ -326,8 +327,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14952(int [] tdone, int [] ends){
-        switch(S11221){
+  public void thread68356(int [] tdone, int [] ends){
+        switch(S63219){
       case 0 : 
         active[29]=0;
         ends[29]=0;
@@ -335,8 +336,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(heatOnZone4_5_6.getprestatus()){//sysj\plant.sysj line: 311, column: 24
-          heatOnZone4_5_6TriggerE.setPresent();//sysj\plant.sysj line: 311, column: 41
+        if(heatOnZone4_5_6.getprestatus()){//sysj\plant.sysj line: 312, column: 24
+          heatOnZone4_5_6TriggerE.setPresent();//sysj\plant.sysj line: 312, column: 41
           currsigs.addElement(heatOnZone4_5_6TriggerE);
           active[29]=1;
           ends[29]=1;
@@ -352,8 +353,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14951(int [] tdone, int [] ends){
-        switch(S11213){
+  public void thread68355(int [] tdone, int [] ends){
+        switch(S63211){
       case 0 : 
         active[28]=0;
         ends[28]=0;
@@ -361,8 +362,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(heatOnZone2_3.getprestatus()){//sysj\plant.sysj line: 309, column: 24
-          heatOnZone2_3TriggerE.setPresent();//sysj\plant.sysj line: 309, column: 39
+        if(heatOnZone2_3.getprestatus()){//sysj\plant.sysj line: 310, column: 24
+          heatOnZone2_3TriggerE.setPresent();//sysj\plant.sysj line: 310, column: 39
           currsigs.addElement(heatOnZone2_3TriggerE);
           active[28]=1;
           ends[28]=1;
@@ -378,8 +379,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14950(int [] tdone, int [] ends){
-        switch(S11205){
+  public void thread68354(int [] tdone, int [] ends){
+        switch(S63203){
       case 0 : 
         active[27]=0;
         ends[27]=0;
@@ -387,8 +388,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(airOnZone4_5_6.getprestatus()){//sysj\plant.sysj line: 307, column: 24
-          airOnZone4_5_6TriggerE.setPresent();//sysj\plant.sysj line: 307, column: 40
+        if(airOnZone4_5_6.getprestatus()){//sysj\plant.sysj line: 308, column: 24
+          airOnZone4_5_6TriggerE.setPresent();//sysj\plant.sysj line: 308, column: 40
           currsigs.addElement(airOnZone4_5_6TriggerE);
           active[27]=1;
           ends[27]=1;
@@ -404,8 +405,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14949(int [] tdone, int [] ends){
-        switch(S11197){
+  public void thread68353(int [] tdone, int [] ends){
+        switch(S63195){
       case 0 : 
         active[26]=0;
         ends[26]=0;
@@ -413,8 +414,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(airOnZone2_3.getprestatus()){//sysj\plant.sysj line: 305, column: 24
-          airOnZone2_3TriggerE.setPresent();//sysj\plant.sysj line: 305, column: 38
+        if(airOnZone2_3.getprestatus()){//sysj\plant.sysj line: 306, column: 24
+          airOnZone2_3TriggerE.setPresent();//sysj\plant.sysj line: 306, column: 38
           currsigs.addElement(airOnZone2_3TriggerE);
           active[26]=1;
           ends[26]=1;
@@ -430,8 +431,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14948(int [] tdone, int [] ends){
-        switch(S11189){
+  public void thread68352(int [] tdone, int [] ends){
+        switch(S63187){
       case 0 : 
         active[25]=0;
         ends[25]=0;
@@ -439,8 +440,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(heatOnZone1_7.getprestatus()){//sysj\plant.sysj line: 303, column: 24
-          heatOnZone1_7TriggerE.setPresent();//sysj\plant.sysj line: 303, column: 39
+        if(heatOnZone1_7.getprestatus()){//sysj\plant.sysj line: 304, column: 24
+          heatOnZone1_7TriggerE.setPresent();//sysj\plant.sysj line: 304, column: 39
           currsigs.addElement(heatOnZone1_7TriggerE);
           active[25]=1;
           ends[25]=1;
@@ -456,8 +457,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14947(int [] tdone, int [] ends){
-        switch(S11181){
+  public void thread68351(int [] tdone, int [] ends){
+        switch(S63179){
       case 0 : 
         active[24]=0;
         ends[24]=0;
@@ -465,8 +466,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(fanOnZone1_7.getprestatus()){//sysj\plant.sysj line: 301, column: 24
-          fanOnZone1_7TriggerE.setPresent();//sysj\plant.sysj line: 301, column: 38
+        if(fanOnZone1_7.getprestatus()){//sysj\plant.sysj line: 302, column: 24
+          fanOnZone1_7TriggerE.setPresent();//sysj\plant.sysj line: 302, column: 38
           currsigs.addElement(fanOnZone1_7TriggerE);
           active[24]=1;
           ends[24]=1;
@@ -482,8 +483,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14946(int [] tdone, int [] ends){
-        switch(S11173){
+  public void thread68350(int [] tdone, int [] ends){
+        switch(S63171){
       case 0 : 
         active[23]=0;
         ends[23]=0;
@@ -491,8 +492,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(cleanZone7.getprestatus()){//sysj\plant.sysj line: 299, column: 24
-          cleanZone7TriggerE.setPresent();//sysj\plant.sysj line: 299, column: 36
+        if(cleanZone7.getprestatus()){//sysj\plant.sysj line: 300, column: 24
+          cleanZone7TriggerE.setPresent();//sysj\plant.sysj line: 300, column: 36
           currsigs.addElement(cleanZone7TriggerE);
           active[23]=1;
           ends[23]=1;
@@ -508,8 +509,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14945(int [] tdone, int [] ends){
-        switch(S11165){
+  public void thread68349(int [] tdone, int [] ends){
+        switch(S63163){
       case 0 : 
         active[22]=0;
         ends[22]=0;
@@ -517,8 +518,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(cleanZone6.getprestatus()){//sysj\plant.sysj line: 297, column: 24
-          cleanZone6TriggerE.setPresent();//sysj\plant.sysj line: 297, column: 36
+        if(cleanZone6.getprestatus()){//sysj\plant.sysj line: 298, column: 24
+          cleanZone6TriggerE.setPresent();//sysj\plant.sysj line: 298, column: 36
           currsigs.addElement(cleanZone6TriggerE);
           active[22]=1;
           ends[22]=1;
@@ -534,8 +535,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14944(int [] tdone, int [] ends){
-        switch(S11157){
+  public void thread68348(int [] tdone, int [] ends){
+        switch(S63155){
       case 0 : 
         active[21]=0;
         ends[21]=0;
@@ -543,8 +544,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(cleanZone5.getprestatus()){//sysj\plant.sysj line: 295, column: 24
-          cleanZone5TriggerE.setPresent();//sysj\plant.sysj line: 295, column: 36
+        if(cleanZone5.getprestatus()){//sysj\plant.sysj line: 296, column: 24
+          cleanZone5TriggerE.setPresent();//sysj\plant.sysj line: 296, column: 36
           currsigs.addElement(cleanZone5TriggerE);
           active[21]=1;
           ends[21]=1;
@@ -560,8 +561,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14943(int [] tdone, int [] ends){
-        switch(S11149){
+  public void thread68347(int [] tdone, int [] ends){
+        switch(S63147){
       case 0 : 
         active[20]=0;
         ends[20]=0;
@@ -569,8 +570,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(cleanZone4.getprestatus()){//sysj\plant.sysj line: 293, column: 24
-          cleanZone4TriggerE.setPresent();//sysj\plant.sysj line: 293, column: 36
+        if(cleanZone4.getprestatus()){//sysj\plant.sysj line: 294, column: 24
+          cleanZone4TriggerE.setPresent();//sysj\plant.sysj line: 294, column: 36
           currsigs.addElement(cleanZone4TriggerE);
           active[20]=1;
           ends[20]=1;
@@ -586,8 +587,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14942(int [] tdone, int [] ends){
-        switch(S11141){
+  public void thread68346(int [] tdone, int [] ends){
+        switch(S63139){
       case 0 : 
         active[19]=0;
         ends[19]=0;
@@ -595,8 +596,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(cleanZone3.getprestatus()){//sysj\plant.sysj line: 291, column: 24
-          cleanZone3TriggerE.setPresent();//sysj\plant.sysj line: 291, column: 36
+        if(cleanZone3.getprestatus()){//sysj\plant.sysj line: 292, column: 24
+          cleanZone3TriggerE.setPresent();//sysj\plant.sysj line: 292, column: 36
           currsigs.addElement(cleanZone3TriggerE);
           active[19]=1;
           ends[19]=1;
@@ -612,8 +613,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14941(int [] tdone, int [] ends){
-        switch(S11133){
+  public void thread68345(int [] tdone, int [] ends){
+        switch(S63131){
       case 0 : 
         active[18]=0;
         ends[18]=0;
@@ -621,8 +622,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(cleanZone2.getprestatus()){//sysj\plant.sysj line: 289, column: 24
-          cleanZone2TriggerE.setPresent();//sysj\plant.sysj line: 289, column: 36
+        if(cleanZone2.getprestatus()){//sysj\plant.sysj line: 290, column: 24
+          cleanZone2TriggerE.setPresent();//sysj\plant.sysj line: 290, column: 36
           currsigs.addElement(cleanZone2TriggerE);
           active[18]=1;
           ends[18]=1;
@@ -638,8 +639,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14940(int [] tdone, int [] ends){
-        switch(S11125){
+  public void thread68344(int [] tdone, int [] ends){
+        switch(S63123){
       case 0 : 
         active[17]=0;
         ends[17]=0;
@@ -647,8 +648,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(cleanZone1.getprestatus()){//sysj\plant.sysj line: 287, column: 24
-          cleanZone1TriggerE.setPresent();//sysj\plant.sysj line: 287, column: 36
+        if(cleanZone1.getprestatus()){//sysj\plant.sysj line: 288, column: 24
+          cleanZone1TriggerE.setPresent();//sysj\plant.sysj line: 288, column: 36
           currsigs.addElement(cleanZone1TriggerE);
           active[17]=1;
           ends[17]=1;
@@ -664,8 +665,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14939(int [] tdone, int [] ends){
-        switch(S11117){
+  public void thread68343(int [] tdone, int [] ends){
+        switch(S63115){
       case 0 : 
         active[16]=0;
         ends[16]=0;
@@ -673,8 +674,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(fireExt.getprestatus()){//sysj\plant.sysj line: 285, column: 24
-          fireExtE.setPresent();//sysj\plant.sysj line: 285, column: 33
+        if(fireExt.getprestatus()){//sysj\plant.sysj line: 286, column: 24
+          fireExtE.setPresent();//sysj\plant.sysj line: 286, column: 33
           currsigs.addElement(fireExtE);
           active[16]=1;
           ends[16]=1;
@@ -690,8 +691,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14938(int [] tdone, int [] ends){
-        switch(S11109){
+  public void thread68342(int [] tdone, int [] ends){
+        switch(S63107){
       case 0 : 
         active[15]=0;
         ends[15]=0;
@@ -699,8 +700,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(fireZone1.getprestatus()){//sysj\plant.sysj line: 283, column: 24
-          alarmZone1TriggerE.setPresent();//sysj\plant.sysj line: 283, column: 35
+        if(fireZone1.getprestatus()){//sysj\plant.sysj line: 284, column: 24
+          alarmZone1TriggerE.setPresent();//sysj\plant.sysj line: 284, column: 35
           currsigs.addElement(alarmZone1TriggerE);
           active[15]=1;
           ends[15]=1;
@@ -716,8 +717,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14937(int [] tdone, int [] ends){
-        switch(S11279){
+  public void thread68341(int [] tdone, int [] ends){
+        switch(S63277){
       case 0 : 
         active[14]=0;
         ends[14]=0;
@@ -725,103 +726,103 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        thread14938(tdone,ends);
-        thread14939(tdone,ends);
-        thread14940(tdone,ends);
-        thread14941(tdone,ends);
-        thread14942(tdone,ends);
-        thread14943(tdone,ends);
-        thread14944(tdone,ends);
-        thread14945(tdone,ends);
-        thread14946(tdone,ends);
-        thread14947(tdone,ends);
-        thread14948(tdone,ends);
-        thread14949(tdone,ends);
-        thread14950(tdone,ends);
-        thread14951(tdone,ends);
-        thread14952(tdone,ends);
-        thread14953(tdone,ends);
-        thread14954(tdone,ends);
-        thread14955(tdone,ends);
-        thread14956(tdone,ends);
-        thread14957(tdone,ends);
-        thread14958(tdone,ends);
-        thread14959(tdone,ends);
-        int biggest14960 = 0;
-        if(ends[15]>=biggest14960){
-          biggest14960=ends[15];
+        thread68342(tdone,ends);
+        thread68343(tdone,ends);
+        thread68344(tdone,ends);
+        thread68345(tdone,ends);
+        thread68346(tdone,ends);
+        thread68347(tdone,ends);
+        thread68348(tdone,ends);
+        thread68349(tdone,ends);
+        thread68350(tdone,ends);
+        thread68351(tdone,ends);
+        thread68352(tdone,ends);
+        thread68353(tdone,ends);
+        thread68354(tdone,ends);
+        thread68355(tdone,ends);
+        thread68356(tdone,ends);
+        thread68357(tdone,ends);
+        thread68358(tdone,ends);
+        thread68359(tdone,ends);
+        thread68360(tdone,ends);
+        thread68361(tdone,ends);
+        thread68362(tdone,ends);
+        thread68363(tdone,ends);
+        int biggest68364 = 0;
+        if(ends[15]>=biggest68364){
+          biggest68364=ends[15];
         }
-        if(ends[16]>=biggest14960){
-          biggest14960=ends[16];
+        if(ends[16]>=biggest68364){
+          biggest68364=ends[16];
         }
-        if(ends[17]>=biggest14960){
-          biggest14960=ends[17];
+        if(ends[17]>=biggest68364){
+          biggest68364=ends[17];
         }
-        if(ends[18]>=biggest14960){
-          biggest14960=ends[18];
+        if(ends[18]>=biggest68364){
+          biggest68364=ends[18];
         }
-        if(ends[19]>=biggest14960){
-          biggest14960=ends[19];
+        if(ends[19]>=biggest68364){
+          biggest68364=ends[19];
         }
-        if(ends[20]>=biggest14960){
-          biggest14960=ends[20];
+        if(ends[20]>=biggest68364){
+          biggest68364=ends[20];
         }
-        if(ends[21]>=biggest14960){
-          biggest14960=ends[21];
+        if(ends[21]>=biggest68364){
+          biggest68364=ends[21];
         }
-        if(ends[22]>=biggest14960){
-          biggest14960=ends[22];
+        if(ends[22]>=biggest68364){
+          biggest68364=ends[22];
         }
-        if(ends[23]>=biggest14960){
-          biggest14960=ends[23];
+        if(ends[23]>=biggest68364){
+          biggest68364=ends[23];
         }
-        if(ends[24]>=biggest14960){
-          biggest14960=ends[24];
+        if(ends[24]>=biggest68364){
+          biggest68364=ends[24];
         }
-        if(ends[25]>=biggest14960){
-          biggest14960=ends[25];
+        if(ends[25]>=biggest68364){
+          biggest68364=ends[25];
         }
-        if(ends[26]>=biggest14960){
-          biggest14960=ends[26];
+        if(ends[26]>=biggest68364){
+          biggest68364=ends[26];
         }
-        if(ends[27]>=biggest14960){
-          biggest14960=ends[27];
+        if(ends[27]>=biggest68364){
+          biggest68364=ends[27];
         }
-        if(ends[28]>=biggest14960){
-          biggest14960=ends[28];
+        if(ends[28]>=biggest68364){
+          biggest68364=ends[28];
         }
-        if(ends[29]>=biggest14960){
-          biggest14960=ends[29];
+        if(ends[29]>=biggest68364){
+          biggest68364=ends[29];
         }
-        if(ends[30]>=biggest14960){
-          biggest14960=ends[30];
+        if(ends[30]>=biggest68364){
+          biggest68364=ends[30];
         }
-        if(ends[31]>=biggest14960){
-          biggest14960=ends[31];
+        if(ends[31]>=biggest68364){
+          biggest68364=ends[31];
         }
-        if(ends[32]>=biggest14960){
-          biggest14960=ends[32];
+        if(ends[32]>=biggest68364){
+          biggest68364=ends[32];
         }
-        if(ends[33]>=biggest14960){
-          biggest14960=ends[33];
+        if(ends[33]>=biggest68364){
+          biggest68364=ends[33];
         }
-        if(ends[34]>=biggest14960){
-          biggest14960=ends[34];
+        if(ends[34]>=biggest68364){
+          biggest68364=ends[34];
         }
-        if(ends[35]>=biggest14960){
-          biggest14960=ends[35];
+        if(ends[35]>=biggest68364){
+          biggest68364=ends[35];
         }
-        if(ends[36]>=biggest14960){
-          biggest14960=ends[36];
+        if(ends[36]>=biggest68364){
+          biggest68364=ends[36];
         }
-        if(biggest14960 == 1){
+        if(biggest68364 == 1){
           active[14]=1;
           ends[14]=1;
           tdone[14]=1;
         }
         //FINXME code
-        if(biggest14960 == 0){
-          S11279=0;
+        if(biggest68364 == 0){
+          S63277=0;
           active[14]=0;
           ends[14]=0;
           tdone[14]=1;
@@ -831,8 +832,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14936(int [] tdone, int [] ends){
-        switch(S11101){
+  public void thread68340(int [] tdone, int [] ends){
+        switch(S63099){
       case 0 : 
         active[13]=0;
         ends[13]=0;
@@ -840,20 +841,20 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        switch(S8817){
+        switch(S60815){
           case 0 : 
-            switch(S7678){
+            switch(S59676){
               case 0 : 
-                if(powerOff.getprestatus()){//sysj\plant.sysj line: 213, column: 12
-                  S7678=1;
-                  __start_thread_13 = com.systemj.Timer.getMs();//sysj\plant.sysj line: 210, column: 25
-                  if(com.systemj.Timer.getMs() - __start_thread_13 >= (2) * 1000){//sysj\plant.sysj line: 210, column: 25
+                if(powerOff.getprestatus()){//sysj\plant.sysj line: 214, column: 12
+                  S59676=1;
+                  __start_thread_13 = com.systemj.Timer.getMs();//sysj\plant.sysj line: 211, column: 25
+                  if(com.systemj.Timer.getMs() - __start_thread_13 >= (2) * 1000){//sysj\plant.sysj line: 211, column: 25
                     ends[13]=2;
-                    ;//sysj\plant.sysj line: 210, column: 25
-                    System.out.println("Power turned off");//sysj\plant.sysj line: 215, column: 6
-                    fireZone1.setPresent();//sysj\plant.sysj line: 216, column: 6
+                    ;//sysj\plant.sysj line: 211, column: 25
+                    System.out.println("Power turned off");//sysj\plant.sysj line: 216, column: 6
+                    fireZone1.setPresent();//sysj\plant.sysj line: 217, column: 6
                     currsigs.addElement(fireZone1);
-                    S7678=2;
+                    S59676=2;
                     active[13]=1;
                     ends[13]=1;
                     tdone[13]=1;
@@ -872,13 +873,13 @@ public class ECS_plant extends ClockDomain{
                 break;
               
               case 1 : 
-                if(com.systemj.Timer.getMs() - __start_thread_13 >= (2) * 1000){//sysj\plant.sysj line: 210, column: 25
+                if(com.systemj.Timer.getMs() - __start_thread_13 >= (2) * 1000){//sysj\plant.sysj line: 211, column: 25
                   ends[13]=2;
-                  ;//sysj\plant.sysj line: 210, column: 25
-                  System.out.println("Power turned off");//sysj\plant.sysj line: 215, column: 6
-                  fireZone1.setPresent();//sysj\plant.sysj line: 216, column: 6
+                  ;//sysj\plant.sysj line: 211, column: 25
+                  System.out.println("Power turned off");//sysj\plant.sysj line: 216, column: 6
+                  fireZone1.setPresent();//sysj\plant.sysj line: 217, column: 6
                   currsigs.addElement(fireZone1);
-                  S7678=2;
+                  S59676=2;
                   active[13]=1;
                   ends[13]=1;
                   tdone[13]=1;
@@ -891,57 +892,57 @@ public class ECS_plant extends ClockDomain{
                 break;
               
               case 2 : 
-                if(alarmOff.getprestatus()){//sysj\plant.sysj line: 217, column: 12
-                  S7678=3;
-                  __start_thread_13 = com.systemj.Timer.getMs();//sysj\plant.sysj line: 210, column: 25
-                  if(com.systemj.Timer.getMs() - __start_thread_13 >= (4) * 1000){//sysj\plant.sysj line: 210, column: 25
+                if(alarmOff.getprestatus()){//sysj\plant.sysj line: 218, column: 12
+                  S59676=3;
+                  __start_thread_13 = com.systemj.Timer.getMs();//sysj\plant.sysj line: 211, column: 25
+                  if(com.systemj.Timer.getMs() - __start_thread_13 >= (4) * 1000){//sysj\plant.sysj line: 211, column: 25
                     ends[13]=2;
-                    ;//sysj\plant.sysj line: 210, column: 25
-                    System.out.println("Alarm off, Fire out");//sysj\plant.sysj line: 219, column: 6
-                    if(zone_thread_13 == 1 || zone_thread_13 == 7){//sysj\plant.sysj line: 226, column: 8
-                      temp17_thread_13 = 0;//sysj\plant.sysj line: 227, column: 6
-                      temp17_thread_13 = (tempZone1_7.getpreval() == null ? null : ((Integer)tempZone1_7.getpreval()));//sysj\plant.sysj line: 228, column: 6
-                      if(temp17_thread_13 > 22){//sysj\plant.sysj line: 229, column: 9
-                        System.out.println("");//sysj\plant.sysj line: 230, column: 8
-                        System.out.println("Room temperature is too high at " + temp17_thread_13);//sysj\plant.sysj line: 231, column: 8
-                        fanOnZone1_7.setPresent();//sysj\plant.sysj line: 232, column: 8
+                    ;//sysj\plant.sysj line: 211, column: 25
+                    System.out.println("Alarm off, Fire out");//sysj\plant.sysj line: 220, column: 6
+                    if(zone_thread_13 == 1 || zone_thread_13 == 7){//sysj\plant.sysj line: 227, column: 8
+                      temp17_thread_13 = 0;//sysj\plant.sysj line: 228, column: 6
+                      temp17_thread_13 = (tempZone1_7.getpreval() == null ? null : ((Integer)tempZone1_7.getpreval()));//sysj\plant.sysj line: 229, column: 6
+                      if(temp17_thread_13 > 22){//sysj\plant.sysj line: 230, column: 9
+                        System.out.println("");//sysj\plant.sysj line: 231, column: 8
+                        System.out.println("Room temperature is too high at " + temp17_thread_13);//sysj\plant.sysj line: 232, column: 8
+                        fanOnZone1_7.setPresent();//sysj\plant.sysj line: 233, column: 8
                         currsigs.addElement(fanOnZone1_7);
-                        if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 243, column: 8
-                          temp23_thread_13 = 0;//sysj\plant.sysj line: 244, column: 6
-                          temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 245, column: 6
-                          if(temp23_thread_13 > 22){//sysj\plant.sysj line: 246, column: 9
-                            System.out.println("");//sysj\plant.sysj line: 247, column: 8
-                            System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 248, column: 8
-                            airOnZone2_3.setPresent();//sysj\plant.sysj line: 249, column: 8
+                        if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 244, column: 8
+                          temp23_thread_13 = 0;//sysj\plant.sysj line: 245, column: 6
+                          temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 246, column: 6
+                          if(temp23_thread_13 > 22){//sysj\plant.sysj line: 247, column: 9
+                            System.out.println("");//sysj\plant.sysj line: 248, column: 8
+                            System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 249, column: 8
+                            airOnZone2_3.setPresent();//sysj\plant.sysj line: 250, column: 8
                             currsigs.addElement(airOnZone2_3);
-                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                              temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                              temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                 currsigs.addElement(airOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                  System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                  System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                   currsigs.addElement(heatOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                  S8817=1;
+                                  System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
@@ -949,44 +950,44 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                           }
                           else {
-                            if(temp23_thread_13 < 21){//sysj\plant.sysj line: 250, column: 16
-                              heatOnZone2_3.setPresent();//sysj\plant.sysj line: 251, column: 8
+                            if(temp23_thread_13 < 21){//sysj\plant.sysj line: 251, column: 16
+                              heatOnZone2_3.setPresent();//sysj\plant.sysj line: 252, column: 8
                               currsigs.addElement(heatOnZone2_3);
-                              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                                temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                  System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                                temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                  System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                   currsigs.addElement(airOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                    System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                    System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                     currsigs.addElement(heatOnZone4_5_6);
-                                    S8817=1;
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
                                   }
                                   else {
-                                    System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                    S8817=1;
+                                    System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
@@ -994,43 +995,43 @@ public class ECS_plant extends ClockDomain{
                                 }
                               }
                               else {
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                             }
                             else {
-                              System.out.println("");//sysj\plant.sysj line: 253, column: 7
-                              System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 254, column: 7
-                              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                                temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                  System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                              System.out.println("");//sysj\plant.sysj line: 254, column: 7
+                              System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 255, column: 7
+                              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                                temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                  System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                   currsigs.addElement(airOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                    System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                    System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                     currsigs.addElement(heatOnZone4_5_6);
-                                    S8817=1;
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
                                   }
                                   else {
-                                    System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                    S8817=1;
+                                    System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
@@ -1038,7 +1039,7 @@ public class ECS_plant extends ClockDomain{
                                 }
                               }
                               else {
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
@@ -1047,34 +1048,34 @@ public class ECS_plant extends ClockDomain{
                           }
                         }
                         else {
-                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                            temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                              System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                            temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                              System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                               currsigs.addElement(airOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                 currsigs.addElement(heatOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                S8817=1;
+                                System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
@@ -1082,7 +1083,7 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
@@ -1090,46 +1091,46 @@ public class ECS_plant extends ClockDomain{
                         }
                       }
                       else {
-                        if(temp17_thread_13 < 21){//sysj\plant.sysj line: 233, column: 16
-                          System.out.println("Room temperature is too low at " + temp17_thread_13);//sysj\plant.sysj line: 234, column: 8
-                          heatOnZone1_7.setPresent();//sysj\plant.sysj line: 235, column: 8
+                        if(temp17_thread_13 < 21){//sysj\plant.sysj line: 234, column: 16
+                          System.out.println("Room temperature is too low at " + temp17_thread_13);//sysj\plant.sysj line: 235, column: 8
+                          heatOnZone1_7.setPresent();//sysj\plant.sysj line: 236, column: 8
                           currsigs.addElement(heatOnZone1_7);
-                          if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 243, column: 8
-                            temp23_thread_13 = 0;//sysj\plant.sysj line: 244, column: 6
-                            temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 245, column: 6
-                            if(temp23_thread_13 > 22){//sysj\plant.sysj line: 246, column: 9
-                              System.out.println("");//sysj\plant.sysj line: 247, column: 8
-                              System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 248, column: 8
-                              airOnZone2_3.setPresent();//sysj\plant.sysj line: 249, column: 8
+                          if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 244, column: 8
+                            temp23_thread_13 = 0;//sysj\plant.sysj line: 245, column: 6
+                            temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 246, column: 6
+                            if(temp23_thread_13 > 22){//sysj\plant.sysj line: 247, column: 9
+                              System.out.println("");//sysj\plant.sysj line: 248, column: 8
+                              System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 249, column: 8
+                              airOnZone2_3.setPresent();//sysj\plant.sysj line: 250, column: 8
                               currsigs.addElement(airOnZone2_3);
-                              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                                temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                  System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                                temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                  System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                   currsigs.addElement(airOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                    System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                    System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                     currsigs.addElement(heatOnZone4_5_6);
-                                    S8817=1;
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
                                   }
                                   else {
-                                    System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                    S8817=1;
+                                    System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
@@ -1137,44 +1138,44 @@ public class ECS_plant extends ClockDomain{
                                 }
                               }
                               else {
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                             }
                             else {
-                              if(temp23_thread_13 < 21){//sysj\plant.sysj line: 250, column: 16
-                                heatOnZone2_3.setPresent();//sysj\plant.sysj line: 251, column: 8
+                              if(temp23_thread_13 < 21){//sysj\plant.sysj line: 251, column: 16
+                                heatOnZone2_3.setPresent();//sysj\plant.sysj line: 252, column: 8
                                 currsigs.addElement(heatOnZone2_3);
-                                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                                  temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                    System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                                  temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                    System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                     currsigs.addElement(airOnZone4_5_6);
-                                    S8817=1;
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
                                   }
                                   else {
-                                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                      System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                      System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                       currsigs.addElement(heatOnZone4_5_6);
-                                      S8817=1;
+                                      S60815=1;
                                       active[13]=1;
                                       ends[13]=1;
                                       tdone[13]=1;
                                     }
                                     else {
-                                      System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                      S8817=1;
+                                      System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                      S60815=1;
                                       active[13]=1;
                                       ends[13]=1;
                                       tdone[13]=1;
@@ -1182,43 +1183,43 @@ public class ECS_plant extends ClockDomain{
                                   }
                                 }
                                 else {
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                               }
                               else {
-                                System.out.println("");//sysj\plant.sysj line: 253, column: 7
-                                System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 254, column: 7
-                                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                                  temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                    System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                                System.out.println("");//sysj\plant.sysj line: 254, column: 7
+                                System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 255, column: 7
+                                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                                  temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                    System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                     currsigs.addElement(airOnZone4_5_6);
-                                    S8817=1;
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
                                   }
                                   else {
-                                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                      System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                      System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                       currsigs.addElement(heatOnZone4_5_6);
-                                      S8817=1;
+                                      S60815=1;
                                       active[13]=1;
                                       ends[13]=1;
                                       tdone[13]=1;
                                     }
                                     else {
-                                      System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                      S8817=1;
+                                      System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                      S60815=1;
                                       active[13]=1;
                                       ends[13]=1;
                                       tdone[13]=1;
@@ -1226,7 +1227,7 @@ public class ECS_plant extends ClockDomain{
                                   }
                                 }
                                 else {
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
@@ -1235,34 +1236,34 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                              temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                              temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                 currsigs.addElement(airOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                  System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                  System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                   currsigs.addElement(heatOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                  S8817=1;
+                                  System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
@@ -1270,7 +1271,7 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
@@ -1278,44 +1279,44 @@ public class ECS_plant extends ClockDomain{
                           }
                         }
                         else {
-                          System.out.println("");//sysj\plant.sysj line: 237, column: 7
-                          System.out.println("Room temperature is safe at" + temp17_thread_13);//sysj\plant.sysj line: 238, column: 7
-                          if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 243, column: 8
-                            temp23_thread_13 = 0;//sysj\plant.sysj line: 244, column: 6
-                            temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 245, column: 6
-                            if(temp23_thread_13 > 22){//sysj\plant.sysj line: 246, column: 9
-                              System.out.println("");//sysj\plant.sysj line: 247, column: 8
-                              System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 248, column: 8
-                              airOnZone2_3.setPresent();//sysj\plant.sysj line: 249, column: 8
+                          System.out.println("");//sysj\plant.sysj line: 238, column: 7
+                          System.out.println("Room temperature is safe at" + temp17_thread_13);//sysj\plant.sysj line: 239, column: 7
+                          if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 244, column: 8
+                            temp23_thread_13 = 0;//sysj\plant.sysj line: 245, column: 6
+                            temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 246, column: 6
+                            if(temp23_thread_13 > 22){//sysj\plant.sysj line: 247, column: 9
+                              System.out.println("");//sysj\plant.sysj line: 248, column: 8
+                              System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 249, column: 8
+                              airOnZone2_3.setPresent();//sysj\plant.sysj line: 250, column: 8
                               currsigs.addElement(airOnZone2_3);
-                              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                                temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                  System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                                temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                  System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                   currsigs.addElement(airOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                    System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                    System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                     currsigs.addElement(heatOnZone4_5_6);
-                                    S8817=1;
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
                                   }
                                   else {
-                                    System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                    S8817=1;
+                                    System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
@@ -1323,44 +1324,44 @@ public class ECS_plant extends ClockDomain{
                                 }
                               }
                               else {
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                             }
                             else {
-                              if(temp23_thread_13 < 21){//sysj\plant.sysj line: 250, column: 16
-                                heatOnZone2_3.setPresent();//sysj\plant.sysj line: 251, column: 8
+                              if(temp23_thread_13 < 21){//sysj\plant.sysj line: 251, column: 16
+                                heatOnZone2_3.setPresent();//sysj\plant.sysj line: 252, column: 8
                                 currsigs.addElement(heatOnZone2_3);
-                                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                                  temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                    System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                                  temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                    System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                     currsigs.addElement(airOnZone4_5_6);
-                                    S8817=1;
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
                                   }
                                   else {
-                                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                      System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                      System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                       currsigs.addElement(heatOnZone4_5_6);
-                                      S8817=1;
+                                      S60815=1;
                                       active[13]=1;
                                       ends[13]=1;
                                       tdone[13]=1;
                                     }
                                     else {
-                                      System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                      S8817=1;
+                                      System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                      S60815=1;
                                       active[13]=1;
                                       ends[13]=1;
                                       tdone[13]=1;
@@ -1368,43 +1369,43 @@ public class ECS_plant extends ClockDomain{
                                   }
                                 }
                                 else {
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                               }
                               else {
-                                System.out.println("");//sysj\plant.sysj line: 253, column: 7
-                                System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 254, column: 7
-                                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                                  temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                    System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                                System.out.println("");//sysj\plant.sysj line: 254, column: 7
+                                System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 255, column: 7
+                                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                                  temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                    System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                     currsigs.addElement(airOnZone4_5_6);
-                                    S8817=1;
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
                                   }
                                   else {
-                                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                      System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                      System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                       currsigs.addElement(heatOnZone4_5_6);
-                                      S8817=1;
+                                      S60815=1;
                                       active[13]=1;
                                       ends[13]=1;
                                       tdone[13]=1;
                                     }
                                     else {
-                                      System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                      S8817=1;
+                                      System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                      S60815=1;
                                       active[13]=1;
                                       ends[13]=1;
                                       tdone[13]=1;
@@ -1412,7 +1413,7 @@ public class ECS_plant extends ClockDomain{
                                   }
                                 }
                                 else {
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
@@ -1421,34 +1422,34 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                              temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                              temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                 currsigs.addElement(airOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                  System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                  System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                   currsigs.addElement(heatOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                  S8817=1;
+                                  System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
@@ -1456,7 +1457,7 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
@@ -1466,42 +1467,42 @@ public class ECS_plant extends ClockDomain{
                       }
                     }
                     else {
-                      if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 243, column: 8
-                        temp23_thread_13 = 0;//sysj\plant.sysj line: 244, column: 6
-                        temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 245, column: 6
-                        if(temp23_thread_13 > 22){//sysj\plant.sysj line: 246, column: 9
-                          System.out.println("");//sysj\plant.sysj line: 247, column: 8
-                          System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 248, column: 8
-                          airOnZone2_3.setPresent();//sysj\plant.sysj line: 249, column: 8
+                      if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 244, column: 8
+                        temp23_thread_13 = 0;//sysj\plant.sysj line: 245, column: 6
+                        temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 246, column: 6
+                        if(temp23_thread_13 > 22){//sysj\plant.sysj line: 247, column: 9
+                          System.out.println("");//sysj\plant.sysj line: 248, column: 8
+                          System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 249, column: 8
+                          airOnZone2_3.setPresent();//sysj\plant.sysj line: 250, column: 8
                           currsigs.addElement(airOnZone2_3);
-                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                            temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                              System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                            temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                              System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                               currsigs.addElement(airOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                 currsigs.addElement(heatOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                S8817=1;
+                                System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
@@ -1509,44 +1510,44 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                         }
                         else {
-                          if(temp23_thread_13 < 21){//sysj\plant.sysj line: 250, column: 16
-                            heatOnZone2_3.setPresent();//sysj\plant.sysj line: 251, column: 8
+                          if(temp23_thread_13 < 21){//sysj\plant.sysj line: 251, column: 16
+                            heatOnZone2_3.setPresent();//sysj\plant.sysj line: 252, column: 8
                             currsigs.addElement(heatOnZone2_3);
-                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                              temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                              temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                 currsigs.addElement(airOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                  System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                  System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                   currsigs.addElement(heatOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                  S8817=1;
+                                  System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
@@ -1554,43 +1555,43 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                           }
                           else {
-                            System.out.println("");//sysj\plant.sysj line: 253, column: 7
-                            System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 254, column: 7
-                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                              temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                            System.out.println("");//sysj\plant.sysj line: 254, column: 7
+                            System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 255, column: 7
+                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                              temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                 currsigs.addElement(airOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                  System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                  System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                   currsigs.addElement(heatOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                  S8817=1;
+                                  System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
@@ -1598,7 +1599,7 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
@@ -1607,34 +1608,34 @@ public class ECS_plant extends ClockDomain{
                         }
                       }
                       else {
-                        if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                          temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                          temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                          if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                            System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                            System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                            airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                        if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                          temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                          temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                          if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                            System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                            System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                            airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                             currsigs.addElement(airOnZone4_5_6);
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                           else {
-                            if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                              System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                              System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                              heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                            if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                              System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                              System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                              heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                               currsigs.addElement(heatOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                              System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                              S8817=1;
+                              System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                              System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
@@ -1642,7 +1643,7 @@ public class ECS_plant extends ClockDomain{
                           }
                         }
                         else {
-                          S8817=1;
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
@@ -1664,54 +1665,54 @@ public class ECS_plant extends ClockDomain{
                 break;
               
               case 3 : 
-                if(com.systemj.Timer.getMs() - __start_thread_13 >= (4) * 1000){//sysj\plant.sysj line: 210, column: 25
+                if(com.systemj.Timer.getMs() - __start_thread_13 >= (4) * 1000){//sysj\plant.sysj line: 211, column: 25
                   ends[13]=2;
-                  ;//sysj\plant.sysj line: 210, column: 25
-                  System.out.println("Alarm off, Fire out");//sysj\plant.sysj line: 219, column: 6
-                  if(zone_thread_13 == 1 || zone_thread_13 == 7){//sysj\plant.sysj line: 226, column: 8
-                    temp17_thread_13 = 0;//sysj\plant.sysj line: 227, column: 6
-                    temp17_thread_13 = (tempZone1_7.getpreval() == null ? null : ((Integer)tempZone1_7.getpreval()));//sysj\plant.sysj line: 228, column: 6
-                    if(temp17_thread_13 > 22){//sysj\plant.sysj line: 229, column: 9
-                      System.out.println("");//sysj\plant.sysj line: 230, column: 8
-                      System.out.println("Room temperature is too high at " + temp17_thread_13);//sysj\plant.sysj line: 231, column: 8
-                      fanOnZone1_7.setPresent();//sysj\plant.sysj line: 232, column: 8
+                  ;//sysj\plant.sysj line: 211, column: 25
+                  System.out.println("Alarm off, Fire out");//sysj\plant.sysj line: 220, column: 6
+                  if(zone_thread_13 == 1 || zone_thread_13 == 7){//sysj\plant.sysj line: 227, column: 8
+                    temp17_thread_13 = 0;//sysj\plant.sysj line: 228, column: 6
+                    temp17_thread_13 = (tempZone1_7.getpreval() == null ? null : ((Integer)tempZone1_7.getpreval()));//sysj\plant.sysj line: 229, column: 6
+                    if(temp17_thread_13 > 22){//sysj\plant.sysj line: 230, column: 9
+                      System.out.println("");//sysj\plant.sysj line: 231, column: 8
+                      System.out.println("Room temperature is too high at " + temp17_thread_13);//sysj\plant.sysj line: 232, column: 8
+                      fanOnZone1_7.setPresent();//sysj\plant.sysj line: 233, column: 8
                       currsigs.addElement(fanOnZone1_7);
-                      if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 243, column: 8
-                        temp23_thread_13 = 0;//sysj\plant.sysj line: 244, column: 6
-                        temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 245, column: 6
-                        if(temp23_thread_13 > 22){//sysj\plant.sysj line: 246, column: 9
-                          System.out.println("");//sysj\plant.sysj line: 247, column: 8
-                          System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 248, column: 8
-                          airOnZone2_3.setPresent();//sysj\plant.sysj line: 249, column: 8
+                      if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 244, column: 8
+                        temp23_thread_13 = 0;//sysj\plant.sysj line: 245, column: 6
+                        temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 246, column: 6
+                        if(temp23_thread_13 > 22){//sysj\plant.sysj line: 247, column: 9
+                          System.out.println("");//sysj\plant.sysj line: 248, column: 8
+                          System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 249, column: 8
+                          airOnZone2_3.setPresent();//sysj\plant.sysj line: 250, column: 8
                           currsigs.addElement(airOnZone2_3);
-                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                            temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                              System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                            temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                              System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                               currsigs.addElement(airOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                 currsigs.addElement(heatOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                S8817=1;
+                                System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
@@ -1719,44 +1720,44 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                         }
                         else {
-                          if(temp23_thread_13 < 21){//sysj\plant.sysj line: 250, column: 16
-                            heatOnZone2_3.setPresent();//sysj\plant.sysj line: 251, column: 8
+                          if(temp23_thread_13 < 21){//sysj\plant.sysj line: 251, column: 16
+                            heatOnZone2_3.setPresent();//sysj\plant.sysj line: 252, column: 8
                             currsigs.addElement(heatOnZone2_3);
-                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                              temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                              temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                 currsigs.addElement(airOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                  System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                  System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                   currsigs.addElement(heatOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                  S8817=1;
+                                  System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
@@ -1764,43 +1765,43 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                           }
                           else {
-                            System.out.println("");//sysj\plant.sysj line: 253, column: 7
-                            System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 254, column: 7
-                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                              temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                            System.out.println("");//sysj\plant.sysj line: 254, column: 7
+                            System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 255, column: 7
+                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                              temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                 currsigs.addElement(airOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                  System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                  System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                   currsigs.addElement(heatOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                  S8817=1;
+                                  System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
@@ -1808,7 +1809,7 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
@@ -1817,34 +1818,34 @@ public class ECS_plant extends ClockDomain{
                         }
                       }
                       else {
-                        if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                          temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                          temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                          if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                            System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                            System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                            airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                        if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                          temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                          temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                          if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                            System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                            System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                            airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                             currsigs.addElement(airOnZone4_5_6);
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                           else {
-                            if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                              System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                              System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                              heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                            if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                              System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                              System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                              heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                               currsigs.addElement(heatOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                              System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                              S8817=1;
+                              System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                              System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
@@ -1852,7 +1853,7 @@ public class ECS_plant extends ClockDomain{
                           }
                         }
                         else {
-                          S8817=1;
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
@@ -1860,46 +1861,46 @@ public class ECS_plant extends ClockDomain{
                       }
                     }
                     else {
-                      if(temp17_thread_13 < 21){//sysj\plant.sysj line: 233, column: 16
-                        System.out.println("Room temperature is too low at " + temp17_thread_13);//sysj\plant.sysj line: 234, column: 8
-                        heatOnZone1_7.setPresent();//sysj\plant.sysj line: 235, column: 8
+                      if(temp17_thread_13 < 21){//sysj\plant.sysj line: 234, column: 16
+                        System.out.println("Room temperature is too low at " + temp17_thread_13);//sysj\plant.sysj line: 235, column: 8
+                        heatOnZone1_7.setPresent();//sysj\plant.sysj line: 236, column: 8
                         currsigs.addElement(heatOnZone1_7);
-                        if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 243, column: 8
-                          temp23_thread_13 = 0;//sysj\plant.sysj line: 244, column: 6
-                          temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 245, column: 6
-                          if(temp23_thread_13 > 22){//sysj\plant.sysj line: 246, column: 9
-                            System.out.println("");//sysj\plant.sysj line: 247, column: 8
-                            System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 248, column: 8
-                            airOnZone2_3.setPresent();//sysj\plant.sysj line: 249, column: 8
+                        if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 244, column: 8
+                          temp23_thread_13 = 0;//sysj\plant.sysj line: 245, column: 6
+                          temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 246, column: 6
+                          if(temp23_thread_13 > 22){//sysj\plant.sysj line: 247, column: 9
+                            System.out.println("");//sysj\plant.sysj line: 248, column: 8
+                            System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 249, column: 8
+                            airOnZone2_3.setPresent();//sysj\plant.sysj line: 250, column: 8
                             currsigs.addElement(airOnZone2_3);
-                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                              temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                              temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                 currsigs.addElement(airOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                  System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                  System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                   currsigs.addElement(heatOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                  S8817=1;
+                                  System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
@@ -1907,44 +1908,44 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                           }
                           else {
-                            if(temp23_thread_13 < 21){//sysj\plant.sysj line: 250, column: 16
-                              heatOnZone2_3.setPresent();//sysj\plant.sysj line: 251, column: 8
+                            if(temp23_thread_13 < 21){//sysj\plant.sysj line: 251, column: 16
+                              heatOnZone2_3.setPresent();//sysj\plant.sysj line: 252, column: 8
                               currsigs.addElement(heatOnZone2_3);
-                              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                                temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                  System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                                temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                  System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                   currsigs.addElement(airOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                    System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                    System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                     currsigs.addElement(heatOnZone4_5_6);
-                                    S8817=1;
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
                                   }
                                   else {
-                                    System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                    S8817=1;
+                                    System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
@@ -1952,43 +1953,43 @@ public class ECS_plant extends ClockDomain{
                                 }
                               }
                               else {
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                             }
                             else {
-                              System.out.println("");//sysj\plant.sysj line: 253, column: 7
-                              System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 254, column: 7
-                              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                                temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                  System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                              System.out.println("");//sysj\plant.sysj line: 254, column: 7
+                              System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 255, column: 7
+                              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                                temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                  System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                   currsigs.addElement(airOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                    System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                    System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                     currsigs.addElement(heatOnZone4_5_6);
-                                    S8817=1;
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
                                   }
                                   else {
-                                    System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                    S8817=1;
+                                    System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
@@ -1996,7 +1997,7 @@ public class ECS_plant extends ClockDomain{
                                 }
                               }
                               else {
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
@@ -2005,34 +2006,34 @@ public class ECS_plant extends ClockDomain{
                           }
                         }
                         else {
-                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                            temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                              System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                            temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                              System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                               currsigs.addElement(airOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                 currsigs.addElement(heatOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                S8817=1;
+                                System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
@@ -2040,7 +2041,7 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
@@ -2048,44 +2049,44 @@ public class ECS_plant extends ClockDomain{
                         }
                       }
                       else {
-                        System.out.println("");//sysj\plant.sysj line: 237, column: 7
-                        System.out.println("Room temperature is safe at" + temp17_thread_13);//sysj\plant.sysj line: 238, column: 7
-                        if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 243, column: 8
-                          temp23_thread_13 = 0;//sysj\plant.sysj line: 244, column: 6
-                          temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 245, column: 6
-                          if(temp23_thread_13 > 22){//sysj\plant.sysj line: 246, column: 9
-                            System.out.println("");//sysj\plant.sysj line: 247, column: 8
-                            System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 248, column: 8
-                            airOnZone2_3.setPresent();//sysj\plant.sysj line: 249, column: 8
+                        System.out.println("");//sysj\plant.sysj line: 238, column: 7
+                        System.out.println("Room temperature is safe at" + temp17_thread_13);//sysj\plant.sysj line: 239, column: 7
+                        if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 244, column: 8
+                          temp23_thread_13 = 0;//sysj\plant.sysj line: 245, column: 6
+                          temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 246, column: 6
+                          if(temp23_thread_13 > 22){//sysj\plant.sysj line: 247, column: 9
+                            System.out.println("");//sysj\plant.sysj line: 248, column: 8
+                            System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 249, column: 8
+                            airOnZone2_3.setPresent();//sysj\plant.sysj line: 250, column: 8
                             currsigs.addElement(airOnZone2_3);
-                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                              temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                              temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                 currsigs.addElement(airOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                  System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                  System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                   currsigs.addElement(heatOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                  S8817=1;
+                                  System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
@@ -2093,44 +2094,44 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                           }
                           else {
-                            if(temp23_thread_13 < 21){//sysj\plant.sysj line: 250, column: 16
-                              heatOnZone2_3.setPresent();//sysj\plant.sysj line: 251, column: 8
+                            if(temp23_thread_13 < 21){//sysj\plant.sysj line: 251, column: 16
+                              heatOnZone2_3.setPresent();//sysj\plant.sysj line: 252, column: 8
                               currsigs.addElement(heatOnZone2_3);
-                              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                                temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                  System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                                temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                  System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                   currsigs.addElement(airOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                    System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                    System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                     currsigs.addElement(heatOnZone4_5_6);
-                                    S8817=1;
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
                                   }
                                   else {
-                                    System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                    S8817=1;
+                                    System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
@@ -2138,43 +2139,43 @@ public class ECS_plant extends ClockDomain{
                                 }
                               }
                               else {
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                             }
                             else {
-                              System.out.println("");//sysj\plant.sysj line: 253, column: 7
-                              System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 254, column: 7
-                              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                                temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                  System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                              System.out.println("");//sysj\plant.sysj line: 254, column: 7
+                              System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 255, column: 7
+                              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                                temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                  System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                   currsigs.addElement(airOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                    System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                    System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                     currsigs.addElement(heatOnZone4_5_6);
-                                    S8817=1;
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
                                   }
                                   else {
-                                    System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                    S8817=1;
+                                    System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                    S60815=1;
                                     active[13]=1;
                                     ends[13]=1;
                                     tdone[13]=1;
@@ -2182,7 +2183,7 @@ public class ECS_plant extends ClockDomain{
                                 }
                               }
                               else {
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
@@ -2191,34 +2192,34 @@ public class ECS_plant extends ClockDomain{
                           }
                         }
                         else {
-                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                            temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                              System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                            temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                              System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                               currsigs.addElement(airOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                 currsigs.addElement(heatOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                S8817=1;
+                                System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
@@ -2226,7 +2227,7 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
@@ -2236,42 +2237,42 @@ public class ECS_plant extends ClockDomain{
                     }
                   }
                   else {
-                    if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 243, column: 8
-                      temp23_thread_13 = 0;//sysj\plant.sysj line: 244, column: 6
-                      temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 245, column: 6
-                      if(temp23_thread_13 > 22){//sysj\plant.sysj line: 246, column: 9
-                        System.out.println("");//sysj\plant.sysj line: 247, column: 8
-                        System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 248, column: 8
-                        airOnZone2_3.setPresent();//sysj\plant.sysj line: 249, column: 8
+                    if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 244, column: 8
+                      temp23_thread_13 = 0;//sysj\plant.sysj line: 245, column: 6
+                      temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 246, column: 6
+                      if(temp23_thread_13 > 22){//sysj\plant.sysj line: 247, column: 9
+                        System.out.println("");//sysj\plant.sysj line: 248, column: 8
+                        System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 249, column: 8
+                        airOnZone2_3.setPresent();//sysj\plant.sysj line: 250, column: 8
                         currsigs.addElement(airOnZone2_3);
-                        if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                          temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                          temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                          if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                            System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                            System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                            airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                        if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                          temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                          temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                          if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                            System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                            System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                            airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                             currsigs.addElement(airOnZone4_5_6);
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                           else {
-                            if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                              System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                              System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                              heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                            if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                              System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                              System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                              heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                               currsigs.addElement(heatOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                              System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                              S8817=1;
+                              System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                              System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
@@ -2279,44 +2280,44 @@ public class ECS_plant extends ClockDomain{
                           }
                         }
                         else {
-                          S8817=1;
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
                         }
                       }
                       else {
-                        if(temp23_thread_13 < 21){//sysj\plant.sysj line: 250, column: 16
-                          heatOnZone2_3.setPresent();//sysj\plant.sysj line: 251, column: 8
+                        if(temp23_thread_13 < 21){//sysj\plant.sysj line: 251, column: 16
+                          heatOnZone2_3.setPresent();//sysj\plant.sysj line: 252, column: 8
                           currsigs.addElement(heatOnZone2_3);
-                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                            temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                              System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                            temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                              System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                               currsigs.addElement(airOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                 currsigs.addElement(heatOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                S8817=1;
+                                System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
@@ -2324,43 +2325,43 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                         }
                         else {
-                          System.out.println("");//sysj\plant.sysj line: 253, column: 7
-                          System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 254, column: 7
-                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                            temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                              System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                          System.out.println("");//sysj\plant.sysj line: 254, column: 7
+                          System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 255, column: 7
+                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                            temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                              System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                               currsigs.addElement(airOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                 currsigs.addElement(heatOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                S8817=1;
+                                System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
@@ -2368,7 +2369,7 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
@@ -2377,34 +2378,34 @@ public class ECS_plant extends ClockDomain{
                       }
                     }
                     else {
-                      if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                        temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                        temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                        if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                          System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                          System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                          airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                      if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                        temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                        temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                        if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                          System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                          System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                          airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                           currsigs.addElement(airOnZone4_5_6);
-                          S8817=1;
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
                         }
                         else {
-                          if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                            System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                            System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                            heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                          if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                            System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                            System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                            heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                             currsigs.addElement(heatOnZone4_5_6);
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                           else {
-                            System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                            System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                            S8817=1;
+                            System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                            System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
@@ -2412,7 +2413,7 @@ public class ECS_plant extends ClockDomain{
                         }
                       }
                       else {
-                        S8817=1;
+                        S60815=1;
                         active[13]=1;
                         ends[13]=1;
                         tdone[13]=1;
@@ -2431,73 +2432,73 @@ public class ECS_plant extends ClockDomain{
             break;
           
           case 1 : 
-            S8817=1;
-            S8817=0;
-            if(run.getprestatus()){//sysj\plant.sysj line: 187, column: 12
-              zone_thread_13 = 0;//sysj\plant.sysj line: 190, column: 5
-              zone_thread_13 = (selectedZone.getpreval() == null ? null : ((Integer)selectedZone.getpreval()));//sysj\plant.sysj line: 191, column: 5
-              System.out.println("");//sysj\plant.sysj line: 193, column: 5
-              System.out.println("Plant knows zone selected is: " + zone_thread_13);//sysj\plant.sysj line: 194, column: 5
-              firePresent_thread_13 = 0;//sysj\plant.sysj line: 197, column: 5
-              firePresent_thread_13 = (fire.getpreval() == null ? null : ((Integer)fire.getpreval()));//sysj\plant.sysj line: 198, column: 5
-              lightIntensity_thread_13 = 0;//sysj\plant.sysj line: 201, column: 5
-              lightIntensity_thread_13 = (lightInt.getpreval() == null ? null : ((Integer)lightInt.getpreval()));//sysj\plant.sysj line: 202, column: 5
-              clock_thread_13 = "";//sysj\plant.sysj line: 205, column: 5
-              clock_thread_13 = (time.getpreval() == null ? null : ((String)time.getpreval()));//sysj\plant.sysj line: 206, column: 5
-              if(firePresent_thread_13 == 1){//sysj\plant.sysj line: 210, column: 8
-                System.out.println("THERE IS A FIRE IN ZONE " + zone_thread_13 + " SEND EVACUATION SIGNAL TO ACS");//sysj\plant.sysj line: 211, column: 6
-                cutPow.setPresent();//sysj\plant.sysj line: 212, column: 6
+            S60815=1;
+            S60815=0;
+            if(run.getprestatus()){//sysj\plant.sysj line: 188, column: 12
+              zone_thread_13 = 0;//sysj\plant.sysj line: 191, column: 5
+              zone_thread_13 = (selectedZone.getpreval() == null ? null : ((Integer)selectedZone.getpreval()));//sysj\plant.sysj line: 192, column: 5
+              System.out.println("");//sysj\plant.sysj line: 194, column: 5
+              System.out.println("Plant knows zone selected is: " + zone_thread_13);//sysj\plant.sysj line: 195, column: 5
+              firePresent_thread_13 = 0;//sysj\plant.sysj line: 198, column: 5
+              firePresent_thread_13 = (fire.getpreval() == null ? null : ((Integer)fire.getpreval()));//sysj\plant.sysj line: 199, column: 5
+              lightIntensity_thread_13 = 0;//sysj\plant.sysj line: 202, column: 5
+              lightIntensity_thread_13 = (lightInt.getpreval() == null ? null : ((Integer)lightInt.getpreval()));//sysj\plant.sysj line: 203, column: 5
+              clock_thread_13 = "";//sysj\plant.sysj line: 206, column: 5
+              clock_thread_13 = (time.getpreval() == null ? null : ((String)time.getpreval()));//sysj\plant.sysj line: 207, column: 5
+              if(firePresent_thread_13 == 1){//sysj\plant.sysj line: 211, column: 8
+                System.out.println("THERE IS A FIRE IN ZONE " + zone_thread_13 + " SEND EVACUATION SIGNAL TO ACS");//sysj\plant.sysj line: 212, column: 6
+                cutPow.setPresent();//sysj\plant.sysj line: 213, column: 6
                 currsigs.addElement(cutPow);
-                S7678=0;
+                S59676=0;
                 active[13]=1;
                 ends[13]=1;
                 tdone[13]=1;
               }
               else {
-                if(zone_thread_13 == 1 || zone_thread_13 == 7){//sysj\plant.sysj line: 226, column: 8
-                  temp17_thread_13 = 0;//sysj\plant.sysj line: 227, column: 6
-                  temp17_thread_13 = (tempZone1_7.getpreval() == null ? null : ((Integer)tempZone1_7.getpreval()));//sysj\plant.sysj line: 228, column: 6
-                  if(temp17_thread_13 > 22){//sysj\plant.sysj line: 229, column: 9
-                    System.out.println("");//sysj\plant.sysj line: 230, column: 8
-                    System.out.println("Room temperature is too high at " + temp17_thread_13);//sysj\plant.sysj line: 231, column: 8
-                    fanOnZone1_7.setPresent();//sysj\plant.sysj line: 232, column: 8
+                if(zone_thread_13 == 1 || zone_thread_13 == 7){//sysj\plant.sysj line: 227, column: 8
+                  temp17_thread_13 = 0;//sysj\plant.sysj line: 228, column: 6
+                  temp17_thread_13 = (tempZone1_7.getpreval() == null ? null : ((Integer)tempZone1_7.getpreval()));//sysj\plant.sysj line: 229, column: 6
+                  if(temp17_thread_13 > 22){//sysj\plant.sysj line: 230, column: 9
+                    System.out.println("");//sysj\plant.sysj line: 231, column: 8
+                    System.out.println("Room temperature is too high at " + temp17_thread_13);//sysj\plant.sysj line: 232, column: 8
+                    fanOnZone1_7.setPresent();//sysj\plant.sysj line: 233, column: 8
                     currsigs.addElement(fanOnZone1_7);
-                    if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 243, column: 8
-                      temp23_thread_13 = 0;//sysj\plant.sysj line: 244, column: 6
-                      temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 245, column: 6
-                      if(temp23_thread_13 > 22){//sysj\plant.sysj line: 246, column: 9
-                        System.out.println("");//sysj\plant.sysj line: 247, column: 8
-                        System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 248, column: 8
-                        airOnZone2_3.setPresent();//sysj\plant.sysj line: 249, column: 8
+                    if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 244, column: 8
+                      temp23_thread_13 = 0;//sysj\plant.sysj line: 245, column: 6
+                      temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 246, column: 6
+                      if(temp23_thread_13 > 22){//sysj\plant.sysj line: 247, column: 9
+                        System.out.println("");//sysj\plant.sysj line: 248, column: 8
+                        System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 249, column: 8
+                        airOnZone2_3.setPresent();//sysj\plant.sysj line: 250, column: 8
                         currsigs.addElement(airOnZone2_3);
-                        if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                          temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                          temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                          if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                            System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                            System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                            airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                        if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                          temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                          temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                          if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                            System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                            System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                            airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                             currsigs.addElement(airOnZone4_5_6);
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                           else {
-                            if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                              System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                              System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                              heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                            if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                              System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                              System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                              heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                               currsigs.addElement(heatOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                              System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                              S8817=1;
+                              System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                              System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
@@ -2505,44 +2506,44 @@ public class ECS_plant extends ClockDomain{
                           }
                         }
                         else {
-                          S8817=1;
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
                         }
                       }
                       else {
-                        if(temp23_thread_13 < 21){//sysj\plant.sysj line: 250, column: 16
-                          heatOnZone2_3.setPresent();//sysj\plant.sysj line: 251, column: 8
+                        if(temp23_thread_13 < 21){//sysj\plant.sysj line: 251, column: 16
+                          heatOnZone2_3.setPresent();//sysj\plant.sysj line: 252, column: 8
                           currsigs.addElement(heatOnZone2_3);
-                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                            temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                              System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                            temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                              System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                               currsigs.addElement(airOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                 currsigs.addElement(heatOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                S8817=1;
+                                System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
@@ -2550,43 +2551,43 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                         }
                         else {
-                          System.out.println("");//sysj\plant.sysj line: 253, column: 7
-                          System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 254, column: 7
-                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                            temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                              System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                          System.out.println("");//sysj\plant.sysj line: 254, column: 7
+                          System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 255, column: 7
+                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                            temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                              System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                               currsigs.addElement(airOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                 currsigs.addElement(heatOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                S8817=1;
+                                System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
@@ -2594,7 +2595,7 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
@@ -2603,34 +2604,34 @@ public class ECS_plant extends ClockDomain{
                       }
                     }
                     else {
-                      if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                        temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                        temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                        if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                          System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                          System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                          airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                      if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                        temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                        temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                        if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                          System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                          System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                          airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                           currsigs.addElement(airOnZone4_5_6);
-                          S8817=1;
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
                         }
                         else {
-                          if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                            System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                            System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                            heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                          if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                            System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                            System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                            heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                             currsigs.addElement(heatOnZone4_5_6);
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                           else {
-                            System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                            System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                            S8817=1;
+                            System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                            System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
@@ -2638,7 +2639,7 @@ public class ECS_plant extends ClockDomain{
                         }
                       }
                       else {
-                        S8817=1;
+                        S60815=1;
                         active[13]=1;
                         ends[13]=1;
                         tdone[13]=1;
@@ -2646,46 +2647,46 @@ public class ECS_plant extends ClockDomain{
                     }
                   }
                   else {
-                    if(temp17_thread_13 < 21){//sysj\plant.sysj line: 233, column: 16
-                      System.out.println("Room temperature is too low at " + temp17_thread_13);//sysj\plant.sysj line: 234, column: 8
-                      heatOnZone1_7.setPresent();//sysj\plant.sysj line: 235, column: 8
+                    if(temp17_thread_13 < 21){//sysj\plant.sysj line: 234, column: 16
+                      System.out.println("Room temperature is too low at " + temp17_thread_13);//sysj\plant.sysj line: 235, column: 8
+                      heatOnZone1_7.setPresent();//sysj\plant.sysj line: 236, column: 8
                       currsigs.addElement(heatOnZone1_7);
-                      if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 243, column: 8
-                        temp23_thread_13 = 0;//sysj\plant.sysj line: 244, column: 6
-                        temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 245, column: 6
-                        if(temp23_thread_13 > 22){//sysj\plant.sysj line: 246, column: 9
-                          System.out.println("");//sysj\plant.sysj line: 247, column: 8
-                          System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 248, column: 8
-                          airOnZone2_3.setPresent();//sysj\plant.sysj line: 249, column: 8
+                      if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 244, column: 8
+                        temp23_thread_13 = 0;//sysj\plant.sysj line: 245, column: 6
+                        temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 246, column: 6
+                        if(temp23_thread_13 > 22){//sysj\plant.sysj line: 247, column: 9
+                          System.out.println("");//sysj\plant.sysj line: 248, column: 8
+                          System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 249, column: 8
+                          airOnZone2_3.setPresent();//sysj\plant.sysj line: 250, column: 8
                           currsigs.addElement(airOnZone2_3);
-                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                            temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                              System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                            temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                              System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                               currsigs.addElement(airOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                 currsigs.addElement(heatOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                S8817=1;
+                                System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
@@ -2693,44 +2694,44 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                         }
                         else {
-                          if(temp23_thread_13 < 21){//sysj\plant.sysj line: 250, column: 16
-                            heatOnZone2_3.setPresent();//sysj\plant.sysj line: 251, column: 8
+                          if(temp23_thread_13 < 21){//sysj\plant.sysj line: 251, column: 16
+                            heatOnZone2_3.setPresent();//sysj\plant.sysj line: 252, column: 8
                             currsigs.addElement(heatOnZone2_3);
-                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                              temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                              temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                 currsigs.addElement(airOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                  System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                  System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                   currsigs.addElement(heatOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                  S8817=1;
+                                  System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
@@ -2738,43 +2739,43 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                           }
                           else {
-                            System.out.println("");//sysj\plant.sysj line: 253, column: 7
-                            System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 254, column: 7
-                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                              temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                            System.out.println("");//sysj\plant.sysj line: 254, column: 7
+                            System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 255, column: 7
+                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                              temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                 currsigs.addElement(airOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                  System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                  System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                   currsigs.addElement(heatOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                  S8817=1;
+                                  System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
@@ -2782,7 +2783,7 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
@@ -2791,34 +2792,34 @@ public class ECS_plant extends ClockDomain{
                         }
                       }
                       else {
-                        if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                          temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                          temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                          if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                            System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                            System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                            airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                        if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                          temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                          temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                          if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                            System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                            System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                            airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                             currsigs.addElement(airOnZone4_5_6);
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                           else {
-                            if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                              System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                              System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                              heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                            if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                              System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                              System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                              heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                               currsigs.addElement(heatOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                              System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                              S8817=1;
+                              System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                              System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
@@ -2826,7 +2827,7 @@ public class ECS_plant extends ClockDomain{
                           }
                         }
                         else {
-                          S8817=1;
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
@@ -2834,44 +2835,44 @@ public class ECS_plant extends ClockDomain{
                       }
                     }
                     else {
-                      System.out.println("");//sysj\plant.sysj line: 237, column: 7
-                      System.out.println("Room temperature is safe at" + temp17_thread_13);//sysj\plant.sysj line: 238, column: 7
-                      if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 243, column: 8
-                        temp23_thread_13 = 0;//sysj\plant.sysj line: 244, column: 6
-                        temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 245, column: 6
-                        if(temp23_thread_13 > 22){//sysj\plant.sysj line: 246, column: 9
-                          System.out.println("");//sysj\plant.sysj line: 247, column: 8
-                          System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 248, column: 8
-                          airOnZone2_3.setPresent();//sysj\plant.sysj line: 249, column: 8
+                      System.out.println("");//sysj\plant.sysj line: 238, column: 7
+                      System.out.println("Room temperature is safe at" + temp17_thread_13);//sysj\plant.sysj line: 239, column: 7
+                      if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 244, column: 8
+                        temp23_thread_13 = 0;//sysj\plant.sysj line: 245, column: 6
+                        temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 246, column: 6
+                        if(temp23_thread_13 > 22){//sysj\plant.sysj line: 247, column: 9
+                          System.out.println("");//sysj\plant.sysj line: 248, column: 8
+                          System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 249, column: 8
+                          airOnZone2_3.setPresent();//sysj\plant.sysj line: 250, column: 8
                           currsigs.addElement(airOnZone2_3);
-                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                            temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                              System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                          if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                            temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                            temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                            if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                              System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                              System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                              airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                               currsigs.addElement(airOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                              if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                 currsigs.addElement(heatOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                S8817=1;
+                                System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
@@ -2879,44 +2880,44 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                         }
                         else {
-                          if(temp23_thread_13 < 21){//sysj\plant.sysj line: 250, column: 16
-                            heatOnZone2_3.setPresent();//sysj\plant.sysj line: 251, column: 8
+                          if(temp23_thread_13 < 21){//sysj\plant.sysj line: 251, column: 16
+                            heatOnZone2_3.setPresent();//sysj\plant.sysj line: 252, column: 8
                             currsigs.addElement(heatOnZone2_3);
-                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                              temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                              temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                 currsigs.addElement(airOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                  System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                  System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                   currsigs.addElement(heatOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                  S8817=1;
+                                  System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
@@ -2924,43 +2925,43 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                           }
                           else {
-                            System.out.println("");//sysj\plant.sysj line: 253, column: 7
-                            System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 254, column: 7
-                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                              temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                                System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                            System.out.println("");//sysj\plant.sysj line: 254, column: 7
+                            System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 255, column: 7
+                            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                              temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                                System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                                 currsigs.addElement(airOnZone4_5_6);
-                                S8817=1;
+                                S60815=1;
                                 active[13]=1;
                                 ends[13]=1;
                                 tdone[13]=1;
                               }
                               else {
-                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                                  System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                                  System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                                   currsigs.addElement(heatOnZone4_5_6);
-                                  S8817=1;
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                                  S8817=1;
+                                  System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                                  S60815=1;
                                   active[13]=1;
                                   ends[13]=1;
                                   tdone[13]=1;
@@ -2968,7 +2969,7 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
@@ -2977,34 +2978,34 @@ public class ECS_plant extends ClockDomain{
                         }
                       }
                       else {
-                        if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                          temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                          temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                          if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                            System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                            System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                            airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                        if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                          temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                          temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                          if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                            System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                            System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                            airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                             currsigs.addElement(airOnZone4_5_6);
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                           else {
-                            if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                              System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                              System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                              heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                            if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                              System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                              System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                              heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                               currsigs.addElement(heatOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                              System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                              S8817=1;
+                              System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                              System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
@@ -3012,7 +3013,7 @@ public class ECS_plant extends ClockDomain{
                           }
                         }
                         else {
-                          S8817=1;
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
@@ -3022,42 +3023,42 @@ public class ECS_plant extends ClockDomain{
                   }
                 }
                 else {
-                  if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 243, column: 8
-                    temp23_thread_13 = 0;//sysj\plant.sysj line: 244, column: 6
-                    temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 245, column: 6
-                    if(temp23_thread_13 > 22){//sysj\plant.sysj line: 246, column: 9
-                      System.out.println("");//sysj\plant.sysj line: 247, column: 8
-                      System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 248, column: 8
-                      airOnZone2_3.setPresent();//sysj\plant.sysj line: 249, column: 8
+                  if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 244, column: 8
+                    temp23_thread_13 = 0;//sysj\plant.sysj line: 245, column: 6
+                    temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 246, column: 6
+                    if(temp23_thread_13 > 22){//sysj\plant.sysj line: 247, column: 9
+                      System.out.println("");//sysj\plant.sysj line: 248, column: 8
+                      System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 249, column: 8
+                      airOnZone2_3.setPresent();//sysj\plant.sysj line: 250, column: 8
                       currsigs.addElement(airOnZone2_3);
-                      if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                        temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                        temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                        if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                          System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                          System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                          airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                      if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                        temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                        temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                        if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                          System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                          System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                          airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                           currsigs.addElement(airOnZone4_5_6);
-                          S8817=1;
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
                         }
                         else {
-                          if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                            System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                            System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                            heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                          if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                            System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                            System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                            heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                             currsigs.addElement(heatOnZone4_5_6);
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                           else {
-                            System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                            System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                            S8817=1;
+                            System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                            System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
@@ -3065,44 +3066,44 @@ public class ECS_plant extends ClockDomain{
                         }
                       }
                       else {
-                        S8817=1;
+                        S60815=1;
                         active[13]=1;
                         ends[13]=1;
                         tdone[13]=1;
                       }
                     }
                     else {
-                      if(temp23_thread_13 < 21){//sysj\plant.sysj line: 250, column: 16
-                        heatOnZone2_3.setPresent();//sysj\plant.sysj line: 251, column: 8
+                      if(temp23_thread_13 < 21){//sysj\plant.sysj line: 251, column: 16
+                        heatOnZone2_3.setPresent();//sysj\plant.sysj line: 252, column: 8
                         currsigs.addElement(heatOnZone2_3);
-                        if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                          temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                          temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                          if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                            System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                            System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                            airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                        if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                          temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                          temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                          if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                            System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                            System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                            airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                             currsigs.addElement(airOnZone4_5_6);
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                           else {
-                            if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                              System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                              System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                              heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                            if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                              System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                              System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                              heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                               currsigs.addElement(heatOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                              System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                              S8817=1;
+                              System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                              System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
@@ -3110,43 +3111,43 @@ public class ECS_plant extends ClockDomain{
                           }
                         }
                         else {
-                          S8817=1;
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
                         }
                       }
                       else {
-                        System.out.println("");//sysj\plant.sysj line: 253, column: 7
-                        System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 254, column: 7
-                        if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                          temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                          temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                          if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                            System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                            System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                            airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                        System.out.println("");//sysj\plant.sysj line: 254, column: 7
+                        System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 255, column: 7
+                        if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                          temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                          temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                          if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                            System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                            System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                            airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                             currsigs.addElement(airOnZone4_5_6);
-                            S8817=1;
+                            S60815=1;
                             active[13]=1;
                             ends[13]=1;
                             tdone[13]=1;
                           }
                           else {
-                            if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                              System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                              System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                              heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                            if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                              System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                              System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                              heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                               currsigs.addElement(heatOnZone4_5_6);
-                              S8817=1;
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
                             }
                             else {
-                              System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                              System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                              S8817=1;
+                              System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                              System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                              S60815=1;
                               active[13]=1;
                               ends[13]=1;
                               tdone[13]=1;
@@ -3154,7 +3155,7 @@ public class ECS_plant extends ClockDomain{
                           }
                         }
                         else {
-                          S8817=1;
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
@@ -3163,34 +3164,34 @@ public class ECS_plant extends ClockDomain{
                     }
                   }
                   else {
-                    if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                      temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                      temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                      if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                        System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                        System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                        airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                    if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                      temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                      temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                      if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                        System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                        System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                        airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                         currsigs.addElement(airOnZone4_5_6);
-                        S8817=1;
+                        S60815=1;
                         active[13]=1;
                         ends[13]=1;
                         tdone[13]=1;
                       }
                       else {
-                        if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                          System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                          System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                          heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                        if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                          System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                          System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                          heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                           currsigs.addElement(heatOnZone4_5_6);
-                          S8817=1;
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
                         }
                         else {
-                          System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                          System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                          S8817=1;
+                          System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                          System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
@@ -3198,7 +3199,7 @@ public class ECS_plant extends ClockDomain{
                       }
                     }
                     else {
-                      S8817=1;
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
@@ -3208,7 +3209,7 @@ public class ECS_plant extends ClockDomain{
               }
             }
             else {
-              S8817=1;
+              S60815=1;
               active[13]=1;
               ends[13]=1;
               tdone[13]=1;
@@ -3221,10 +3222,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14933(int [] tdone, int [] ends){
-        S11277=1;
-    if(cutPow.getprestatus()){//sysj\plant.sysj line: 325, column: 24
-      cutPow_TriggerE.setPresent();//sysj\plant.sysj line: 325, column: 32
+  public void thread68337(int [] tdone, int [] ends){
+        S63275=1;
+    if(cutPow.getprestatus()){//sysj\plant.sysj line: 326, column: 24
+      cutPow_TriggerE.setPresent();//sysj\plant.sysj line: 326, column: 32
       currsigs.addElement(cutPow_TriggerE);
       active[36]=1;
       ends[36]=1;
@@ -3237,10 +3238,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14932(int [] tdone, int [] ends){
-        S11269=1;
-    if(deHumOnZone4_5_6.getprestatus()){//sysj\plant.sysj line: 323, column: 24
-      deHumOnZone4_5_6TriggerE.setPresent();//sysj\plant.sysj line: 323, column: 42
+  public void thread68336(int [] tdone, int [] ends){
+        S63267=1;
+    if(deHumOnZone4_5_6.getprestatus()){//sysj\plant.sysj line: 324, column: 24
+      deHumOnZone4_5_6TriggerE.setPresent();//sysj\plant.sysj line: 324, column: 42
       currsigs.addElement(deHumOnZone4_5_6TriggerE);
       active[35]=1;
       ends[35]=1;
@@ -3253,10 +3254,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14931(int [] tdone, int [] ends){
-        S11261=1;
-    if(deHumOnZone2_3.getprestatus()){//sysj\plant.sysj line: 321, column: 24
-      deHumOnZone2_3TriggerE.setPresent();//sysj\plant.sysj line: 321, column: 40
+  public void thread68335(int [] tdone, int [] ends){
+        S63259=1;
+    if(deHumOnZone2_3.getprestatus()){//sysj\plant.sysj line: 322, column: 24
+      deHumOnZone2_3TriggerE.setPresent();//sysj\plant.sysj line: 322, column: 40
       currsigs.addElement(deHumOnZone2_3TriggerE);
       active[34]=1;
       ends[34]=1;
@@ -3269,10 +3270,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14930(int [] tdone, int [] ends){
-        S11253=1;
-    if(deHumOnZone1_7.getprestatus()){//sysj\plant.sysj line: 319, column: 24
-      deHumOnZone1_7TriggerE.setPresent();//sysj\plant.sysj line: 319, column: 40
+  public void thread68334(int [] tdone, int [] ends){
+        S63251=1;
+    if(deHumOnZone1_7.getprestatus()){//sysj\plant.sysj line: 320, column: 24
+      deHumOnZone1_7TriggerE.setPresent();//sysj\plant.sysj line: 320, column: 40
       currsigs.addElement(deHumOnZone1_7TriggerE);
       active[33]=1;
       ends[33]=1;
@@ -3285,10 +3286,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14929(int [] tdone, int [] ends){
-        S11245=1;
-    if(humOnZone4_5_6.getprestatus()){//sysj\plant.sysj line: 317, column: 24
-      humOnZone4_5_6TriggerE.setPresent();//sysj\plant.sysj line: 317, column: 40
+  public void thread68333(int [] tdone, int [] ends){
+        S63243=1;
+    if(humOnZone4_5_6.getprestatus()){//sysj\plant.sysj line: 318, column: 24
+      humOnZone4_5_6TriggerE.setPresent();//sysj\plant.sysj line: 318, column: 40
       currsigs.addElement(humOnZone4_5_6TriggerE);
       active[32]=1;
       ends[32]=1;
@@ -3301,10 +3302,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14928(int [] tdone, int [] ends){
-        S11237=1;
-    if(humOnZone2_3.getprestatus()){//sysj\plant.sysj line: 315, column: 24
-      humOnZone2_3TriggerE.setPresent();//sysj\plant.sysj line: 315, column: 38
+  public void thread68332(int [] tdone, int [] ends){
+        S63235=1;
+    if(humOnZone2_3.getprestatus()){//sysj\plant.sysj line: 316, column: 24
+      humOnZone2_3TriggerE.setPresent();//sysj\plant.sysj line: 316, column: 38
       currsigs.addElement(humOnZone2_3TriggerE);
       active[31]=1;
       ends[31]=1;
@@ -3317,10 +3318,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14927(int [] tdone, int [] ends){
-        S11229=1;
-    if(humOnZone1_7.getprestatus()){//sysj\plant.sysj line: 313, column: 24
-      humOnZone1_7TriggerE.setPresent();//sysj\plant.sysj line: 313, column: 38
+  public void thread68331(int [] tdone, int [] ends){
+        S63227=1;
+    if(humOnZone1_7.getprestatus()){//sysj\plant.sysj line: 314, column: 24
+      humOnZone1_7TriggerE.setPresent();//sysj\plant.sysj line: 314, column: 38
       currsigs.addElement(humOnZone1_7TriggerE);
       active[30]=1;
       ends[30]=1;
@@ -3333,10 +3334,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14926(int [] tdone, int [] ends){
-        S11221=1;
-    if(heatOnZone4_5_6.getprestatus()){//sysj\plant.sysj line: 311, column: 24
-      heatOnZone4_5_6TriggerE.setPresent();//sysj\plant.sysj line: 311, column: 41
+  public void thread68330(int [] tdone, int [] ends){
+        S63219=1;
+    if(heatOnZone4_5_6.getprestatus()){//sysj\plant.sysj line: 312, column: 24
+      heatOnZone4_5_6TriggerE.setPresent();//sysj\plant.sysj line: 312, column: 41
       currsigs.addElement(heatOnZone4_5_6TriggerE);
       active[29]=1;
       ends[29]=1;
@@ -3349,10 +3350,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14925(int [] tdone, int [] ends){
-        S11213=1;
-    if(heatOnZone2_3.getprestatus()){//sysj\plant.sysj line: 309, column: 24
-      heatOnZone2_3TriggerE.setPresent();//sysj\plant.sysj line: 309, column: 39
+  public void thread68329(int [] tdone, int [] ends){
+        S63211=1;
+    if(heatOnZone2_3.getprestatus()){//sysj\plant.sysj line: 310, column: 24
+      heatOnZone2_3TriggerE.setPresent();//sysj\plant.sysj line: 310, column: 39
       currsigs.addElement(heatOnZone2_3TriggerE);
       active[28]=1;
       ends[28]=1;
@@ -3365,10 +3366,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14924(int [] tdone, int [] ends){
-        S11205=1;
-    if(airOnZone4_5_6.getprestatus()){//sysj\plant.sysj line: 307, column: 24
-      airOnZone4_5_6TriggerE.setPresent();//sysj\plant.sysj line: 307, column: 40
+  public void thread68328(int [] tdone, int [] ends){
+        S63203=1;
+    if(airOnZone4_5_6.getprestatus()){//sysj\plant.sysj line: 308, column: 24
+      airOnZone4_5_6TriggerE.setPresent();//sysj\plant.sysj line: 308, column: 40
       currsigs.addElement(airOnZone4_5_6TriggerE);
       active[27]=1;
       ends[27]=1;
@@ -3381,10 +3382,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14923(int [] tdone, int [] ends){
-        S11197=1;
-    if(airOnZone2_3.getprestatus()){//sysj\plant.sysj line: 305, column: 24
-      airOnZone2_3TriggerE.setPresent();//sysj\plant.sysj line: 305, column: 38
+  public void thread68327(int [] tdone, int [] ends){
+        S63195=1;
+    if(airOnZone2_3.getprestatus()){//sysj\plant.sysj line: 306, column: 24
+      airOnZone2_3TriggerE.setPresent();//sysj\plant.sysj line: 306, column: 38
       currsigs.addElement(airOnZone2_3TriggerE);
       active[26]=1;
       ends[26]=1;
@@ -3397,10 +3398,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14922(int [] tdone, int [] ends){
-        S11189=1;
-    if(heatOnZone1_7.getprestatus()){//sysj\plant.sysj line: 303, column: 24
-      heatOnZone1_7TriggerE.setPresent();//sysj\plant.sysj line: 303, column: 39
+  public void thread68326(int [] tdone, int [] ends){
+        S63187=1;
+    if(heatOnZone1_7.getprestatus()){//sysj\plant.sysj line: 304, column: 24
+      heatOnZone1_7TriggerE.setPresent();//sysj\plant.sysj line: 304, column: 39
       currsigs.addElement(heatOnZone1_7TriggerE);
       active[25]=1;
       ends[25]=1;
@@ -3413,10 +3414,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14921(int [] tdone, int [] ends){
-        S11181=1;
-    if(fanOnZone1_7.getprestatus()){//sysj\plant.sysj line: 301, column: 24
-      fanOnZone1_7TriggerE.setPresent();//sysj\plant.sysj line: 301, column: 38
+  public void thread68325(int [] tdone, int [] ends){
+        S63179=1;
+    if(fanOnZone1_7.getprestatus()){//sysj\plant.sysj line: 302, column: 24
+      fanOnZone1_7TriggerE.setPresent();//sysj\plant.sysj line: 302, column: 38
       currsigs.addElement(fanOnZone1_7TriggerE);
       active[24]=1;
       ends[24]=1;
@@ -3429,10 +3430,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14920(int [] tdone, int [] ends){
-        S11173=1;
-    if(cleanZone7.getprestatus()){//sysj\plant.sysj line: 299, column: 24
-      cleanZone7TriggerE.setPresent();//sysj\plant.sysj line: 299, column: 36
+  public void thread68324(int [] tdone, int [] ends){
+        S63171=1;
+    if(cleanZone7.getprestatus()){//sysj\plant.sysj line: 300, column: 24
+      cleanZone7TriggerE.setPresent();//sysj\plant.sysj line: 300, column: 36
       currsigs.addElement(cleanZone7TriggerE);
       active[23]=1;
       ends[23]=1;
@@ -3445,10 +3446,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14919(int [] tdone, int [] ends){
-        S11165=1;
-    if(cleanZone6.getprestatus()){//sysj\plant.sysj line: 297, column: 24
-      cleanZone6TriggerE.setPresent();//sysj\plant.sysj line: 297, column: 36
+  public void thread68323(int [] tdone, int [] ends){
+        S63163=1;
+    if(cleanZone6.getprestatus()){//sysj\plant.sysj line: 298, column: 24
+      cleanZone6TriggerE.setPresent();//sysj\plant.sysj line: 298, column: 36
       currsigs.addElement(cleanZone6TriggerE);
       active[22]=1;
       ends[22]=1;
@@ -3461,10 +3462,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14918(int [] tdone, int [] ends){
-        S11157=1;
-    if(cleanZone5.getprestatus()){//sysj\plant.sysj line: 295, column: 24
-      cleanZone5TriggerE.setPresent();//sysj\plant.sysj line: 295, column: 36
+  public void thread68322(int [] tdone, int [] ends){
+        S63155=1;
+    if(cleanZone5.getprestatus()){//sysj\plant.sysj line: 296, column: 24
+      cleanZone5TriggerE.setPresent();//sysj\plant.sysj line: 296, column: 36
       currsigs.addElement(cleanZone5TriggerE);
       active[21]=1;
       ends[21]=1;
@@ -3477,10 +3478,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14917(int [] tdone, int [] ends){
-        S11149=1;
-    if(cleanZone4.getprestatus()){//sysj\plant.sysj line: 293, column: 24
-      cleanZone4TriggerE.setPresent();//sysj\plant.sysj line: 293, column: 36
+  public void thread68321(int [] tdone, int [] ends){
+        S63147=1;
+    if(cleanZone4.getprestatus()){//sysj\plant.sysj line: 294, column: 24
+      cleanZone4TriggerE.setPresent();//sysj\plant.sysj line: 294, column: 36
       currsigs.addElement(cleanZone4TriggerE);
       active[20]=1;
       ends[20]=1;
@@ -3493,10 +3494,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14916(int [] tdone, int [] ends){
-        S11141=1;
-    if(cleanZone3.getprestatus()){//sysj\plant.sysj line: 291, column: 24
-      cleanZone3TriggerE.setPresent();//sysj\plant.sysj line: 291, column: 36
+  public void thread68320(int [] tdone, int [] ends){
+        S63139=1;
+    if(cleanZone3.getprestatus()){//sysj\plant.sysj line: 292, column: 24
+      cleanZone3TriggerE.setPresent();//sysj\plant.sysj line: 292, column: 36
       currsigs.addElement(cleanZone3TriggerE);
       active[19]=1;
       ends[19]=1;
@@ -3509,10 +3510,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14915(int [] tdone, int [] ends){
-        S11133=1;
-    if(cleanZone2.getprestatus()){//sysj\plant.sysj line: 289, column: 24
-      cleanZone2TriggerE.setPresent();//sysj\plant.sysj line: 289, column: 36
+  public void thread68319(int [] tdone, int [] ends){
+        S63131=1;
+    if(cleanZone2.getprestatus()){//sysj\plant.sysj line: 290, column: 24
+      cleanZone2TriggerE.setPresent();//sysj\plant.sysj line: 290, column: 36
       currsigs.addElement(cleanZone2TriggerE);
       active[18]=1;
       ends[18]=1;
@@ -3525,10 +3526,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14914(int [] tdone, int [] ends){
-        S11125=1;
-    if(cleanZone1.getprestatus()){//sysj\plant.sysj line: 287, column: 24
-      cleanZone1TriggerE.setPresent();//sysj\plant.sysj line: 287, column: 36
+  public void thread68318(int [] tdone, int [] ends){
+        S63123=1;
+    if(cleanZone1.getprestatus()){//sysj\plant.sysj line: 288, column: 24
+      cleanZone1TriggerE.setPresent();//sysj\plant.sysj line: 288, column: 36
       currsigs.addElement(cleanZone1TriggerE);
       active[17]=1;
       ends[17]=1;
@@ -3541,10 +3542,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14913(int [] tdone, int [] ends){
-        S11117=1;
-    if(fireExt.getprestatus()){//sysj\plant.sysj line: 285, column: 24
-      fireExtE.setPresent();//sysj\plant.sysj line: 285, column: 33
+  public void thread68317(int [] tdone, int [] ends){
+        S63115=1;
+    if(fireExt.getprestatus()){//sysj\plant.sysj line: 286, column: 24
+      fireExtE.setPresent();//sysj\plant.sysj line: 286, column: 33
       currsigs.addElement(fireExtE);
       active[16]=1;
       ends[16]=1;
@@ -3557,10 +3558,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14912(int [] tdone, int [] ends){
-        S11109=1;
-    if(fireZone1.getprestatus()){//sysj\plant.sysj line: 283, column: 24
-      alarmZone1TriggerE.setPresent();//sysj\plant.sysj line: 283, column: 35
+  public void thread68316(int [] tdone, int [] ends){
+        S63107=1;
+    if(fireZone1.getprestatus()){//sysj\plant.sysj line: 284, column: 24
+      alarmZone1TriggerE.setPresent();//sysj\plant.sysj line: 284, column: 35
       currsigs.addElement(alarmZone1TriggerE);
       active[15]=1;
       ends[15]=1;
@@ -3573,172 +3574,172 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread14911(int [] tdone, int [] ends){
-        S11279=1;
-    thread14912(tdone,ends);
-    thread14913(tdone,ends);
-    thread14914(tdone,ends);
-    thread14915(tdone,ends);
-    thread14916(tdone,ends);
-    thread14917(tdone,ends);
-    thread14918(tdone,ends);
-    thread14919(tdone,ends);
-    thread14920(tdone,ends);
-    thread14921(tdone,ends);
-    thread14922(tdone,ends);
-    thread14923(tdone,ends);
-    thread14924(tdone,ends);
-    thread14925(tdone,ends);
-    thread14926(tdone,ends);
-    thread14927(tdone,ends);
-    thread14928(tdone,ends);
-    thread14929(tdone,ends);
-    thread14930(tdone,ends);
-    thread14931(tdone,ends);
-    thread14932(tdone,ends);
-    thread14933(tdone,ends);
-    int biggest14934 = 0;
-    if(ends[15]>=biggest14934){
-      biggest14934=ends[15];
+  public void thread68315(int [] tdone, int [] ends){
+        S63277=1;
+    thread68316(tdone,ends);
+    thread68317(tdone,ends);
+    thread68318(tdone,ends);
+    thread68319(tdone,ends);
+    thread68320(tdone,ends);
+    thread68321(tdone,ends);
+    thread68322(tdone,ends);
+    thread68323(tdone,ends);
+    thread68324(tdone,ends);
+    thread68325(tdone,ends);
+    thread68326(tdone,ends);
+    thread68327(tdone,ends);
+    thread68328(tdone,ends);
+    thread68329(tdone,ends);
+    thread68330(tdone,ends);
+    thread68331(tdone,ends);
+    thread68332(tdone,ends);
+    thread68333(tdone,ends);
+    thread68334(tdone,ends);
+    thread68335(tdone,ends);
+    thread68336(tdone,ends);
+    thread68337(tdone,ends);
+    int biggest68338 = 0;
+    if(ends[15]>=biggest68338){
+      biggest68338=ends[15];
     }
-    if(ends[16]>=biggest14934){
-      biggest14934=ends[16];
+    if(ends[16]>=biggest68338){
+      biggest68338=ends[16];
     }
-    if(ends[17]>=biggest14934){
-      biggest14934=ends[17];
+    if(ends[17]>=biggest68338){
+      biggest68338=ends[17];
     }
-    if(ends[18]>=biggest14934){
-      biggest14934=ends[18];
+    if(ends[18]>=biggest68338){
+      biggest68338=ends[18];
     }
-    if(ends[19]>=biggest14934){
-      biggest14934=ends[19];
+    if(ends[19]>=biggest68338){
+      biggest68338=ends[19];
     }
-    if(ends[20]>=biggest14934){
-      biggest14934=ends[20];
+    if(ends[20]>=biggest68338){
+      biggest68338=ends[20];
     }
-    if(ends[21]>=biggest14934){
-      biggest14934=ends[21];
+    if(ends[21]>=biggest68338){
+      biggest68338=ends[21];
     }
-    if(ends[22]>=biggest14934){
-      biggest14934=ends[22];
+    if(ends[22]>=biggest68338){
+      biggest68338=ends[22];
     }
-    if(ends[23]>=biggest14934){
-      biggest14934=ends[23];
+    if(ends[23]>=biggest68338){
+      biggest68338=ends[23];
     }
-    if(ends[24]>=biggest14934){
-      biggest14934=ends[24];
+    if(ends[24]>=biggest68338){
+      biggest68338=ends[24];
     }
-    if(ends[25]>=biggest14934){
-      biggest14934=ends[25];
+    if(ends[25]>=biggest68338){
+      biggest68338=ends[25];
     }
-    if(ends[26]>=biggest14934){
-      biggest14934=ends[26];
+    if(ends[26]>=biggest68338){
+      biggest68338=ends[26];
     }
-    if(ends[27]>=biggest14934){
-      biggest14934=ends[27];
+    if(ends[27]>=biggest68338){
+      biggest68338=ends[27];
     }
-    if(ends[28]>=biggest14934){
-      biggest14934=ends[28];
+    if(ends[28]>=biggest68338){
+      biggest68338=ends[28];
     }
-    if(ends[29]>=biggest14934){
-      biggest14934=ends[29];
+    if(ends[29]>=biggest68338){
+      biggest68338=ends[29];
     }
-    if(ends[30]>=biggest14934){
-      biggest14934=ends[30];
+    if(ends[30]>=biggest68338){
+      biggest68338=ends[30];
     }
-    if(ends[31]>=biggest14934){
-      biggest14934=ends[31];
+    if(ends[31]>=biggest68338){
+      biggest68338=ends[31];
     }
-    if(ends[32]>=biggest14934){
-      biggest14934=ends[32];
+    if(ends[32]>=biggest68338){
+      biggest68338=ends[32];
     }
-    if(ends[33]>=biggest14934){
-      biggest14934=ends[33];
+    if(ends[33]>=biggest68338){
+      biggest68338=ends[33];
     }
-    if(ends[34]>=biggest14934){
-      biggest14934=ends[34];
+    if(ends[34]>=biggest68338){
+      biggest68338=ends[34];
     }
-    if(ends[35]>=biggest14934){
-      biggest14934=ends[35];
+    if(ends[35]>=biggest68338){
+      biggest68338=ends[35];
     }
-    if(ends[36]>=biggest14934){
-      biggest14934=ends[36];
+    if(ends[36]>=biggest68338){
+      biggest68338=ends[36];
     }
-    if(biggest14934 == 1){
+    if(biggest68338 == 1){
       active[14]=1;
       ends[14]=1;
       tdone[14]=1;
     }
   }
 
-  public void thread14910(int [] tdone, int [] ends){
-        S11101=1;
-    S8817=0;
-    if(run.getprestatus()){//sysj\plant.sysj line: 187, column: 12
-      zone_thread_13 = 0;//sysj\plant.sysj line: 190, column: 5
-      zone_thread_13 = (selectedZone.getpreval() == null ? null : ((Integer)selectedZone.getpreval()));//sysj\plant.sysj line: 191, column: 5
-      System.out.println("");//sysj\plant.sysj line: 193, column: 5
-      System.out.println("Plant knows zone selected is: " + zone_thread_13);//sysj\plant.sysj line: 194, column: 5
-      firePresent_thread_13 = 0;//sysj\plant.sysj line: 197, column: 5
-      firePresent_thread_13 = (fire.getpreval() == null ? null : ((Integer)fire.getpreval()));//sysj\plant.sysj line: 198, column: 5
-      lightIntensity_thread_13 = 0;//sysj\plant.sysj line: 201, column: 5
-      lightIntensity_thread_13 = (lightInt.getpreval() == null ? null : ((Integer)lightInt.getpreval()));//sysj\plant.sysj line: 202, column: 5
-      clock_thread_13 = "";//sysj\plant.sysj line: 205, column: 5
-      clock_thread_13 = (time.getpreval() == null ? null : ((String)time.getpreval()));//sysj\plant.sysj line: 206, column: 5
-      if(firePresent_thread_13 == 1){//sysj\plant.sysj line: 210, column: 8
-        System.out.println("THERE IS A FIRE IN ZONE " + zone_thread_13 + " SEND EVACUATION SIGNAL TO ACS");//sysj\plant.sysj line: 211, column: 6
-        cutPow.setPresent();//sysj\plant.sysj line: 212, column: 6
+  public void thread68314(int [] tdone, int [] ends){
+        S63099=1;
+    S60815=0;
+    if(run.getprestatus()){//sysj\plant.sysj line: 188, column: 12
+      zone_thread_13 = 0;//sysj\plant.sysj line: 191, column: 5
+      zone_thread_13 = (selectedZone.getpreval() == null ? null : ((Integer)selectedZone.getpreval()));//sysj\plant.sysj line: 192, column: 5
+      System.out.println("");//sysj\plant.sysj line: 194, column: 5
+      System.out.println("Plant knows zone selected is: " + zone_thread_13);//sysj\plant.sysj line: 195, column: 5
+      firePresent_thread_13 = 0;//sysj\plant.sysj line: 198, column: 5
+      firePresent_thread_13 = (fire.getpreval() == null ? null : ((Integer)fire.getpreval()));//sysj\plant.sysj line: 199, column: 5
+      lightIntensity_thread_13 = 0;//sysj\plant.sysj line: 202, column: 5
+      lightIntensity_thread_13 = (lightInt.getpreval() == null ? null : ((Integer)lightInt.getpreval()));//sysj\plant.sysj line: 203, column: 5
+      clock_thread_13 = "";//sysj\plant.sysj line: 206, column: 5
+      clock_thread_13 = (time.getpreval() == null ? null : ((String)time.getpreval()));//sysj\plant.sysj line: 207, column: 5
+      if(firePresent_thread_13 == 1){//sysj\plant.sysj line: 211, column: 8
+        System.out.println("THERE IS A FIRE IN ZONE " + zone_thread_13 + " SEND EVACUATION SIGNAL TO ACS");//sysj\plant.sysj line: 212, column: 6
+        cutPow.setPresent();//sysj\plant.sysj line: 213, column: 6
         currsigs.addElement(cutPow);
-        S7678=0;
+        S59676=0;
         active[13]=1;
         ends[13]=1;
         tdone[13]=1;
       }
       else {
-        if(zone_thread_13 == 1 || zone_thread_13 == 7){//sysj\plant.sysj line: 226, column: 8
-          temp17_thread_13 = 0;//sysj\plant.sysj line: 227, column: 6
-          temp17_thread_13 = (tempZone1_7.getpreval() == null ? null : ((Integer)tempZone1_7.getpreval()));//sysj\plant.sysj line: 228, column: 6
-          if(temp17_thread_13 > 22){//sysj\plant.sysj line: 229, column: 9
-            System.out.println("");//sysj\plant.sysj line: 230, column: 8
-            System.out.println("Room temperature is too high at " + temp17_thread_13);//sysj\plant.sysj line: 231, column: 8
-            fanOnZone1_7.setPresent();//sysj\plant.sysj line: 232, column: 8
+        if(zone_thread_13 == 1 || zone_thread_13 == 7){//sysj\plant.sysj line: 227, column: 8
+          temp17_thread_13 = 0;//sysj\plant.sysj line: 228, column: 6
+          temp17_thread_13 = (tempZone1_7.getpreval() == null ? null : ((Integer)tempZone1_7.getpreval()));//sysj\plant.sysj line: 229, column: 6
+          if(temp17_thread_13 > 22){//sysj\plant.sysj line: 230, column: 9
+            System.out.println("");//sysj\plant.sysj line: 231, column: 8
+            System.out.println("Room temperature is too high at " + temp17_thread_13);//sysj\plant.sysj line: 232, column: 8
+            fanOnZone1_7.setPresent();//sysj\plant.sysj line: 233, column: 8
             currsigs.addElement(fanOnZone1_7);
-            if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 243, column: 8
-              temp23_thread_13 = 0;//sysj\plant.sysj line: 244, column: 6
-              temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 245, column: 6
-              if(temp23_thread_13 > 22){//sysj\plant.sysj line: 246, column: 9
-                System.out.println("");//sysj\plant.sysj line: 247, column: 8
-                System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 248, column: 8
-                airOnZone2_3.setPresent();//sysj\plant.sysj line: 249, column: 8
+            if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 244, column: 8
+              temp23_thread_13 = 0;//sysj\plant.sysj line: 245, column: 6
+              temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 246, column: 6
+              if(temp23_thread_13 > 22){//sysj\plant.sysj line: 247, column: 9
+                System.out.println("");//sysj\plant.sysj line: 248, column: 8
+                System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 249, column: 8
+                airOnZone2_3.setPresent();//sysj\plant.sysj line: 250, column: 8
                 currsigs.addElement(airOnZone2_3);
-                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                  temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                    System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                  temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                    System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                     currsigs.addElement(airOnZone4_5_6);
-                    S8817=1;
+                    S60815=1;
                     active[13]=1;
                     ends[13]=1;
                     tdone[13]=1;
                   }
                   else {
-                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                      System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                      System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                       currsigs.addElement(heatOnZone4_5_6);
-                      S8817=1;
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
                     }
                     else {
-                      System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                      S8817=1;
+                      System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
@@ -3746,44 +3747,44 @@ public class ECS_plant extends ClockDomain{
                   }
                 }
                 else {
-                  S8817=1;
+                  S60815=1;
                   active[13]=1;
                   ends[13]=1;
                   tdone[13]=1;
                 }
               }
               else {
-                if(temp23_thread_13 < 21){//sysj\plant.sysj line: 250, column: 16
-                  heatOnZone2_3.setPresent();//sysj\plant.sysj line: 251, column: 8
+                if(temp23_thread_13 < 21){//sysj\plant.sysj line: 251, column: 16
+                  heatOnZone2_3.setPresent();//sysj\plant.sysj line: 252, column: 8
                   currsigs.addElement(heatOnZone2_3);
-                  if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                    temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                    temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                    if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                      System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                      System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                      airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                  if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                    temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                    temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                    if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                      System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                      System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                      airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                       currsigs.addElement(airOnZone4_5_6);
-                      S8817=1;
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
                     }
                     else {
-                      if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                        System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                        System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                        heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                      if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                        System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                        System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                        heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                         currsigs.addElement(heatOnZone4_5_6);
-                        S8817=1;
+                        S60815=1;
                         active[13]=1;
                         ends[13]=1;
                         tdone[13]=1;
                       }
                       else {
-                        System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                        System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                        S8817=1;
+                        System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                        System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                        S60815=1;
                         active[13]=1;
                         ends[13]=1;
                         tdone[13]=1;
@@ -3791,43 +3792,43 @@ public class ECS_plant extends ClockDomain{
                     }
                   }
                   else {
-                    S8817=1;
+                    S60815=1;
                     active[13]=1;
                     ends[13]=1;
                     tdone[13]=1;
                   }
                 }
                 else {
-                  System.out.println("");//sysj\plant.sysj line: 253, column: 7
-                  System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 254, column: 7
-                  if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                    temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                    temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                    if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                      System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                      System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                      airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                  System.out.println("");//sysj\plant.sysj line: 254, column: 7
+                  System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 255, column: 7
+                  if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                    temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                    temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                    if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                      System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                      System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                      airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                       currsigs.addElement(airOnZone4_5_6);
-                      S8817=1;
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
                     }
                     else {
-                      if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                        System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                        System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                        heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                      if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                        System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                        System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                        heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                         currsigs.addElement(heatOnZone4_5_6);
-                        S8817=1;
+                        S60815=1;
                         active[13]=1;
                         ends[13]=1;
                         tdone[13]=1;
                       }
                       else {
-                        System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                        System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                        S8817=1;
+                        System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                        System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                        S60815=1;
                         active[13]=1;
                         ends[13]=1;
                         tdone[13]=1;
@@ -3835,7 +3836,7 @@ public class ECS_plant extends ClockDomain{
                     }
                   }
                   else {
-                    S8817=1;
+                    S60815=1;
                     active[13]=1;
                     ends[13]=1;
                     tdone[13]=1;
@@ -3844,34 +3845,34 @@ public class ECS_plant extends ClockDomain{
               }
             }
             else {
-              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                  System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                  System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                   currsigs.addElement(airOnZone4_5_6);
-                  S8817=1;
+                  S60815=1;
                   active[13]=1;
                   ends[13]=1;
                   tdone[13]=1;
                 }
                 else {
-                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                    System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                    System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                     currsigs.addElement(heatOnZone4_5_6);
-                    S8817=1;
+                    S60815=1;
                     active[13]=1;
                     ends[13]=1;
                     tdone[13]=1;
                   }
                   else {
-                    System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                    S8817=1;
+                    System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                    S60815=1;
                     active[13]=1;
                     ends[13]=1;
                     tdone[13]=1;
@@ -3879,7 +3880,7 @@ public class ECS_plant extends ClockDomain{
                 }
               }
               else {
-                S8817=1;
+                S60815=1;
                 active[13]=1;
                 ends[13]=1;
                 tdone[13]=1;
@@ -3887,46 +3888,46 @@ public class ECS_plant extends ClockDomain{
             }
           }
           else {
-            if(temp17_thread_13 < 21){//sysj\plant.sysj line: 233, column: 16
-              System.out.println("Room temperature is too low at " + temp17_thread_13);//sysj\plant.sysj line: 234, column: 8
-              heatOnZone1_7.setPresent();//sysj\plant.sysj line: 235, column: 8
+            if(temp17_thread_13 < 21){//sysj\plant.sysj line: 234, column: 16
+              System.out.println("Room temperature is too low at " + temp17_thread_13);//sysj\plant.sysj line: 235, column: 8
+              heatOnZone1_7.setPresent();//sysj\plant.sysj line: 236, column: 8
               currsigs.addElement(heatOnZone1_7);
-              if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 243, column: 8
-                temp23_thread_13 = 0;//sysj\plant.sysj line: 244, column: 6
-                temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 245, column: 6
-                if(temp23_thread_13 > 22){//sysj\plant.sysj line: 246, column: 9
-                  System.out.println("");//sysj\plant.sysj line: 247, column: 8
-                  System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 248, column: 8
-                  airOnZone2_3.setPresent();//sysj\plant.sysj line: 249, column: 8
+              if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 244, column: 8
+                temp23_thread_13 = 0;//sysj\plant.sysj line: 245, column: 6
+                temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 246, column: 6
+                if(temp23_thread_13 > 22){//sysj\plant.sysj line: 247, column: 9
+                  System.out.println("");//sysj\plant.sysj line: 248, column: 8
+                  System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 249, column: 8
+                  airOnZone2_3.setPresent();//sysj\plant.sysj line: 250, column: 8
                   currsigs.addElement(airOnZone2_3);
-                  if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                    temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                    temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                    if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                      System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                      System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                      airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                  if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                    temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                    temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                    if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                      System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                      System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                      airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                       currsigs.addElement(airOnZone4_5_6);
-                      S8817=1;
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
                     }
                     else {
-                      if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                        System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                        System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                        heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                      if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                        System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                        System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                        heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                         currsigs.addElement(heatOnZone4_5_6);
-                        S8817=1;
+                        S60815=1;
                         active[13]=1;
                         ends[13]=1;
                         tdone[13]=1;
                       }
                       else {
-                        System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                        System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                        S8817=1;
+                        System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                        System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                        S60815=1;
                         active[13]=1;
                         ends[13]=1;
                         tdone[13]=1;
@@ -3934,44 +3935,44 @@ public class ECS_plant extends ClockDomain{
                     }
                   }
                   else {
-                    S8817=1;
+                    S60815=1;
                     active[13]=1;
                     ends[13]=1;
                     tdone[13]=1;
                   }
                 }
                 else {
-                  if(temp23_thread_13 < 21){//sysj\plant.sysj line: 250, column: 16
-                    heatOnZone2_3.setPresent();//sysj\plant.sysj line: 251, column: 8
+                  if(temp23_thread_13 < 21){//sysj\plant.sysj line: 251, column: 16
+                    heatOnZone2_3.setPresent();//sysj\plant.sysj line: 252, column: 8
                     currsigs.addElement(heatOnZone2_3);
-                    if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                      temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                      temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                      if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                        System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                        System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                        airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                    if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                      temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                      temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                      if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                        System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                        System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                        airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                         currsigs.addElement(airOnZone4_5_6);
-                        S8817=1;
+                        S60815=1;
                         active[13]=1;
                         ends[13]=1;
                         tdone[13]=1;
                       }
                       else {
-                        if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                          System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                          System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                          heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                        if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                          System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                          System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                          heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                           currsigs.addElement(heatOnZone4_5_6);
-                          S8817=1;
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
                         }
                         else {
-                          System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                          System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                          S8817=1;
+                          System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                          System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
@@ -3979,43 +3980,43 @@ public class ECS_plant extends ClockDomain{
                       }
                     }
                     else {
-                      S8817=1;
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
                     }
                   }
                   else {
-                    System.out.println("");//sysj\plant.sysj line: 253, column: 7
-                    System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 254, column: 7
-                    if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                      temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                      temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                      if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                        System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                        System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                        airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                    System.out.println("");//sysj\plant.sysj line: 254, column: 7
+                    System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 255, column: 7
+                    if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                      temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                      temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                      if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                        System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                        System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                        airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                         currsigs.addElement(airOnZone4_5_6);
-                        S8817=1;
+                        S60815=1;
                         active[13]=1;
                         ends[13]=1;
                         tdone[13]=1;
                       }
                       else {
-                        if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                          System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                          System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                          heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                        if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                          System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                          System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                          heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                           currsigs.addElement(heatOnZone4_5_6);
-                          S8817=1;
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
                         }
                         else {
-                          System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                          System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                          S8817=1;
+                          System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                          System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
@@ -4023,7 +4024,7 @@ public class ECS_plant extends ClockDomain{
                       }
                     }
                     else {
-                      S8817=1;
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
@@ -4032,34 +4033,34 @@ public class ECS_plant extends ClockDomain{
                 }
               }
               else {
-                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                  temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                    System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                  temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                    System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                     currsigs.addElement(airOnZone4_5_6);
-                    S8817=1;
+                    S60815=1;
                     active[13]=1;
                     ends[13]=1;
                     tdone[13]=1;
                   }
                   else {
-                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                      System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                      System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                       currsigs.addElement(heatOnZone4_5_6);
-                      S8817=1;
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
                     }
                     else {
-                      System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                      S8817=1;
+                      System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
@@ -4067,7 +4068,7 @@ public class ECS_plant extends ClockDomain{
                   }
                 }
                 else {
-                  S8817=1;
+                  S60815=1;
                   active[13]=1;
                   ends[13]=1;
                   tdone[13]=1;
@@ -4075,44 +4076,44 @@ public class ECS_plant extends ClockDomain{
               }
             }
             else {
-              System.out.println("");//sysj\plant.sysj line: 237, column: 7
-              System.out.println("Room temperature is safe at" + temp17_thread_13);//sysj\plant.sysj line: 238, column: 7
-              if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 243, column: 8
-                temp23_thread_13 = 0;//sysj\plant.sysj line: 244, column: 6
-                temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 245, column: 6
-                if(temp23_thread_13 > 22){//sysj\plant.sysj line: 246, column: 9
-                  System.out.println("");//sysj\plant.sysj line: 247, column: 8
-                  System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 248, column: 8
-                  airOnZone2_3.setPresent();//sysj\plant.sysj line: 249, column: 8
+              System.out.println("");//sysj\plant.sysj line: 238, column: 7
+              System.out.println("Room temperature is safe at" + temp17_thread_13);//sysj\plant.sysj line: 239, column: 7
+              if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 244, column: 8
+                temp23_thread_13 = 0;//sysj\plant.sysj line: 245, column: 6
+                temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 246, column: 6
+                if(temp23_thread_13 > 22){//sysj\plant.sysj line: 247, column: 9
+                  System.out.println("");//sysj\plant.sysj line: 248, column: 8
+                  System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 249, column: 8
+                  airOnZone2_3.setPresent();//sysj\plant.sysj line: 250, column: 8
                   currsigs.addElement(airOnZone2_3);
-                  if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                    temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                    temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                    if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                      System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                      System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                      airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                  if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                    temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                    temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                    if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                      System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                      System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                      airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                       currsigs.addElement(airOnZone4_5_6);
-                      S8817=1;
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
                     }
                     else {
-                      if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                        System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                        System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                        heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                      if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                        System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                        System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                        heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                         currsigs.addElement(heatOnZone4_5_6);
-                        S8817=1;
+                        S60815=1;
                         active[13]=1;
                         ends[13]=1;
                         tdone[13]=1;
                       }
                       else {
-                        System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                        System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                        S8817=1;
+                        System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                        System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                        S60815=1;
                         active[13]=1;
                         ends[13]=1;
                         tdone[13]=1;
@@ -4120,44 +4121,44 @@ public class ECS_plant extends ClockDomain{
                     }
                   }
                   else {
-                    S8817=1;
+                    S60815=1;
                     active[13]=1;
                     ends[13]=1;
                     tdone[13]=1;
                   }
                 }
                 else {
-                  if(temp23_thread_13 < 21){//sysj\plant.sysj line: 250, column: 16
-                    heatOnZone2_3.setPresent();//sysj\plant.sysj line: 251, column: 8
+                  if(temp23_thread_13 < 21){//sysj\plant.sysj line: 251, column: 16
+                    heatOnZone2_3.setPresent();//sysj\plant.sysj line: 252, column: 8
                     currsigs.addElement(heatOnZone2_3);
-                    if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                      temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                      temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                      if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                        System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                        System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                        airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                    if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                      temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                      temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                      if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                        System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                        System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                        airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                         currsigs.addElement(airOnZone4_5_6);
-                        S8817=1;
+                        S60815=1;
                         active[13]=1;
                         ends[13]=1;
                         tdone[13]=1;
                       }
                       else {
-                        if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                          System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                          System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                          heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                        if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                          System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                          System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                          heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                           currsigs.addElement(heatOnZone4_5_6);
-                          S8817=1;
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
                         }
                         else {
-                          System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                          System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                          S8817=1;
+                          System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                          System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
@@ -4165,43 +4166,43 @@ public class ECS_plant extends ClockDomain{
                       }
                     }
                     else {
-                      S8817=1;
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
                     }
                   }
                   else {
-                    System.out.println("");//sysj\plant.sysj line: 253, column: 7
-                    System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 254, column: 7
-                    if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                      temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                      temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                      if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                        System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                        System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                        airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                    System.out.println("");//sysj\plant.sysj line: 254, column: 7
+                    System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 255, column: 7
+                    if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                      temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                      temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                      if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                        System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                        System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                        airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                         currsigs.addElement(airOnZone4_5_6);
-                        S8817=1;
+                        S60815=1;
                         active[13]=1;
                         ends[13]=1;
                         tdone[13]=1;
                       }
                       else {
-                        if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                          System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                          System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                          heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                        if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                          System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                          System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                          heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                           currsigs.addElement(heatOnZone4_5_6);
-                          S8817=1;
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
                         }
                         else {
-                          System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                          System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                          S8817=1;
+                          System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                          System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                          S60815=1;
                           active[13]=1;
                           ends[13]=1;
                           tdone[13]=1;
@@ -4209,7 +4210,7 @@ public class ECS_plant extends ClockDomain{
                       }
                     }
                     else {
-                      S8817=1;
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
@@ -4218,34 +4219,34 @@ public class ECS_plant extends ClockDomain{
                 }
               }
               else {
-                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                  temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                    System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                  temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                    System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                     currsigs.addElement(airOnZone4_5_6);
-                    S8817=1;
+                    S60815=1;
                     active[13]=1;
                     ends[13]=1;
                     tdone[13]=1;
                   }
                   else {
-                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                      System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                      System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                       currsigs.addElement(heatOnZone4_5_6);
-                      S8817=1;
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
                     }
                     else {
-                      System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                      S8817=1;
+                      System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
@@ -4253,7 +4254,7 @@ public class ECS_plant extends ClockDomain{
                   }
                 }
                 else {
-                  S8817=1;
+                  S60815=1;
                   active[13]=1;
                   ends[13]=1;
                   tdone[13]=1;
@@ -4263,42 +4264,42 @@ public class ECS_plant extends ClockDomain{
           }
         }
         else {
-          if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 243, column: 8
-            temp23_thread_13 = 0;//sysj\plant.sysj line: 244, column: 6
-            temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 245, column: 6
-            if(temp23_thread_13 > 22){//sysj\plant.sysj line: 246, column: 9
-              System.out.println("");//sysj\plant.sysj line: 247, column: 8
-              System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 248, column: 8
-              airOnZone2_3.setPresent();//sysj\plant.sysj line: 249, column: 8
+          if(zone_thread_13 == 2 || zone_thread_13 == 3){//sysj\plant.sysj line: 244, column: 8
+            temp23_thread_13 = 0;//sysj\plant.sysj line: 245, column: 6
+            temp23_thread_13 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\plant.sysj line: 246, column: 6
+            if(temp23_thread_13 > 22){//sysj\plant.sysj line: 247, column: 9
+              System.out.println("");//sysj\plant.sysj line: 248, column: 8
+              System.out.println("Room temperature is too high at " + temp23_thread_13);//sysj\plant.sysj line: 249, column: 8
+              airOnZone2_3.setPresent();//sysj\plant.sysj line: 250, column: 8
               currsigs.addElement(airOnZone2_3);
-              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                  System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+              if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                  System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                  System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                  airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                   currsigs.addElement(airOnZone4_5_6);
-                  S8817=1;
+                  S60815=1;
                   active[13]=1;
                   ends[13]=1;
                   tdone[13]=1;
                 }
                 else {
-                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                    System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                  if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                    System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                    System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                    heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                     currsigs.addElement(heatOnZone4_5_6);
-                    S8817=1;
+                    S60815=1;
                     active[13]=1;
                     ends[13]=1;
                     tdone[13]=1;
                   }
                   else {
-                    System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                    S8817=1;
+                    System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                    System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                    S60815=1;
                     active[13]=1;
                     ends[13]=1;
                     tdone[13]=1;
@@ -4306,44 +4307,44 @@ public class ECS_plant extends ClockDomain{
                 }
               }
               else {
-                S8817=1;
+                S60815=1;
                 active[13]=1;
                 ends[13]=1;
                 tdone[13]=1;
               }
             }
             else {
-              if(temp23_thread_13 < 21){//sysj\plant.sysj line: 250, column: 16
-                heatOnZone2_3.setPresent();//sysj\plant.sysj line: 251, column: 8
+              if(temp23_thread_13 < 21){//sysj\plant.sysj line: 251, column: 16
+                heatOnZone2_3.setPresent();//sysj\plant.sysj line: 252, column: 8
                 currsigs.addElement(heatOnZone2_3);
-                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                  temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                    System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                  temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                    System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                     currsigs.addElement(airOnZone4_5_6);
-                    S8817=1;
+                    S60815=1;
                     active[13]=1;
                     ends[13]=1;
                     tdone[13]=1;
                   }
                   else {
-                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                      System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                      System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                       currsigs.addElement(heatOnZone4_5_6);
-                      S8817=1;
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
                     }
                     else {
-                      System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                      S8817=1;
+                      System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
@@ -4351,43 +4352,43 @@ public class ECS_plant extends ClockDomain{
                   }
                 }
                 else {
-                  S8817=1;
+                  S60815=1;
                   active[13]=1;
                   ends[13]=1;
                   tdone[13]=1;
                 }
               }
               else {
-                System.out.println("");//sysj\plant.sysj line: 253, column: 7
-                System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 254, column: 7
-                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-                  temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                    System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+                System.out.println("");//sysj\plant.sysj line: 254, column: 7
+                System.out.println("Room temperature is safe at" + temp23_thread_13);//sysj\plant.sysj line: 255, column: 7
+                if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+                  temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+                  temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+                  if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                    System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                    System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                    airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                     currsigs.addElement(airOnZone4_5_6);
-                    S8817=1;
+                    S60815=1;
                     active[13]=1;
                     ends[13]=1;
                     tdone[13]=1;
                   }
                   else {
-                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                      System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                    if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                      System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                      System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                      heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                       currsigs.addElement(heatOnZone4_5_6);
-                      S8817=1;
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
                     }
                     else {
-                      System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                      S8817=1;
+                      System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                      System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                      S60815=1;
                       active[13]=1;
                       ends[13]=1;
                       tdone[13]=1;
@@ -4395,7 +4396,7 @@ public class ECS_plant extends ClockDomain{
                   }
                 }
                 else {
-                  S8817=1;
+                  S60815=1;
                   active[13]=1;
                   ends[13]=1;
                   tdone[13]=1;
@@ -4404,34 +4405,34 @@ public class ECS_plant extends ClockDomain{
             }
           }
           else {
-            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 260, column: 8
-              temp456_thread_13 = 0;//sysj\plant.sysj line: 261, column: 6
-              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 262, column: 6
-              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 263, column: 9
-                System.out.println("");//sysj\plant.sysj line: 264, column: 8
-                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 265, column: 8
-                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 266, column: 8
+            if(zone_thread_13 == 4 || zone_thread_13 == 5 || zone_thread_13 == 6){//sysj\plant.sysj line: 261, column: 8
+              temp456_thread_13 = 0;//sysj\plant.sysj line: 262, column: 6
+              temp456_thread_13 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\plant.sysj line: 263, column: 6
+              if(temp456_thread_13 > 22){//sysj\plant.sysj line: 264, column: 9
+                System.out.println("");//sysj\plant.sysj line: 265, column: 8
+                System.out.println("Room temperature is too high at " + temp456_thread_13);//sysj\plant.sysj line: 266, column: 8
+                airOnZone4_5_6.setPresent();//sysj\plant.sysj line: 267, column: 8
                 currsigs.addElement(airOnZone4_5_6);
-                S8817=1;
+                S60815=1;
                 active[13]=1;
                 ends[13]=1;
                 tdone[13]=1;
               }
               else {
-                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 267, column: 16
-                  System.out.println("");//sysj\plant.sysj line: 268, column: 8
-                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 269, column: 8
-                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 270, column: 8
+                if(temp456_thread_13 < 21){//sysj\plant.sysj line: 268, column: 16
+                  System.out.println("");//sysj\plant.sysj line: 269, column: 8
+                  System.out.println("Room temperature is too low at " + temp456_thread_13);//sysj\plant.sysj line: 270, column: 8
+                  heatOnZone4_5_6.setPresent();//sysj\plant.sysj line: 271, column: 8
                   currsigs.addElement(heatOnZone4_5_6);
-                  S8817=1;
+                  S60815=1;
                   active[13]=1;
                   ends[13]=1;
                   tdone[13]=1;
                 }
                 else {
-                  System.out.println("");//sysj\plant.sysj line: 272, column: 7
-                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 273, column: 7
-                  S8817=1;
+                  System.out.println("");//sysj\plant.sysj line: 273, column: 7
+                  System.out.println("Room temperature is safe at" + temp456_thread_13);//sysj\plant.sysj line: 274, column: 7
+                  S60815=1;
                   active[13]=1;
                   ends[13]=1;
                   tdone[13]=1;
@@ -4439,7 +4440,7 @@ public class ECS_plant extends ClockDomain{
               }
             }
             else {
-              S8817=1;
+              S60815=1;
               active[13]=1;
               ends[13]=1;
               tdone[13]=1;
@@ -4449,7 +4450,7 @@ public class ECS_plant extends ClockDomain{
       }
     }
     else {
-      S8817=1;
+      S60815=1;
       active[13]=1;
       ends[13]=1;
       tdone[13]=1;
@@ -4463,51 +4464,51 @@ public class ECS_plant extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S14884){
+      switch(S66882){
         case 0 : 
-          S14884=0;
+          S66882=0;
           break RUN;
         
         case 1 : 
-          S14884=2;
-          S14884=2;
-          new Thread(new ECS_GUI()).start();//sysj\plant.sysj line: 180, column: 2
-          thread14910(tdone,ends);
-          thread14911(tdone,ends);
-          int biggest14935 = 0;
-          if(ends[13]>=biggest14935){
-            biggest14935=ends[13];
+          S66882=2;
+          S66882=2;
+          new Thread(new ECS_GUI()).start();//sysj\plant.sysj line: 181, column: 2
+          thread68314(tdone,ends);
+          thread68315(tdone,ends);
+          int biggest68339 = 0;
+          if(ends[13]>=biggest68339){
+            biggest68339=ends[13];
           }
-          if(ends[14]>=biggest14935){
-            biggest14935=ends[14];
+          if(ends[14]>=biggest68339){
+            biggest68339=ends[14];
           }
-          if(biggest14935 == 1){
+          if(biggest68339 == 1){
             active[12]=1;
             ends[12]=1;
             break RUN;
           }
         
         case 2 : 
-          thread14936(tdone,ends);
-          thread14937(tdone,ends);
-          int biggest14961 = 0;
-          if(ends[13]>=biggest14961){
-            biggest14961=ends[13];
+          thread68340(tdone,ends);
+          thread68341(tdone,ends);
+          int biggest68365 = 0;
+          if(ends[13]>=biggest68365){
+            biggest68365=ends[13];
           }
-          if(ends[14]>=biggest14961){
-            biggest14961=ends[14];
+          if(ends[14]>=biggest68365){
+            biggest68365=ends[14];
           }
-          if(biggest14961 == 1){
+          if(biggest68365 == 1){
             active[12]=1;
             ends[12]=1;
             break RUN;
           }
           //FINXME code
-          if(biggest14961 == 0){
-            S14884=0;
+          if(biggest68365 == 0){
+            S66882=0;
             active[12]=0;
             ends[12]=0;
-            S14884=0;
+            S66882=0;
             break RUN;
           }
         
@@ -4516,9 +4517,9 @@ public class ECS_plant extends ClockDomain{
   }
 
   public void init(){
-    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     paused = paused1;
     active = active1;
     suspended = suspended1;

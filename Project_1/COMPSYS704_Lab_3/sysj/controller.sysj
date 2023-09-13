@@ -104,3 +104,115 @@ ECS_controller(
 		pause;
 	}
 }
+
+ACS_Controller(
+    input signal unlock1_t, lock1, laserProximity, firePresent, door1req, door2req, door3req, manuPerm, officePerm, zoneOcc0, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7;
+    input Integer signal person1accessOffice, person1accessManu, person1zone, person1doorreq, person2zone, person2doorreq, person3zone, person3doorreq, person4zone, person4doorreq;
+    output signal absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3;
+)
+-> {
+	//MAKING FAKE PEOPLE DONT MIND ME
+	
+	// Declare a 2D integer array with 3 rows and 4 columns
+	int[][] personArray = new int[4][4];
+
+	// Initialize the elements of the 2D array
+	personArray[0][0] = 0; //ID Number
+	personArray[0][1] = 3; //Permission: 0 = office, 1= manu
+	personArray[0][2] = 0; //Current Zone
+	personArray[0][3] = 0; //Door req number 0 for no door
+
+//	personArray[1][0] = 1;
+//	personArray[1][1] = 0;
+//	personArray[1][2] = 1;
+//	personArray[1][3] = 0;
+//
+//	personArray[2][0] = 2;
+//	personArray[2][1] = 1;
+//	personArray[2][2] = 4;
+//	personArray[2][3] = 0;
+//	
+//	personArray[3][0] = 3;
+//	personArray[3][1] = 1;
+//	personArray[3][2] = 4;
+//	personArray[3][3] = 0;
+
+	//ACTUAL CODE
+	await (person1accessOffice || person1accessManu);
+	present(person1accessOffice){
+		personArray[0][1] = 0;
+		pause;
+	}
+	present(person1accessManu){
+		personArray[0][1] = 1;
+		pause;
+	}
+	
+	while(true) {
+		System.out.println(personArray[0][2]);
+		
+		abort(person1accessManu) { //if they have office access
+				abort(person1accessManu){ //stop once permission changes
+					personArray[0][1] = 0; //log in array
+					while(true) {
+						emit unlock1;
+						present(zoneOcc0){
+							personArray[0][2] = 0;
+							//System.out.println(personArray[0][2]);
+						}
+						present(zoneOcc1){
+							personArray[0][2] = 1;
+							//System.out.println(personArray[0][2]);
+						}
+						present(zoneOcc7){
+							personArray[0][2] = 7;
+							//System.out.println(personArray[0][2]);
+						}
+						pause;
+					}
+				}
+				personArray[0][1] = 1;
+			}
+			pause;
+
+		abort(person1accessOffice) { //if they have manu access
+			System.out.println(personArray[0][1]);
+				abort(person1accessOffice){
+					personArray[0][1] = 1;
+					while(true) {
+						emit unlock3;
+						present(zoneOcc0){
+							personArray[0][2] = 0;
+							//System.out.println(personArray[0][2]);
+						}
+						present(zoneOcc2){
+							personArray[0][2] = 2;
+							//System.out.println(personArray[0][2]);
+						}
+						present(zoneOcc3){
+							personArray[0][2] = 3;
+							//System.out.println(personArray[0][2]);
+						}
+						present(zoneOcc4){
+							personArray[0][2] = 4;
+							emit absSuspend;
+							//System.out.println(personArray[0][2]);
+						}
+						present(zoneOcc5){
+							personArray[0][2] = 5;
+							emit absSuspend;
+							//System.out.println(personArray[0][2]);
+						}
+						present(zoneOcc6){
+							personArray[0][2] = 6;
+							emit absSuspend;
+							//System.out.println(personArray[0][2]);
+						}
+						pause;
+					}
+				}
+				personArray[0][1] = 0;
+			}
+		}
+		pause;
+	}
