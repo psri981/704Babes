@@ -32,6 +32,8 @@ public class ACS_Canvas {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	private final ButtonGroup buttonGroup_2 = new ButtonGroup();
+	private final ButtonGroup buttonGroup_3 = new ButtonGroup();
+	private final ButtonGroup buttonGroup_4 = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -107,40 +109,22 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(Door1Lock);
 		
 		JButton accessOffice = new JButton("O");
-		buttonGroup_1.add(accessOffice);
+		buttonGroup_3.add(accessOffice);
 		accessOffice.setHorizontalAlignment(SwingConstants.LEFT);
 		accessOffice.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		accessOffice.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ACCESSOFFICE));
 		accessOffice.setBounds(347, 296, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(accessOffice);
 		
-		accessOffice.addActionListener(e -> {
-			if(States.ACCESS_OFFICE){
-				//System.out.println("ACCESSOFFICE");
-				door1Unlock.setOpaque(true);
-				door3Unlock.setOpaque(false);
-				frmSecurityAccessControl.getContentPane().revalidate();
-				frmSecurityAccessControl.getContentPane().repaint();
-			}
-		});
 		
 		JButton accessManu = new JButton("M");
-		buttonGroup_1.add(accessManu);
+		buttonGroup_4.add(accessManu);
 		accessManu.setHorizontalAlignment(SwingConstants.LEFT);
 		accessManu.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		accessManu.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ACCESSMANU));
 		accessManu.setBounds(395, 296, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(accessManu);
 		
-		accessManu.addActionListener(e -> {
-			if(States.ACCESS_MANU){
-		//		System.out.println("ACCESSMANU");
-				door3Unlock.setOpaque(true);
-				door1Unlock.setOpaque(false);
-				frmSecurityAccessControl.getContentPane().revalidate();
-				frmSecurityAccessControl.getContentPane().repaint();
-			}
-		});
 		
 		JButton btnNewButton_2_1 = new JButton("Manual");
 		buttonGroup_2.add(btnNewButton_2_1);
@@ -154,14 +138,14 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(zone4);
 		
 		JButton locZone3 = new JButton("3");
-		buttonGroup.add(locZone3);
+		buttonGroup_3.add(locZone3);
 		locZone3.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone3.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		locZone3.setBounds(431, 361, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(locZone3);
 		
 		JButton locZone7 = new JButton("7");
-		buttonGroup.add(locZone7);
+		buttonGroup_4.add(locZone7);
 		locZone7.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone7.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		locZone7.setBounds(357, 420, 39, 21);
@@ -178,7 +162,7 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(btnNewButton_2);
 		
 		JButton locZone4 = new JButton("4");
-		buttonGroup.add(locZone4);
+		buttonGroup_3.add(locZone4);
 		locZone4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -189,7 +173,7 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(locZone4);
 		
 		JButton locZone2 = new JButton("2");
-		buttonGroup.add(locZone2);
+		buttonGroup_3.add(locZone2);
 		locZone2.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone2.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		locZone2.setBounds(382, 361, 39, 21);
@@ -219,7 +203,7 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(zone5);
 		
 		JButton locZone6 = new JButton("6");
-		buttonGroup.add(locZone6);
+		buttonGroup_3.add(locZone6);
 		locZone6.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone6.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		locZone6.setBounds(431, 392, 39, 21);
@@ -242,7 +226,7 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(zone3);
 		
 		JButton locZone5 = new JButton("5");
-		buttonGroup.add(locZone5);
+		buttonGroup_3.add(locZone5);
 		locZone5.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone5.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		locZone5.setBounds(382, 392, 39, 21);
@@ -258,7 +242,7 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(lblNewLabel_6);
 		
 		JButton locZone1 = new JButton("1");
-		buttonGroup.add(locZone1);
+		buttonGroup_4.add(locZone1);
 		locZone1.setHorizontalTextPosition(SwingConstants.CENTER);
 		locZone1.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone1.setFont(new Font("Tahoma", Font.PLAIN, 6));
@@ -520,6 +504,55 @@ public class ACS_Canvas {
 				frmSecurityAccessControl.getContentPane().repaint();
 			}
 		});
+		accessOffice.addActionListener(e -> {
+			if(States.ACCESS_OFFICE){
+				//System.out.println("ACCESSOFFICE");
+				door1Unlock.setOpaque(true);
+				door3Unlock.setOpaque(false);
+				locZone1.setEnabled(true);
+				locZone2.setEnabled(false);
+				locZone3.setEnabled(false);
+				locZone4.setEnabled(false);
+				locZone5.setEnabled(false);
+				locZone6.setEnabled(false);
+				locZone7.setEnabled(true);
+				zone1.setOpaque(false);
+				zone2.setOpaque(false);
+				zone3.setOpaque(false);
+				zone4.setOpaque(false);
+				zone5.setOpaque(false);
+				zone6.setOpaque(false);
+				zone7.setOpaque(false);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+		
+		accessManu.addActionListener(e -> {
+			if(States.ACCESS_MANU){
+		//		System.out.println("ACCESSMANU");
+				door3Unlock.setOpaque(true);
+				door1Unlock.setOpaque(false);
+				locZone1.setEnabled(false);
+				locZone2.setEnabled(true);
+				locZone3.setEnabled(true);
+				locZone4.setEnabled(true);
+				locZone5.setEnabled(true);
+				locZone6.setEnabled(true);
+				locZone7.setEnabled(false);
+				zone1.setOpaque(false);
+				zone2.setOpaque(false);
+				zone3.setOpaque(false);
+				zone4.setOpaque(false);
+				zone5.setOpaque(false);
+				zone6.setOpaque(false);
+				zone7.setOpaque(false);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+		
+		
 		
 		
 	}
