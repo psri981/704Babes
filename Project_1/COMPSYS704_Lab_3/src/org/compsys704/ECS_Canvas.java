@@ -177,7 +177,7 @@ public class ECS_Canvas {
 		});
 
 		// -------------------- Capture of int values -------------------- //
-
+		
 		JPanel ZONES = new JPanel();
 		ZONES.setBounds(0, 0, 783, 351);
 		COMPONENTS.add(ZONES);
@@ -860,28 +860,36 @@ public class ECS_Canvas {
 
 			// CHECK IF TEMPERATURE AND HUMIDITY MUST BE ADJUSTED IF THERES NO FIRE
 			if(!firebtnPressed) {
-				if(!ECS_States.FAN_ZONE_1_7) {
-					fanOnZ1.setEnabled(true);
-					fanOnZ7.setEnabled(true);
-					frmECS.getContentPane().revalidate();
-					frmECS.getContentPane().repaint();
+				
+				try (SimpleClient sendFire = new SimpleClient("127.0.0.1", 30003, "ECSPlantCD", "fire")) {
+					sendFire.emit(0, 10);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
-				else {
+				
+				if(ECS_States.FAN_ZONE_1_7) {
 					fanOnZ1.setEnabled(false);
 					fanOnZ7.setEnabled(false);
 					frmECS.getContentPane().revalidate();
 					frmECS.getContentPane().repaint();
 				}
+				else {
+					fanOnZ1.setEnabled(true);
+					fanOnZ7.setEnabled(true);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
+				}
 				
-				if(!ECS_States.HEAT_ZONE_1_7) {
-					heatOnZ1.setEnabled(true);
-					heatOnZ7.setEnabled(true);
+				if(ECS_States.HEAT_ZONE_1_7) {
+					heatOnZ1.setEnabled(false);
+					heatOnZ7.setEnabled(false);
 					frmECS.getContentPane().revalidate();
 					frmECS.getContentPane().repaint();
 				}
 				else {
-					heatOnZ1.setEnabled(false);
-					heatOnZ7.setEnabled(false);
+					heatOnZ1.setEnabled(true);
+					heatOnZ7.setEnabled(true);
 					frmECS.getContentPane().revalidate();
 					frmECS.getContentPane().repaint();
 				}
