@@ -17,7 +17,6 @@ ACS_Plant(
 					await(accessOffice);
 					abort(accessManu){
 						while(true) {
-							//System.out.println("OFFIIICEEE");
 							{
 								emit accessOffice_t;
 								pause;
@@ -46,7 +45,6 @@ ACS_Plant(
 					await(accessManu);
 					abort(accessOffice){
 						while(true){
-							//System.out.println("MANUUU");
 							{
 								emit accessManu_t;
 								pause;
