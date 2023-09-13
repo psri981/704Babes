@@ -1,6 +1,6 @@
 package org.compsys704;
 
-public class Ports {
+public class ACS_Ports {
 	public static final String REQUEST_SIGNAL = "ControllerCD.request";
 	public static final String REFILL_SIGNAL = "PlantCD.refill";
 	public static final String SIGNAL_DOOR1_UNLOCK = "PlantCD.enable";

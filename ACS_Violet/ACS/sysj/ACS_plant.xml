@@ -1,0 +1,37 @@
+<System xmlns="http://systemjtechnology.com">
+	<SubSystem Name="SS2" Local="true">
+		<ClockDomain Name="ACS_PlantCD" Class="ACS_Plant">
+			<iSignal Name="absSuspend"    	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="proxLaser"     	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="unlock1"       	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="unlock2"       	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="unlock3"       	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="zoneOcc0"      	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="zoneOcc1"      	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="zoneOcc2"      	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="zoneOcc3"      	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="zoneOcc4"      	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="zoneOcc5"    	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="zoneOcc6"    	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="zoneOcc7"           Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="enable"             Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="accessOffice"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="accessManu"         Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="fire"       		   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			
+
+			<oSignal Name="unlock1GUI"         To="UI.unlock1GUI" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
+			<oSignal Name="accessOffice_t"     To="ACS_ControllerCD.person1accessOffice" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="accessManu_t"       To="ACS_ControllerCD.person1accessManu" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="zoneOcc0_t"         To="ACS_ControllerCD.zoneOcc0" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="zoneOcc1_t"         To="ACS_ControllerCD.zoneOcc1" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="zoneOcc2_t"         To="ACS_ControllerCD.zoneOcc2" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="zoneOcc3_t"         To="ACS_ControllerCD.zoneOcc3" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="zoneOcc4_t"         To="ACS_ControllerCD.zoneOcc4" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="zoneOcc5_t"         To="ACS_ControllerCD.zoneOcc5" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="zoneOcc6_t"         To="ACS_ControllerCD.zoneOcc6" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="zoneOcc7_t"         To="ACS_ControllerCD.zoneOcc7" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			
+		</ClockDomain>
+	</SubSystem>
+</System>
