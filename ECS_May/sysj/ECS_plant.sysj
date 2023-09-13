@@ -37,7 +37,7 @@ ECS_plant(
 				
 			// WAIT FOR USER TO START SIMULATION
 			System.out.println("ECS PLANT STARTED AWAITING RUN BUTTON");
-			await(run);
+			await(run);	
 			System.out.println("");
 			System.out.println("RUN BUTTON PRESSED");
 			
@@ -81,46 +81,25 @@ ECS_plant(
 			present(dust){
 			
 				if(zone == 1){
-					while(true){
 						emit cleanZone1;
-						pause;
-					}
 				}
 				if(zone == 2){
-					while(true){
 						emit cleanZone2;
-						pause;
-					}
 				}
 				if(zone == 3){
-					while(true){
 						emit cleanZone3;
-						pause;
-					}
 				}
 				if(zone == 4){
-					while(true){
 						emit cleanZone4;
-						pause;
-					}
 				}	
 				if(zone == 5){
-					while(true){
 						emit cleanZone5;
-						pause;
-					}
 				}				
 				if(zone == 6){
-					while(true){
 						emit cleanZone7;
-						pause;
-					}
 				}				
 				if(zone == 7){
-					while(true){
 						emit cleanZone7;
-						pause;				
-					}
 				}
 			}		
 				
@@ -129,18 +108,12 @@ ECS_plant(
 				Integer temp17 = 0;
 				temp17 = #tempZone1_7;
 				if(temp17 > 22){
-					while(true){
 						System.out.println("");
 						System.out.println("Room temperature is too high at " + temp17);
 						emit fanOnZone1_7;
-						pause;
-					}
 				} else if(temp17 < 21){
-					while(true){
 						System.out.println("Room temperature is too low at " + temp17);
 						emit heatOnZone1_7;
-						pause;
-					}
 				} else {
 					System.out.println("");
 					System.out.println("Room temperature is safe at" + temp17);
@@ -152,17 +125,11 @@ ECS_plant(
 				Integer temp23 = 0;
 				temp23 = #tempZone2_3;
 				if(temp23 > 22){
-					while(true){
 						System.out.println("");
 						System.out.println("Room temperature is too high at " + temp23);
 						emit airOnZone2_3;
-						pause;
-					}
 				} else if(temp23 < 21){
-					while(true){
 						emit heatOnZone2_3;
-						pause;
-					}
 				} else {
 					System.out.println("");
 					System.out.println("Room temperature is safe at" + temp23);
@@ -175,19 +142,14 @@ ECS_plant(
 				Integer temp456 = 0;
 				temp456 = #tempZone4_5_6;
 				if(temp456 > 22){
-					while(true){
 						System.out.println("");
 						System.out.println("Room temperature is too high at " + temp456);
 						emit airOnZone4_5_6;
-						pause;
-					}
 				} else if(temp456 < 21){
-					while(true){
 						System.out.println("");
 						System.out.println("Room temperature is too low at " + temp456);
 						emit heatOnZone4_5_6;
 						pause;
-					}
 				} else {
 					System.out.println("");
 					System.out.println("Room temperature is safe at" + temp456);
@@ -200,21 +162,16 @@ ECS_plant(
 				Integer humid17 = 0;
 				humid17 = #humidZone1_7;
 				if(humid17 > 60){
-					while(true){
 						System.out.println("");
 						System.out.println("Room humidity is too high at " + humid17);
 						System.out.println("Turning off humidifier");
 						emit deHumOnZone1_7;
-						pause;
-					}
 				} else if(humid17 < 30){
 					while(true){
 						System.out.println("");
 						System.out.println("Room humidity is too low at " + humid17);
 						System.out.println("Turning on humidifier");
 						emit humOnZone1_7;
-						pause;
-					}
 				} else {
 					System.out.println("");
 					System.out.println("Room humidity is safe at" + humid17);
@@ -226,13 +183,11 @@ ECS_plant(
 				Integer humid23 = 0;
 				humid23 = #humidZone2_3;
 				if(humid23 > 60){
-					while(true){
 						System.out.println("");
 						System.out.println("Room humidity is too high at " + humid23);
 						System.out.println("Turning off humidifier");
 						emit deHumOnZone2_3;
 						pause;
-					}
 				} else if(humid23 < 30){
 					while(true){
 						System.out.println("");
@@ -240,7 +195,6 @@ ECS_plant(
 						System.out.println("Turning on humidifier");
 						emit humOnZone2_3;
 						pause;
-					}
 				} else {
 					System.out.println("");
 					System.out.println("Room humidity is safe at" + humid23);
@@ -252,13 +206,11 @@ ECS_plant(
 				Integer humid456 = 0;
 				humid456 = #humidZone4_5_6;
 				if(humid456 > 60){
-					while(true){
 						System.out.println("");
 						System.out.println("Room humidity is too high at " + humid456);
 						System.out.println("Turning off humidifier");
 						emit deHumOnZone4_5_6;
 						pause;
-					}
 				} else if(humid456 < 30){
 					while(true){
 						System.out.println("");
@@ -266,7 +218,6 @@ ECS_plant(
 						System.out.println("Turning on humidifier");
 						emit humOnZone4_5_6;
 						pause;
-					}
 				} else {
 					System.out.println("");
 					System.out.println("Room humidity is safe at" + humid456);
