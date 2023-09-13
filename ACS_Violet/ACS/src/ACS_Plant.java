@@ -15,13 +15,6 @@ public class ACS_Plant extends ClockDomain{
   public Signal fire = new Signal("fire", Signal.INPUT);
   public Signal accessManu = new Signal("accessManu", Signal.INPUT);
   public Signal accessOffice = new Signal("accessOffice", Signal.INPUT);
-  public Signal enable = new Signal("enable", Signal.INPUT);
-  public Signal absResume = new Signal("absResume", Signal.INPUT);
-  public Signal absSuspend = new Signal("absSuspend", Signal.INPUT);
-  public Signal proxLaser = new Signal("proxLaser", Signal.INPUT);
-  public Signal unlock1 = new Signal("unlock1", Signal.INPUT);
-  public Signal unlock2 = new Signal("unlock2", Signal.INPUT);
-  public Signal unlock3 = new Signal("unlock3", Signal.INPUT);
   public Signal zoneOcc0 = new Signal("zoneOcc0", Signal.INPUT);
   public Signal zoneOcc1 = new Signal("zoneOcc1", Signal.INPUT);
   public Signal zoneOcc2 = new Signal("zoneOcc2", Signal.INPUT);
@@ -30,6 +23,18 @@ public class ACS_Plant extends ClockDomain{
   public Signal zoneOcc5 = new Signal("zoneOcc5", Signal.INPUT);
   public Signal zoneOcc6 = new Signal("zoneOcc6", Signal.INPUT);
   public Signal zoneOcc7 = new Signal("zoneOcc7", Signal.INPUT);
+  public Signal manuPerm = new Signal("manuPerm", Signal.INPUT);
+  public Signal officePerm = new Signal("officePerm", Signal.INPUT);
+  public Signal zoneOcc0_t = new Signal("zoneOcc0_t", Signal.OUTPUT);
+  public Signal zoneOcc1_t = new Signal("zoneOcc1_t", Signal.OUTPUT);
+  public Signal zoneOcc2_t = new Signal("zoneOcc2_t", Signal.OUTPUT);
+  public Signal zoneOcc3_t = new Signal("zoneOcc3_t", Signal.OUTPUT);
+  public Signal zoneOcc4_t = new Signal("zoneOcc4_t", Signal.OUTPUT);
+  public Signal zoneOcc5_t = new Signal("zoneOcc5_t", Signal.OUTPUT);
+  public Signal zoneOcc6_t = new Signal("zoneOcc6_t", Signal.OUTPUT);
+  public Signal zoneOcc7_t = new Signal("zoneOcc7_t", Signal.OUTPUT);
+  public Signal accessOffice_t = new Signal("accessOffice_t", Signal.OUTPUT);
+  public Signal accessManu_t = new Signal("accessManu_t", Signal.OUTPUT);
   public Signal zoneOcc0GUI = new Signal("zoneOcc0GUI", Signal.OUTPUT);
   public Signal zoneOcc1GUI = new Signal("zoneOcc1GUI", Signal.OUTPUT);
   public Signal zoneOcc2GUI = new Signal("zoneOcc2GUI", Signal.OUTPUT);
@@ -40,34 +45,6 @@ public class ACS_Plant extends ClockDomain{
   public Signal zoneOcc7GUI = new Signal("zoneOcc7GUI", Signal.OUTPUT);
   public Signal accessOfficeGUI = new Signal("accessOfficeGUI", Signal.OUTPUT);
   public Signal accessManuGUI = new Signal("accessManuGUI", Signal.OUTPUT);
-  public Signal lock1GUI = new Signal("lock1GUI", Signal.OUTPUT);
-  public Signal laserProximity = new Signal("laserProximity", Signal.OUTPUT);
-  public Signal firePresent = new Signal("firePresent", Signal.OUTPUT);
-  public Signal door1req = new Signal("door1req", Signal.OUTPUT);
-  public Signal door2req = new Signal("door2req", Signal.OUTPUT);
-  public Signal door3req = new Signal("door3req", Signal.OUTPUT);
-  public Signal manuPerm = new Signal("manuPerm", Signal.OUTPUT);
-  public Signal officePerm = new Signal("officePerm", Signal.OUTPUT);
-  public Signal zoneOcc0_t = new Signal("zoneOcc0_t", Signal.OUTPUT);
-  public Signal zoneOcc1_t = new Signal("zoneOcc1_t", Signal.OUTPUT);
-  public Signal zoneOcc2_t = new Signal("zoneOcc2_t", Signal.OUTPUT);
-  public Signal zoneOcc3_t = new Signal("zoneOcc3_t", Signal.OUTPUT);
-  public Signal zoneOcc4_t = new Signal("zoneOcc4_t", Signal.OUTPUT);
-  public Signal zoneOcc5_t = new Signal("zoneOcc5_t", Signal.OUTPUT);
-  public Signal zoneOcc6_t = new Signal("zoneOcc6_t", Signal.OUTPUT);
-  public Signal zoneOcc7_t = new Signal("zoneOcc7_t", Signal.OUTPUT);
-  public Signal person1accessOffice = new Signal("person1accessOffice", Signal.OUTPUT);
-  public Signal person1accessManu = new Signal("person1accessManu", Signal.OUTPUT);
-  public Signal person1zone = new Signal("person1zone", Signal.OUTPUT);
-  public Signal person1doorreq = new Signal("person1doorreq", Signal.OUTPUT);
-  public Signal person2zone = new Signal("person2zone", Signal.OUTPUT);
-  public Signal person2doorreq = new Signal("person2doorreq", Signal.OUTPUT);
-  public Signal person3zone = new Signal("person3zone", Signal.OUTPUT);
-  public Signal person3doorreq = new Signal("person3doorreq", Signal.OUTPUT);
-  public Signal person4zone = new Signal("person4zone", Signal.OUTPUT);
-  public Signal person4doorreq = new Signal("person4doorreq", Signal.OUTPUT);
-  public Signal accessManu_t = new Signal("accessManu_t", Signal.OUTPUT);
-  public Signal accessOffice_t = new Signal("accessOffice_t", Signal.OUTPUT);
   public Signal unlock1GUI = new Signal("unlock1GUI", Signal.OUTPUT);
   public Signal unlock2GUI = new Signal("unlock2GUI", Signal.OUTPUT);
   public Signal unlock3GUI = new Signal("unlock3GUI", Signal.OUTPUT);
@@ -119,12 +96,12 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(fire.getprestatus()){//sysj\ACS_plant.sysj line: 136, column: 25
-          unlock1GUI.setPresent();//sysj\ACS_plant.sysj line: 136, column: 31
+        if(fire.getprestatus()){//sysj\ACS_plant.sysj line: 117, column: 25
+          unlock1GUI.setPresent();//sysj\ACS_plant.sysj line: 117, column: 31
           currsigs.addElement(unlock1GUI);
-          unlock2GUI.setPresent();//sysj\ACS_plant.sysj line: 136, column: 48
+          unlock2GUI.setPresent();//sysj\ACS_plant.sysj line: 117, column: 48
           currsigs.addElement(unlock2GUI);
-          unlock3GUI.setPresent();//sysj\ACS_plant.sysj line: 136, column: 65
+          unlock3GUI.setPresent();//sysj\ACS_plant.sysj line: 117, column: 65
           currsigs.addElement(unlock3GUI);
           active[28]=1;
           ends[28]=1;
@@ -149,8 +126,8 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc7_t.getprestatus()){//sysj\ACS_plant.sysj line: 134, column: 25
-          zoneOcc7GUI.setPresent();//sysj\ACS_plant.sysj line: 134, column: 37
+        if(zoneOcc7_t.getprestatus()){//sysj\ACS_plant.sysj line: 115, column: 25
+          zoneOcc7GUI.setPresent();//sysj\ACS_plant.sysj line: 115, column: 37
           currsigs.addElement(zoneOcc7GUI);
           active[27]=1;
           ends[27]=1;
@@ -175,12 +152,12 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc6_t.getprestatus()){//sysj\ACS_plant.sysj line: 132, column: 25
-          zoneOcc6GUI.setPresent();//sysj\ACS_plant.sysj line: 132, column: 37
+        if(zoneOcc6_t.getprestatus()){//sysj\ACS_plant.sysj line: 113, column: 25
+          zoneOcc6GUI.setPresent();//sysj\ACS_plant.sysj line: 113, column: 37
           currsigs.addElement(zoneOcc6GUI);
-          proxLaserGUI.setPresent();//sysj\ACS_plant.sysj line: 132, column: 55
+          proxLaserGUI.setPresent();//sysj\ACS_plant.sysj line: 113, column: 55
           currsigs.addElement(proxLaserGUI);
-          absStopGUI.setPresent();//sysj\ACS_plant.sysj line: 132, column: 74
+          absStopGUI.setPresent();//sysj\ACS_plant.sysj line: 113, column: 74
           currsigs.addElement(absStopGUI);
           active[26]=1;
           ends[26]=1;
@@ -205,12 +182,12 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc5_t.getprestatus()){//sysj\ACS_plant.sysj line: 130, column: 25
-          zoneOcc5GUI.setPresent();//sysj\ACS_plant.sysj line: 130, column: 37
+        if(zoneOcc5_t.getprestatus()){//sysj\ACS_plant.sysj line: 111, column: 25
+          zoneOcc5GUI.setPresent();//sysj\ACS_plant.sysj line: 111, column: 37
           currsigs.addElement(zoneOcc5GUI);
-          proxLaserGUI.setPresent();//sysj\ACS_plant.sysj line: 130, column: 55
+          proxLaserGUI.setPresent();//sysj\ACS_plant.sysj line: 111, column: 55
           currsigs.addElement(proxLaserGUI);
-          absStopGUI.setPresent();//sysj\ACS_plant.sysj line: 130, column: 74
+          absStopGUI.setPresent();//sysj\ACS_plant.sysj line: 111, column: 74
           currsigs.addElement(absStopGUI);
           active[25]=1;
           ends[25]=1;
@@ -235,12 +212,12 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc4_t.getprestatus()){//sysj\ACS_plant.sysj line: 128, column: 25
-          zoneOcc4GUI.setPresent();//sysj\ACS_plant.sysj line: 128, column: 37
+        if(zoneOcc4_t.getprestatus()){//sysj\ACS_plant.sysj line: 109, column: 25
+          zoneOcc4GUI.setPresent();//sysj\ACS_plant.sysj line: 109, column: 37
           currsigs.addElement(zoneOcc4GUI);
-          proxLaserGUI.setPresent();//sysj\ACS_plant.sysj line: 128, column: 55
+          proxLaserGUI.setPresent();//sysj\ACS_plant.sysj line: 109, column: 55
           currsigs.addElement(proxLaserGUI);
-          absStopGUI.setPresent();//sysj\ACS_plant.sysj line: 128, column: 74
+          absStopGUI.setPresent();//sysj\ACS_plant.sysj line: 109, column: 74
           currsigs.addElement(absStopGUI);
           active[24]=1;
           ends[24]=1;
@@ -265,8 +242,8 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc3_t.getprestatus()){//sysj\ACS_plant.sysj line: 126, column: 25
-          zoneOcc3GUI.setPresent();//sysj\ACS_plant.sysj line: 126, column: 37
+        if(zoneOcc3_t.getprestatus()){//sysj\ACS_plant.sysj line: 107, column: 25
+          zoneOcc3GUI.setPresent();//sysj\ACS_plant.sysj line: 107, column: 37
           currsigs.addElement(zoneOcc3GUI);
           active[23]=1;
           ends[23]=1;
@@ -291,8 +268,8 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc2_t.getprestatus()){//sysj\ACS_plant.sysj line: 124, column: 25
-          zoneOcc2GUI.setPresent();//sysj\ACS_plant.sysj line: 124, column: 37
+        if(zoneOcc2_t.getprestatus()){//sysj\ACS_plant.sysj line: 105, column: 25
+          zoneOcc2GUI.setPresent();//sysj\ACS_plant.sysj line: 105, column: 37
           currsigs.addElement(zoneOcc2GUI);
           active[22]=1;
           ends[22]=1;
@@ -317,8 +294,8 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc1_t.getprestatus()){//sysj\ACS_plant.sysj line: 122, column: 25
-          zoneOcc1GUI.setPresent();//sysj\ACS_plant.sysj line: 122, column: 37
+        if(zoneOcc1_t.getprestatus()){//sysj\ACS_plant.sysj line: 103, column: 25
+          zoneOcc1GUI.setPresent();//sysj\ACS_plant.sysj line: 103, column: 37
           currsigs.addElement(zoneOcc1GUI);
           active[21]=1;
           ends[21]=1;
@@ -343,8 +320,8 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc0_t.getprestatus()){//sysj\ACS_plant.sysj line: 120, column: 25
-          zoneOcc0GUI.setPresent();//sysj\ACS_plant.sysj line: 120, column: 37
+        if(zoneOcc0_t.getprestatus()){//sysj\ACS_plant.sysj line: 101, column: 25
+          zoneOcc0GUI.setPresent();//sysj\ACS_plant.sysj line: 101, column: 37
           currsigs.addElement(zoneOcc0GUI);
           active[20]=1;
           ends[20]=1;
@@ -369,8 +346,8 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(accessManu_t.getprestatus()){//sysj\ACS_plant.sysj line: 118, column: 25
-          accessManuGUI.setPresent();//sysj\ACS_plant.sysj line: 118, column: 39
+        if(accessManu_t.getprestatus()){//sysj\ACS_plant.sysj line: 99, column: 25
+          accessManuGUI.setPresent();//sysj\ACS_plant.sysj line: 99, column: 39
           currsigs.addElement(accessManuGUI);
           active[19]=1;
           ends[19]=1;
@@ -395,8 +372,8 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(accessOffice_t.getprestatus()){//sysj\ACS_plant.sysj line: 116, column: 25
-          accessOfficeGUI.setPresent();//sysj\ACS_plant.sysj line: 116, column: 42
+        if(accessOffice_t.getprestatus()){//sysj\ACS_plant.sysj line: 97, column: 25
+          accessOfficeGUI.setPresent();//sysj\ACS_plant.sysj line: 97, column: 42
           currsigs.addElement(accessOfficeGUI);
           active[18]=1;
           ends[18]=1;
@@ -424,8 +401,8 @@ public class ACS_Plant extends ClockDomain{
         switch(S58352){
           case 0 : 
             S58352=0;
-            if(unlock1_t.getprestatus()){//sysj\ACS_plant.sysj line: 114, column: 25
-              unlock1GUI.setPresent();//sysj\ACS_plant.sysj line: 114, column: 37
+            if(unlock1_t.getprestatus()){//sysj\ACS_plant.sysj line: 95, column: 25
+              unlock1GUI.setPresent();//sysj\ACS_plant.sysj line: 95, column: 37
               currsigs.addElement(unlock1GUI);
               S58352=1;
               active[17]=1;
@@ -443,8 +420,8 @@ public class ACS_Plant extends ClockDomain{
           case 1 : 
             S58352=1;
             S58352=0;
-            if(unlock1_t.getprestatus()){//sysj\ACS_plant.sysj line: 114, column: 25
-              unlock1GUI.setPresent();//sysj\ACS_plant.sysj line: 114, column: 37
+            if(unlock1_t.getprestatus()){//sysj\ACS_plant.sysj line: 95, column: 25
+              unlock1GUI.setPresent();//sysj\ACS_plant.sysj line: 95, column: 37
               currsigs.addElement(unlock1GUI);
               S58352=1;
               active[17]=1;
@@ -600,7 +577,7 @@ public class ACS_Plant extends ClockDomain{
 
   public void thread59219(int [] tdone, int [] ends){
         S57832=1;
-    accessManu_t.setPresent();//sysj\ACS_plant.sysj line: 52, column: 9
+    accessManu_t.setPresent();//sysj\ACS_plant.sysj line: 51, column: 9
     currsigs.addElement(accessManu_t);
     active[9]=1;
     ends[9]=1;
@@ -616,8 +593,8 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc6.getprestatus()){//sysj\ACS_plant.sysj line: 82, column: 15
-          zoneOcc6_t.setPresent();//sysj\ACS_plant.sysj line: 83, column: 9
+        if(zoneOcc6.getprestatus()){//sysj\ACS_plant.sysj line: 81, column: 15
+          zoneOcc6_t.setPresent();//sysj\ACS_plant.sysj line: 82, column: 9
           currsigs.addElement(zoneOcc6_t);
           S57850=0;
           active[15]=0;
@@ -643,8 +620,8 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc5.getprestatus()){//sysj\ACS_plant.sysj line: 77, column: 15
-          zoneOcc5_t.setPresent();//sysj\ACS_plant.sysj line: 78, column: 9
+        if(zoneOcc5.getprestatus()){//sysj\ACS_plant.sysj line: 76, column: 15
+          zoneOcc5_t.setPresent();//sysj\ACS_plant.sysj line: 77, column: 9
           currsigs.addElement(zoneOcc5_t);
           S57847=0;
           active[14]=0;
@@ -670,8 +647,8 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc4.getprestatus()){//sysj\ACS_plant.sysj line: 72, column: 15
-          zoneOcc4_t.setPresent();//sysj\ACS_plant.sysj line: 73, column: 9
+        if(zoneOcc4.getprestatus()){//sysj\ACS_plant.sysj line: 71, column: 15
+          zoneOcc4_t.setPresent();//sysj\ACS_plant.sysj line: 72, column: 9
           currsigs.addElement(zoneOcc4_t);
           S57844=0;
           active[13]=0;
@@ -697,8 +674,8 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc3.getprestatus()){//sysj\ACS_plant.sysj line: 67, column: 15
-          zoneOcc3_t.setPresent();//sysj\ACS_plant.sysj line: 68, column: 9
+        if(zoneOcc3.getprestatus()){//sysj\ACS_plant.sysj line: 66, column: 15
+          zoneOcc3_t.setPresent();//sysj\ACS_plant.sysj line: 67, column: 9
           currsigs.addElement(zoneOcc3_t);
           S57841=0;
           active[12]=0;
@@ -724,8 +701,8 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc2.getprestatus()){//sysj\ACS_plant.sysj line: 62, column: 15
-          zoneOcc2_t.setPresent();//sysj\ACS_plant.sysj line: 63, column: 9
+        if(zoneOcc2.getprestatus()){//sysj\ACS_plant.sysj line: 61, column: 15
+          zoneOcc2_t.setPresent();//sysj\ACS_plant.sysj line: 62, column: 9
           currsigs.addElement(zoneOcc2_t);
           S57838=0;
           active[11]=0;
@@ -751,8 +728,8 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc0.getprestatus()){//sysj\ACS_plant.sysj line: 57, column: 15
-          zoneOcc0_t.setPresent();//sysj\ACS_plant.sysj line: 58, column: 9
+        if(zoneOcc0.getprestatus()){//sysj\ACS_plant.sysj line: 56, column: 15
+          zoneOcc0_t.setPresent();//sysj\ACS_plant.sysj line: 57, column: 9
           currsigs.addElement(zoneOcc0_t);
           S57835=0;
           active[10]=0;
@@ -831,7 +808,7 @@ public class ACS_Plant extends ClockDomain{
 
   public void thread59203(int [] tdone, int [] ends){
         S57832=1;
-    accessManu_t.setPresent();//sysj\ACS_plant.sysj line: 52, column: 9
+    accessManu_t.setPresent();//sysj\ACS_plant.sysj line: 51, column: 9
     currsigs.addElement(accessManu_t);
     active[9]=1;
     ends[9]=1;
@@ -849,7 +826,7 @@ public class ACS_Plant extends ClockDomain{
       case 1 : 
         switch(S57953){
           case 0 : 
-            if(accessManu.getprestatus()){//sysj\ACS_plant.sysj line: 47, column: 12
+            if(accessManu.getprestatus()){//sysj\ACS_plant.sysj line: 46, column: 12
               S57953=1;
               thread59203(tdone,ends);
               thread59204(tdone,ends);
@@ -894,7 +871,7 @@ public class ACS_Plant extends ClockDomain{
             break;
           
           case 1 : 
-            if(accessOffice.getprestatus()){//sysj\ACS_plant.sysj line: 48, column: 12
+            if(accessOffice.getprestatus()){//sysj\ACS_plant.sysj line: 47, column: 12
               S57953=2;
               active[8]=1;
               ends[8]=1;
@@ -1012,7 +989,7 @@ public class ACS_Plant extends ClockDomain{
 
   public void thread59197(int [] tdone, int [] ends){
         S57761=1;
-    accessOffice_t.setPresent();//sysj\ACS_plant.sysj line: 23, column: 9
+    accessOffice_t.setPresent();//sysj\ACS_plant.sysj line: 22, column: 9
     currsigs.addElement(accessOffice_t);
     active[4]=1;
     ends[4]=1;
@@ -1028,8 +1005,8 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc7.getprestatus()){//sysj\ACS_plant.sysj line: 38, column: 15
-          zoneOcc7_t.setPresent();//sysj\ACS_plant.sysj line: 39, column: 9
+        if(zoneOcc7.getprestatus()){//sysj\ACS_plant.sysj line: 37, column: 15
+          zoneOcc7_t.setPresent();//sysj\ACS_plant.sysj line: 38, column: 9
           currsigs.addElement(zoneOcc7_t);
           S57770=0;
           active[7]=0;
@@ -1055,8 +1032,8 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc1.getprestatus()){//sysj\ACS_plant.sysj line: 33, column: 15
-          zoneOcc1_t.setPresent();//sysj\ACS_plant.sysj line: 34, column: 9
+        if(zoneOcc1.getprestatus()){//sysj\ACS_plant.sysj line: 32, column: 15
+          zoneOcc1_t.setPresent();//sysj\ACS_plant.sysj line: 33, column: 9
           currsigs.addElement(zoneOcc1_t);
           S57767=0;
           active[6]=0;
@@ -1082,8 +1059,8 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(zoneOcc0.getprestatus()){//sysj\ACS_plant.sysj line: 28, column: 15
-          zoneOcc0_t.setPresent();//sysj\ACS_plant.sysj line: 29, column: 9
+        if(zoneOcc0.getprestatus()){//sysj\ACS_plant.sysj line: 27, column: 15
+          zoneOcc0_t.setPresent();//sysj\ACS_plant.sysj line: 28, column: 9
           currsigs.addElement(zoneOcc0_t);
           S57764=0;
           active[5]=0;
@@ -1141,7 +1118,7 @@ public class ACS_Plant extends ClockDomain{
 
   public void thread59187(int [] tdone, int [] ends){
         S57761=1;
-    accessOffice_t.setPresent();//sysj\ACS_plant.sysj line: 23, column: 9
+    accessOffice_t.setPresent();//sysj\ACS_plant.sysj line: 22, column: 9
     currsigs.addElement(accessOffice_t);
     active[4]=1;
     ends[4]=1;
@@ -1159,7 +1136,7 @@ public class ACS_Plant extends ClockDomain{
       case 1 : 
         switch(S57828){
           case 0 : 
-            if(accessOffice.getprestatus()){//sysj\ACS_plant.sysj line: 18, column: 12
+            if(accessOffice.getprestatus()){//sysj\ACS_plant.sysj line: 17, column: 12
               S57828=1;
               thread59187(tdone,ends);
               thread59188(tdone,ends);
@@ -1192,7 +1169,7 @@ public class ACS_Plant extends ClockDomain{
             break;
           
           case 1 : 
-            if(accessManu.getprestatus()){//sysj\ACS_plant.sysj line: 19, column: 12
+            if(accessManu.getprestatus()){//sysj\ACS_plant.sysj line: 18, column: 12
               S57828=2;
               active[3]=1;
               ends[3]=1;
@@ -1272,7 +1249,7 @@ public class ACS_Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(fire.getprestatus()){//sysj\ACS_plant.sysj line: 15, column: 9
+        if(fire.getprestatus()){//sysj\ACS_plant.sysj line: 14, column: 9
           S58350=0;
           active[2]=0;
           ends[2]=0;
@@ -1318,12 +1295,12 @@ public class ACS_Plant extends ClockDomain{
 
   public void thread59182(int [] tdone, int [] ends){
         S58458=1;
-    if(fire.getprestatus()){//sysj\ACS_plant.sysj line: 136, column: 25
-      unlock1GUI.setPresent();//sysj\ACS_plant.sysj line: 136, column: 31
+    if(fire.getprestatus()){//sysj\ACS_plant.sysj line: 117, column: 25
+      unlock1GUI.setPresent();//sysj\ACS_plant.sysj line: 117, column: 31
       currsigs.addElement(unlock1GUI);
-      unlock2GUI.setPresent();//sysj\ACS_plant.sysj line: 136, column: 48
+      unlock2GUI.setPresent();//sysj\ACS_plant.sysj line: 117, column: 48
       currsigs.addElement(unlock2GUI);
-      unlock3GUI.setPresent();//sysj\ACS_plant.sysj line: 136, column: 65
+      unlock3GUI.setPresent();//sysj\ACS_plant.sysj line: 117, column: 65
       currsigs.addElement(unlock3GUI);
       active[28]=1;
       ends[28]=1;
@@ -1338,8 +1315,8 @@ public class ACS_Plant extends ClockDomain{
 
   public void thread59181(int [] tdone, int [] ends){
         S58447=1;
-    if(zoneOcc7_t.getprestatus()){//sysj\ACS_plant.sysj line: 134, column: 25
-      zoneOcc7GUI.setPresent();//sysj\ACS_plant.sysj line: 134, column: 37
+    if(zoneOcc7_t.getprestatus()){//sysj\ACS_plant.sysj line: 115, column: 25
+      zoneOcc7GUI.setPresent();//sysj\ACS_plant.sysj line: 115, column: 37
       currsigs.addElement(zoneOcc7GUI);
       active[27]=1;
       ends[27]=1;
@@ -1354,12 +1331,12 @@ public class ACS_Plant extends ClockDomain{
 
   public void thread59180(int [] tdone, int [] ends){
         S58439=1;
-    if(zoneOcc6_t.getprestatus()){//sysj\ACS_plant.sysj line: 132, column: 25
-      zoneOcc6GUI.setPresent();//sysj\ACS_plant.sysj line: 132, column: 37
+    if(zoneOcc6_t.getprestatus()){//sysj\ACS_plant.sysj line: 113, column: 25
+      zoneOcc6GUI.setPresent();//sysj\ACS_plant.sysj line: 113, column: 37
       currsigs.addElement(zoneOcc6GUI);
-      proxLaserGUI.setPresent();//sysj\ACS_plant.sysj line: 132, column: 55
+      proxLaserGUI.setPresent();//sysj\ACS_plant.sysj line: 113, column: 55
       currsigs.addElement(proxLaserGUI);
-      absStopGUI.setPresent();//sysj\ACS_plant.sysj line: 132, column: 74
+      absStopGUI.setPresent();//sysj\ACS_plant.sysj line: 113, column: 74
       currsigs.addElement(absStopGUI);
       active[26]=1;
       ends[26]=1;
@@ -1374,12 +1351,12 @@ public class ACS_Plant extends ClockDomain{
 
   public void thread59179(int [] tdone, int [] ends){
         S58428=1;
-    if(zoneOcc5_t.getprestatus()){//sysj\ACS_plant.sysj line: 130, column: 25
-      zoneOcc5GUI.setPresent();//sysj\ACS_plant.sysj line: 130, column: 37
+    if(zoneOcc5_t.getprestatus()){//sysj\ACS_plant.sysj line: 111, column: 25
+      zoneOcc5GUI.setPresent();//sysj\ACS_plant.sysj line: 111, column: 37
       currsigs.addElement(zoneOcc5GUI);
-      proxLaserGUI.setPresent();//sysj\ACS_plant.sysj line: 130, column: 55
+      proxLaserGUI.setPresent();//sysj\ACS_plant.sysj line: 111, column: 55
       currsigs.addElement(proxLaserGUI);
-      absStopGUI.setPresent();//sysj\ACS_plant.sysj line: 130, column: 74
+      absStopGUI.setPresent();//sysj\ACS_plant.sysj line: 111, column: 74
       currsigs.addElement(absStopGUI);
       active[25]=1;
       ends[25]=1;
@@ -1394,12 +1371,12 @@ public class ACS_Plant extends ClockDomain{
 
   public void thread59178(int [] tdone, int [] ends){
         S58417=1;
-    if(zoneOcc4_t.getprestatus()){//sysj\ACS_plant.sysj line: 128, column: 25
-      zoneOcc4GUI.setPresent();//sysj\ACS_plant.sysj line: 128, column: 37
+    if(zoneOcc4_t.getprestatus()){//sysj\ACS_plant.sysj line: 109, column: 25
+      zoneOcc4GUI.setPresent();//sysj\ACS_plant.sysj line: 109, column: 37
       currsigs.addElement(zoneOcc4GUI);
-      proxLaserGUI.setPresent();//sysj\ACS_plant.sysj line: 128, column: 55
+      proxLaserGUI.setPresent();//sysj\ACS_plant.sysj line: 109, column: 55
       currsigs.addElement(proxLaserGUI);
-      absStopGUI.setPresent();//sysj\ACS_plant.sysj line: 128, column: 74
+      absStopGUI.setPresent();//sysj\ACS_plant.sysj line: 109, column: 74
       currsigs.addElement(absStopGUI);
       active[24]=1;
       ends[24]=1;
@@ -1414,8 +1391,8 @@ public class ACS_Plant extends ClockDomain{
 
   public void thread59177(int [] tdone, int [] ends){
         S58406=1;
-    if(zoneOcc3_t.getprestatus()){//sysj\ACS_plant.sysj line: 126, column: 25
-      zoneOcc3GUI.setPresent();//sysj\ACS_plant.sysj line: 126, column: 37
+    if(zoneOcc3_t.getprestatus()){//sysj\ACS_plant.sysj line: 107, column: 25
+      zoneOcc3GUI.setPresent();//sysj\ACS_plant.sysj line: 107, column: 37
       currsigs.addElement(zoneOcc3GUI);
       active[23]=1;
       ends[23]=1;
@@ -1430,8 +1407,8 @@ public class ACS_Plant extends ClockDomain{
 
   public void thread59176(int [] tdone, int [] ends){
         S58398=1;
-    if(zoneOcc2_t.getprestatus()){//sysj\ACS_plant.sysj line: 124, column: 25
-      zoneOcc2GUI.setPresent();//sysj\ACS_plant.sysj line: 124, column: 37
+    if(zoneOcc2_t.getprestatus()){//sysj\ACS_plant.sysj line: 105, column: 25
+      zoneOcc2GUI.setPresent();//sysj\ACS_plant.sysj line: 105, column: 37
       currsigs.addElement(zoneOcc2GUI);
       active[22]=1;
       ends[22]=1;
@@ -1446,8 +1423,8 @@ public class ACS_Plant extends ClockDomain{
 
   public void thread59175(int [] tdone, int [] ends){
         S58390=1;
-    if(zoneOcc1_t.getprestatus()){//sysj\ACS_plant.sysj line: 122, column: 25
-      zoneOcc1GUI.setPresent();//sysj\ACS_plant.sysj line: 122, column: 37
+    if(zoneOcc1_t.getprestatus()){//sysj\ACS_plant.sysj line: 103, column: 25
+      zoneOcc1GUI.setPresent();//sysj\ACS_plant.sysj line: 103, column: 37
       currsigs.addElement(zoneOcc1GUI);
       active[21]=1;
       ends[21]=1;
@@ -1462,8 +1439,8 @@ public class ACS_Plant extends ClockDomain{
 
   public void thread59174(int [] tdone, int [] ends){
         S58382=1;
-    if(zoneOcc0_t.getprestatus()){//sysj\ACS_plant.sysj line: 120, column: 25
-      zoneOcc0GUI.setPresent();//sysj\ACS_plant.sysj line: 120, column: 37
+    if(zoneOcc0_t.getprestatus()){//sysj\ACS_plant.sysj line: 101, column: 25
+      zoneOcc0GUI.setPresent();//sysj\ACS_plant.sysj line: 101, column: 37
       currsigs.addElement(zoneOcc0GUI);
       active[20]=1;
       ends[20]=1;
@@ -1478,8 +1455,8 @@ public class ACS_Plant extends ClockDomain{
 
   public void thread59173(int [] tdone, int [] ends){
         S58374=1;
-    if(accessManu_t.getprestatus()){//sysj\ACS_plant.sysj line: 118, column: 25
-      accessManuGUI.setPresent();//sysj\ACS_plant.sysj line: 118, column: 39
+    if(accessManu_t.getprestatus()){//sysj\ACS_plant.sysj line: 99, column: 25
+      accessManuGUI.setPresent();//sysj\ACS_plant.sysj line: 99, column: 39
       currsigs.addElement(accessManuGUI);
       active[19]=1;
       ends[19]=1;
@@ -1494,8 +1471,8 @@ public class ACS_Plant extends ClockDomain{
 
   public void thread59172(int [] tdone, int [] ends){
         S58366=1;
-    if(accessOffice_t.getprestatus()){//sysj\ACS_plant.sysj line: 116, column: 25
-      accessOfficeGUI.setPresent();//sysj\ACS_plant.sysj line: 116, column: 42
+    if(accessOffice_t.getprestatus()){//sysj\ACS_plant.sysj line: 97, column: 25
+      accessOfficeGUI.setPresent();//sysj\ACS_plant.sysj line: 97, column: 42
       currsigs.addElement(accessOfficeGUI);
       active[18]=1;
       ends[18]=1;
@@ -1511,8 +1488,8 @@ public class ACS_Plant extends ClockDomain{
   public void thread59171(int [] tdone, int [] ends){
         S58358=1;
     S58352=0;
-    if(unlock1_t.getprestatus()){//sysj\ACS_plant.sysj line: 114, column: 25
-      unlock1GUI.setPresent();//sysj\ACS_plant.sysj line: 114, column: 37
+    if(unlock1_t.getprestatus()){//sysj\ACS_plant.sysj line: 95, column: 25
+      unlock1GUI.setPresent();//sysj\ACS_plant.sysj line: 95, column: 37
       currsigs.addElement(unlock1GUI);
       S58352=1;
       active[17]=1;
@@ -1634,7 +1611,7 @@ public class ACS_Plant extends ClockDomain{
         case 1 : 
           S59164=2;
           S59164=2;
-          new Thread(new ACS_GUI()).start();//sysj\ACS_plant.sysj line: 11, column: 2
+          new Thread(new ACS_GUI()).start();//sysj\ACS_plant.sysj line: 10, column: 2
           thread59166(tdone,ends);
           thread59170(tdone,ends);
           int biggest59184 = 0;
@@ -1703,13 +1680,6 @@ public class ACS_Plant extends ClockDomain{
           fire.gethook();
           accessManu.gethook();
           accessOffice.gethook();
-          enable.gethook();
-          absResume.gethook();
-          absSuspend.gethook();
-          proxLaser.gethook();
-          unlock1.gethook();
-          unlock2.gethook();
-          unlock3.gethook();
           zoneOcc0.gethook();
           zoneOcc1.gethook();
           zoneOcc2.gethook();
@@ -1718,6 +1688,8 @@ public class ACS_Plant extends ClockDomain{
           zoneOcc5.gethook();
           zoneOcc6.gethook();
           zoneOcc7.gethook();
+          manuPerm.gethook();
+          officePerm.gethook();
           df = true;
         }
         runClockDomain();
@@ -1725,13 +1697,6 @@ public class ACS_Plant extends ClockDomain{
       fire.setpreclear();
       accessManu.setpreclear();
       accessOffice.setpreclear();
-      enable.setpreclear();
-      absResume.setpreclear();
-      absSuspend.setpreclear();
-      proxLaser.setpreclear();
-      unlock1.setpreclear();
-      unlock2.setpreclear();
-      unlock3.setpreclear();
       zoneOcc0.setpreclear();
       zoneOcc1.setpreclear();
       zoneOcc2.setpreclear();
@@ -1740,22 +1705,6 @@ public class ACS_Plant extends ClockDomain{
       zoneOcc5.setpreclear();
       zoneOcc6.setpreclear();
       zoneOcc7.setpreclear();
-      zoneOcc0GUI.setpreclear();
-      zoneOcc1GUI.setpreclear();
-      zoneOcc2GUI.setpreclear();
-      zoneOcc3GUI.setpreclear();
-      zoneOcc4GUI.setpreclear();
-      zoneOcc5GUI.setpreclear();
-      zoneOcc6GUI.setpreclear();
-      zoneOcc7GUI.setpreclear();
-      accessOfficeGUI.setpreclear();
-      accessManuGUI.setpreclear();
-      lock1GUI.setpreclear();
-      laserProximity.setpreclear();
-      firePresent.setpreclear();
-      door1req.setpreclear();
-      door2req.setpreclear();
-      door3req.setpreclear();
       manuPerm.setpreclear();
       officePerm.setpreclear();
       zoneOcc0_t.setpreclear();
@@ -1766,18 +1715,18 @@ public class ACS_Plant extends ClockDomain{
       zoneOcc5_t.setpreclear();
       zoneOcc6_t.setpreclear();
       zoneOcc7_t.setpreclear();
-      person1accessOffice.setpreclear();
-      person1accessManu.setpreclear();
-      person1zone.setpreclear();
-      person1doorreq.setpreclear();
-      person2zone.setpreclear();
-      person2doorreq.setpreclear();
-      person3zone.setpreclear();
-      person3doorreq.setpreclear();
-      person4zone.setpreclear();
-      person4doorreq.setpreclear();
-      accessManu_t.setpreclear();
       accessOffice_t.setpreclear();
+      accessManu_t.setpreclear();
+      zoneOcc0GUI.setpreclear();
+      zoneOcc1GUI.setpreclear();
+      zoneOcc2GUI.setpreclear();
+      zoneOcc3GUI.setpreclear();
+      zoneOcc4GUI.setpreclear();
+      zoneOcc5GUI.setpreclear();
+      zoneOcc6GUI.setpreclear();
+      zoneOcc7GUI.setpreclear();
+      accessOfficeGUI.setpreclear();
+      accessManuGUI.setpreclear();
       unlock1GUI.setpreclear();
       unlock2GUI.setpreclear();
       unlock3GUI.setpreclear();
@@ -1800,27 +1749,6 @@ public class ACS_Plant extends ClockDomain{
       dummyint = accessOffice.getStatus() ? accessOffice.setprepresent() : accessOffice.setpreclear();
       accessOffice.setpreval(accessOffice.getValue());
       accessOffice.setClear();
-      dummyint = enable.getStatus() ? enable.setprepresent() : enable.setpreclear();
-      enable.setpreval(enable.getValue());
-      enable.setClear();
-      dummyint = absResume.getStatus() ? absResume.setprepresent() : absResume.setpreclear();
-      absResume.setpreval(absResume.getValue());
-      absResume.setClear();
-      dummyint = absSuspend.getStatus() ? absSuspend.setprepresent() : absSuspend.setpreclear();
-      absSuspend.setpreval(absSuspend.getValue());
-      absSuspend.setClear();
-      dummyint = proxLaser.getStatus() ? proxLaser.setprepresent() : proxLaser.setpreclear();
-      proxLaser.setpreval(proxLaser.getValue());
-      proxLaser.setClear();
-      dummyint = unlock1.getStatus() ? unlock1.setprepresent() : unlock1.setpreclear();
-      unlock1.setpreval(unlock1.getValue());
-      unlock1.setClear();
-      dummyint = unlock2.getStatus() ? unlock2.setprepresent() : unlock2.setpreclear();
-      unlock2.setpreval(unlock2.getValue());
-      unlock2.setClear();
-      dummyint = unlock3.getStatus() ? unlock3.setprepresent() : unlock3.setpreclear();
-      unlock3.setpreval(unlock3.getValue());
-      unlock3.setClear();
       dummyint = zoneOcc0.getStatus() ? zoneOcc0.setprepresent() : zoneOcc0.setpreclear();
       zoneOcc0.setpreval(zoneOcc0.getValue());
       zoneOcc0.setClear();
@@ -1845,6 +1773,32 @@ public class ACS_Plant extends ClockDomain{
       dummyint = zoneOcc7.getStatus() ? zoneOcc7.setprepresent() : zoneOcc7.setpreclear();
       zoneOcc7.setpreval(zoneOcc7.getValue());
       zoneOcc7.setClear();
+      dummyint = manuPerm.getStatus() ? manuPerm.setprepresent() : manuPerm.setpreclear();
+      manuPerm.setpreval(manuPerm.getValue());
+      manuPerm.setClear();
+      dummyint = officePerm.getStatus() ? officePerm.setprepresent() : officePerm.setpreclear();
+      officePerm.setpreval(officePerm.getValue());
+      officePerm.setClear();
+      zoneOcc0_t.sethook();
+      zoneOcc0_t.setClear();
+      zoneOcc1_t.sethook();
+      zoneOcc1_t.setClear();
+      zoneOcc2_t.sethook();
+      zoneOcc2_t.setClear();
+      zoneOcc3_t.sethook();
+      zoneOcc3_t.setClear();
+      zoneOcc4_t.sethook();
+      zoneOcc4_t.setClear();
+      zoneOcc5_t.sethook();
+      zoneOcc5_t.setClear();
+      zoneOcc6_t.sethook();
+      zoneOcc6_t.setClear();
+      zoneOcc7_t.sethook();
+      zoneOcc7_t.setClear();
+      accessOffice_t.sethook();
+      accessOffice_t.setClear();
+      accessManu_t.sethook();
+      accessManu_t.setClear();
       zoneOcc0GUI.sethook();
       zoneOcc0GUI.setClear();
       zoneOcc1GUI.sethook();
@@ -1865,62 +1819,6 @@ public class ACS_Plant extends ClockDomain{
       accessOfficeGUI.setClear();
       accessManuGUI.sethook();
       accessManuGUI.setClear();
-      lock1GUI.sethook();
-      lock1GUI.setClear();
-      laserProximity.sethook();
-      laserProximity.setClear();
-      firePresent.sethook();
-      firePresent.setClear();
-      door1req.sethook();
-      door1req.setClear();
-      door2req.sethook();
-      door2req.setClear();
-      door3req.sethook();
-      door3req.setClear();
-      manuPerm.sethook();
-      manuPerm.setClear();
-      officePerm.sethook();
-      officePerm.setClear();
-      zoneOcc0_t.sethook();
-      zoneOcc0_t.setClear();
-      zoneOcc1_t.sethook();
-      zoneOcc1_t.setClear();
-      zoneOcc2_t.sethook();
-      zoneOcc2_t.setClear();
-      zoneOcc3_t.sethook();
-      zoneOcc3_t.setClear();
-      zoneOcc4_t.sethook();
-      zoneOcc4_t.setClear();
-      zoneOcc5_t.sethook();
-      zoneOcc5_t.setClear();
-      zoneOcc6_t.sethook();
-      zoneOcc6_t.setClear();
-      zoneOcc7_t.sethook();
-      zoneOcc7_t.setClear();
-      person1accessOffice.sethook();
-      person1accessOffice.setClear();
-      person1accessManu.sethook();
-      person1accessManu.setClear();
-      person1zone.sethook();
-      person1zone.setClear();
-      person1doorreq.sethook();
-      person1doorreq.setClear();
-      person2zone.sethook();
-      person2zone.setClear();
-      person2doorreq.sethook();
-      person2doorreq.setClear();
-      person3zone.sethook();
-      person3zone.setClear();
-      person3doorreq.sethook();
-      person3doorreq.setClear();
-      person4zone.sethook();
-      person4zone.setClear();
-      person4doorreq.sethook();
-      person4doorreq.setClear();
-      accessManu_t.sethook();
-      accessManu_t.setClear();
-      accessOffice_t.sethook();
-      accessOffice_t.setClear();
       unlock1GUI.sethook();
       unlock1GUI.setClear();
       unlock2GUI.sethook();
@@ -1940,13 +1838,6 @@ public class ACS_Plant extends ClockDomain{
         fire.gethook();
         accessManu.gethook();
         accessOffice.gethook();
-        enable.gethook();
-        absResume.gethook();
-        absSuspend.gethook();
-        proxLaser.gethook();
-        unlock1.gethook();
-        unlock2.gethook();
-        unlock3.gethook();
         zoneOcc0.gethook();
         zoneOcc1.gethook();
         zoneOcc2.gethook();
@@ -1955,6 +1846,8 @@ public class ACS_Plant extends ClockDomain{
         zoneOcc5.gethook();
         zoneOcc6.gethook();
         zoneOcc7.gethook();
+        manuPerm.gethook();
+        officePerm.gethook();
       }
       runFinisher();
       if(active[1] == 0){
