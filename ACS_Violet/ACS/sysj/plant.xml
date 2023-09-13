@@ -6,6 +6,7 @@
 			<iSignal Name="unlock1"       	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			<iSignal Name="unlock2"       	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			<iSignal Name="unlock3"       	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="zoneOcc0"      	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			<iSignal Name="zoneOcc1"      	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			<iSignal Name="zoneOcc2"      	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			<iSignal Name="zoneOcc3"      	   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
