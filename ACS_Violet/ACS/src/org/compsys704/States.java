@@ -1,10 +1,12 @@
 package org.compsys704;
 
 public class States {
-	public static volatile boolean DOOR1_UNLOCK = false;
+	public static volatile boolean DOOR1_UNLOCK = true;
 	public static volatile boolean DOOR2_UNLOCK = false;
 	public static volatile boolean DOOR3_UNLOCK = false;
 	public static volatile boolean DOOR1_LOCK = true;
+	public static volatile boolean ACCESS_OFFICE = true;
+	public static volatile boolean ACCESS_MANU = true;
 //	public static volatile boolean DOOR2_UNLOCK = false;
 //	public static volatile boolean DOOR3_UNLOCK = false;
 	public static volatile boolean ROOM1_PRECENSE = false;

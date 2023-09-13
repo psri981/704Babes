@@ -19,6 +19,15 @@ public class LoaderVizWorker extends Worker{
 			States.DOOR1_LOCK = status;
 			break;
 			
+		case "accessOfficeGUI":
+			System.out.println("asdksa");
+			States.ACCESS_OFFICE = status;
+			break;
+			
+		case "accessManuGUI":
+			System.out.println("boo");
+			States.ACCESS_MANU= status;
+			break;
 //		case "pusherRetractedE":
 //			States.PUSHER_RETRACTED = status;
 //			break;

@@ -79,6 +79,12 @@ public class ACS_Canvas {
 		JButton accessManu = new JButton("M");
 		buttonGroup_1.add(accessManu);
 		accessManu.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ACCESSMANU));
+		
+		JLabel door3Unlock = new JLabel("");
+		door3Unlock.setBorder(null);
+		door3Unlock.setBackground(Color.GREEN);
+		door3Unlock.setBounds(273, 219, 70, 10);
+		frmSecurityAccessControl.getContentPane().add(door3Unlock);
 		accessManu.setHorizontalAlignment(SwingConstants.LEFT);
 		accessManu.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		accessManu.setBounds(395, 296, 39, 21);
@@ -179,23 +185,7 @@ public class ACS_Canvas {
 		enable.setBounds(80, 380, 85, 21);
 		frmSecurityAccessControl.getContentPane().add(enable);
 		
-		enable.addActionListener(e -> {
-			if(States.DOOR1_LOCK) {
-				System.out.println("shit");
-				door1Unlock.setOpaque(true);
-				frmSecurityAccessControl.getContentPane().revalidate();
-				frmSecurityAccessControl.getContentPane().repaint();
-			}
-		});
-		
-		enable.addActionListener(e -> {
-			if(!States.DOOR1_LOCK){
-				System.out.println("fuck");
-				door1Unlock.setOpaque(false);
-				frmSecurityAccessControl.getContentPane().revalidate();
-				frmSecurityAccessControl.getContentPane().repaint();
-			}
-		});
+
 		
 		JLabel lblNewLabel_6_3_1 = new JLabel("Person Location");
 		lblNewLabel_6_3_1.setVerticalAlignment(SwingConstants.TOP);
@@ -337,5 +327,37 @@ public class ACS_Canvas {
 		lblNewLabel_6_3.setBackground(new Color(204, 211, 255));
 		lblNewLabel_6_3.setBounds(283, 275, 243, 178);
 		frmSecurityAccessControl.getContentPane().add(lblNewLabel_6_3);
+		
+		enable.addActionListener(e -> {
+			if(States.DOOR1_LOCK) {
+				System.out.println("shit");
+				door1Unlock.setOpaque(true);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+			if(States.DOOR1_UNLOCK){
+				System.out.println("fuck");
+				door1Unlock.setOpaque(false);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+		accessOffice.addActionListener(e -> {
+			if(States.ACCESS_OFFICE){
+				System.out.println("ACCESSOFFICE");
+				door1Unlock.setOpaque(true);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+		accessManu.addActionListener(e -> {
+			if(States.ACCESS_MANU){
+				System.out.println("ACCESSMANU");
+				door3Unlock.setOpaque(true);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+		
 	}
 }
