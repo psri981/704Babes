@@ -33,15 +33,25 @@ public class ECS_States {
 	// --------------- CLEANING STATES --------------- //
 
 	// --------------- POWER SUPPLY STATES --------------- //
-	public static volatile boolean POWER_ZONE_1 = true;//
-	public static volatile boolean POWER_ZONE_2 = true;//
-	public static volatile boolean POWER_ZONE_3 = true;//
-	public static volatile boolean POWER_ZONE_4 = true;//
-	public static volatile boolean POWER_ZONE_5 = true;//
-	public static volatile boolean POWER_ZONE_6 = true;//
-	public static volatile boolean POWER_ZONE_7 = true;//
+	public static volatile boolean POW_ON_ZONE_1 = true;//
+	public static volatile boolean POW_ON_ZONE_2 = true;//
+	public static volatile boolean POW_ON_ZONE_3 = true;//
+	public static volatile boolean POW_ON_ZONE_4 = true;//
+	public static volatile boolean POW_ON_ZONE_5 = true;//
+	public static volatile boolean POW_ON_ZONE_6 = true;//
+	public static volatile boolean POW_ON_ZONE_7 = true;//
 	// --------------- POWER SUPPLY STATES --------------- //
 
+	// --------------- POWER SUPPLY STATES --------------- //
+	public static volatile boolean POW_OFF_ZONE_1 = true;//
+	public static volatile boolean POW_OFF_ZONE_2 = true;//
+	public static volatile boolean POW_OFF_ZONE_3 = true;//
+	public static volatile boolean POW_OFF_ZONE_4 = true;//
+	public static volatile boolean POW_OFF_ZONE_5 = true;//
+	public static volatile boolean POW_OFF_ZONE_6 = true;//
+	public static volatile boolean POW_OFF_ZONE_7 = true;//
+	// --------------- POWER SUPPLY STATES --------------- //	
+	
 	// --------------- APPLIANCE STATES --------------- //
 	public static volatile boolean FAN_ZONE_1_7 = false;//
 	public static volatile boolean HEAT_ZONE_1_7 = false;//

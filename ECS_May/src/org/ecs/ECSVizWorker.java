@@ -30,9 +30,9 @@ public class ECSVizWorker extends ECS_Worker{
 		case "alarmZone7TriggerE":
 			ECS_States.FIRE_ZONE_7 = status;
 			break;
-		// -------------- FIRE CASES END -------------- //
+			// -------------- FIRE CASES END -------------- //
 
-		// -------------- CLEANING CASES -------------- //
+			// -------------- CLEANING CASES -------------- //
 		case "cleanZone1TriggerE":
 			ECS_States.CLEAN_ZONE_1 = status;
 			break;
@@ -54,9 +54,9 @@ public class ECSVizWorker extends ECS_Worker{
 		case "cleanZone7TriggerE":
 			ECS_States.CLEAN_ZONE_7 = status;
 			break;
-		// -------------- CLEANING CASES END -------------- //
+			// -------------- CLEANING CASES END -------------- //
 
-		// ----------- APPLIANCES CASES END ----------- //
+			// ----------- APPLIANCES CASES END ----------- //
 		case "fanOnZone1_7TriggerE":
 			ECS_States.FAN_ZONE_1_7 = status;
 			break;
@@ -93,7 +93,31 @@ public class ECSVizWorker extends ECS_Worker{
 		case "deHumOnZone4_5_6TriggerE":
 			ECS_States.DEHUM_ZONE_4_5_6 = status;
 			break;
-		// ----------- APPLIANCES CASES END ----------- //
+			// ----------- APPLIANCES CASES END ----------- //
+
+			// -------------- POWER CASES -------------- //
+		case "cutPowZ1_TriggerE":
+			ECS_States.POW_OFF_ZONE_1 = status;
+			break;
+		case "cutPowZ2_TriggerE":
+			ECS_States.POW_OFF_ZONE_2 = status;
+			break;
+		case "cutPowZ3_TriggerE":
+			ECS_States.POW_OFF_ZONE_3 = status;
+			break;
+		case "cutPowZ4_TriggerE":
+			ECS_States.POW_OFF_ZONE_4 = status;
+			break;
+		case "cutPowZ5_TriggerE":
+			ECS_States.POW_OFF_ZONE_5 = status;
+			break;
+		case "cutPowZ6_TriggerE":
+			ECS_States.POW_OFF_ZONE_6 = status;
+			break;
+		case "cutPowZ7_TriggerE":
+			ECS_States.POW_OFF_ZONE_7 = status;
+			break;
+			// -------------- POWER CASES END -------------- //
 
 		default: 
 			System.err.println("Wrong sig name : "+signame);
@@ -102,9 +126,9 @@ public class ECSVizWorker extends ECS_Worker{
 	}
 
 	static final List<String> signames = Arrays.asList("alarmZone1TriggerE, alarmZone2TriggerE","alarmZone3TriggerE","alarmZone4TriggerE","alarmZone5TriggerE","alarmZone6TriggerE","alarmZone7TriggerE",
-"cleanZone1TriggerE","cleanZone2TriggerE","cleanZone3TriggerE","cleanZone4TriggerE","cleanZone5TriggerE","cleanZone6TriggerE","cleanZone7TriggerE",
-"fanOnZone1_7TriggerE","heatOnZone1_7TriggerE","airOnZone2_3TriggerE","airOnZone4_5_6TriggerE","airOnZone4_5_6TriggerE",
-"humOnZone1_7TriggerE","humOnZone2_3TriggerE","humOnZone4_5_6TriggerE","deHumOnZone1_7TriggerE","deHumOnZone2_3TriggerE","deHumOnZone4_5_6TriggerE");
+			"cleanZone1TriggerE","cleanZone2TriggerE","cleanZone3TriggerE","cleanZone4TriggerE","cleanZone5TriggerE","cleanZone6TriggerE","cleanZone7TriggerE",
+			"fanOnZone1_7TriggerE","heatOnZone1_7TriggerE","airOnZone2_3TriggerE","airOnZone4_5_6TriggerE","airOnZone4_5_6TriggerE",
+			"humOnZone1_7TriggerE","humOnZone2_3TriggerE","humOnZone4_5_6TriggerE","deHumOnZone1_7TriggerE","deHumOnZone2_3TriggerE","deHumOnZone4_5_6TriggerE");
 
 	@Override
 	public boolean hasSignal(String sn) {
