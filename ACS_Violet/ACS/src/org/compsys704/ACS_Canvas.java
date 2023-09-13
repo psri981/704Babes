@@ -62,9 +62,9 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSecurityAccessControl.getContentPane().setLayout(null);
 		
-		JButton btnNewButton = new JButton("testbtn");
-		btnNewButton.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-		btnNewButton.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_DOOR1_UNLOCK));
+		JButton enable = new JButton("enable");
+		enable.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		enable.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_DOOR1_UNLOCK));
 		
 		JButton btnNewButton_1 = new JButton("O");
 		btnNewButton_1.setHorizontalAlignment(SwingConstants.LEFT);
@@ -166,12 +166,11 @@ public class ACS_Canvas {
 		lblNewLabel_7.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		lblNewLabel_7.setBounds(305, 290, 133, 33);
 		frmSecurityAccessControl.getContentPane().add(lblNewLabel_7);
-		btnNewButton.setBounds(94, 316, 85, 21);
-		frmSecurityAccessControl.getContentPane().add(btnNewButton);
+		enable.setBounds(80, 380, 85, 21);
+		frmSecurityAccessControl.getContentPane().add(enable);
 		
-		btnNewButton.addActionListener(e -> {
+		enable.addActionListener(e -> {
 			if(!States.DOOR1_UNLOCK) {
-				System.out.println("bitch");
 				door1Unlock.setOpaque(true);
 				frmSecurityAccessControl.getContentPane().revalidate();
 				frmSecurityAccessControl.getContentPane().repaint();

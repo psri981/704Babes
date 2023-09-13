@@ -48,8 +48,9 @@ public class Controller extends ClockDomain{
   public Signal zoneOcc5 = new Signal("zoneOcc5", Signal.OUTPUT);
   public Signal zoneOcc6 = new Signal("zoneOcc6", Signal.OUTPUT);
   public Signal zoneOcc7 = new Signal("zoneOcc7", Signal.OUTPUT);
-  private int S16 = 1;
-  private int S4 = 1;
+  private int[][] personArray_thread_1;//sysj\controller.sysj line: 10, column: 2
+  private int S391 = 1;
+  private int S65 = 1;
   
   private int[] ends = new int[2];
   private int[] tdone = new int[2];
@@ -61,46 +62,323 @@ public class Controller extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S16){
+      switch(S391){
         case 0 : 
-          S16=0;
+          S391=0;
           break RUN;
         
         case 1 : 
-          S16=2;
-          S16=2;
-          S4=0;
-          unlock1.setPresent();//sysj\controller.sysj line: 13, column: 4
-          currsigs.addElement(unlock1);
-          active[1]=1;
-          ends[1]=1;
-          break RUN;
-        
-        case 2 : 
-          switch(S4){
-            case 0 : 
-              if(unlock1_t.getprestatus()){//sysj\controller.sysj line: 11, column: 8
-                S4=1;
-                active[1]=1;
-                ends[1]=1;
-                break RUN;
-              }
-              else {
-                unlock1.setPresent();//sysj\controller.sysj line: 13, column: 4
+          S391=2;
+          S391=2;
+          personArray_thread_1 = new int[4][4];//sysj\controller.sysj line: 10, column: 2
+          personArray_thread_1[0][0] = 0;//sysj\controller.sysj line: 13, column: 2
+          personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 14, column: 2
+          personArray_thread_1[0][2] = 1;//sysj\controller.sysj line: 15, column: 2
+          personArray_thread_1[0][3] = 0;//sysj\controller.sysj line: 16, column: 2
+          personArray_thread_1[1][0] = 1;//sysj\controller.sysj line: 18, column: 2
+          personArray_thread_1[1][1] = 0;//sysj\controller.sysj line: 19, column: 2
+          personArray_thread_1[1][2] = 1;//sysj\controller.sysj line: 20, column: 2
+          personArray_thread_1[1][3] = 0;//sysj\controller.sysj line: 21, column: 2
+          personArray_thread_1[2][0] = 2;//sysj\controller.sysj line: 23, column: 2
+          personArray_thread_1[2][1] = 1;//sysj\controller.sysj line: 24, column: 2
+          personArray_thread_1[2][2] = 4;//sysj\controller.sysj line: 25, column: 2
+          personArray_thread_1[2][3] = 0;//sysj\controller.sysj line: 26, column: 2
+          personArray_thread_1[3][0] = 3;//sysj\controller.sysj line: 28, column: 2
+          personArray_thread_1[3][1] = 1;//sysj\controller.sysj line: 29, column: 2
+          personArray_thread_1[3][2] = 4;//sysj\controller.sysj line: 30, column: 2
+          personArray_thread_1[3][3] = 0;//sysj\controller.sysj line: 31, column: 2
+          S65=0;
+          if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 39, column: 6
+            if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 40, column: 7
+              if(personArray_thread_1[0][3] == 0){//sysj\controller.sysj line: 41, column: 11
+                System.out.println("aaaaaaaaaa");//sysj\controller.sysj line: 42, column: 6
+                unlock1.setPresent();//sysj\controller.sysj line: 43, column: 6
                 currsigs.addElement(unlock1);
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
               }
-            
-            case 1 : 
-              S4=1;
-              S4=0;
-              unlock1.setPresent();//sysj\controller.sysj line: 13, column: 4
-              currsigs.addElement(unlock1);
+              else {
+                ends[1]=2;
+                ;//sysj\controller.sysj line: 41, column: 5
+                S65=1;
+                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 54, column: 6
+                  if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 55, column: 7
+                    if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 56, column: 11
+                      unlock3.setPresent();//sysj\controller.sysj line: 57, column: 6
+                      currsigs.addElement(unlock3);
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                    else {
+                      ends[1]=2;
+                      ;//sysj\controller.sysj line: 56, column: 5
+                      S65=2;
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                  }
+                  else {
+                    S65=2;
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                }
+                else {
+                  S65=2;
+                  active[1]=1;
+                  ends[1]=1;
+                  break RUN;
+                }
+              }
+            }
+            else {
+              S65=1;
+              if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 54, column: 6
+                if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 55, column: 7
+                  if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 56, column: 11
+                    unlock3.setPresent();//sysj\controller.sysj line: 57, column: 6
+                    currsigs.addElement(unlock3);
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                  else {
+                    ends[1]=2;
+                    ;//sysj\controller.sysj line: 56, column: 5
+                    S65=2;
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                }
+                else {
+                  S65=2;
+                  active[1]=1;
+                  ends[1]=1;
+                  break RUN;
+                }
+              }
+              else {
+                S65=2;
+                active[1]=1;
+                ends[1]=1;
+                break RUN;
+              }
+            }
+          }
+          else {
+            S65=1;
+            if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 54, column: 6
+              if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 55, column: 7
+                if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 56, column: 11
+                  unlock3.setPresent();//sysj\controller.sysj line: 57, column: 6
+                  currsigs.addElement(unlock3);
+                  active[1]=1;
+                  ends[1]=1;
+                  break RUN;
+                }
+                else {
+                  ends[1]=2;
+                  ;//sysj\controller.sysj line: 56, column: 5
+                  S65=2;
+                  active[1]=1;
+                  ends[1]=1;
+                  break RUN;
+                }
+              }
+              else {
+                S65=2;
+                active[1]=1;
+                ends[1]=1;
+                break RUN;
+              }
+            }
+            else {
+              S65=2;
               active[1]=1;
               ends[1]=1;
               break RUN;
+            }
+          }
+        
+        case 2 : 
+          switch(S65){
+            case 0 : 
+              if(personArray_thread_1[0][3] == 0){//sysj\controller.sysj line: 41, column: 11
+                System.out.println("aaaaaaaaaa");//sysj\controller.sysj line: 42, column: 6
+                unlock1.setPresent();//sysj\controller.sysj line: 43, column: 6
+                currsigs.addElement(unlock1);
+                active[1]=1;
+                ends[1]=1;
+                break RUN;
+              }
+              else {
+                ends[1]=2;
+                ;//sysj\controller.sysj line: 41, column: 5
+                S65=1;
+                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 54, column: 6
+                  if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 55, column: 7
+                    if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 56, column: 11
+                      unlock3.setPresent();//sysj\controller.sysj line: 57, column: 6
+                      currsigs.addElement(unlock3);
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                    else {
+                      ends[1]=2;
+                      ;//sysj\controller.sysj line: 56, column: 5
+                      S65=2;
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                  }
+                  else {
+                    S65=2;
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                }
+                else {
+                  S65=2;
+                  active[1]=1;
+                  ends[1]=1;
+                  break RUN;
+                }
+              }
+            
+            case 1 : 
+              unlock3.setPresent();//sysj\controller.sysj line: 57, column: 6
+              currsigs.addElement(unlock3);
+              active[1]=1;
+              ends[1]=1;
+              break RUN;
+            
+            case 2 : 
+              S65=2;
+              S65=0;
+              if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 39, column: 6
+                if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 40, column: 7
+                  if(personArray_thread_1[0][3] == 0){//sysj\controller.sysj line: 41, column: 11
+                    System.out.println("aaaaaaaaaa");//sysj\controller.sysj line: 42, column: 6
+                    unlock1.setPresent();//sysj\controller.sysj line: 43, column: 6
+                    currsigs.addElement(unlock1);
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                  else {
+                    ends[1]=2;
+                    ;//sysj\controller.sysj line: 41, column: 5
+                    S65=1;
+                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 54, column: 6
+                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 55, column: 7
+                        if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 56, column: 11
+                          unlock3.setPresent();//sysj\controller.sysj line: 57, column: 6
+                          currsigs.addElement(unlock3);
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                        else {
+                          ends[1]=2;
+                          ;//sysj\controller.sysj line: 56, column: 5
+                          S65=2;
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                      }
+                      else {
+                        S65=2;
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                    }
+                    else {
+                      S65=2;
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                  }
+                }
+                else {
+                  S65=1;
+                  if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 54, column: 6
+                    if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 55, column: 7
+                      if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 56, column: 11
+                        unlock3.setPresent();//sysj\controller.sysj line: 57, column: 6
+                        currsigs.addElement(unlock3);
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                      else {
+                        ends[1]=2;
+                        ;//sysj\controller.sysj line: 56, column: 5
+                        S65=2;
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                    }
+                    else {
+                      S65=2;
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                  }
+                  else {
+                    S65=2;
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                }
+              }
+              else {
+                S65=1;
+                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 54, column: 6
+                  if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 55, column: 7
+                    if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 56, column: 11
+                      unlock3.setPresent();//sysj\controller.sysj line: 57, column: 6
+                      currsigs.addElement(unlock3);
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                    else {
+                      ends[1]=2;
+                      ;//sysj\controller.sysj line: 56, column: 5
+                      S65=2;
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                  }
+                  else {
+                    S65=2;
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                }
+                else {
+                  S65=2;
+                  active[1]=1;
+                  ends[1]=1;
+                  break RUN;
+                }
+              }
             
           }
         

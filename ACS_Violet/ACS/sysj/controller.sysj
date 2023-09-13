@@ -4,16 +4,60 @@ Controller(
     output signal absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7;
 )
 -> {
-while(true) {
-	//System.out.println("a");
+	//MAKING FAKE PEOPLE DONT MIND ME
 	
+	// Declare a 2D integer array with 3 rows and 4 columns
+	int[][] personArray = new int[4][4];
+
+	// Initialize the elements of the 2D array
+	personArray[0][0] = 0; //ID Number
+	personArray[0][1] = 0; //Permission: 0 = office, 1= manu
+	personArray[0][2] = 1; //Current Zone
+	personArray[0][3] = 0; //Door req number 0 for no door
+
+	personArray[1][0] = 1;
+	personArray[1][1] = 0;
+	personArray[1][2] = 1;
+	personArray[1][3] = 0;
+
+	personArray[2][0] = 2;
+	personArray[2][1] = 1;
+	personArray[2][2] = 4;
+	personArray[2][3] = 0;
 	
-	abort(unlock1_t){
-		while(true) {
-			emit unlock1;
-			pause;
+	personArray[3][0] = 3;
+	personArray[3][1] = 1;
+	personArray[3][2] = 4;
+	personArray[3][3] = 0;
+
+	//ACTUAL CODE
+//	System.out.println(personArray[0][3]);
+	
+	while(true) {
+	//	await(door1req||door2req||door3req);
+		//for loop here
+		if(personArray[0][1] == 0) { //if they have office access
+			if(personArray[0][2] < 2) { //if they are in zone 1 or not inside
+				while(personArray[0][3] == 0) { //while they are requesting access to door 1
+					System.out.println("aaaaaaaaaa");
+					emit unlock1; 
+					pause;
+				}
+			}
+//			if((personArray[0][3] == 1)|(personArray[0][3] == 2)) { //if they are in zone 1 or in zone 2
+//				while(personArray[0][4] == 2) {
+//					sustain unlock2;
+//				}
+//			} //maybe door2 is emergency only
 		}
-	} 
-	pause;
+		
+		if(personArray[0][1] == 1) { //if they have manu access
+			if((personArray[0][2] == 0)|(personArray[0][2] == 2)) { //if they are in outside or in zone 2
+				while(personArray[0][3] == 2) {
+					sustain unlock3;
+				}
+			}
+		}
+		pause;
 	}
 }
