@@ -58,6 +58,14 @@ public class LoaderVizWorker extends Worker{
 			States.ROOM7_PRECENSE= status;
 			break;
 			
+		case "proxLaserGUI":
+			States.LASERPROX_SENSE= status;
+			break;
+			
+		case "absStopGUI":
+			States.ABS_OFF= status;
+			break;
+			
 //		case "pusherRetractedE":
 //			States.PUSHER_RETRACTED = status;
 //			break;

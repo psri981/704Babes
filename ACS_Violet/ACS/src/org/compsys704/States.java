@@ -17,8 +17,8 @@ public class States {
 	public static volatile boolean ROOM5_PRECENSE = true;
 	public static volatile boolean ROOM6_PRECENSE = true;
 	public static volatile boolean ROOM7_PRECENSE = true;
-	public static volatile boolean LASERPROX_SENSE = false;
-	public static volatile boolean ABS_OFF = false;
+	public static volatile boolean LASERPROX_SENSE = true;
+	public static volatile boolean ABS_OFF = true;
 	
 	
 //	public static volatile boolean ARM_AT_DEST = true;

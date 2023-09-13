@@ -93,14 +93,17 @@ Controller(
 						}
 						present(zoneOcc4){
 							personArray[0][2] = 4;
+							emit absSuspend;
 							System.out.println(personArray[0][2]);
 						}
 						present(zoneOcc5){
 							personArray[0][2] = 5;
+							emit absSuspend;
 							System.out.println(personArray[0][2]);
 						}
 						present(zoneOcc6){
 							personArray[0][2] = 6;
+							emit absSuspend;
 							System.out.println(personArray[0][2]);
 						}
 						pause;

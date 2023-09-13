@@ -25,6 +25,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.JTextField;
 import javax.swing.ButtonGroup;
+import java.awt.Dimension;
 
 public class ACS_Canvas {
 
@@ -34,6 +35,7 @@ public class ACS_Canvas {
 	private final ButtonGroup buttonGroup_2 = new ButtonGroup();
 	private final ButtonGroup buttonGroup_3 = new ButtonGroup();
 	private final ButtonGroup buttonGroup_4 = new ButtonGroup();
+	private JTextField absStatus;
 
 	/**
 	 * Launch the application.
@@ -67,6 +69,14 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.setBounds(500, 500, 550, 500);
 		frmSecurityAccessControl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSecurityAccessControl.getContentPane().setLayout(null);
+		
+		absStatus = new JTextField();
+		absStatus.setEditable(false);
+		absStatus.setText("Initialize ACS");
+		absStatus.setHorizontalAlignment(SwingConstants.CENTER);
+		absStatus.setBounds(82, 304, 96, 19);
+		frmSecurityAccessControl.getContentPane().add(absStatus);
+		absStatus.setColumns(10);
 		
 		JLabel Door2Unlock = new JLabel("");
 		Door2Unlock.setBorder(null);
@@ -278,20 +288,7 @@ public class ACS_Canvas {
 		locZone0.setBounds(406, 420, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(locZone0);
 		locZone0.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_0));
-		locZone0.addActionListener(e -> {
-			if(States.ROOM0_PRECENSE){
-				System.out.println("INZONE0");
-				zone1.setOpaque(false);
-				zone2.setOpaque(false);
-				zone3.setOpaque(false);
-				zone4.setOpaque(false);
-				zone5.setOpaque(false);
-				zone6.setOpaque(false);
-				zone7.setOpaque(false);
-				frmSecurityAccessControl.getContentPane().revalidate();
-				frmSecurityAccessControl.getContentPane().repaint();
-			}
-		});
+		
 		
 		JLabel lblNewLabel_6_2 = new JLabel("Mode Select");
 		lblNewLabel_6_2.setVerticalAlignment(SwingConstants.TOP);
@@ -301,6 +298,15 @@ public class ACS_Canvas {
 		lblNewLabel_6_2.setBackground(new Color(204, 211, 255));
 		lblNewLabel_6_2.setBounds(10, 363, 243, 90);
 		frmSecurityAccessControl.getContentPane().add(lblNewLabel_6_2);
+		
+		JLabel lblNewLabel_6_3_1 = new JLabel("Person Location");
+		lblNewLabel_6_3_1.setVerticalAlignment(SwingConstants.TOP);
+		lblNewLabel_6_3_1.setOpaque(true);
+		lblNewLabel_6_3_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_6_3_1.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		lblNewLabel_6_3_1.setBackground(new Color(204, 242, 255));
+		lblNewLabel_6_3_1.setBounds(315, 333, 181, 120);
+		frmSecurityAccessControl.getContentPane().add(lblNewLabel_6_3_1);
 		
 		JLabel lblNewLabel_6_3 = new JLabel("Manual Input");
 		lblNewLabel_6_3.setVerticalAlignment(SwingConstants.TOP);
@@ -318,14 +324,6 @@ public class ACS_Canvas {
 		zone4_1.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		zone4_1.setBounds(393, 41, 60, 70);
 		frmSecurityAccessControl.getContentPane().add(zone4_1);
-		
-		JLabel zone6_1 = new JLabel("Zone6");
-		zone6_1.setBackground(new Color(204, 211, 255));
-		zone6_1.setOpaque(true);
-		zone6_1.setHorizontalAlignment(SwingConstants.CENTER);
-		zone6_1.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-		zone6_1.setBounds(273, 41, 60, 70);
-		frmSecurityAccessControl.getContentPane().add(zone6_1);
 		
 		JLabel zone7_1 = new JLabel("Zone7");
 		zone7_1.setOpaque(true);
@@ -345,6 +343,14 @@ public class ACS_Canvas {
 		zone5_1.setBackground(new Color(204, 211, 255));
 		zone5_1.setBounds(333, 41, 60, 70);
 		frmSecurityAccessControl.getContentPane().add(zone5_1);
+		
+		JLabel zone6_1 = new JLabel("Zone6");
+		zone6_1.setBackground(new Color(204, 211, 255));
+		zone6_1.setOpaque(true);
+		zone6_1.setHorizontalAlignment(SwingConstants.CENTER);
+		zone6_1.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		zone6_1.setBounds(273, 41, 60, 70);
+		frmSecurityAccessControl.getContentPane().add(zone6_1);
 		
 		JLabel zone1_1 = new JLabel("Zone1");
 		zone1_1.setOpaque(true);
@@ -370,32 +376,28 @@ public class ACS_Canvas {
 		zone2_1.setBounds(252, 126, 110, 100);
 		frmSecurityAccessControl.getContentPane().add(zone2_1);
 		
-		JLabel lblNewLabel_3 = new JLabel("Proximity Sensor Zone\r\n");
-		lblNewLabel_3.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel_3.setBackground(Color.GREEN);
-		lblNewLabel_3.setOpaque(true);
-		lblNewLabel_3.setBounds(252, 26, 220, 100);
-		frmSecurityAccessControl.getContentPane().add(lblNewLabel_3);
+		JLabel proxLaser = new JLabel("Proximity Sensor Zone\r\n");
+		proxLaser.setPreferredSize(new Dimension(101, 13));
+		proxLaser.setMinimumSize(new Dimension(101, 13));
+		proxLaser.setMaximumSize(new Dimension(101, 13));
+		proxLaser.setVerticalAlignment(SwingConstants.TOP);
+		proxLaser.setHorizontalAlignment(SwingConstants.CENTER);
+		proxLaser.setBorder(null);
+		proxLaser.setBackground(Color.RED);
+		proxLaser.setBounds(252, 28, 220, 100);
+		frmSecurityAccessControl.getContentPane().add(proxLaser);
 		
-		JLabel lblNewLabel_1 = new JLabel("Manufacturing Section");
-		lblNewLabel_1.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setOpaque(true);
-		lblNewLabel_1.setBackground(new Color(204, 211, 255));
-		lblNewLabel_1.setVerticalAlignment(SwingConstants.BOTTOM);
-		lblNewLabel_1.setBounds(253, 10, 243, 255);
-		frmSecurityAccessControl.getContentPane().add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_6_3_1 = new JLabel("Person Location");
-		lblNewLabel_6_3_1.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel_6_3_1.setOpaque(true);
-		lblNewLabel_6_3_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_6_3_1.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		lblNewLabel_6_3_1.setBackground(new Color(204, 242, 255));
-		lblNewLabel_6_3_1.setBounds(315, 333, 181, 120);
-		frmSecurityAccessControl.getContentPane().add(lblNewLabel_6_3_1);
+		JLabel proxLaser_1 = new JLabel("Proximity Sensor Zone\r\n");
+		proxLaser_1.setVerticalAlignment(SwingConstants.TOP);
+		proxLaser_1.setPreferredSize(new Dimension(101, 13));
+		proxLaser_1.setOpaque(true);
+		proxLaser_1.setMinimumSize(new Dimension(101, 13));
+		proxLaser_1.setMaximumSize(new Dimension(101, 13));
+		proxLaser_1.setHorizontalAlignment(SwingConstants.CENTER);
+		proxLaser_1.setBorder(null);
+		proxLaser_1.setBackground(Color.GREEN);
+		proxLaser_1.setBounds(252, 28, 220, 100);
+		frmSecurityAccessControl.getContentPane().add(proxLaser_1);
 		
 		JLabel lblNewLabel = new JLabel("Office Section");
 		lblNewLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
@@ -406,6 +408,19 @@ public class ACS_Canvas {
 		lblNewLabel.setBounds(30, 10, 232, 255);
 		frmSecurityAccessControl.getContentPane().add(lblNewLabel);
 		
+		JLabel lblNewLabel_1 = new JLabel("Manufacturing Section");
+		lblNewLabel_1.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setOpaque(true);
+		lblNewLabel_1.setBackground(new Color(204, 211, 255));
+		lblNewLabel_1.setVerticalAlignment(SwingConstants.BOTTOM);
+		lblNewLabel_1.setBounds(253, 10, 243, 255);
+		frmSecurityAccessControl.getContentPane().add(lblNewLabel_1);
+		
+		JLabel label = new JLabel("New label");
+		label.setBounds(28, 298, 85, 25);
+		frmSecurityAccessControl.getContentPane().add(label);
+		
 		locZone7.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_7));
 		locZone6.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_6));
 		locZone5.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_5));
@@ -413,6 +428,24 @@ public class ACS_Canvas {
 		locZone3.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_3));
 		locZone2.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_2));
 		locZone1.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_1));		
+		locZone1.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_1));	
+		
+		locZone0.addActionListener(e -> {
+			if(States.ROOM0_PRECENSE){
+				System.out.println("INZONE0");
+				zone1.setOpaque(false);
+				zone2.setOpaque(false);
+				zone3.setOpaque(false);
+				zone4.setOpaque(false);
+				zone5.setOpaque(false);
+				zone6.setOpaque(false);
+				zone7.setOpaque(false);
+				proxLaser.setOpaque(false);
+				absStatus.setText("ABS ON");
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
 		
 		locZone1.addActionListener(e -> {
 			if(States.ROOM1_PRECENSE){
@@ -424,6 +457,8 @@ public class ACS_Canvas {
 				zone5.setOpaque(false);
 				zone6.setOpaque(false);
 				zone7.setOpaque(false);
+				proxLaser.setOpaque(false);
+				absStatus.setText("ABS ON");
 				frmSecurityAccessControl.getContentPane().revalidate();
 				frmSecurityAccessControl.getContentPane().repaint();
 			}
@@ -438,6 +473,8 @@ public class ACS_Canvas {
 				zone5.setOpaque(false);
 				zone6.setOpaque(false);
 				zone7.setOpaque(false);
+				proxLaser.setOpaque(false);
+				absStatus.setText("ABS ON");
 				frmSecurityAccessControl.getContentPane().revalidate();
 				frmSecurityAccessControl.getContentPane().repaint();
 			}
@@ -452,6 +489,8 @@ public class ACS_Canvas {
 				zone5.setOpaque(false);
 				zone6.setOpaque(false);
 				zone7.setOpaque(false);
+				proxLaser.setOpaque(false);
+				absStatus.setText("ABS ON");
 				frmSecurityAccessControl.getContentPane().revalidate();
 				frmSecurityAccessControl.getContentPane().repaint();
 			}
@@ -466,6 +505,8 @@ public class ACS_Canvas {
 				zone5.setOpaque(false);
 				zone6.setOpaque(false);
 				zone7.setOpaque(false);
+				proxLaser.setOpaque(true);
+				absStatus.setText("ABS OFF");
 				frmSecurityAccessControl.getContentPane().revalidate();
 				frmSecurityAccessControl.getContentPane().repaint();
 			}
@@ -480,6 +521,8 @@ public class ACS_Canvas {
 				zone5.setOpaque(true);
 				zone6.setOpaque(false);
 				zone7.setOpaque(false);
+				proxLaser.setOpaque(true);
+				absStatus.setText("ABS OFF");
 				frmSecurityAccessControl.getContentPane().revalidate();
 				frmSecurityAccessControl.getContentPane().repaint();
 			}
@@ -494,6 +537,8 @@ public class ACS_Canvas {
 				zone5.setOpaque(false);
 				zone6.setOpaque(true);
 				zone7.setOpaque(false);
+				proxLaser.setOpaque(true);
+				absStatus.setText("ABS OFF");
 				frmSecurityAccessControl.getContentPane().revalidate();
 				frmSecurityAccessControl.getContentPane().repaint();
 			}
@@ -508,6 +553,8 @@ public class ACS_Canvas {
 				zone5.setOpaque(false);
 				zone6.setOpaque(false);
 				zone7.setOpaque(true);
+				proxLaser.setOpaque(false);
+				absStatus.setText("ABS ON");
 				frmSecurityAccessControl.getContentPane().revalidate();
 				frmSecurityAccessControl.getContentPane().repaint();
 			}
