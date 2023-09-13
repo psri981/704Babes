@@ -649,7 +649,10 @@ public class ECS_Canvas {
 						sendLight.emit(lightValue, 10);
 						sendTemp.emit(temperatureValue, 10);
 						sendHumid.emit(humidityValue, 10);
-					}	
+					}
+					
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -743,13 +746,49 @@ public class ECS_Canvas {
 		txtpnTime.setBounds(29, 47, 68, 20);
 		frmECS.getContentPane().add(txtpnTime);
 		clockThread.start();
+		
+		if(ECS_States.FIRE_ZONE_1 ) {
+			sAlarmZ1.setEnabled(true);
+			powerZ1.setEnabled(false);
+			sAlarmZ2.setEnabled(true);
+			powerZ2.setEnabled(false);
+			sAlarmZ3.setEnabled(true);
+			powerZ3.setEnabled(false);
+			sAlarmZ4.setEnabled(true);
+			powerZ4.setEnabled(false);
+			sAlarmZ5.setEnabled(true);
+			powerZ5.setEnabled(false);
+			sAlarmZ6.setEnabled(true);
+			powerZ6.setEnabled(false);
+			sAlarmZ7.setEnabled(true);
+			powerZ7.setEnabled(false);
+			frmECS.getContentPane().revalidate();
+			frmECS.getContentPane().repaint();
+		}else {
+			sAlarmZ1.setEnabled(false);
+			powerZ1.setEnabled(true);
+			sAlarmZ2.setEnabled(false);
+			powerZ2.setEnabled(true);
+			sAlarmZ3.setEnabled(false);
+			powerZ3.setEnabled(true);
+			sAlarmZ4.setEnabled(false);
+			powerZ4.setEnabled(true);
+			sAlarmZ5.setEnabled(false);
+			powerZ5.setEnabled(true);
+			sAlarmZ6.setEnabled(false);
+			powerZ6.setEnabled(true);
+			sAlarmZ7.setEnabled(false);
+			powerZ7.setEnabled(true);
 
+			frmECS.getContentPane().revalidate();
+			frmECS.getContentPane().repaint();
+		}
 		// STATE CHECKING FOR GUI
 		Simulatebtn.addActionListener(e -> {
 
 			// CHECK FOR FIRES -- IF THERE IS FIRE TURN ON SMOKE ALARM
 			
-			if(!ECS_States.FIRE_ZONE_1 || !ECS_States.FIRE_ZONE_2 || !ECS_States.FIRE_ZONE_3 || !ECS_States.FIRE_ZONE_4 || !ECS_States.FIRE_ZONE_5 || !ECS_States.FIRE_ZONE_6 || !ECS_States.FIRE_ZONE_7) {
+			if(!ECS_States.FIRE_ZONE_1 ) {
 				sAlarmZ1.setEnabled(true);
 				powerZ1.setEnabled(false);
 				sAlarmZ2.setEnabled(true);
@@ -764,8 +803,9 @@ public class ECS_Canvas {
 				powerZ6.setEnabled(false);
 				sAlarmZ7.setEnabled(true);
 				powerZ7.setEnabled(false);
-			}
-			else {
+				frmECS.getContentPane().revalidate();
+				frmECS.getContentPane().repaint();
+			}else {
 				sAlarmZ1.setEnabled(false);
 				powerZ1.setEnabled(true);
 				sAlarmZ2.setEnabled(false);
@@ -780,124 +820,211 @@ public class ECS_Canvas {
 				powerZ6.setEnabled(true);
 				sAlarmZ7.setEnabled(false);
 				powerZ7.setEnabled(true);
+
+				frmECS.getContentPane().revalidate();
+				frmECS.getContentPane().repaint();
 			}
+			
+//			if(!ECS_States.FIRE_EXT){
+//				sAlarmZ1.setEnabled(false);
+//				powerZ1.setEnabled(true);
+//				sAlarmZ2.setEnabled(false);
+//				powerZ2.setEnabled(true);
+//				sAlarmZ3.setEnabled(false);
+//				powerZ3.setEnabled(true);
+//				sAlarmZ4.setEnabled(false);
+//				powerZ4.setEnabled(true);
+//				sAlarmZ5.setEnabled(false);
+//				powerZ5.setEnabled(true);
+//				sAlarmZ6.setEnabled(false);
+//				powerZ6.setEnabled(true);
+//				sAlarmZ7.setEnabled(false);
+//				powerZ7.setEnabled(true);
+//				frmECS.getContentPane().revalidate();
+//				frmECS.getContentPane().repaint();
+//			} else {
+//				sAlarmZ1.setEnabled(true);
+//				powerZ1.setEnabled(false);
+//				sAlarmZ2.setEnabled(true);
+//				powerZ2.setEnabled(false);
+//				sAlarmZ3.setEnabled(true);
+//				powerZ3.setEnabled(false);
+//				sAlarmZ4.setEnabled(true);
+//				powerZ4.setEnabled(false);
+//				sAlarmZ5.setEnabled(true);
+//				powerZ5.setEnabled(false);
+//				sAlarmZ6.setEnabled(true);
+//				powerZ6.setEnabled(false);
+//				sAlarmZ7.setEnabled(true);
+//				powerZ7.setEnabled(false);
+//				frmECS.getContentPane().revalidate();
+//				frmECS.getContentPane().repaint();
+//			}
 
 			// CHECK IF TEMPERATURE AND HUMIDITY MUST BE ADJUSTED IF THERES NO FIRE
 			if(!firebtnPressed) {
-				if(ECS_States.FAN_ZONE_1_7) {
+				if(!ECS_States.FAN_ZONE_1_7) {
 					fanOnZ1.setEnabled(true);
 					fanOnZ7.setEnabled(true);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				else {
 					fanOnZ1.setEnabled(false);
 					fanOnZ7.setEnabled(false);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				
-				if(ECS_States.HEAT_ZONE_1_7) {
+				if(!ECS_States.HEAT_ZONE_1_7) {
 					heatOnZ1.setEnabled(true);
 					heatOnZ7.setEnabled(true);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				else {
 					heatOnZ1.setEnabled(false);
 					heatOnZ7.setEnabled(false);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				
-				if(ECS_States.AC_COOL_ZONE_2_3) {
+				if(!ECS_States.AC_COOL_ZONE_2_3) {
 					coolAirZ2.setEnabled(true);
 					coolAirZ3.setEnabled(true);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				else {
 					coolAirZ2.setEnabled(false);
 					coolAirZ3.setEnabled(false);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				
-				if(ECS_States.AC_COOL_ZONE_4_5_6) {
+				if(!ECS_States.AC_COOL_ZONE_4_5_6) {
 					coolAirZ4.setEnabled(true);
 					coolAirZ5.setEnabled(true);
 					coolAirZ6.setEnabled(true);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				else {
 					coolAirZ4.setEnabled(false);
 					coolAirZ5.setEnabled(false);
 					coolAirZ6.setEnabled(false);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				
-				if(ECS_States.AC_HEAT_ZONE_2_3) {
+				if(!ECS_States.AC_HEAT_ZONE_2_3) {
 					heatAirConZ2.setEnabled(true);
 					heatAirConZ3.setEnabled(true);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				else {
 					heatAirConZ2.setEnabled(false);
 					heatAirConZ3.setEnabled(false);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				
-				if(ECS_States.AC_HEAT_ZONE_4_5_6) {
+				if(!ECS_States.AC_HEAT_ZONE_4_5_6) {
 					heatAirConZ4.setEnabled(true);
 					heatAirConZ5.setEnabled(true);
 					heatAirConZ6.setEnabled(true);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				else {
 					heatAirConZ4.setEnabled(false);
 					heatAirConZ5.setEnabled(false);
 					heatAirConZ6.setEnabled(false);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				
-				if(ECS_States.HUM_ZONE_1_7) {
+				if(!ECS_States.HUM_ZONE_1_7) {
 					humZ1.setEnabled(true);
 					humZ7.setEnabled(true);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				else {
 					humZ1.setEnabled(false);
 					humZ7.setEnabled(false);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				
-				if(ECS_States.HUM_ZONE_2_3) {
+				if(!ECS_States.HUM_ZONE_2_3) {
 					humZ2.setEnabled(true);
 					humZ3.setEnabled(true);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				else {
 					humZ2.setEnabled(false);
 					humZ3.setEnabled(false);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				
-				if(ECS_States.HUM_ZONE_4_5_6) {
+				if(!ECS_States.HUM_ZONE_4_5_6) {
 					humZ4.setEnabled(true);
 					humZ5.setEnabled(true);
 					humZ6.setEnabled(true);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				else {
 					humZ4.setEnabled(false);
 					humZ5.setEnabled(false);
 					humZ6.setEnabled(false);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				
-				if(ECS_States.DEHUM_ZONE_1_7) {
+				if(!ECS_States.DEHUM_ZONE_1_7) {
 					deHumZ1.setEnabled(true);
 					deHumZ7.setEnabled(true);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				else {
 					deHumZ1.setEnabled(false);
 					deHumZ7.setEnabled(false);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				
-				if(ECS_States.DEHUM_ZONE_2_3) {
+				if(!ECS_States.DEHUM_ZONE_2_3) {
 					deHumZ2.setEnabled(true);
 					deHumZ3.setEnabled(true);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				else {
 					deHumZ2.setEnabled(false);
 					deHumZ3.setEnabled(false);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				
-				if(ECS_States.DEHUM_ZONE_4_5_6) {
+				if(!ECS_States.DEHUM_ZONE_4_5_6) {
 					deHumZ4.setEnabled(true);
 					deHumZ5.setEnabled(true);
 					deHumZ6.setEnabled(true);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 				else {
 					deHumZ4.setEnabled(false);
 					deHumZ5.setEnabled(false);
 					deHumZ6.setEnabled(false);
+					frmECS.getContentPane().revalidate();
+					frmECS.getContentPane().repaint();
 				}
 			}
 

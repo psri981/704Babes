@@ -10,6 +10,7 @@ public class ECS_States {
 	public static volatile boolean FIRE_ZONE_5 = false;//
 	public static volatile boolean FIRE_ZONE_6 = false;//
 	public static volatile boolean FIRE_ZONE_7 = false;//
+	public static volatile boolean FIRE_EXT= false;
 	// ----------------- FIRE STATES ----------------- //
 
 //	// ----------------- LIGHT INT ----------------- //

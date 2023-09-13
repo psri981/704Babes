@@ -32,7 +32,6 @@ ECS_controller(
 		present(cleanZone1 || cleanZone2 || cleanZone3 || cleanZone4 || cleanZone5 || cleanZone6 || cleanZone7){
 			System.out.println("");
 			System.out.println("High levels of dust detected please wait for room to be cleaned...");
-			waitl(5s);
 			emit roomCleaned;
 		}
 		
@@ -40,7 +39,6 @@ ECS_controller(
 		present(fanOnZone1_7 || heatOnZone1_7 || airOnZone2_3 || airOnZone4_5_6 || heatOnZone2_3 || heatOnZone4_5_6){
 			System.out.println("");
 			System.out.println("Room temperature is not optimal, please wait for it to moderate...");
-			waitl(5s);
 			emit safeOpTemp;
 		}
 		
@@ -48,7 +46,6 @@ ECS_controller(
 		present(humOnZone1_7 || humOnZone2_3 || humOnZone4_5_6 || deHumOnZone1_7 || deHumOnZone2_3 || deHumOnZone4_5_6){
 			System.out.println("");
 			System.out.println("Room humidity is not optimal, please wait for it to moderate...");
-			waitl(5s);
 			emit safeOpHumid;
 		}
 		

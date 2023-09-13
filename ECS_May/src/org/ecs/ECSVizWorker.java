@@ -11,24 +11,10 @@ public class ECSVizWorker extends ECS_Worker{
 		// -------------- FIRE CASES -------------- //
 		case "alarmZone1TriggerE":
 			ECS_States.FIRE_ZONE_1 = status;
+			System.out.println("Fire Zone 1");
 			break;
-		case "alarmZone2TriggerE":
-			ECS_States.FIRE_ZONE_2 = status;
-			break;
-		case "alarmZone3TriggerE":
-			ECS_States.FIRE_ZONE_3 = status;
-			break;
-		case "alarmZone4TriggerE":
-			ECS_States.FIRE_ZONE_4 = status;
-			break;
-		case "alarmZone5TriggerE":
-			ECS_States.FIRE_ZONE_5 = status;
-			break;
-		case "alarmZone6TriggerE":
-			ECS_States.FIRE_ZONE_6 = status;
-			break;
-		case "alarmZone7TriggerE":
-			ECS_States.FIRE_ZONE_7 = status;
+		case "fireExtE":
+			ECS_States.FIRE_EXT = status;
 			break;
 			// -------------- FIRE CASES END -------------- //
 

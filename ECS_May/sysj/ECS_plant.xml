@@ -29,6 +29,7 @@
 			<oSignal Name="fireZone5"       To="ECSControllerCD.fireZone5"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
 			<oSignal Name="fireZone6"     To="ECSControllerCD.fireZone6"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
 			<oSignal Name="fireZone7"       To="ECSControllerCD.fireZone7"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="fireExt"       To="ECSControllerCD.fireExt"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
 			
 			<oSignal Name="cleanZone1"       To="ECSControllerCD.cleanZone1"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
 			<oSignal Name="cleanZone2"       To="ECSControllerCD.cleanZone2"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
@@ -91,6 +92,7 @@
 			<oSignal Name="deHumOnZone4_5_6TriggerE"     To="UI.deHumOnZone4_5_6TriggerE"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
 			
 			<oSignal Name="cutPow_TriggerE"       To="UI.cutPow_TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="fireExtE"       To="UI.fireExtE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
 			
 			<oSignal Name="lightIntZ1Trigger"   To="UI.lightIntZ1TriggerE"    Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
 			<oSignal Name="lightIntZ2Trigger"   To="UI.lightIntZ2TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
