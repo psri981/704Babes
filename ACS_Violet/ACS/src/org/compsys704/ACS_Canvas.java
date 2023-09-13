@@ -76,6 +76,16 @@ public class ACS_Canvas {
 		accessOffice.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		accessOffice.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ACCESSOFFICE));
 		
+		JButton accessManu = new JButton("M");
+		buttonGroup_1.add(accessManu);
+		accessManu.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ACCESSMANU));
+		accessManu.setHorizontalAlignment(SwingConstants.LEFT);
+		accessManu.setFont(new Font("Tahoma", Font.PLAIN, 6));
+		accessManu.setBounds(395, 296, 39, 21);
+		frmSecurityAccessControl.getContentPane().add(accessManu);
+		accessOffice.setBounds(347, 296, 39, 21);
+		frmSecurityAccessControl.getContentPane().add(accessOffice);
+		
 		JButton btnNewButton_1_1_1 = new JButton("Fire");
 		btnNewButton_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -161,19 +171,6 @@ public class ACS_Canvas {
 		locZone1.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		locZone1.setBounds(332, 361, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(locZone1);
-		
-		JButton btnNewButton_1_1 = new JButton("M");
-		buttonGroup_1.add(btnNewButton_1_1);
-		btnNewButton_1_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-		btnNewButton_1_1.setFont(new Font("Tahoma", Font.PLAIN, 6));
-		btnNewButton_1_1.setBounds(395, 296, 39, 21);
-		frmSecurityAccessControl.getContentPane().add(btnNewButton_1_1);
-		accessOffice.setBounds(347, 296, 39, 21);
-		frmSecurityAccessControl.getContentPane().add(accessOffice);
 		
 		JLabel lblNewLabel_7 = new JLabel("Access:");
 		lblNewLabel_7.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));

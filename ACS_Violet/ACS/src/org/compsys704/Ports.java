@@ -5,6 +5,7 @@ public class Ports {
 	public static final String REFILL_SIGNAL = "PlantCD.refill";
 	public static final String SIGNAL_DOOR1_UNLOCK = "PlantCD.enable";
 	public static final String SIGNAL_ACCESSOFFICE = "PlantCD.accessOffice";
+	public static final String SIGNAL_ACCESSMANU = "PlantCD.accessManu";
 	public static final int PORT_LOADER_PLANT = 10001;
 	public static final int PORT_LOADER_CONTROLLER = 10000;
 	public static final int PORT_LOADER_VIZ = 20000;

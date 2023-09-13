@@ -1,6 +1,6 @@
 Controller(
     input signal unlock1_t, lock1, laserProximity, firePresent, door1req, door2req, door3req, manuPerm, officePerm, zoneOcc1_t, zoneOcc2_t, zoneOcc3_t, zoneOcc4_t, zoneOcc5_t, zoneOcc6_t, zoneOcc7_t;
-    input Integer signal person1access, person1zone, person1doorreq, person2zone, person2doorreq, person3zone, person3doorreq, person4zone, person4doorreq;
+    input Integer signal person1accessOffice, person1accessManu, person1zone, person1doorreq, person2zone, person2doorreq, person3zone, person3doorreq, person4zone, person4doorreq;
     output signal absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7;
 )
 -> {
@@ -36,10 +36,14 @@ Controller(
 	while(true) {
 	//	await(door1req||door2req||door3req);
 		//for loop here
-		System.out.println(personArray[0][1]);
-		present(person1access){
+		//System.out.println(personArray[0][1]);
+		present(person1accessOffice){
 			personArray[0][1] = 5;
-			System.out.println("POO");
+			System.out.println(personArray[0][1]);
+		}
+		present(person1accessManu){
+			personArray[0][1] = 6;
+			System.out.println(personArray[0][1]);
 		}
 		if(personArray[0][1] == 0) { //if they have office access
 			if(personArray[0][2] < 2) { //if they are in zone 1 or not inside

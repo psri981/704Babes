@@ -1,10 +1,10 @@
 import run.GUI;
 
 Plant(
-		input signal selectedZone, accessOffice, enable, absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7;
-		output signal accessOfficeGUI, unlock1GUI, lock1GUI, laserProximity, firePresent, door1req, door2req, door3req, manuPerm, officePerm, zoneOcc1_t, zoneOcc2_t, zoneOcc3_t, zoneOcc4_t, zoneOcc5_t, zoneOcc6_t, zoneOcc7_t;
-		output Integer signal person1access, person1zone, person1doorreq, person2zone, person2doorreq, person3zone, person3doorreq, person4zone, person4doorreq;
-		output signal accessOffice_t, unlock1_t, lock1_t;
+		input signal accessManu, accessOffice, enable, absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7;
+		output signal accessOfficeGUI, accessManuGUI, unlock1GUI, lock1GUI, laserProximity, firePresent, door1req, door2req, door3req, manuPerm, officePerm, zoneOcc1_t, zoneOcc2_t, zoneOcc3_t, zoneOcc4_t, zoneOcc5_t, zoneOcc6_t, zoneOcc7_t;
+		output Integer signal person1accessOffice, person1accessManu, person1zone, person1doorreq, person2zone, person2doorreq, person3zone, person3doorreq, person4zone, person4doorreq;
+		output signal accessManu_t, accessOffice_t, unlock1_t, lock1_t;
 		)
 ->
 {
@@ -14,10 +14,19 @@ Plant(
 		
 		
 		while(true){
-			await(accessOffice);
-			System.out.println("OFFIIICEEE");
-			emit accessOffice_t;
+			{
+				await(accessOffice);
+				System.out.println("OFFIIICEEE");
+				emit accessOffice_t;
+			}
+			||
+			{
+				await(accessManu);
+				System.out.println("MANUUU");
+				emit accessManu_t;
+			}
 			pause;
+		}
 //			await(enable);
 //			System.out.println("BUTTON WORKS");
 //			emit unlock1_t;
@@ -37,8 +46,6 @@ Plant(
 //				}
 //			}
 		}
-
-	}
 	||
 	{//to Viz
 		{while(true) {present(unlock1_t){System.out.println("a"); emit unlock1GUI;} pause;}}

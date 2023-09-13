@@ -6,7 +6,8 @@
 			<iSignal Name="door1req"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
 			<iSignal Name="door2req"     Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
 			<iSignal Name="door3req"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="person1access"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="person1accessOffice"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="person1accessManu"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
 		
 			<oSignal Name="absSuspend" To="PlantCD.absSuspend" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
 			<oSignal Name="proxLaser"  To="PlantCD.proxLaser"        Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
