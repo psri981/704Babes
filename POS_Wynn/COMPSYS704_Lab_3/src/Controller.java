@@ -12,8 +12,10 @@ public class Controller extends ClockDomain{
   private char [] paused;
   private char [] suspended;
   public Signal orderDone = new Signal("orderDone", Signal.INPUT);
+  public Signal liquidMixOutput = new Signal("liquidMixOutput", Signal.INPUT);
+  public Signal bottleQuantityOutput = new Signal("bottleQuantityOutput", Signal.INPUT);
   public Signal orderDoneFlag = new Signal("orderDoneFlag", Signal.OUTPUT);
-  private int S7 = 1;
+  private int S10 = 1;
   
   private int[] ends = new int[2];
   private int[] tdone = new int[2];
@@ -25,26 +27,42 @@ public class Controller extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S7){
+      switch(S10){
         case 0 : 
-          S7=0;
+          S10=0;
           break RUN;
         
         case 1 : 
-          S7=2;
-          S7=2;
-          orderDoneFlag.setPresent();//sysj\controller.sysj line: 11, column: 4
-          currsigs.addElement(orderDoneFlag);
-          active[1]=1;
-          ends[1]=1;
-          break RUN;
+          S10=2;
+          S10=2;
+          if(orderDone.getprestatus()){//sysj\controller.sysj line: 13, column: 11
+            orderDoneFlag.setPresent();//sysj\controller.sysj line: 14, column: 4
+            currsigs.addElement(orderDoneFlag);
+            System.out.println("Order is completed");//sysj\controller.sysj line: 15, column: 4
+            active[1]=1;
+            ends[1]=1;
+            break RUN;
+          }
+          else {
+            active[1]=1;
+            ends[1]=1;
+            break RUN;
+          }
         
         case 2 : 
-          orderDoneFlag.setPresent();//sysj\controller.sysj line: 11, column: 4
-          currsigs.addElement(orderDoneFlag);
-          active[1]=1;
-          ends[1]=1;
-          break RUN;
+          if(orderDone.getprestatus()){//sysj\controller.sysj line: 13, column: 11
+            orderDoneFlag.setPresent();//sysj\controller.sysj line: 14, column: 4
+            currsigs.addElement(orderDoneFlag);
+            System.out.println("Order is completed");//sysj\controller.sysj line: 15, column: 4
+            active[1]=1;
+            ends[1]=1;
+            break RUN;
+          }
+          else {
+            active[1]=1;
+            ends[1]=1;
+            break RUN;
+          }
         
       }
     }
@@ -73,11 +91,15 @@ public class Controller extends ClockDomain{
       else{
         if(!df){
           orderDone.gethook();
+          liquidMixOutput.gethook();
+          bottleQuantityOutput.gethook();
           df = true;
         }
         runClockDomain();
       }
       orderDone.setpreclear();
+      liquidMixOutput.setpreclear();
+      bottleQuantityOutput.setpreclear();
       orderDoneFlag.setpreclear();
       int dummyint = 0;
       for(int qw=0;qw<currsigs.size();++qw){
@@ -88,11 +110,19 @@ public class Controller extends ClockDomain{
       dummyint = orderDone.getStatus() ? orderDone.setprepresent() : orderDone.setpreclear();
       orderDone.setpreval(orderDone.getValue());
       orderDone.setClear();
+      dummyint = liquidMixOutput.getStatus() ? liquidMixOutput.setprepresent() : liquidMixOutput.setpreclear();
+      liquidMixOutput.setpreval(liquidMixOutput.getValue());
+      liquidMixOutput.setClear();
+      dummyint = bottleQuantityOutput.getStatus() ? bottleQuantityOutput.setprepresent() : bottleQuantityOutput.setpreclear();
+      bottleQuantityOutput.setpreval(bottleQuantityOutput.getValue());
+      bottleQuantityOutput.setClear();
       orderDoneFlag.sethook();
       orderDoneFlag.setClear();
       if(paused[1]!=0 || suspended[1]!=0 || active[1]!=1);
       else{
         orderDone.gethook();
+        liquidMixOutput.gethook();
+        bottleQuantityOutput.gethook();
       }
       runFinisher();
       if(active[1] == 0){

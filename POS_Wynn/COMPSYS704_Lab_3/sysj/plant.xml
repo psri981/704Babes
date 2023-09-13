@@ -9,6 +9,9 @@
 
 			<oSignal Name="orderDoneGUIFlag" To="UI.orderDoneGUIFlag" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
 			
+			<oSignal Name="liquidMixOutput"       To="ControllerCD.liquidMixOutput"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="bottleQuantityOutput"       To="ControllerCD.bottleQuantityOutput"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />	
+					
 		</ClockDomain>
 	</SubSystem>
 </System>

@@ -2,11 +2,15 @@ import run.GUI;
 
 Plant(
 		input signal orderStart;
-		input String signal liquidMix;
-		input Integer signal bottleQuantity;
 		input signal orderDoneFlag;
 		
+		input String signal liquidMix;
+		input Integer signal bottleQuantity;
+		
 		output signal orderDoneGUIFlag;
+		output signal liquidMixOutput;
+		output signal bottleQuantityOutput;
+		
 		)
 ->
 {
@@ -23,6 +27,8 @@ Plant(
 				
 				System.out.println("Bottle Quantity: " + y);
 				System.out.println("Liquid Mix: " + x);
+				emit liquidMixOutput;
+				emit bottleQuantityOutput;
 			}
 			pause;
 		}

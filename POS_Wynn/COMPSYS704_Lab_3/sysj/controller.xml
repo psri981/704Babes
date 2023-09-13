@@ -3,6 +3,9 @@
 		<ClockDomain Name="ControllerCD" Class="Controller">
 		
 			<iSignal Name="orderDone" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="liquidMixOutput" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="bottleQuantityOutput" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			
 			<oSignal Name="orderDoneFlag" To="PlantCD.orderDoneFlag" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
 
 		</ClockDomain>

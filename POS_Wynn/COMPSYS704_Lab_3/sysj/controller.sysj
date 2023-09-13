@@ -1,14 +1,18 @@
 Controller(
 		input signal orderDone;
-		output signal orderDoneFlag; 
+		input signal liquidMixOutput;
+		input signal bottleQuantityOutput;
 		
+		output signal orderDoneFlag; 
+				
 		)
 ->{
 	/* TODO: Write control-logic */
 	while(true) {
 	
-		abort(orderDone){
+		present(orderDone){
 			emit orderDoneFlag;
+			System.out.println("Order is completed");
 		}
 
 		pause;

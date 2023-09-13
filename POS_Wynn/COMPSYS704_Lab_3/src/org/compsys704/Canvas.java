@@ -86,6 +86,7 @@ public class Canvas {
 		
 		int[] liquidMix = {0, 0, 0, 0};
 		
+		// CREATING PANE
 		frmAbs = new JFrame();
 		frmAbs.getContentPane().setBackground(new Color(87, 87, 130));
 		frmAbs.setForeground(new Color(87, 87, 130));
@@ -95,6 +96,31 @@ public class Canvas {
 		frmAbs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAbs.getContentPane().setLayout(null);
 		
+		// TITLE LABEL
+		JLabel titleSangria = new JLabel("Sangria Cocktail Mix");
+		titleSangria.setHorizontalAlignment(SwingConstants.CENTER);
+		titleSangria.setForeground(new Color(255, 255, 255));
+		titleSangria.setFont(new Font("Arial", Font.BOLD, 31));
+		titleSangria.setBounds(181, 47, 321, 46);
+		frmAbs.getContentPane().add(titleSangria);
+
+		// RED WINE LABEL
+		JLabel labelRedWine = new JLabel("Red Wine");
+		labelRedWine.setFont(new Font("Arial", Font.BOLD, 13));
+		labelRedWine.setHorizontalAlignment(SwingConstants.RIGHT);
+		labelRedWine.setForeground(new Color(255, 255, 255));
+		labelRedWine.setBounds(69, 156, 62, 16);
+		frmAbs.getContentPane().add(labelRedWine);
+		
+		// LEMONADE LABEL
+		JLabel labelLemonade = new JLabel("Lemonade");
+		labelLemonade.setFont(new Font("Arial", Font.BOLD, 13));
+		labelLemonade.setHorizontalAlignment(SwingConstants.RIGHT);
+		labelLemonade.setForeground(new Color(255, 255, 255));
+		labelLemonade.setBounds(63, 219, 68, 16);
+		frmAbs.getContentPane().add(labelLemonade);
+
+		// RED WIN SLIDER
 		JSlider sliderRedWine = new JSlider();
 		sliderRedWine.setBackground(new Color(87, 87, 130));
 		sliderRedWine.setPaintLabels(true);
@@ -102,15 +128,8 @@ public class Canvas {
 		sliderRedWine.setValue(0);
 		sliderRedWine.setBounds(141, 151, 437, 26);
 		frmAbs.getContentPane().add(sliderRedWine);
-		
-		
-		JLabel titleSangria = new JLabel("Sangria Cocktail Mix");
-		titleSangria.setHorizontalAlignment(SwingConstants.CENTER);
-		titleSangria.setForeground(new Color(255, 255, 255));
-		titleSangria.setFont(new Font("Arial", Font.BOLD, 31));
-		titleSangria.setBounds(181, 47, 321, 46);
-		frmAbs.getContentPane().add(titleSangria);
-		
+				
+		// LEMONADE SLIDER
 		JSlider sliderLemonade = new JSlider();
 		sliderLemonade.setBackground(new Color(87, 87, 130));
 		sliderLemonade.setValue(0);
@@ -119,6 +138,7 @@ public class Canvas {
 		sliderLemonade.setBounds(141, 214, 437, 26);
 		frmAbs.getContentPane().add(sliderLemonade);
 		
+		// ORANGE JUICE LABEL
 		JLabel labelOrangeJuice = new JLabel("Orange Juice");
 		labelOrangeJuice.setFont(new Font("Arial", Font.BOLD, 13));
 		labelOrangeJuice.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -126,6 +146,23 @@ public class Canvas {
 		labelOrangeJuice.setBounds(46, 282, 85, 16);
 		frmAbs.getContentPane().add(labelOrangeJuice);
 		
+		// SUGAR SYRUP LABBEL
+		JLabel labelSugarSyrup = new JLabel("Sugar Syrup");
+		labelSugarSyrup.setFont(new Font("Arial", Font.BOLD, 13));
+		labelSugarSyrup.setHorizontalAlignment(SwingConstants.RIGHT);
+		labelSugarSyrup.setForeground(new Color(255, 255, 255));
+		labelSugarSyrup.setBounds(52, 345, 79, 16);
+		frmAbs.getContentPane().add(labelSugarSyrup);
+
+		// BOTTLE LABEL
+		JLabel labelBottles = new JLabel("Bottles");
+		labelBottles.setFont(new Font("Arial", Font.BOLD, 13));
+		labelBottles.setHorizontalAlignment(SwingConstants.RIGHT);
+		labelBottles.setForeground(new Color(255, 255, 255));
+		labelBottles.setBounds(88, 408, 43, 16);
+		frmAbs.getContentPane().add(labelBottles);
+
+		// ORANGE JUICE SLIDER
 		JSlider sliderOrangeJuice = new JSlider();
 		sliderOrangeJuice.setBackground(new Color(87, 87, 130));
 		sliderOrangeJuice.setValue(0);
@@ -134,70 +171,17 @@ public class Canvas {
 		sliderOrangeJuice.setBounds(141, 277, 437, 26);
 		frmAbs.getContentPane().add(sliderOrangeJuice);
 		
-		JLabel labelSugarSyrup = new JLabel("Sugar Syrup");
-		labelSugarSyrup.setFont(new Font("Arial", Font.BOLD, 13));
-		labelSugarSyrup.setHorizontalAlignment(SwingConstants.RIGHT);
-		labelSugarSyrup.setForeground(new Color(255, 255, 255));
-		labelSugarSyrup.setBounds(52, 345, 79, 16);
-		frmAbs.getContentPane().add(labelSugarSyrup);
-				
+		
+		// SUGAR SYRUP SLIDER
 		JSlider sliderSugarSyrup = new JSlider();
 		sliderSugarSyrup.setBackground(new Color(87, 87, 130));
 		sliderSugarSyrup.setValue(0);
 		sliderSugarSyrup.setSnapToTicks(true);
 		sliderSugarSyrup.setPaintLabels(true);
 		sliderSugarSyrup.setBounds(141, 340, 437, 26);
-		frmAbs.getContentPane().add(sliderSugarSyrup);
+		frmAbs.getContentPane().add(sliderSugarSyrup);		
 		
-		JLabel labelBottles = new JLabel("Bottles");
-		labelBottles.setFont(new Font("Arial", Font.BOLD, 13));
-		labelBottles.setHorizontalAlignment(SwingConstants.RIGHT);
-		labelBottles.setForeground(new Color(255, 255, 255));
-		labelBottles.setBounds(88, 408, 43, 16);
-		frmAbs.getContentPane().add(labelBottles);
-		
-		JLabel labelLemonade = new JLabel("Lemonade");
-		labelLemonade.setFont(new Font("Arial", Font.BOLD, 13));
-		labelLemonade.setHorizontalAlignment(SwingConstants.RIGHT);
-		labelLemonade.setForeground(new Color(255, 255, 255));
-		labelLemonade.setBounds(63, 219, 68, 16);
-		frmAbs.getContentPane().add(labelLemonade);
-		
-		JLabel totalSugarSyrup = new JLabel("0%");
-		totalSugarSyrup.setFont(new Font("Arial", Font.PLAIN, 15));
-		totalSugarSyrup.setForeground(new Color(255, 255, 255));
-		totalSugarSyrup.setBounds(596, 346, 46, 14);
-		frmAbs.getContentPane().add(totalSugarSyrup);
-		
-		JLabel totalOrangeJuice = new JLabel("0%");
-		totalOrangeJuice.setFont(new Font("Arial", Font.PLAIN, 15));
-		totalOrangeJuice.setForeground(new Color(255, 255, 255));
-		totalOrangeJuice.setBounds(596, 283, 46, 14);
-		frmAbs.getContentPane().add(totalOrangeJuice);
-		
-
-		JLabel totalLemonade = new JLabel("0%");
-		totalLemonade.setFont(new Font("Arial", Font.PLAIN, 15));
-		totalLemonade.setForeground(new Color(255, 255, 255));
-		totalLemonade.setBounds(596, 220, 46, 14);
-		frmAbs.getContentPane().add(totalLemonade);
-		
-		JLabel totalRedWine = new JLabel("");
-		totalRedWine.setFont(new Font("Arial", Font.PLAIN, 15));
-		totalRedWine.setForeground(new Color(255, 255, 255));
-		totalRedWine.setBounds(596, 157, 46, 14);
-		totalRedWine.setText(sliderRedWine.getValue() + "%");
-		
-		frmAbs.getContentPane().add(totalRedWine);
-				
-		JLabel labelRedWine = new JLabel("Red Wine");
-		labelRedWine.setFont(new Font("Arial", Font.BOLD, 13));
-		labelRedWine.setHorizontalAlignment(SwingConstants.RIGHT);
-		labelRedWine.setForeground(new Color(255, 255, 255));
-		labelRedWine.setBounds(69, 156, 62, 16);
-		frmAbs.getContentPane().add(labelRedWine);
-	
-
+		// BOTTLE SLIDER
 		JSlider sliderBottles = new JSlider();
 		sliderBottles.setMinimum(10);
 		sliderBottles.setBackground(new Color(87, 87, 130));
@@ -206,8 +190,37 @@ public class Canvas {
 		sliderBottles.setPaintLabels(true);
 		sliderBottles.setBounds(141, 403, 437, 26);
 		frmAbs.getContentPane().add(sliderBottles);
-		
 
+		// RED WINE PERCENTAGE
+		JLabel totalRedWine = new JLabel("");
+		totalRedWine.setFont(new Font("Arial", Font.PLAIN, 15));
+		totalRedWine.setForeground(new Color(255, 255, 255));
+		totalRedWine.setBounds(596, 157, 46, 14);
+		totalRedWine.setText(sliderRedWine.getValue() + "%");
+		frmAbs.getContentPane().add(totalRedWine);
+
+		// LEMONADE PERCENTAGE
+		JLabel totalLemonade = new JLabel("0%");
+		totalLemonade.setFont(new Font("Arial", Font.PLAIN, 15));
+		totalLemonade.setForeground(new Color(255, 255, 255));
+		totalLemonade.setBounds(596, 220, 46, 14);
+		frmAbs.getContentPane().add(totalLemonade);
+
+		// ORANGE JUICE PERCENTAGE
+		JLabel totalOrangeJuice = new JLabel("0%");
+		totalOrangeJuice.setFont(new Font("Arial", Font.PLAIN, 15));
+		totalOrangeJuice.setForeground(new Color(255, 255, 255));
+		totalOrangeJuice.setBounds(596, 283, 46, 14);
+		frmAbs.getContentPane().add(totalOrangeJuice);
+
+		// SUGAR SYRUP PERCENTAGE
+		JLabel totalSugarSyrup = new JLabel("0%");
+		totalSugarSyrup.setFont(new Font("Arial", Font.PLAIN, 15));
+		totalSugarSyrup.setForeground(new Color(255, 255, 255));
+		totalSugarSyrup.setBounds(596, 346, 46, 14);
+		frmAbs.getContentPane().add(totalSugarSyrup);
+											
+		// BOTTLE QUANTITY
 		JLabel totalBottles = new JLabel("10");
 		totalBottles.setFont(new Font("Arial", Font.PLAIN, 15));
 		totalBottles.setForeground(new Color(255, 255, 255));
@@ -235,14 +248,6 @@ public class Canvas {
 		});
 		buttonPlaceOrder.setBounds(286, 470, 111, 23);
 		frmAbs.getContentPane().add(buttonPlaceOrder);
-
-		// BOTTLE EVENT LISTENER
-	    sliderBottles.addChangeListener(new ChangeListener() {
-	        public void stateChanged(ChangeEvent event) {
-	        	totalBottles.setText(sliderBottles.getValue() + "");
-	        }
-	      });
-
 	    
 	    // RED WINE EVENT LISTENER
 	    sliderRedWine.addChangeListener(new ChangeListener() {
@@ -315,7 +320,14 @@ public class Canvas {
 	        }
 	      });
 
+		// BOTTLE EVENT LISTENER
+	    sliderBottles.addChangeListener(new ChangeListener() {
+	        public void stateChanged(ChangeEvent event) {
+	        	totalBottles.setText(sliderBottles.getValue() + "");
+	        }
+	      });
 
+	    // SANGRIA IMAGES
 		JLabel sangriaImageLeft = new JLabel("");
 		sangriaImageLeft.setIcon(new ImageIcon("res\\sangriamix.png"));
 		sangriaImageLeft.setBounds(96, 32, 75, 73);
