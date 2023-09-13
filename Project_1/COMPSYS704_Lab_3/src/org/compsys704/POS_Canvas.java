@@ -238,7 +238,7 @@ public class POS_Canvas {
 		buttonPlaceOrder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-				    Object[] options = {"Order Done"};
+				    Object[] options = {"OK"};
 				    int n = JOptionPane.showOptionDialog(null, "Processing your order...  ","POS Alert", JOptionPane.PLAIN_MESSAGE, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
 					String stringLiquidMix = IntStream.of(liquidMix).mapToObj(String::valueOf).collect(Collectors.joining(","));
 					SimpleClient sendBottleQuantity = new SimpleClient("127.0.0.1", 50005, "POSPlantCD", "bottleQuantity");

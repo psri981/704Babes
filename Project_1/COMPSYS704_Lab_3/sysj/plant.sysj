@@ -20,13 +20,20 @@ Plant(
 			
 			// Get number of bottles ordered
 			Integer bottles = 0;
-			System.out.println("Before Quantity");
 			receive bottleQuantityOutput;
 			bottles = (Integer)#bottleQuantityOutput;
-			System.out.println(bottles);
+			System.out.println("Bottle Quantity: " + bottles);
+			receive liquidMixOutput;
+			String liquidMix = "";
+			liquidMix = (String)#liquidMixOutput;
+			System.out.println("Liquid Mix: " + liquidMix);
+			
 			Integer bottlesDone = 0;
 			
 			while(bottlesDone != bottles){
+			System.out.println("I am in here");
+			
+			
 				abort(rotate){
 					while(true) {
 						emit botPos1;
@@ -35,7 +42,6 @@ Plant(
 					}
 				}
 				abort(bottleAtPos1 && rotate){
-				waitl(2s);
 					while(true) {
 						//System.out.println("bottleAtPos1 aborted");
 						emit botPos2;
@@ -44,7 +50,6 @@ Plant(
 				}
 				
 				abort(bottleAtPos2 && rotate){
-					waitl(2s);
 					while(true) {
 						emit botPos3;
 						pause;
@@ -52,7 +57,6 @@ Plant(
 				}
 	
 				abort(bottleAtPos3 && rotate){
-					waitl(2s);
 					while(true) {
 						emit botPos4;
 						pause;
@@ -60,7 +64,6 @@ Plant(
 				}
 	
 				abort(bottleAtPos4 && rotate){
-				  	waitl(2s);
 					while(true) {
 						emit botPos5;
 						pause;
@@ -68,7 +71,6 @@ Plant(
 				}
 	
 				abort(bottleAtPos5 && rotate){
-					waitl(2s);
 					emit tableAligned;
 					bottlesDone++;
 					System.out.println(bottlesDone);
@@ -121,10 +123,10 @@ POS_Plant(
 				y = #bottleQuantity;
 				x = #liquidMix; 
 				
-				System.out.println("Bottle Quantity: " + y);
-				System.out.println("Liquid Mix: " + x);
-				send liquidMixOutput(liquidMix);
 				send bottleQuantityOutput( y);
+				
+				send liquidMixOutput(x);
+				
 				}
 			pause;
 		}
