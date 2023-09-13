@@ -370,6 +370,15 @@ public class ACS_Canvas {
 		zone2_1.setBounds(252, 126, 110, 100);
 		frmSecurityAccessControl.getContentPane().add(zone2_1);
 		
+		JLabel lblNewLabel_3 = new JLabel("Proximity Sensor Zone\r\n");
+		lblNewLabel_3.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_3.setVerticalAlignment(SwingConstants.TOP);
+		lblNewLabel_3.setBackground(Color.GREEN);
+		lblNewLabel_3.setOpaque(true);
+		lblNewLabel_3.setBounds(252, 26, 220, 100);
+		frmSecurityAccessControl.getContentPane().add(lblNewLabel_3);
+		
 		JLabel lblNewLabel_1 = new JLabel("Manufacturing Section");
 		lblNewLabel_1.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -387,15 +396,6 @@ public class ACS_Canvas {
 		lblNewLabel_6_3_1.setBackground(new Color(204, 242, 255));
 		lblNewLabel_6_3_1.setBounds(315, 333, 181, 120);
 		frmSecurityAccessControl.getContentPane().add(lblNewLabel_6_3_1);
-		
-		JLabel lblNewLabel_3 = new JLabel("Proximity Sensor Zone\r\n");
-		lblNewLabel_3.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel_3.setBackground(Color.GREEN);
-		lblNewLabel_3.setOpaque(true);
-		lblNewLabel_3.setBounds(252, 26, 220, 100);
-		frmSecurityAccessControl.getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel = new JLabel("Office Section");
 		lblNewLabel.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
