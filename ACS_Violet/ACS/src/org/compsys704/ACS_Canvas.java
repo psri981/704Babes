@@ -74,7 +74,7 @@ public class ACS_Canvas {
 		buttonGroup_1.add(accessOffice);
 		accessOffice.setHorizontalAlignment(SwingConstants.LEFT);
 		accessOffice.setFont(new Font("Tahoma", Font.PLAIN, 6));
-		enable.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_OFFICEACCESS));
+		accessOffice.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ACCESSOFFICE));
 		
 		JButton btnNewButton_1_1_1 = new JButton("Fire");
 		btnNewButton_1_1_1.addActionListener(new ActionListener() {
@@ -189,7 +189,10 @@ public class ACS_Canvas {
 				frmSecurityAccessControl.getContentPane().revalidate();
 				frmSecurityAccessControl.getContentPane().repaint();
 			}
-			if(States.DOOR1_UNLOCK){
+		});
+		
+		enable.addActionListener(e -> {
+			if(!States.DOOR1_LOCK){
 				System.out.println("fuck");
 				door1Unlock.setOpaque(false);
 				frmSecurityAccessControl.getContentPane().revalidate();

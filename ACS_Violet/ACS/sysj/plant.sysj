@@ -14,9 +14,10 @@ Plant(
 		
 		
 		while(true){
-			await(enable);
+			await(accessOffice);
 			System.out.println("OFFIIICEEE");
 			emit accessOffice_t;
+			pause;
 //			await(enable);
 //			System.out.println("BUTTON WORKS");
 //			emit unlock1_t;
@@ -43,7 +44,5 @@ Plant(
 		{while(true) {present(unlock1_t){System.out.println("a"); emit unlock1GUI;} pause;}}
 		||
 		{while(true) {present(lock1_t){emit lock1GUI;} pause;}}
-		||
-		{while(true) {present(accessOffice_t){emit accessOfficeGUI;} pause;}}
 	}
 }

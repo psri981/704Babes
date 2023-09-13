@@ -36,8 +36,9 @@ Controller(
 	while(true) {
 	//	await(door1req||door2req||door3req);
 		//for loop here
+		System.out.println(personArray[0][1]);
 		present(person1access){
-			personArray[0][1] = 1;
+			personArray[0][1] = 5;
 			System.out.println("POO");
 		}
 		if(personArray[0][1] == 0) { //if they have office access
@@ -56,7 +57,7 @@ Controller(
 		}
 		
 		if(personArray[0][1] == 1) { //if they have manu access
-			System.out.println("wa");
+			System.out.println(personArray[0][1]);
 			if((personArray[0][2] == 0)|(personArray[0][2] == 2)) { //if they are in outside or in zone 2
 				while(personArray[0][3] == 2) {
 					sustain unlock3;
