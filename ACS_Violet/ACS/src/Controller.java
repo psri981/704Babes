@@ -50,8 +50,8 @@ public class Controller extends ClockDomain{
   public Signal zoneOcc6 = new Signal("zoneOcc6", Signal.OUTPUT);
   public Signal zoneOcc7 = new Signal("zoneOcc7", Signal.OUTPUT);
   private int[][] personArray_thread_1;//sysj\controller.sysj line: 10, column: 2
-  private int S1249 = 1;
-  private int S5 = 1;
+  private int S1237 = 1;
+  private int S30 = 1;
   
   private int[] ends = new int[2];
   private int[] tdone = new int[2];
@@ -63,14 +63,14 @@ public class Controller extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S1249){
+      switch(S1237){
         case 0 : 
-          S1249=0;
+          S1237=0;
           break RUN;
         
         case 1 : 
-          S1249=2;
-          S1249=2;
+          S1237=2;
+          S1237=2;
           personArray_thread_1 = new int[4][4];//sysj\controller.sysj line: 10, column: 2
           personArray_thread_1[0][0] = 0;//sysj\controller.sysj line: 13, column: 2
           personArray_thread_1[0][1] = 3;//sysj\controller.sysj line: 14, column: 2
@@ -88,11 +88,10 @@ public class Controller extends ClockDomain{
           personArray_thread_1[3][1] = 1;//sysj\controller.sysj line: 29, column: 2
           personArray_thread_1[3][2] = 4;//sysj\controller.sysj line: 30, column: 2
           personArray_thread_1[3][3] = 0;//sysj\controller.sysj line: 31, column: 2
-          System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 39, column: 3
           if(person1access.getprestatus()){//sysj\controller.sysj line: 40, column: 11
             personArray_thread_1[0][1] = 5;//sysj\controller.sysj line: 41, column: 4
             System.out.println("POO");//sysj\controller.sysj line: 42, column: 4
-            S5=0;
+            S30=0;
             if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 44, column: 6
               if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 45, column: 7
                 if(personArray_thread_1[0][3] == 0){//sysj\controller.sysj line: 46, column: 11
@@ -106,7 +105,7 @@ public class Controller extends ClockDomain{
                 else {
                   ends[1]=2;
                   ;//sysj\controller.sysj line: 46, column: 5
-                  S5=1;
+                  S30=1;
                   if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 59, column: 6
                     System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 60, column: 4
                     if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 61, column: 7
@@ -120,21 +119,21 @@ public class Controller extends ClockDomain{
                       else {
                         ends[1]=2;
                         ;//sysj\controller.sysj line: 62, column: 5
-                        S5=2;
+                        S30=2;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                     }
                     else {
-                      S5=2;
+                      S30=2;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                   }
                   else {
-                    S5=2;
+                    S30=2;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
@@ -142,7 +141,7 @@ public class Controller extends ClockDomain{
                 }
               }
               else {
-                S5=1;
+                S30=1;
                 if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 59, column: 6
                   System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 60, column: 4
                   if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 61, column: 7
@@ -156,21 +155,21 @@ public class Controller extends ClockDomain{
                     else {
                       ends[1]=2;
                       ;//sysj\controller.sysj line: 62, column: 5
-                      S5=2;
+                      S30=2;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                   }
                   else {
-                    S5=2;
+                    S30=2;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                 }
                 else {
-                  S5=2;
+                  S30=2;
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
@@ -178,7 +177,7 @@ public class Controller extends ClockDomain{
               }
             }
             else {
-              S5=1;
+              S30=1;
               if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 59, column: 6
                 System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 60, column: 4
                 if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 61, column: 7
@@ -192,21 +191,21 @@ public class Controller extends ClockDomain{
                   else {
                     ends[1]=2;
                     ;//sysj\controller.sysj line: 62, column: 5
-                    S5=2;
+                    S30=2;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                 }
                 else {
-                  S5=2;
+                  S30=2;
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
                 }
               }
               else {
-                S5=2;
+                S30=2;
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
@@ -214,7 +213,7 @@ public class Controller extends ClockDomain{
             }
           }
           else {
-            S5=0;
+            S30=0;
             if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 44, column: 6
               if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 45, column: 7
                 if(personArray_thread_1[0][3] == 0){//sysj\controller.sysj line: 46, column: 11
@@ -228,7 +227,7 @@ public class Controller extends ClockDomain{
                 else {
                   ends[1]=2;
                   ;//sysj\controller.sysj line: 46, column: 5
-                  S5=1;
+                  S30=1;
                   if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 59, column: 6
                     System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 60, column: 4
                     if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 61, column: 7
@@ -242,21 +241,21 @@ public class Controller extends ClockDomain{
                       else {
                         ends[1]=2;
                         ;//sysj\controller.sysj line: 62, column: 5
-                        S5=2;
+                        S30=2;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                     }
                     else {
-                      S5=2;
+                      S30=2;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                   }
                   else {
-                    S5=2;
+                    S30=2;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
@@ -264,7 +263,7 @@ public class Controller extends ClockDomain{
                 }
               }
               else {
-                S5=1;
+                S30=1;
                 if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 59, column: 6
                   System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 60, column: 4
                   if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 61, column: 7
@@ -278,21 +277,21 @@ public class Controller extends ClockDomain{
                     else {
                       ends[1]=2;
                       ;//sysj\controller.sysj line: 62, column: 5
-                      S5=2;
+                      S30=2;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                   }
                   else {
-                    S5=2;
+                    S30=2;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                 }
                 else {
-                  S5=2;
+                  S30=2;
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
@@ -300,7 +299,7 @@ public class Controller extends ClockDomain{
               }
             }
             else {
-              S5=1;
+              S30=1;
               if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 59, column: 6
                 System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 60, column: 4
                 if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 61, column: 7
@@ -314,21 +313,21 @@ public class Controller extends ClockDomain{
                   else {
                     ends[1]=2;
                     ;//sysj\controller.sysj line: 62, column: 5
-                    S5=2;
+                    S30=2;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                 }
                 else {
-                  S5=2;
+                  S30=2;
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
                 }
               }
               else {
-                S5=2;
+                S30=2;
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
@@ -337,7 +336,7 @@ public class Controller extends ClockDomain{
           }
         
         case 2 : 
-          switch(S5){
+          switch(S30){
             case 0 : 
               if(personArray_thread_1[0][3] == 0){//sysj\controller.sysj line: 46, column: 11
                 System.out.println("aaaaaaaaaa");//sysj\controller.sysj line: 47, column: 6
@@ -350,7 +349,7 @@ public class Controller extends ClockDomain{
               else {
                 ends[1]=2;
                 ;//sysj\controller.sysj line: 46, column: 5
-                S5=1;
+                S30=1;
                 if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 59, column: 6
                   System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 60, column: 4
                   if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 61, column: 7
@@ -364,21 +363,21 @@ public class Controller extends ClockDomain{
                     else {
                       ends[1]=2;
                       ;//sysj\controller.sysj line: 62, column: 5
-                      S5=2;
+                      S30=2;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                   }
                   else {
-                    S5=2;
+                    S30=2;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                 }
                 else {
-                  S5=2;
+                  S30=2;
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
@@ -393,12 +392,11 @@ public class Controller extends ClockDomain{
               break RUN;
             
             case 2 : 
-              S5=2;
-              System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 39, column: 3
+              S30=2;
               if(person1access.getprestatus()){//sysj\controller.sysj line: 40, column: 11
                 personArray_thread_1[0][1] = 5;//sysj\controller.sysj line: 41, column: 4
                 System.out.println("POO");//sysj\controller.sysj line: 42, column: 4
-                S5=0;
+                S30=0;
                 if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 44, column: 6
                   if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 45, column: 7
                     if(personArray_thread_1[0][3] == 0){//sysj\controller.sysj line: 46, column: 11
@@ -412,7 +410,7 @@ public class Controller extends ClockDomain{
                     else {
                       ends[1]=2;
                       ;//sysj\controller.sysj line: 46, column: 5
-                      S5=1;
+                      S30=1;
                       if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 59, column: 6
                         System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 60, column: 4
                         if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 61, column: 7
@@ -426,21 +424,21 @@ public class Controller extends ClockDomain{
                           else {
                             ends[1]=2;
                             ;//sysj\controller.sysj line: 62, column: 5
-                            S5=2;
+                            S30=2;
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
                           }
                         }
                         else {
-                          S5=2;
+                          S30=2;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
                         }
                       }
                       else {
-                        S5=2;
+                        S30=2;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
@@ -448,7 +446,7 @@ public class Controller extends ClockDomain{
                     }
                   }
                   else {
-                    S5=1;
+                    S30=1;
                     if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 59, column: 6
                       System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 60, column: 4
                       if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 61, column: 7
@@ -462,21 +460,21 @@ public class Controller extends ClockDomain{
                         else {
                           ends[1]=2;
                           ;//sysj\controller.sysj line: 62, column: 5
-                          S5=2;
+                          S30=2;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
                         }
                       }
                       else {
-                        S5=2;
+                        S30=2;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                     }
                     else {
-                      S5=2;
+                      S30=2;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -484,7 +482,7 @@ public class Controller extends ClockDomain{
                   }
                 }
                 else {
-                  S5=1;
+                  S30=1;
                   if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 59, column: 6
                     System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 60, column: 4
                     if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 61, column: 7
@@ -498,21 +496,21 @@ public class Controller extends ClockDomain{
                       else {
                         ends[1]=2;
                         ;//sysj\controller.sysj line: 62, column: 5
-                        S5=2;
+                        S30=2;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                     }
                     else {
-                      S5=2;
+                      S30=2;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                   }
                   else {
-                    S5=2;
+                    S30=2;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
@@ -520,7 +518,7 @@ public class Controller extends ClockDomain{
                 }
               }
               else {
-                S5=0;
+                S30=0;
                 if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 44, column: 6
                   if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 45, column: 7
                     if(personArray_thread_1[0][3] == 0){//sysj\controller.sysj line: 46, column: 11
@@ -534,7 +532,7 @@ public class Controller extends ClockDomain{
                     else {
                       ends[1]=2;
                       ;//sysj\controller.sysj line: 46, column: 5
-                      S5=1;
+                      S30=1;
                       if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 59, column: 6
                         System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 60, column: 4
                         if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 61, column: 7
@@ -548,21 +546,21 @@ public class Controller extends ClockDomain{
                           else {
                             ends[1]=2;
                             ;//sysj\controller.sysj line: 62, column: 5
-                            S5=2;
+                            S30=2;
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
                           }
                         }
                         else {
-                          S5=2;
+                          S30=2;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
                         }
                       }
                       else {
-                        S5=2;
+                        S30=2;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
@@ -570,7 +568,7 @@ public class Controller extends ClockDomain{
                     }
                   }
                   else {
-                    S5=1;
+                    S30=1;
                     if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 59, column: 6
                       System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 60, column: 4
                       if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 61, column: 7
@@ -584,21 +582,21 @@ public class Controller extends ClockDomain{
                         else {
                           ends[1]=2;
                           ;//sysj\controller.sysj line: 62, column: 5
-                          S5=2;
+                          S30=2;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
                         }
                       }
                       else {
-                        S5=2;
+                        S30=2;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                     }
                     else {
-                      S5=2;
+                      S30=2;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -606,7 +604,7 @@ public class Controller extends ClockDomain{
                   }
                 }
                 else {
-                  S5=1;
+                  S30=1;
                   if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 59, column: 6
                     System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 60, column: 4
                     if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 61, column: 7
@@ -620,21 +618,21 @@ public class Controller extends ClockDomain{
                       else {
                         ends[1]=2;
                         ;//sysj\controller.sysj line: 62, column: 5
-                        S5=2;
+                        S30=2;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                     }
                     else {
-                      S5=2;
+                      S30=2;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                   }
                   else {
-                    S5=2;
+                    S30=2;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
