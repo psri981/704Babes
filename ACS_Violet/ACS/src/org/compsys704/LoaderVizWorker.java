@@ -10,7 +10,6 @@ public class LoaderVizWorker extends Worker{
 //		System.out.println(signame+"  "+status);
 		switch(signame){
 		case "unlock1GUI":
-			System.out.println("asdksa");
 			States.DOOR1_UNLOCK = status;
 			break;
 			
@@ -20,12 +19,10 @@ public class LoaderVizWorker extends Worker{
 			break;
 			
 		case "accessOfficeGUI":
-			System.out.println("asdksa");
 			States.ACCESS_OFFICE = status;
 			break;
 			
 		case "accessManuGUI":
-			System.out.println("boo");
 			States.ACCESS_MANU= status;
 			break;
 			

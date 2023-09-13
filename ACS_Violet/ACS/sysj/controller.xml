@@ -8,19 +8,20 @@
 			<iSignal Name="door3req"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
 			<iSignal Name="person1accessOffice"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
 			<iSignal Name="person1accessManu"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="zoneOcc1"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="zoneOcc2"        Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="zoneOcc3"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="zoneOcc4"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="zoneOcc5"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="zoneOcc6"        Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="zoneOcc7"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+
 		
 			<oSignal Name="absSuspend" To="PlantCD.absSuspend" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
 			<oSignal Name="proxLaser"  To="PlantCD.proxLaser"        Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
 			<oSignal Name="unlock1"    To="PlantCD.unlock1"    Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
 			<oSignal Name="unlock2"      To="PlantCD.unlock2"      Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
 			<oSignal Name="unlock3"      To="PlantCD.unlock3"      Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="zoneOcc1"      To="PlantCD.zoneOcc1"      Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="zoneOcc2"      To="PlantCD.zoneOcc2"      Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="zoneOcc3"      To="PlantCD.zoneOcc3"      Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="zoneOcc4"      To="PlantCD.zoneOcc4"      Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="zoneOcc5"      To="PlantCD.zoneOcc5"      Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="zoneOcc6"      To="PlantCD.zoneOcc6"      Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="zoneOcc7"      To="PlantCD.zoneOcc7"      Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
 
 			<iSignal Name="person1zone"          Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
 			<iSignal Name="person1doorreq" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />

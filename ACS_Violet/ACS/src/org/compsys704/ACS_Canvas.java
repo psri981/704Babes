@@ -369,7 +369,7 @@ public class ACS_Canvas {
 		
 		accessManu.addActionListener(e -> {
 			if(States.ACCESS_MANU){
-				System.out.println("ACCESSMANU");
+		//		System.out.println("ACCESSMANU");
 				door3Unlock.setOpaque(true);
 				door1Unlock.setOpaque(false);
 				frmSecurityAccessControl.getContentPane().revalidate();
@@ -379,7 +379,7 @@ public class ACS_Canvas {
 		
 		accessOffice.addActionListener(e -> {
 			if(States.ACCESS_OFFICE){
-				System.out.println("ACCESSOFFICE");
+				//System.out.println("ACCESSOFFICE");
 				door1Unlock.setOpaque(true);
 				door3Unlock.setOpaque(false);
 				frmSecurityAccessControl.getContentPane().revalidate();
@@ -395,14 +395,14 @@ public class ACS_Canvas {
 		locZone0.setBounds(406, 420, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(locZone0);
 		
-		locZone0.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_7));
-		locZone1.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_4));
-		locZone2.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_5));
-		locZone3.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_6));
-		locZone4.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_3));
-		locZone5.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_2));
-		locZone6.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_1));		
-		locZone7.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_0));
+		locZone7.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_7));
+		locZone6.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_4));
+		locZone5.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_5));
+		locZone4.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_6));
+		locZone3.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_3));
+		locZone2.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_2));
+		locZone1.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_1));		
+		locZone0.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_0));
 		
 		locZone0.addActionListener(e -> {
 			if(States.ROOM0_PRECENSE){

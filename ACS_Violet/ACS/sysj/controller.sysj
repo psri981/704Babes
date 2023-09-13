@@ -36,10 +36,20 @@ Controller(
 	while(true) {
 	//	await(door1req||door2req||door3req);
 		//for loop here
-		//System.out.println(personArray[0][1]);
+		System.out.println(personArray[0][2]);
 		present(person1accessOffice){
 			personArray[0][1] = 0;
 			System.out.println(personArray[0][1]);
+			present(zoneOcc1_t){
+				personArray[0][2] = 1;
+				System.out.println(personArray[0][1]);
+				pause;
+			}
+			present(zoneOcc7_t){
+				personArray[0][2] = 7;
+				System.out.println(personArray[0][1]);
+				pause;
+			}
 			pause;
 		}
 		present(person1accessManu){
@@ -49,11 +59,6 @@ Controller(
 		}
 		present(zoneOcc0_t){
 			personArray[0][2] = 0;
-			System.out.println(personArray[0][1]);
-			pause;
-		}
-		present(zoneOcc1_t){
-			personArray[0][2] = 1;
 			System.out.println(personArray[0][1]);
 			pause;
 		}
@@ -82,11 +87,7 @@ Controller(
 			System.out.println(personArray[0][1]);
 			pause;
 		}
-		present(zoneOcc7_t){
-			personArray[0][2] = 7;
-			System.out.println(personArray[0][1]);
-			pause;
-		}
+		
 		if(personArray[0][1] == 0) { //if they have office access
 			if(personArray[0][2] < 2) { //if they are in zone 1 or not inside
 				while(personArray[0][1] == 0) { //while they have access
