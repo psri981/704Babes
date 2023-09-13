@@ -64,7 +64,7 @@ public class ACS_Canvas {
 		
 		JButton enable = new JButton("enable");
 		enable.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-		//enable.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_DOOR1_UNLOCK));
+		enable.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_DOOR1_UNLOCK));
 		
 		JButton accessOffice = new JButton("O");
 		accessOffice.setHorizontalAlignment(SwingConstants.LEFT);
