@@ -18,28 +18,8 @@ Plant(
 				await(accessOffice);
 				abort(accessManu){
 					while(true) {
-						{System.out.println("moo");emit accessOffice_t;}
-						||
-						{
-							present(zoneOcc1) {
-								System.out.println("What");
-									emit zoneOcc1_t;
-									pause;
-							
-							}
-							pause;
-						}
-						||
-						{
-							await(zoneOcc7);
-							abort(!zoneOcc7){
-								while(true) {
-									emit zoneOcc7_t;
-									pause;
-								}
-							}
-							pause;
-						}
+						//System.out.println("OFFIIICEEE");
+						emit accessOffice_t;
 						pause;
 					}
 				}
@@ -50,95 +30,33 @@ Plant(
 				await(accessManu);
 				abort(accessOffice){
 					while(true) {
-						{emit accessManu_t;}
-						
-						||
-						{
-							await(zoneOcc1);
-							abort(!zoneOcc1){
-								while(true) {
-									emit zoneOcc1_t;
-									pause;
-								}
-							}
-							pause;
-						}
-						||
-						{
-							await(zoneOcc2);
-							abort(!zoneOcc2){
-								while(true) {
-									emit zoneOcc2_t;
-									pause;
-								}
-							}
-							pause;
-						}
-						||
-						{
-							await(zoneOcc3);
-							abort(!zoneOcc3){
-								while(true) {
-									emit zoneOcc3_t;
-									pause;
-								}
-							}
-							pause;
-						}
-						||
-						{
-							await(zoneOcc4);
-							abort(!zoneOcc4){
-								while(true) {
-									emit zoneOcc4_t;
-									pause;
-								}
-							}
-							pause;
-						}
-						||
-						{
-							await(zoneOcc5);
-							abort(!zoneOcc5){
-								while(true) {
-									emit zoneOcc5_t;
-									pause;
-								}
-							}
-							pause;
-						}
-						||
-						{
-							await(zoneOcc6);
-							abort(!zoneOcc6){
-								while(true) {
-									emit zoneOcc6_t;
-									pause;
-								}
-							}
-							pause;
-						}
-						
-						
+						//System.out.println("MANUUUUU");
+						emit accessManu_t;
 						pause;
 					}
 				}
 				pause;
 			}
-			||
-			{
-				await(zoneOcc0);
-				abort(!zoneOcc0){
-					while(true) {
-						emit zoneOcc0_t;
-						pause;
-					}
-				}
-				pause;
-			}
-		
 		}
-	}
+//			await(enable);
+//			System.out.println("BUTTON WORKS");
+//			emit unlock1_t;
+//			
+//			abort(unlock1){
+//				while(true) {
+//					//System.out.println("b");
+//					emit lock1_t;
+//					pause;
+//				}
+//			}
+//			abort(!unlock1){
+//				while(true) {
+//					//System.out.println("a");
+//					emit unlock1_t;
+//					pause;
+//				}
+//			}
+		}
 	||
 	{//to Viz
 		{while(true) {present(unlock1_t){ emit unlock1GUI;} pause;}}
