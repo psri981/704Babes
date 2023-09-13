@@ -55,7 +55,7 @@ public class Canvas {
 	 */
 
 	   public static void main(String[] args) {
-		   SignalServer<RotaryVizWorker> server = new SignalServer<RotaryVizWorker>(Ports.PORT_LOADER_VIZ, RotaryVizWorker.class);
+		   SignalServer<POSVizWorker> server = new SignalServer<POSVizWorker>(Ports.PORT_LOADER_VIZ, POSVizWorker.class);
 		   new Thread(server).start(); 
 		   EventQueue.invokeLater(new Runnable() {
 	            public void run() {
