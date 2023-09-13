@@ -31,16 +31,13 @@ ACS_Controller(
 //	personArray[3][3] = 0;
 
 	//ACTUAL CODE
-//	System.out.println(personArray[0][3]);
 	await (person1accessOffice || person1accessManu);
 	present(person1accessOffice){
 		personArray[0][1] = 0;
-		//System.out.println(personArray[0][1]);
 		pause;
 	}
 	present(person1accessManu){
 		personArray[0][1] = 1;
-		//System.out.println(personArray[0][1]);
 		pause;
 	}
 	
@@ -52,18 +49,17 @@ ACS_Controller(
 					personArray[0][1] = 0; //log in array
 					while(true) {
 						emit unlock1;
-					//	System.out.println(personArray[0][1]);
 						present(zoneOcc0){
 							personArray[0][2] = 0;
-							System.out.println(personArray[0][2]);
+							//System.out.println(personArray[0][2]);
 						}
 						present(zoneOcc1){
 							personArray[0][2] = 1;
-							System.out.println(personArray[0][2]);
+							//System.out.println(personArray[0][2]);
 						}
 						present(zoneOcc7){
 							personArray[0][2] = 7;
-							System.out.println(personArray[0][2]);
+							//System.out.println(personArray[0][2]);
 						}
 						pause;
 					}
@@ -78,33 +74,32 @@ ACS_Controller(
 					personArray[0][1] = 1;
 					while(true) {
 						emit unlock3;
-					//	System.out.println(personArray[0][1]);
 						present(zoneOcc0){
 							personArray[0][2] = 0;
-							System.out.println(personArray[0][2]);
+							//System.out.println(personArray[0][2]);
 						}
 						present(zoneOcc2){
 							personArray[0][2] = 2;
-							System.out.println(personArray[0][2]);
+							//System.out.println(personArray[0][2]);
 						}
 						present(zoneOcc3){
 							personArray[0][2] = 3;
-							System.out.println(personArray[0][2]);
+							//System.out.println(personArray[0][2]);
 						}
 						present(zoneOcc4){
 							personArray[0][2] = 4;
 							emit absSuspend;
-							System.out.println(personArray[0][2]);
+							//System.out.println(personArray[0][2]);
 						}
 						present(zoneOcc5){
 							personArray[0][2] = 5;
 							emit absSuspend;
-							System.out.println(personArray[0][2]);
+							//System.out.println(personArray[0][2]);
 						}
 						present(zoneOcc6){
 							personArray[0][2] = 6;
 							emit absSuspend;
-							System.out.println(personArray[0][2]);
+							//System.out.println(personArray[0][2]);
 						}
 						pause;
 					}

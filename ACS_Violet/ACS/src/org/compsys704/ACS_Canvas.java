@@ -438,7 +438,6 @@ public class ACS_Canvas {
 		
 		locZone0.addActionListener(e -> {
 			if(ACS_States.ROOM0_PRECENSE){
-				System.out.println("INZONE0");
 				zone1.setOpaque(false);
 				zone2.setOpaque(false);
 				zone3.setOpaque(false);
@@ -455,7 +454,6 @@ public class ACS_Canvas {
 		
 		locZone1.addActionListener(e -> {
 			if(ACS_States.ROOM1_PRECENSE){
-				System.out.println("INZONE1");
 				zone1.setOpaque(true);
 				zone2.setOpaque(false);
 				zone3.setOpaque(false);
@@ -471,7 +469,6 @@ public class ACS_Canvas {
 		});
 		locZone2.addActionListener(e -> {
 			if(ACS_States.ROOM2_PRECENSE){
-				System.out.println("INZONE2");
 				zone1.setOpaque(false);
 				zone2.setOpaque(true);
 				zone3.setOpaque(false);
@@ -487,7 +484,6 @@ public class ACS_Canvas {
 		});
 		locZone3.addActionListener(e -> {
 			if(ACS_States.ROOM3_PRECENSE){
-				System.out.println("INZONE3");
 				zone1.setOpaque(false);
 				zone2.setOpaque(false);
 				zone3.setOpaque(true);
@@ -503,7 +499,6 @@ public class ACS_Canvas {
 		});
 		locZone4.addActionListener(e -> {
 			if(ACS_States.ROOM4_PRECENSE){
-				System.out.println("INZONE4");
 				zone1.setOpaque(false);
 				zone2.setOpaque(false);
 				zone3.setOpaque(false);
@@ -519,7 +514,6 @@ public class ACS_Canvas {
 		});
 		locZone5.addActionListener(e -> {
 			if(ACS_States.ROOM5_PRECENSE){
-				System.out.println("INZONE5");
 				zone1.setOpaque(false);
 				zone2.setOpaque(false);
 				zone3.setOpaque(false);
@@ -535,7 +529,6 @@ public class ACS_Canvas {
 		});
 		locZone6.addActionListener(e -> {
 			if(ACS_States.ROOM6_PRECENSE){
-				System.out.println("INZONE6");
 				zone1.setOpaque(false);
 				zone2.setOpaque(false);
 				zone3.setOpaque(false);
@@ -551,7 +544,6 @@ public class ACS_Canvas {
 		});
 		locZone7.addActionListener(e -> {
 			if(ACS_States.ROOM7_PRECENSE){
-				System.out.println("INZONE7");
 				zone1.setOpaque(false);
 				zone2.setOpaque(false);
 				zone3.setOpaque(false);
@@ -567,7 +559,6 @@ public class ACS_Canvas {
 		});
 		accessOffice.addActionListener(e -> {
 			if(ACS_States.ACCESS_OFFICE){
-				//System.out.println("ACCESSOFFICE");
 				door1Unlock.setOpaque(true);
 				door3Unlock.setOpaque(false);
 				locZone0.setEnabled(true);
@@ -592,7 +583,6 @@ public class ACS_Canvas {
 		
 		accessManu.addActionListener(e -> {
 			if(ACS_States.ACCESS_MANU){
-		//		System.out.println("ACCESSMANU");
 				door3Unlock.setOpaque(true);
 				door1Unlock.setOpaque(false);
 				locZone0.setEnabled(true);
@@ -616,7 +606,6 @@ public class ACS_Canvas {
 		});
 		fire.addActionListener(e -> {
 			if(ACS_States.FIRE){
-		//		System.out.println("ACCESSMANU");
 				door3Unlock.setOpaque(true);
 				door2Unlock.setOpaque(true);
 				door1Unlock.setOpaque(true);

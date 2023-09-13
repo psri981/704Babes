@@ -29,7 +29,6 @@ ACS_Plant(
 							}
 							||
 							{
-								System.out.println("what");
 								await(zoneOcc1);
 								emit zoneOcc1_t;
 							}
@@ -47,7 +46,6 @@ ACS_Plant(
 					await(accessManu);
 					abort(accessOffice){
 						while(true){
-							//System.out.println("MANUUU");
 							{
 								emit accessManu_t;
 								pause;
