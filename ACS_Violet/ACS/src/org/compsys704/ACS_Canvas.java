@@ -138,6 +138,7 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(zone4);
 		
 		JButton locZone3 = new JButton("3");
+		locZone3.setEnabled(false);
 		buttonGroup_3.add(locZone3);
 		locZone3.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone3.setFont(new Font("Tahoma", Font.PLAIN, 6));
@@ -145,6 +146,7 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(locZone3);
 		
 		JButton locZone7 = new JButton("7");
+		locZone7.setEnabled(false);
 		buttonGroup_4.add(locZone7);
 		locZone7.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone7.setFont(new Font("Tahoma", Font.PLAIN, 6));
@@ -162,6 +164,7 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(btnNewButton_2);
 		
 		JButton locZone4 = new JButton("4");
+		locZone4.setEnabled(false);
 		buttonGroup_3.add(locZone4);
 		locZone4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -173,6 +176,7 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(locZone4);
 		
 		JButton locZone2 = new JButton("2");
+		locZone2.setEnabled(false);
 		buttonGroup_3.add(locZone2);
 		locZone2.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone2.setFont(new Font("Tahoma", Font.PLAIN, 6));
@@ -203,6 +207,7 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(zone5);
 		
 		JButton locZone6 = new JButton("6");
+		locZone6.setEnabled(false);
 		buttonGroup_3.add(locZone6);
 		locZone6.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone6.setFont(new Font("Tahoma", Font.PLAIN, 6));
@@ -226,6 +231,7 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(zone3);
 		
 		JButton locZone5 = new JButton("5");
+		locZone5.setEnabled(false);
 		buttonGroup_3.add(locZone5);
 		locZone5.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone5.setFont(new Font("Tahoma", Font.PLAIN, 6));
@@ -242,6 +248,7 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(lblNewLabel_6);
 		
 		JButton locZone1 = new JButton("1");
+		locZone1.setEnabled(false);
 		buttonGroup_4.add(locZone1);
 		locZone1.setHorizontalTextPosition(SwingConstants.CENTER);
 		locZone1.setHorizontalAlignment(SwingConstants.LEFT);
@@ -264,6 +271,7 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(zone7);
 		
 		JButton locZone0 = new JButton("0");
+		locZone0.setEnabled(false);
 		buttonGroup.add(locZone0);
 		locZone0.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone0.setFont(new Font("Tahoma", Font.PLAIN, 6));
@@ -399,9 +407,9 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(lblNewLabel);
 		
 		locZone7.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_7));
-		locZone6.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_4));
+		locZone6.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_6));
 		locZone5.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_5));
-		locZone4.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_6));
+		locZone4.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_4));
 		locZone3.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_3));
 		locZone2.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_2));
 		locZone1.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_1));		
@@ -509,6 +517,7 @@ public class ACS_Canvas {
 				//System.out.println("ACCESSOFFICE");
 				door1Unlock.setOpaque(true);
 				door3Unlock.setOpaque(false);
+				locZone0.setEnabled(true);
 				locZone1.setEnabled(true);
 				locZone2.setEnabled(false);
 				locZone3.setEnabled(false);
@@ -533,6 +542,7 @@ public class ACS_Canvas {
 		//		System.out.println("ACCESSMANU");
 				door3Unlock.setOpaque(true);
 				door1Unlock.setOpaque(false);
+				locZone0.setEnabled(true);
 				locZone1.setEnabled(false);
 				locZone2.setEnabled(true);
 				locZone3.setEnabled(true);

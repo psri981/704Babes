@@ -53,6 +53,10 @@ Controller(
 					while(true) {
 						emit unlock1;
 					//	System.out.println(personArray[0][1]);
+						present(zoneOcc0){
+							personArray[0][2] = 0;
+							System.out.println(personArray[0][2]);
+						}
 						present(zoneOcc1){
 							personArray[0][2] = 1;
 							System.out.println(personArray[0][2]);
@@ -75,6 +79,10 @@ Controller(
 					while(true) {
 						emit unlock3;
 					//	System.out.println(personArray[0][1]);
+						present(zoneOcc0){
+							personArray[0][2] = 0;
+							System.out.println(personArray[0][2]);
+						}
 						present(zoneOcc2){
 							personArray[0][2] = 2;
 							System.out.println(personArray[0][2]);
