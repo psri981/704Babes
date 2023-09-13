@@ -1,6 +1,6 @@
 package org.compsys704;
 
-public class States {
+public class ACS_States {
 	public static volatile boolean DOOR1_UNLOCK = true;
 	public static volatile boolean DOOR2_UNLOCK = false;
 	public static volatile boolean DOOR3_UNLOCK = true;

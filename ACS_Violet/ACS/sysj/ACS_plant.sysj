@@ -1,6 +1,6 @@
-import run.GUI;
+import run.ACS_GUI;
 
-Plant(
+ACS_Plant(
 		input signal fire, accessManu, accessOffice, enable, absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3, zoneOcc0, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7;
 		output signal zoneOcc0GUI, zoneOcc1GUI, zoneOcc2GUI, zoneOcc3GUI, zoneOcc4GUI, zoneOcc5GUI, zoneOcc6GUI, zoneOcc7GUI, accessOfficeGUI, accessManuGUI, lock1GUI, laserProximity, firePresent, door1req, door2req, door3req, manuPerm, officePerm, zoneOcc0_t, zoneOcc1_t, zoneOcc2_t, zoneOcc3_t, zoneOcc4_t, zoneOcc5_t, zoneOcc6_t, zoneOcc7_t;
 		output Integer signal person1accessOffice, person1accessManu, person1zone, person1doorreq, person2zone, person2doorreq, person3zone, person3doorreq, person4zone, person4doorreq;
@@ -8,7 +8,7 @@ Plant(
 		)
 ->
 {
-	new Thread(new GUI()).start();
+	new Thread(new ACS_GUI()).start();
 
 	{
 		
@@ -18,7 +18,6 @@ Plant(
 					await(accessOffice);
 					abort(accessManu){
 						while(true) {
-							//System.out.println("OFFIIICEEE");
 							{
 								emit accessOffice_t;
 								pause;
@@ -30,6 +29,7 @@ Plant(
 							}
 							||
 							{
+								System.out.println("what")
 								await(zoneOcc1);
 								emit zoneOcc1_t;
 							}
@@ -90,25 +90,8 @@ Plant(
 			
 			emit fire_t;
 		}
-//			await(enable);
-//			System.out.println("BUTTON WORKS");
-//			emit unlock1_t;
-//			
-//			abort(unlock1){
-//				while(true) {
-//					//System.out.println("b");
-//					emit lock1_t;
-//					pause;
-//				}
-//			}
-//			abort(!unlock1){
-//				while(true) {
-//					//System.out.println("a");
-//					emit unlock1_t;
-//					pause;
-//				}
-//			}
-		}
+
+	}
 	||
 	{//to Viz
 		{while(true) {present(unlock1_t){ emit unlock1GUI;} pause;}}
