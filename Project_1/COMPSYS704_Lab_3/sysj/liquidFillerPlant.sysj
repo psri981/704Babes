@@ -1,0 +1,19 @@
+import run.GUI;
+
+Plant(
+		input signal bottleAtPos2, dosUnitEvac, dosUnitFilled;
+		output signal valveInjectorOnOff, valveInjectorGUI, valveInletOnOff, valveInletOnOffGUI, dosUnitValveRetract, dosUnitValveRetractGUI, dosUnitValveExtend, dosUnitValveExtendGUI;
+		)
+->
+{
+	||
+	{// To viz
+		{while(true){present(valveInjectorOnOff){emit valveInjectorGUI;} pause;}}
+		||
+		{while(true){present(valveInletOnOff){emit valveInletOnOffGUI;} pause;}}
+		||
+		{while(true){present(dosUnitValveRetract){emit dosUnitValveRetractGUI;} pause;}}
+		||
+		{while(true){present(dosUnitValveExtend){emit dosUnitValveExtendGUI;} pause;}}
+	}
+}
