@@ -27,6 +27,7 @@ public class Controller extends ClockDomain{
   public Signal zoneOcc5_t = new Signal("zoneOcc5_t", Signal.INPUT);
   public Signal zoneOcc6_t = new Signal("zoneOcc6_t", Signal.INPUT);
   public Signal zoneOcc7_t = new Signal("zoneOcc7_t", Signal.INPUT);
+  public Signal person1access = new Signal("person1access", Signal.INPUT);
   public Signal person1zone = new Signal("person1zone", Signal.INPUT);
   public Signal person1doorreq = new Signal("person1doorreq", Signal.INPUT);
   public Signal person2zone = new Signal("person2zone", Signal.INPUT);
@@ -50,7 +51,7 @@ public class Controller extends ClockDomain{
   public Signal zoneOcc7 = new Signal("zoneOcc7", Signal.OUTPUT);
   private int[][] personArray_thread_1;//sysj\controller.sysj line: 10, column: 2
   private int S391 = 1;
-  private int S65 = 1;
+  private int S10 = 1;
   
   private int[] ends = new int[2];
   private int[] tdone = new int[2];
@@ -72,7 +73,7 @@ public class Controller extends ClockDomain{
           S391=2;
           personArray_thread_1 = new int[4][4];//sysj\controller.sysj line: 10, column: 2
           personArray_thread_1[0][0] = 0;//sysj\controller.sysj line: 13, column: 2
-          personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 14, column: 2
+          personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 14, column: 2
           personArray_thread_1[0][2] = 1;//sysj\controller.sysj line: 15, column: 2
           personArray_thread_1[0][3] = 0;//sysj\controller.sysj line: 16, column: 2
           personArray_thread_1[1][0] = 1;//sysj\controller.sysj line: 18, column: 2
@@ -87,7 +88,7 @@ public class Controller extends ClockDomain{
           personArray_thread_1[3][1] = 1;//sysj\controller.sysj line: 29, column: 2
           personArray_thread_1[3][2] = 4;//sysj\controller.sysj line: 30, column: 2
           personArray_thread_1[3][3] = 0;//sysj\controller.sysj line: 31, column: 2
-          S65=0;
+          S10=0;
           if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 39, column: 6
             if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 40, column: 7
               if(personArray_thread_1[0][3] == 0){//sysj\controller.sysj line: 41, column: 11
@@ -101,11 +102,12 @@ public class Controller extends ClockDomain{
               else {
                 ends[1]=2;
                 ;//sysj\controller.sysj line: 41, column: 5
-                S65=1;
-                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 54, column: 6
-                  if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 55, column: 7
-                    if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 56, column: 11
-                      unlock3.setPresent();//sysj\controller.sysj line: 57, column: 6
+                System.out.println("wa");//sysj\controller.sysj line: 53, column: 3
+                S10=1;
+                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 55, column: 6
+                  if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 56, column: 7
+                    if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 57, column: 11
+                      unlock3.setPresent();//sysj\controller.sysj line: 58, column: 6
                       currsigs.addElement(unlock3);
                       active[1]=1;
                       ends[1]=1;
@@ -113,22 +115,22 @@ public class Controller extends ClockDomain{
                     }
                     else {
                       ends[1]=2;
-                      ;//sysj\controller.sysj line: 56, column: 5
-                      S65=2;
+                      ;//sysj\controller.sysj line: 57, column: 5
+                      S10=2;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                   }
                   else {
-                    S65=2;
+                    S10=2;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                 }
                 else {
-                  S65=2;
+                  S10=2;
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
@@ -136,11 +138,12 @@ public class Controller extends ClockDomain{
               }
             }
             else {
-              S65=1;
-              if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 54, column: 6
-                if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 55, column: 7
-                  if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 56, column: 11
-                    unlock3.setPresent();//sysj\controller.sysj line: 57, column: 6
+              System.out.println("wa");//sysj\controller.sysj line: 53, column: 3
+              S10=1;
+              if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 55, column: 6
+                if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 56, column: 7
+                  if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 57, column: 11
+                    unlock3.setPresent();//sysj\controller.sysj line: 58, column: 6
                     currsigs.addElement(unlock3);
                     active[1]=1;
                     ends[1]=1;
@@ -148,22 +151,22 @@ public class Controller extends ClockDomain{
                   }
                   else {
                     ends[1]=2;
-                    ;//sysj\controller.sysj line: 56, column: 5
-                    S65=2;
+                    ;//sysj\controller.sysj line: 57, column: 5
+                    S10=2;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                 }
                 else {
-                  S65=2;
+                  S10=2;
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
                 }
               }
               else {
-                S65=2;
+                S10=2;
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
@@ -171,11 +174,12 @@ public class Controller extends ClockDomain{
             }
           }
           else {
-            S65=1;
-            if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 54, column: 6
-              if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 55, column: 7
-                if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 56, column: 11
-                  unlock3.setPresent();//sysj\controller.sysj line: 57, column: 6
+            System.out.println("wa");//sysj\controller.sysj line: 53, column: 3
+            S10=1;
+            if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 55, column: 6
+              if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 56, column: 7
+                if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 57, column: 11
+                  unlock3.setPresent();//sysj\controller.sysj line: 58, column: 6
                   currsigs.addElement(unlock3);
                   active[1]=1;
                   ends[1]=1;
@@ -183,22 +187,22 @@ public class Controller extends ClockDomain{
                 }
                 else {
                   ends[1]=2;
-                  ;//sysj\controller.sysj line: 56, column: 5
-                  S65=2;
+                  ;//sysj\controller.sysj line: 57, column: 5
+                  S10=2;
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
                 }
               }
               else {
-                S65=2;
+                S10=2;
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
               }
             }
             else {
-              S65=2;
+              S10=2;
               active[1]=1;
               ends[1]=1;
               break RUN;
@@ -206,7 +210,7 @@ public class Controller extends ClockDomain{
           }
         
         case 2 : 
-          switch(S65){
+          switch(S10){
             case 0 : 
               if(personArray_thread_1[0][3] == 0){//sysj\controller.sysj line: 41, column: 11
                 System.out.println("aaaaaaaaaa");//sysj\controller.sysj line: 42, column: 6
@@ -219,11 +223,12 @@ public class Controller extends ClockDomain{
               else {
                 ends[1]=2;
                 ;//sysj\controller.sysj line: 41, column: 5
-                S65=1;
-                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 54, column: 6
-                  if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 55, column: 7
-                    if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 56, column: 11
-                      unlock3.setPresent();//sysj\controller.sysj line: 57, column: 6
+                System.out.println("wa");//sysj\controller.sysj line: 53, column: 3
+                S10=1;
+                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 55, column: 6
+                  if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 56, column: 7
+                    if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 57, column: 11
+                      unlock3.setPresent();//sysj\controller.sysj line: 58, column: 6
                       currsigs.addElement(unlock3);
                       active[1]=1;
                       ends[1]=1;
@@ -231,22 +236,22 @@ public class Controller extends ClockDomain{
                     }
                     else {
                       ends[1]=2;
-                      ;//sysj\controller.sysj line: 56, column: 5
-                      S65=2;
+                      ;//sysj\controller.sysj line: 57, column: 5
+                      S10=2;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                   }
                   else {
-                    S65=2;
+                    S10=2;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                 }
                 else {
-                  S65=2;
+                  S10=2;
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
@@ -254,15 +259,15 @@ public class Controller extends ClockDomain{
               }
             
             case 1 : 
-              unlock3.setPresent();//sysj\controller.sysj line: 57, column: 6
+              unlock3.setPresent();//sysj\controller.sysj line: 58, column: 6
               currsigs.addElement(unlock3);
               active[1]=1;
               ends[1]=1;
               break RUN;
             
             case 2 : 
-              S65=2;
-              S65=0;
+              S10=2;
+              S10=0;
               if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 39, column: 6
                 if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 40, column: 7
                   if(personArray_thread_1[0][3] == 0){//sysj\controller.sysj line: 41, column: 11
@@ -276,11 +281,12 @@ public class Controller extends ClockDomain{
                   else {
                     ends[1]=2;
                     ;//sysj\controller.sysj line: 41, column: 5
-                    S65=1;
-                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 54, column: 6
-                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 55, column: 7
-                        if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 56, column: 11
-                          unlock3.setPresent();//sysj\controller.sysj line: 57, column: 6
+                    System.out.println("wa");//sysj\controller.sysj line: 53, column: 3
+                    S10=1;
+                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 55, column: 6
+                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 56, column: 7
+                        if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 57, column: 11
+                          unlock3.setPresent();//sysj\controller.sysj line: 58, column: 6
                           currsigs.addElement(unlock3);
                           active[1]=1;
                           ends[1]=1;
@@ -288,22 +294,22 @@ public class Controller extends ClockDomain{
                         }
                         else {
                           ends[1]=2;
-                          ;//sysj\controller.sysj line: 56, column: 5
-                          S65=2;
+                          ;//sysj\controller.sysj line: 57, column: 5
+                          S10=2;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
                         }
                       }
                       else {
-                        S65=2;
+                        S10=2;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                     }
                     else {
-                      S65=2;
+                      S10=2;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -311,11 +317,12 @@ public class Controller extends ClockDomain{
                   }
                 }
                 else {
-                  S65=1;
-                  if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 54, column: 6
-                    if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 55, column: 7
-                      if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 56, column: 11
-                        unlock3.setPresent();//sysj\controller.sysj line: 57, column: 6
+                  System.out.println("wa");//sysj\controller.sysj line: 53, column: 3
+                  S10=1;
+                  if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 55, column: 6
+                    if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 56, column: 7
+                      if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 57, column: 11
+                        unlock3.setPresent();//sysj\controller.sysj line: 58, column: 6
                         currsigs.addElement(unlock3);
                         active[1]=1;
                         ends[1]=1;
@@ -323,22 +330,22 @@ public class Controller extends ClockDomain{
                       }
                       else {
                         ends[1]=2;
-                        ;//sysj\controller.sysj line: 56, column: 5
-                        S65=2;
+                        ;//sysj\controller.sysj line: 57, column: 5
+                        S10=2;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                     }
                     else {
-                      S65=2;
+                      S10=2;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                   }
                   else {
-                    S65=2;
+                    S10=2;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
@@ -346,11 +353,12 @@ public class Controller extends ClockDomain{
                 }
               }
               else {
-                S65=1;
-                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 54, column: 6
-                  if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 55, column: 7
-                    if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 56, column: 11
-                      unlock3.setPresent();//sysj\controller.sysj line: 57, column: 6
+                System.out.println("wa");//sysj\controller.sysj line: 53, column: 3
+                S10=1;
+                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 55, column: 6
+                  if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 56, column: 7
+                    if(personArray_thread_1[0][3] == 2){//sysj\controller.sysj line: 57, column: 11
+                      unlock3.setPresent();//sysj\controller.sysj line: 58, column: 6
                       currsigs.addElement(unlock3);
                       active[1]=1;
                       ends[1]=1;
@@ -358,22 +366,22 @@ public class Controller extends ClockDomain{
                     }
                     else {
                       ends[1]=2;
-                      ;//sysj\controller.sysj line: 56, column: 5
-                      S65=2;
+                      ;//sysj\controller.sysj line: 57, column: 5
+                      S10=2;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                   }
                   else {
-                    S65=2;
+                    S10=2;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                 }
                 else {
-                  S65=2;
+                  S10=2;
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
@@ -424,6 +432,7 @@ public class Controller extends ClockDomain{
           zoneOcc5_t.gethook();
           zoneOcc6_t.gethook();
           zoneOcc7_t.gethook();
+          person1access.gethook();
           person1zone.gethook();
           person1doorreq.gethook();
           person2zone.gethook();
@@ -452,6 +461,7 @@ public class Controller extends ClockDomain{
       zoneOcc5_t.setpreclear();
       zoneOcc6_t.setpreclear();
       zoneOcc7_t.setpreclear();
+      person1access.setpreclear();
       person1zone.setpreclear();
       person1doorreq.setpreclear();
       person2zone.setpreclear();
@@ -527,6 +537,9 @@ public class Controller extends ClockDomain{
       dummyint = zoneOcc7_t.getStatus() ? zoneOcc7_t.setprepresent() : zoneOcc7_t.setpreclear();
       zoneOcc7_t.setpreval(zoneOcc7_t.getValue());
       zoneOcc7_t.setClear();
+      dummyint = person1access.getStatus() ? person1access.setprepresent() : person1access.setpreclear();
+      person1access.setpreval(person1access.getValue());
+      person1access.setClear();
       dummyint = person1zone.getStatus() ? person1zone.setprepresent() : person1zone.setpreclear();
       person1zone.setpreval(person1zone.getValue());
       person1zone.setClear();
@@ -595,6 +608,7 @@ public class Controller extends ClockDomain{
         zoneOcc5_t.gethook();
         zoneOcc6_t.gethook();
         zoneOcc7_t.gethook();
+        person1access.gethook();
         person1zone.gethook();
         person1doorreq.gethook();
         person2zone.gethook();

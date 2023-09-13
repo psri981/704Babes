@@ -1,6 +1,6 @@
 Controller(
     input signal unlock1_t, lock1, laserProximity, firePresent, door1req, door2req, door3req, manuPerm, officePerm, zoneOcc1_t, zoneOcc2_t, zoneOcc3_t, zoneOcc4_t, zoneOcc5_t, zoneOcc6_t, zoneOcc7_t;
-    input Integer signal person1zone, person1doorreq, person2zone, person2doorreq, person3zone, person3doorreq, person4zone, person4doorreq;
+    input Integer signal person1access, person1zone, person1doorreq, person2zone, person2doorreq, person3zone, person3doorreq, person4zone, person4doorreq;
     output signal absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7;
 )
 -> {
@@ -11,7 +11,7 @@ Controller(
 
 	// Initialize the elements of the 2D array
 	personArray[0][0] = 0; //ID Number
-	personArray[0][1] = 0; //Permission: 0 = office, 1= manu
+	personArray[0][1] = 3; //Permission: 0 = office, 1= manu
 	personArray[0][2] = 1; //Current Zone
 	personArray[0][3] = 0; //Door req number 0 for no door
 
@@ -52,6 +52,7 @@ Controller(
 		}
 		
 		if(personArray[0][1] == 1) { //if they have manu access
+			System.out.println("wa");
 			if((personArray[0][2] == 0)|(personArray[0][2] == 2)) { //if they are in outside or in zone 2
 				while(personArray[0][3] == 2) {
 					sustain unlock3;

@@ -66,13 +66,10 @@ public class ACS_Canvas {
 		enable.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		enable.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_DOOR1_UNLOCK));
 		
-		JButton btnNewButton_1 = new JButton("O");
-		btnNewButton_1.setHorizontalAlignment(SwingConstants.LEFT);
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 6));
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		JButton accessOffice = new JButton("O");
+		accessOffice.setHorizontalAlignment(SwingConstants.LEFT);
+		accessOffice.setFont(new Font("Tahoma", Font.PLAIN, 6));
+		enable.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_OFFICEACCESS));
 		
 		JButton btnNewButton_1_1_1 = new JButton("Fire");
 		btnNewButton_1_1_1.addActionListener(new ActionListener() {
@@ -159,8 +156,8 @@ public class ACS_Canvas {
 		btnNewButton_1_1.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		btnNewButton_1_1.setBounds(395, 296, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(btnNewButton_1_1);
-		btnNewButton_1.setBounds(347, 296, 39, 21);
-		frmSecurityAccessControl.getContentPane().add(btnNewButton_1);
+		accessOffice.setBounds(347, 296, 39, 21);
+		frmSecurityAccessControl.getContentPane().add(accessOffice);
 		
 		JLabel lblNewLabel_7 = new JLabel("Access:");
 		lblNewLabel_7.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));

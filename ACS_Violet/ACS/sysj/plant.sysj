@@ -1,10 +1,10 @@
 import run.GUI;
 
 Plant(
-		input signal enable, absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7;
+		input signal accessOffice, enable, absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7;
 		output signal unlock1GUI, lock1GUI, laserProximity, firePresent, door1req, door2req, door3req, manuPerm, officePerm, zoneOcc1_t, zoneOcc2_t, zoneOcc3_t, zoneOcc4_t, zoneOcc5_t, zoneOcc6_t, zoneOcc7_t;
-		output Integer signal person1zone, person1doorreq, person2zone, person2doorreq, person3zone, person3doorreq, person4zone, person4doorreq;
-		output signal unlock1_t, lock1_t;
+		output Integer signal person1access, person1zone, person1doorreq, person2zone, person2doorreq, person3zone, person3doorreq, person4zone, person4doorreq;
+		output signal accessOfficeSend, unlock1_t, lock1_t;
 		)
 ->
 {
@@ -15,24 +15,10 @@ Plant(
 		
 		while(true){
 			
-			await(enable);
-			System.out.println("BUTTON WORKS");
-			emit unlock1_t;
-			
-			abort(unlock1){
-				while(true) {
-					//System.out.println("b");
-					emit lock1_t;
-					pause;
-				}
-			}
-			abort(!unlock1){
-				while(true) {
-					//System.out.println("a");
-					emit unlock1_t;
-					pause;
-				}
-			}
+		await(enable);
+		emit person1access(0);
+		await(enable);
+		emit person1access(1);
 		}
 	}
 	||
