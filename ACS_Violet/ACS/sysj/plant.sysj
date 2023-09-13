@@ -16,16 +16,27 @@ Plant(
 		while(true){
 			{
 				await(accessOffice);
-				System.out.println("OFFIIICEEE");
-				emit accessOffice_t;
+				abort(accessManu){
+					while(true) {
+						System.out.println("OFFIIICEEE");
+						emit accessOffice_t;
+						pause;
+					}
+				}
+				pause;
 			}
 			||
 			{
 				await(accessManu);
-				System.out.println("MANUUU");
-				emit accessManu_t;
+				abort(accessOffice){
+					while(true) {
+						System.out.println("MANUUUUU");
+						emit accessManu_t;
+						pause;
+					}
+				}
+				pause;
 			}
-			pause;
 		}
 //			await(enable);
 //			System.out.println("BUTTON WORKS");
