@@ -15,11 +15,26 @@ Plant(
 		
 		while(true){
 			
-		await(enable);
-		emit person1access(0);
-		await(enable);
-		emit person1access(1);
+			await(enable);
+			System.out.println("BUTTON WORKS");
+			emit unlock1_t;
+			
+			abort(unlock1){
+				while(true) {
+					//System.out.println("b");
+					emit lock1_t;
+					pause;
+				}
+			}
+			abort(!unlock1){
+				while(true) {
+					//System.out.println("a");
+					emit unlock1_t;
+					pause;
+				}
+			}
 		}
+
 	}
 	||
 	{//to Viz
