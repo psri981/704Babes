@@ -26,6 +26,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.JTextField;
 import javax.swing.ButtonGroup;
 import java.awt.Dimension;
+import javax.swing.JTextPane;
 
 public class ACS_Canvas {
 
@@ -70,6 +71,14 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSecurityAccessControl.getContentPane().setLayout(null);
 		
+		JTextPane txtpnPleaseEvacuateThe = new JTextPane();
+		txtpnPleaseEvacuateThe.setVisible(false);
+		txtpnPleaseEvacuateThe.setEditable(false);
+		txtpnPleaseEvacuateThe.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		txtpnPleaseEvacuateThe.setText("Please evacuate the building and once the building is safe for standard operation, please manually restart the ACS system.");
+		txtpnPleaseEvacuateThe.setBounds(0, 361, 314, 92);
+		frmSecurityAccessControl.getContentPane().add(txtpnPleaseEvacuateThe);
+		
 		absStatus = new JTextField();
 		absStatus.setEditable(false);
 		absStatus.setText("Initialize ACS");
@@ -78,11 +87,11 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(absStatus);
 		absStatus.setColumns(10);
 		
-		JLabel Door2Unlock = new JLabel("");
-		Door2Unlock.setBorder(null);
-		Door2Unlock.setBackground(Color.GREEN);
-		Door2Unlock.setBounds(243, 141, 10, 70);
-		frmSecurityAccessControl.getContentPane().add(Door2Unlock);
+		JLabel door2Unlock = new JLabel("");
+		door2Unlock.setBorder(null);
+		door2Unlock.setBackground(Color.GREEN);
+		door2Unlock.setBounds(243, 141, 10, 70);
+		frmSecurityAccessControl.getContentPane().add(door2Unlock);
 		
 		
 		JLabel door1Unlock = new JLabel("");
@@ -224,14 +233,11 @@ public class ACS_Canvas {
 		locZone6.setBounds(431, 392, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(locZone6);
 		
-		JButton btnNewButton_1_1_1 = new JButton("Fire");
-		btnNewButton_1_1_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 6));
-		btnNewButton_1_1_1.setBounds(444, 296, 60, 21);
-		frmSecurityAccessControl.getContentPane().add(btnNewButton_1_1_1);
+		JButton fire = new JButton("Fire");
+		fire.setFont(new Font("Tahoma", Font.PLAIN, 6));
+		fire.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_FIRE));
+		fire.setBounds(444, 285, 60, 21);
+		frmSecurityAccessControl.getContentPane().add(fire);
 		
 		JLabel zone3 = new JLabel("Zone3");
 		zone3.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
@@ -604,6 +610,25 @@ public class ACS_Canvas {
 				zone5.setOpaque(false);
 				zone6.setOpaque(false);
 				zone7.setOpaque(false);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+		fire.addActionListener(e -> {
+			if(States.FIRE){
+		//		System.out.println("ACCESSMANU");
+				door3Unlock.setOpaque(true);
+				door2Unlock.setOpaque(true);
+				door1Unlock.setOpaque(true);
+				zone1.setOpaque(false);
+				zone2.setOpaque(false);
+				zone3.setOpaque(false);
+				zone4.setOpaque(false);
+				zone5.setOpaque(false);
+				zone6.setOpaque(false);
+				zone7.setOpaque(false);
+				absStatus.setText("ABS OFF");
+				txtpnPleaseEvacuateThe.setVisible(true);
 				frmSecurityAccessControl.getContentPane().revalidate();
 				frmSecurityAccessControl.getContentPane().repaint();
 			}

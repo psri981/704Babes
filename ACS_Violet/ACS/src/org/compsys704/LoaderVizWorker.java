@@ -12,6 +12,15 @@ public class LoaderVizWorker extends Worker{
 		case "unlock1GUI":
 			States.DOOR1_UNLOCK = status;
 			break;
+
+		case "unlock2GUI":
+			States.DOOR2_UNLOCK = status;
+			break;
+
+		case "unlock3GUI":
+			States.DOOR3_UNLOCK = status;
+			break;
+		
 			
 		case "lock1GUI":
 			System.out.println("boo");

@@ -14,16 +14,9 @@ public class Ports {
 	public static final String SIGNAL_ZONE_OCC_5 = "PlantCD.zoneOcc5";
 	public static final String SIGNAL_ZONE_OCC_6 = "PlantCD.zoneOcc6";
 	public static final String SIGNAL_ZONE_OCC_7 = "PlantCD.zoneOcc7";
+	public static final String SIGNAL_FIRE = "PlantCD.fire";
 	public static final int PORT_LOADER_PLANT = 10001;
 	public static final int PORT_LOADER_CONTROLLER = 10000;
 	public static final int PORT_LOADER_VIZ = 20000;
 	
-	// Manual
-	//public static final String SIGNAL_DOOR1_UNLOCK   = "ControllerCD.unlock1";
-	public static final String SIGNAL_PUSHER_EXTEND   = "ControllerCD.pusherExtendM";
-//	public static final String SIGNAL_VACOFF          = "ControllerCD.vacOffM";
-	public static final String SIGNAL_VACON           = "ControllerCD.vacOnM";
-	public static final String SIGNAL_ARM_SOURCE      = "ControllerCD.armSourceM";
-	public static final String SIGNAL_ARM_DEST        = "ControllerCD.armDestM";
-	public static final String SIGNAL_Mode            = "ControllerCD.mode";
 }

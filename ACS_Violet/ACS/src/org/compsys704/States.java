@@ -9,6 +9,7 @@ public class States {
 	public static volatile boolean ACCESS_MANU = true;
 //	public static volatile boolean DOOR2_UNLOCK = false;
 //	public static volatile boolean DOOR3_UNLOCK = false;
+	public static volatile boolean FIRE = true;
 	public static volatile boolean ROOM0_PRECENSE = true;
 	public static volatile boolean ROOM1_PRECENSE = true;
 	public static volatile boolean ROOM2_PRECENSE = true;

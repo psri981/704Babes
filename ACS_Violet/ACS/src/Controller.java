@@ -442,13 +442,19 @@ public class Controller extends ClockDomain{
                         System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 92, column: 8
                         if(zoneOcc4.getprestatus()){//sysj\controller.sysj line: 94, column: 15
                           personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 95, column: 8
-                          System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 96, column: 8
-                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                          absSuspend.setPresent();//sysj\controller.sysj line: 96, column: 8
+                          currsigs.addElement(absSuspend);
+                          System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 97, column: 8
+                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                            absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                            currsigs.addElement(absSuspend);
+                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -460,9 +466,11 @@ public class Controller extends ClockDomain{
                             }
                           }
                           else {
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -475,12 +483,16 @@ public class Controller extends ClockDomain{
                           }
                         }
                         else {
-                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                            absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                            currsigs.addElement(absSuspend);
+                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -492,9 +504,11 @@ public class Controller extends ClockDomain{
                             }
                           }
                           else {
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -510,13 +524,19 @@ public class Controller extends ClockDomain{
                       else {
                         if(zoneOcc4.getprestatus()){//sysj\controller.sysj line: 94, column: 15
                           personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 95, column: 8
-                          System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 96, column: 8
-                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                          absSuspend.setPresent();//sysj\controller.sysj line: 96, column: 8
+                          currsigs.addElement(absSuspend);
+                          System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 97, column: 8
+                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                            absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                            currsigs.addElement(absSuspend);
+                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -528,9 +548,11 @@ public class Controller extends ClockDomain{
                             }
                           }
                           else {
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -543,12 +565,16 @@ public class Controller extends ClockDomain{
                           }
                         }
                         else {
-                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                            absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                            currsigs.addElement(absSuspend);
+                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -560,9 +586,11 @@ public class Controller extends ClockDomain{
                             }
                           }
                           else {
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -582,13 +610,19 @@ public class Controller extends ClockDomain{
                         System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 92, column: 8
                         if(zoneOcc4.getprestatus()){//sysj\controller.sysj line: 94, column: 15
                           personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 95, column: 8
-                          System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 96, column: 8
-                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                          absSuspend.setPresent();//sysj\controller.sysj line: 96, column: 8
+                          currsigs.addElement(absSuspend);
+                          System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 97, column: 8
+                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                            absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                            currsigs.addElement(absSuspend);
+                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -600,9 +634,11 @@ public class Controller extends ClockDomain{
                             }
                           }
                           else {
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -615,12 +651,16 @@ public class Controller extends ClockDomain{
                           }
                         }
                         else {
-                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                            absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                            currsigs.addElement(absSuspend);
+                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -632,9 +672,11 @@ public class Controller extends ClockDomain{
                             }
                           }
                           else {
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -650,13 +692,19 @@ public class Controller extends ClockDomain{
                       else {
                         if(zoneOcc4.getprestatus()){//sysj\controller.sysj line: 94, column: 15
                           personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 95, column: 8
-                          System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 96, column: 8
-                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                          absSuspend.setPresent();//sysj\controller.sysj line: 96, column: 8
+                          currsigs.addElement(absSuspend);
+                          System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 97, column: 8
+                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                            absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                            currsigs.addElement(absSuspend);
+                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -668,9 +716,11 @@ public class Controller extends ClockDomain{
                             }
                           }
                           else {
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -683,12 +733,16 @@ public class Controller extends ClockDomain{
                           }
                         }
                         else {
-                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                            absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                            currsigs.addElement(absSuspend);
+                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -700,9 +754,11 @@ public class Controller extends ClockDomain{
                             }
                           }
                           else {
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -726,13 +782,19 @@ public class Controller extends ClockDomain{
                         System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 92, column: 8
                         if(zoneOcc4.getprestatus()){//sysj\controller.sysj line: 94, column: 15
                           personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 95, column: 8
-                          System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 96, column: 8
-                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                          absSuspend.setPresent();//sysj\controller.sysj line: 96, column: 8
+                          currsigs.addElement(absSuspend);
+                          System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 97, column: 8
+                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                            absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                            currsigs.addElement(absSuspend);
+                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -744,9 +806,11 @@ public class Controller extends ClockDomain{
                             }
                           }
                           else {
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -759,12 +823,16 @@ public class Controller extends ClockDomain{
                           }
                         }
                         else {
-                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                            absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                            currsigs.addElement(absSuspend);
+                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -776,9 +844,11 @@ public class Controller extends ClockDomain{
                             }
                           }
                           else {
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -794,13 +864,19 @@ public class Controller extends ClockDomain{
                       else {
                         if(zoneOcc4.getprestatus()){//sysj\controller.sysj line: 94, column: 15
                           personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 95, column: 8
-                          System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 96, column: 8
-                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                          absSuspend.setPresent();//sysj\controller.sysj line: 96, column: 8
+                          currsigs.addElement(absSuspend);
+                          System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 97, column: 8
+                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                            absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                            currsigs.addElement(absSuspend);
+                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -812,9 +888,11 @@ public class Controller extends ClockDomain{
                             }
                           }
                           else {
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -827,12 +905,16 @@ public class Controller extends ClockDomain{
                           }
                         }
                         else {
-                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                            absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                            currsigs.addElement(absSuspend);
+                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -844,9 +926,11 @@ public class Controller extends ClockDomain{
                             }
                           }
                           else {
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -866,13 +950,19 @@ public class Controller extends ClockDomain{
                         System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 92, column: 8
                         if(zoneOcc4.getprestatus()){//sysj\controller.sysj line: 94, column: 15
                           personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 95, column: 8
-                          System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 96, column: 8
-                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                          absSuspend.setPresent();//sysj\controller.sysj line: 96, column: 8
+                          currsigs.addElement(absSuspend);
+                          System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 97, column: 8
+                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                            absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                            currsigs.addElement(absSuspend);
+                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -884,9 +974,11 @@ public class Controller extends ClockDomain{
                             }
                           }
                           else {
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -899,12 +991,16 @@ public class Controller extends ClockDomain{
                           }
                         }
                         else {
-                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                            absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                            currsigs.addElement(absSuspend);
+                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -916,9 +1012,11 @@ public class Controller extends ClockDomain{
                             }
                           }
                           else {
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -934,13 +1032,19 @@ public class Controller extends ClockDomain{
                       else {
                         if(zoneOcc4.getprestatus()){//sysj\controller.sysj line: 94, column: 15
                           personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 95, column: 8
-                          System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 96, column: 8
-                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                          absSuspend.setPresent();//sysj\controller.sysj line: 96, column: 8
+                          currsigs.addElement(absSuspend);
+                          System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 97, column: 8
+                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                            absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                            currsigs.addElement(absSuspend);
+                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -952,9 +1056,11 @@ public class Controller extends ClockDomain{
                             }
                           }
                           else {
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -967,12 +1073,16 @@ public class Controller extends ClockDomain{
                           }
                         }
                         else {
-                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                          if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                            absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                            currsigs.addElement(absSuspend);
+                            System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -984,9 +1094,11 @@ public class Controller extends ClockDomain{
                             }
                           }
                           else {
-                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                            if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -1078,7 +1190,7 @@ public class Controller extends ClockDomain{
                   }
                   else {
                     if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 77, column: 11
-                      personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 109, column: 5
+                      personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 112, column: 5
                       System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 48, column: 3
                       S273=0;
                       personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 52, column: 6
@@ -1165,13 +1277,19 @@ public class Controller extends ClockDomain{
                             System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 92, column: 8
                             if(zoneOcc4.getprestatus()){//sysj\controller.sysj line: 94, column: 15
                               personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 95, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 96, column: 8
-                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 96, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 97, column: 8
+                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                                absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                                currsigs.addElement(absSuspend);
+                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1183,9 +1301,11 @@ public class Controller extends ClockDomain{
                                 }
                               }
                               else {
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1198,12 +1318,16 @@ public class Controller extends ClockDomain{
                               }
                             }
                             else {
-                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                                absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                                currsigs.addElement(absSuspend);
+                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1215,9 +1339,11 @@ public class Controller extends ClockDomain{
                                 }
                               }
                               else {
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1233,13 +1359,19 @@ public class Controller extends ClockDomain{
                           else {
                             if(zoneOcc4.getprestatus()){//sysj\controller.sysj line: 94, column: 15
                               personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 95, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 96, column: 8
-                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 96, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 97, column: 8
+                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                                absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                                currsigs.addElement(absSuspend);
+                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1251,9 +1383,11 @@ public class Controller extends ClockDomain{
                                 }
                               }
                               else {
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1266,12 +1400,16 @@ public class Controller extends ClockDomain{
                               }
                             }
                             else {
-                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                                absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                                currsigs.addElement(absSuspend);
+                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1283,9 +1421,11 @@ public class Controller extends ClockDomain{
                                 }
                               }
                               else {
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1305,13 +1445,19 @@ public class Controller extends ClockDomain{
                             System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 92, column: 8
                             if(zoneOcc4.getprestatus()){//sysj\controller.sysj line: 94, column: 15
                               personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 95, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 96, column: 8
-                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 96, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 97, column: 8
+                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                                absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                                currsigs.addElement(absSuspend);
+                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1323,9 +1469,11 @@ public class Controller extends ClockDomain{
                                 }
                               }
                               else {
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1338,12 +1486,16 @@ public class Controller extends ClockDomain{
                               }
                             }
                             else {
-                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                                absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                                currsigs.addElement(absSuspend);
+                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1355,9 +1507,11 @@ public class Controller extends ClockDomain{
                                 }
                               }
                               else {
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1373,13 +1527,19 @@ public class Controller extends ClockDomain{
                           else {
                             if(zoneOcc4.getprestatus()){//sysj\controller.sysj line: 94, column: 15
                               personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 95, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 96, column: 8
-                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 96, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 97, column: 8
+                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                                absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                                currsigs.addElement(absSuspend);
+                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1391,9 +1551,11 @@ public class Controller extends ClockDomain{
                                 }
                               }
                               else {
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1406,12 +1568,16 @@ public class Controller extends ClockDomain{
                               }
                             }
                             else {
-                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                                absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                                currsigs.addElement(absSuspend);
+                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1423,9 +1589,11 @@ public class Controller extends ClockDomain{
                                 }
                               }
                               else {
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1449,13 +1617,19 @@ public class Controller extends ClockDomain{
                             System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 92, column: 8
                             if(zoneOcc4.getprestatus()){//sysj\controller.sysj line: 94, column: 15
                               personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 95, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 96, column: 8
-                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 96, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 97, column: 8
+                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                                absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                                currsigs.addElement(absSuspend);
+                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1467,9 +1641,11 @@ public class Controller extends ClockDomain{
                                 }
                               }
                               else {
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1482,12 +1658,16 @@ public class Controller extends ClockDomain{
                               }
                             }
                             else {
-                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                                absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                                currsigs.addElement(absSuspend);
+                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1499,9 +1679,11 @@ public class Controller extends ClockDomain{
                                 }
                               }
                               else {
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1517,13 +1699,19 @@ public class Controller extends ClockDomain{
                           else {
                             if(zoneOcc4.getprestatus()){//sysj\controller.sysj line: 94, column: 15
                               personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 95, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 96, column: 8
-                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 96, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 97, column: 8
+                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                                absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                                currsigs.addElement(absSuspend);
+                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1535,9 +1723,11 @@ public class Controller extends ClockDomain{
                                 }
                               }
                               else {
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1550,12 +1740,16 @@ public class Controller extends ClockDomain{
                               }
                             }
                             else {
-                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                                absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                                currsigs.addElement(absSuspend);
+                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1567,9 +1761,11 @@ public class Controller extends ClockDomain{
                                 }
                               }
                               else {
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1589,13 +1785,19 @@ public class Controller extends ClockDomain{
                             System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 92, column: 8
                             if(zoneOcc4.getprestatus()){//sysj\controller.sysj line: 94, column: 15
                               personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 95, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 96, column: 8
-                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 96, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 97, column: 8
+                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                                absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                                currsigs.addElement(absSuspend);
+                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1607,9 +1809,11 @@ public class Controller extends ClockDomain{
                                 }
                               }
                               else {
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1622,12 +1826,16 @@ public class Controller extends ClockDomain{
                               }
                             }
                             else {
-                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                                absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                                currsigs.addElement(absSuspend);
+                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1639,9 +1847,11 @@ public class Controller extends ClockDomain{
                                 }
                               }
                               else {
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1657,13 +1867,19 @@ public class Controller extends ClockDomain{
                           else {
                             if(zoneOcc4.getprestatus()){//sysj\controller.sysj line: 94, column: 15
                               personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 95, column: 8
-                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 96, column: 8
-                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                              absSuspend.setPresent();//sysj\controller.sysj line: 96, column: 8
+                              currsigs.addElement(absSuspend);
+                              System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 97, column: 8
+                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                                absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                                currsigs.addElement(absSuspend);
+                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1675,9 +1891,11 @@ public class Controller extends ClockDomain{
                                 }
                               }
                               else {
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1690,12 +1908,16 @@ public class Controller extends ClockDomain{
                               }
                             }
                             else {
-                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 98, column: 15
-                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 99, column: 8
-                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 100, column: 8
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                              if(zoneOcc5.getprestatus()){//sysj\controller.sysj line: 99, column: 15
+                                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 100, column: 8
+                                absSuspend.setPresent();//sysj\controller.sysj line: 101, column: 8
+                                currsigs.addElement(absSuspend);
+                                System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 102, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
@@ -1707,9 +1929,11 @@ public class Controller extends ClockDomain{
                                 }
                               }
                               else {
-                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 102, column: 15
-                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 103, column: 8
-                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 104, column: 8
+                                if(zoneOcc6.getprestatus()){//sysj\controller.sysj line: 104, column: 15
+                                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 105, column: 8
+                                  absSuspend.setPresent();//sysj\controller.sysj line: 106, column: 8
+                                  currsigs.addElement(absSuspend);
+                                  System.out.println(personArray_thread_1[0][2]);//sysj\controller.sysj line: 107, column: 8
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
