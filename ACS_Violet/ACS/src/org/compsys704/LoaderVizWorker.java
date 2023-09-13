@@ -28,6 +28,39 @@ public class LoaderVizWorker extends Worker{
 			System.out.println("boo");
 			States.ACCESS_MANU= status;
 			break;
+			
+		case "zoneOcc0GUI":
+			States.ROOM0_PRECENSE= status;
+			break;
+
+		case "zoneOcc1GUI":
+			States.ROOM1_PRECENSE= status;
+			break;
+			
+		case "zoneOcc2GUI":
+			States.ROOM2_PRECENSE= status;
+			break;
+			
+		case "zoneOcc3GUI":
+			States.ROOM3_PRECENSE= status;
+			break;
+			
+		case "zoneOcc4GUI":
+			States.ROOM4_PRECENSE= status;
+			break;
+			
+		case "zoneOcc5GUI":
+			States.ROOM5_PRECENSE= status;
+			break;
+			
+		case "zoneOcc6GUI":
+			States.ROOM6_PRECENSE= status;
+			break;
+			
+		case "zoneOcc7GUI":
+			States.ROOM7_PRECENSE= status;
+			break;
+			
 //		case "pusherRetractedE":
 //			States.PUSHER_RETRACTED = status;
 //			break;

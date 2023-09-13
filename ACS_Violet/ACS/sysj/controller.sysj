@@ -47,6 +47,11 @@ Controller(
 			System.out.println(personArray[0][1]);
 			pause;
 		}
+		present(zoneOcc1_t){
+			personArray[0][2] = 1;
+			System.out.println(personArray[0][1]);
+			pause;
+		}
 		if(personArray[0][1] == 0) { //if they have office access
 			if(personArray[0][2] < 2) { //if they are in zone 1 or not inside
 				while(personArray[0][1] == 0) { //while they have access

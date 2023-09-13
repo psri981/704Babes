@@ -366,14 +366,7 @@ public class ACS_Canvas {
 		accessManu.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		accessManu.setBounds(395, 296, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(accessManu);
-		accessManu.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_7));
-		accessManu.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_4));
-		accessManu.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_5));
-		accessManu.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_6));
-		accessManu.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_3));
-		accessManu.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_2));
-		accessManu.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_1));		
-		accessManu.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_0));
+		
 		accessManu.addActionListener(e -> {
 			if(States.ACCESS_MANU){
 				System.out.println("ACCESSMANU");
@@ -401,8 +394,18 @@ public class ACS_Canvas {
 		locZone0.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		locZone0.setBounds(406, 420, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(locZone0);
+		
+		locZone0.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_7));
+		locZone1.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_4));
+		locZone2.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_5));
+		locZone3.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_6));
+		locZone4.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_3));
+		locZone5.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_2));
+		locZone6.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_1));		
+		locZone7.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_0));
+		
 		locZone0.addActionListener(e -> {
-			if(States.ACCESS_MANU){
+			if(States.ROOM0_PRECENSE){
 				System.out.println("INZONE0");
 				zone1.setOpaque(false);
 				zone2.setOpaque(false);
@@ -415,6 +418,105 @@ public class ACS_Canvas {
 				frmSecurityAccessControl.getContentPane().repaint();
 			}
 		});
+		locZone1.addActionListener(e -> {
+			if(States.ROOM1_PRECENSE){
+				System.out.println("INZONE1");
+				zone1.setOpaque(true);
+				zone2.setOpaque(false);
+				zone3.setOpaque(false);
+				zone4.setOpaque(false);
+				zone5.setOpaque(false);
+				zone6.setOpaque(false);
+				zone7.setOpaque(false);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+		locZone2.addActionListener(e -> {
+			if(States.ROOM2_PRECENSE){
+				System.out.println("INZONE2");
+				zone1.setOpaque(false);
+				zone2.setOpaque(true);
+				zone3.setOpaque(false);
+				zone4.setOpaque(false);
+				zone5.setOpaque(false);
+				zone6.setOpaque(false);
+				zone7.setOpaque(false);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+		locZone3.addActionListener(e -> {
+			if(States.ROOM3_PRECENSE){
+				System.out.println("INZONE3");
+				zone1.setOpaque(false);
+				zone2.setOpaque(false);
+				zone3.setOpaque(true);
+				zone4.setOpaque(false);
+				zone5.setOpaque(false);
+				zone6.setOpaque(false);
+				zone7.setOpaque(false);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+		locZone4.addActionListener(e -> {
+			if(States.ROOM4_PRECENSE){
+				System.out.println("INZONE4");
+				zone1.setOpaque(false);
+				zone2.setOpaque(false);
+				zone3.setOpaque(false);
+				zone4.setOpaque(true);
+				zone5.setOpaque(false);
+				zone6.setOpaque(false);
+				zone7.setOpaque(false);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+		locZone5.addActionListener(e -> {
+			if(States.ROOM5_PRECENSE){
+				System.out.println("INZONE5");
+				zone1.setOpaque(false);
+				zone2.setOpaque(false);
+				zone3.setOpaque(false);
+				zone4.setOpaque(false);
+				zone5.setOpaque(true);
+				zone6.setOpaque(false);
+				zone7.setOpaque(false);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+		locZone6.addActionListener(e -> {
+			if(States.ROOM6_PRECENSE){
+				System.out.println("INZONE6");
+				zone1.setOpaque(false);
+				zone2.setOpaque(false);
+				zone3.setOpaque(false);
+				zone4.setOpaque(false);
+				zone5.setOpaque(false);
+				zone6.setOpaque(true);
+				zone7.setOpaque(false);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+		locZone7.addActionListener(e -> {
+			if(States.ROOM7_PRECENSE){
+				System.out.println("INZONE7");
+				zone1.setOpaque(false);
+				zone2.setOpaque(false);
+				zone3.setOpaque(false);
+				zone4.setOpaque(false);
+				zone5.setOpaque(false);
+				zone6.setOpaque(false);
+				zone7.setOpaque(true);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+		
 		
 	}
 }
