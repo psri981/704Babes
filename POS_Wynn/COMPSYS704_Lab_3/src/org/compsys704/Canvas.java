@@ -35,6 +35,7 @@ import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import javax.swing.JCheckBox;
 import javax.swing.JMenu;
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JSlider;
 import java.awt.Font; 
@@ -93,6 +94,7 @@ public class Canvas {
 		frmAbs.getContentPane().setForeground(new Color(87, 87, 130));
 		frmAbs.setTitle("Purchase Order System");
 		frmAbs.setBounds(100, 100, 700, 600);
+		frmAbs.setLocationRelativeTo(null);
 		frmAbs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmAbs.getContentPane().setLayout(null);
 		
@@ -235,12 +237,14 @@ public class Canvas {
 		buttonPlaceOrder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+				    Object[] options = {"Order Done"};
+				    int n = JOptionPane.showOptionDialog(null, "Processing your order...  ","POS Alert", JOptionPane.PLAIN_MESSAGE, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
 					String stringLiquidMix = IntStream.of(liquidMix).mapToObj(String::valueOf).collect(Collectors.joining(","));
 					SimpleClient sendBottleQuantity = new SimpleClient("127.0.0.1", 10001, "PlantCD", "bottleQuantity");
 					sendBottleQuantity.emit(sliderBottles.getValue(), 10);
 					SimpleClient sendLiquidMix = new SimpleClient("127.0.0.1", 10001, "PlantCD", "liquidMix");
 					sendLiquidMix.emit(stringLiquidMix, 10);
-					
+
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
