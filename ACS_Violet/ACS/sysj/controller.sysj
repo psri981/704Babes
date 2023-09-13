@@ -1,4 +1,4 @@
-ACS_Controller(
+Controller(
     input signal unlock1_t, lock1, laserProximity, firePresent, door1req, door2req, door3req, manuPerm, officePerm, zoneOcc0, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7;
     input Integer signal person1accessOffice, person1accessManu, person1zone, person1doorreq, person2zone, person2doorreq, person3zone, person3doorreq, person4zone, person4doorreq;
     output signal absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3;

@@ -1,13 +1,14 @@
-import run.ACS_GUI;
+import run.GUI;
 
-ACS_Plant(
-		input signal fire, accessManu, accessOffice, zoneOcc0, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7, manuPerm, officePerm;
-		output signal zoneOcc0_t, zoneOcc1_t, zoneOcc2_t, zoneOcc3_t, zoneOcc4_t, zoneOcc5_t, zoneOcc6_t, zoneOcc7_t, accessOffice_t, accessManu_t;
-		output signal zoneOcc0GUI, zoneOcc1GUI, zoneOcc2GUI, zoneOcc3GUI, zoneOcc4GUI, zoneOcc5GUI, zoneOcc6GUI, zoneOcc7GUI, accessOfficeGUI, accessManuGUI, unlock1GUI, unlock2GUI, unlock3GUI, fire_t, unlock1_t, proxLaserGUI, absStopGUI;
+Plant(
+		input signal fire, accessManu, accessOffice, enable, absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3, zoneOcc0, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7;
+		output signal zoneOcc0GUI, zoneOcc1GUI, zoneOcc2GUI, zoneOcc3GUI, zoneOcc4GUI, zoneOcc5GUI, zoneOcc6GUI, zoneOcc7GUI, accessOfficeGUI, accessManuGUI, lock1GUI, laserProximity, firePresent, door1req, door2req, door3req, manuPerm, officePerm, zoneOcc0_t, zoneOcc1_t, zoneOcc2_t, zoneOcc3_t, zoneOcc4_t, zoneOcc5_t, zoneOcc6_t, zoneOcc7_t;
+		output Integer signal person1accessOffice, person1accessManu, person1zone, person1doorreq, person2zone, person2doorreq, person3zone, person3doorreq, person4zone, person4doorreq;
+		output signal accessManu_t, accessOffice_t, unlock1GUI, unlock2GUI, unlock3GUI, fire_t, unlock1_t, proxLaserGUI, absStopGUI;
 		)
 ->
 {
-	new Thread(new ACS_GUI()).start();
+	new Thread(new GUI()).start();
 
 	{
 		
@@ -17,6 +18,7 @@ ACS_Plant(
 					await(accessOffice);
 					abort(accessManu){
 						while(true) {
+							//System.out.println("OFFIIICEEE");
 							{
 								emit accessOffice_t;
 								pause;
@@ -45,6 +47,7 @@ ACS_Plant(
 					await(accessManu);
 					abort(accessOffice){
 						while(true){
+							//System.out.println("MANUUU");
 							{
 								emit accessManu_t;
 								pause;
@@ -87,7 +90,25 @@ ACS_Plant(
 			
 			emit fire_t;
 		}
-	}
+//			await(enable);
+//			System.out.println("BUTTON WORKS");
+//			emit unlock1_t;
+//			
+//			abort(unlock1){
+//				while(true) {
+//					//System.out.println("b");
+//					emit lock1_t;
+//					pause;
+//				}
+//			}
+//			abort(!unlock1){
+//				while(true) {
+//					//System.out.println("a");
+//					emit unlock1_t;
+//					pause;
+//				}
+//			}
+		}
 	||
 	{//to Viz
 		{while(true) {present(unlock1_t){ emit unlock1GUI;} pause;}}

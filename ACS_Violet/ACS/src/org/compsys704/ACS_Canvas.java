@@ -131,7 +131,7 @@ public class ACS_Canvas {
 		buttonGroup_3.add(accessOffice);
 		accessOffice.setHorizontalAlignment(SwingConstants.LEFT);
 		accessOffice.setFont(new Font("Tahoma", Font.PLAIN, 6));
-		accessOffice.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.SIGNAL_ACCESSOFFICE));
+		accessOffice.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ACCESSOFFICE));
 		accessOffice.setBounds(347, 296, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(accessOffice);
 		
@@ -140,7 +140,7 @@ public class ACS_Canvas {
 		buttonGroup_4.add(accessManu);
 		accessManu.setHorizontalAlignment(SwingConstants.LEFT);
 		accessManu.setFont(new Font("Tahoma", Font.PLAIN, 6));
-		accessManu.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.SIGNAL_ACCESSMANU));
+		accessManu.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ACCESSMANU));
 		accessManu.setBounds(395, 296, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(accessManu);
 		
@@ -235,7 +235,7 @@ public class ACS_Canvas {
 		
 		JButton fire = new JButton("Fire");
 		fire.setFont(new Font("Tahoma", Font.PLAIN, 6));
-		fire.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.SIGNAL_FIRE));
+		fire.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_FIRE));
 		fire.setBounds(444, 285, 60, 21);
 		frmSecurityAccessControl.getContentPane().add(fire);
 		
@@ -293,7 +293,7 @@ public class ACS_Canvas {
 		locZone0.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		locZone0.setBounds(406, 420, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(locZone0);
-		locZone0.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.SIGNAL_ZONE_OCC_0));
+		locZone0.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_0));
 		
 		
 		JLabel lblNewLabel_6_2 = new JLabel("Mode Select");
@@ -427,17 +427,17 @@ public class ACS_Canvas {
 		label.setBounds(28, 298, 85, 25);
 		frmSecurityAccessControl.getContentPane().add(label);
 		
-		locZone7.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.SIGNAL_ZONE_OCC_7));
-		locZone6.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.SIGNAL_ZONE_OCC_6));
-		locZone5.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.SIGNAL_ZONE_OCC_5));
-		locZone4.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.SIGNAL_ZONE_OCC_4));
-		locZone3.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.SIGNAL_ZONE_OCC_3));
-		locZone2.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.SIGNAL_ZONE_OCC_2));
-		locZone1.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.SIGNAL_ZONE_OCC_1));		
-		locZone1.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.SIGNAL_ZONE_OCC_1));	
+		locZone7.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_7));
+		locZone6.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_6));
+		locZone5.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_5));
+		locZone4.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_4));
+		locZone3.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_3));
+		locZone2.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_2));
+		locZone1.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_1));		
+		locZone1.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_1));	
 		
 		locZone0.addActionListener(e -> {
-			if(ACS_States.ROOM0_PRECENSE){
+			if(States.ROOM0_PRECENSE){
 				System.out.println("INZONE0");
 				zone1.setOpaque(false);
 				zone2.setOpaque(false);
@@ -454,7 +454,7 @@ public class ACS_Canvas {
 		});
 		
 		locZone1.addActionListener(e -> {
-			if(ACS_States.ROOM1_PRECENSE){
+			if(States.ROOM1_PRECENSE){
 				System.out.println("INZONE1");
 				zone1.setOpaque(true);
 				zone2.setOpaque(false);
@@ -470,7 +470,7 @@ public class ACS_Canvas {
 			}
 		});
 		locZone2.addActionListener(e -> {
-			if(ACS_States.ROOM2_PRECENSE){
+			if(States.ROOM2_PRECENSE){
 				System.out.println("INZONE2");
 				zone1.setOpaque(false);
 				zone2.setOpaque(true);
@@ -486,7 +486,7 @@ public class ACS_Canvas {
 			}
 		});
 		locZone3.addActionListener(e -> {
-			if(ACS_States.ROOM3_PRECENSE){
+			if(States.ROOM3_PRECENSE){
 				System.out.println("INZONE3");
 				zone1.setOpaque(false);
 				zone2.setOpaque(false);
@@ -502,7 +502,7 @@ public class ACS_Canvas {
 			}
 		});
 		locZone4.addActionListener(e -> {
-			if(ACS_States.ROOM4_PRECENSE){
+			if(States.ROOM4_PRECENSE){
 				System.out.println("INZONE4");
 				zone1.setOpaque(false);
 				zone2.setOpaque(false);
@@ -518,7 +518,7 @@ public class ACS_Canvas {
 			}
 		});
 		locZone5.addActionListener(e -> {
-			if(ACS_States.ROOM5_PRECENSE){
+			if(States.ROOM5_PRECENSE){
 				System.out.println("INZONE5");
 				zone1.setOpaque(false);
 				zone2.setOpaque(false);
@@ -534,7 +534,7 @@ public class ACS_Canvas {
 			}
 		});
 		locZone6.addActionListener(e -> {
-			if(ACS_States.ROOM6_PRECENSE){
+			if(States.ROOM6_PRECENSE){
 				System.out.println("INZONE6");
 				zone1.setOpaque(false);
 				zone2.setOpaque(false);
@@ -550,7 +550,7 @@ public class ACS_Canvas {
 			}
 		});
 		locZone7.addActionListener(e -> {
-			if(ACS_States.ROOM7_PRECENSE){
+			if(States.ROOM7_PRECENSE){
 				System.out.println("INZONE7");
 				zone1.setOpaque(false);
 				zone2.setOpaque(false);
@@ -566,7 +566,7 @@ public class ACS_Canvas {
 			}
 		});
 		accessOffice.addActionListener(e -> {
-			if(ACS_States.ACCESS_OFFICE){
+			if(States.ACCESS_OFFICE){
 				//System.out.println("ACCESSOFFICE");
 				door1Unlock.setOpaque(true);
 				door3Unlock.setOpaque(false);
@@ -591,7 +591,7 @@ public class ACS_Canvas {
 		});
 		
 		accessManu.addActionListener(e -> {
-			if(ACS_States.ACCESS_MANU){
+			if(States.ACCESS_MANU){
 		//		System.out.println("ACCESSMANU");
 				door3Unlock.setOpaque(true);
 				door1Unlock.setOpaque(false);
@@ -615,7 +615,7 @@ public class ACS_Canvas {
 			}
 		});
 		fire.addActionListener(e -> {
-			if(ACS_States.FIRE){
+			if(States.FIRE){
 		//		System.out.println("ACCESSMANU");
 				door3Unlock.setOpaque(true);
 				door2Unlock.setOpaque(true);

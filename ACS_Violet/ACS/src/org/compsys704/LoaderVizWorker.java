@@ -3,76 +3,76 @@ package org.compsys704;
 import java.util.Arrays;
 import java.util.List;
 
-public class ACS_VizWorker extends Worker{
+public class LoaderVizWorker extends Worker{
 
 	@Override
 	public void setSignal(boolean status) {
 //		System.out.println(signame+"  "+status);
 		switch(signame){
 		case "unlock1GUI":
-			ACS_States.DOOR1_UNLOCK = status;
+			States.DOOR1_UNLOCK = status;
 			break;
 
 		case "unlock2GUI":
-			ACS_States.DOOR2_UNLOCK = status;
+			States.DOOR2_UNLOCK = status;
 			break;
 
 		case "unlock3GUI":
-			ACS_States.DOOR3_UNLOCK = status;
+			States.DOOR3_UNLOCK = status;
 			break;
 		
 			
 		case "lock1GUI":
 			System.out.println("boo");
-			ACS_States.DOOR1_LOCK = status;
+			States.DOOR1_LOCK = status;
 			break;
 			
 		case "accessOfficeGUI":
-			ACS_States.ACCESS_OFFICE = status;
+			States.ACCESS_OFFICE = status;
 			break;
 			
 		case "accessManuGUI":
-			ACS_States.ACCESS_MANU= status;
+			States.ACCESS_MANU= status;
 			break;
 			
 		case "zoneOcc0GUI":
-			ACS_States.ROOM0_PRECENSE= status;
+			States.ROOM0_PRECENSE= status;
 			break;
 
 		case "zoneOcc1GUI":
-			ACS_States.ROOM1_PRECENSE= status;
+			States.ROOM1_PRECENSE= status;
 			break;
 			
 		case "zoneOcc2GUI":
-			ACS_States.ROOM2_PRECENSE= status;
+			States.ROOM2_PRECENSE= status;
 			break;
 			
 		case "zoneOcc3GUI":
-			ACS_States.ROOM3_PRECENSE= status;
+			States.ROOM3_PRECENSE= status;
 			break;
 			
 		case "zoneOcc4GUI":
-			ACS_States.ROOM4_PRECENSE= status;
+			States.ROOM4_PRECENSE= status;
 			break;
 			
 		case "zoneOcc5GUI":
-			ACS_States.ROOM5_PRECENSE= status;
+			States.ROOM5_PRECENSE= status;
 			break;
 			
 		case "zoneOcc6GUI":
-			ACS_States.ROOM6_PRECENSE= status;
+			States.ROOM6_PRECENSE= status;
 			break;
 			
 		case "zoneOcc7GUI":
-			ACS_States.ROOM7_PRECENSE= status;
+			States.ROOM7_PRECENSE= status;
 			break;
 			
 		case "proxLaserGUI":
-			ACS_States.LASERPROX_SENSE= status;
+			States.LASERPROX_SENSE= status;
 			break;
 			
 		case "absStopGUI":
-			ACS_States.ABS_OFF= status;
+			States.ABS_OFF= status;
 			break;
 			
 //		case "pusherRetractedE":
