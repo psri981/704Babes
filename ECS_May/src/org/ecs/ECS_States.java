@@ -43,13 +43,13 @@ public class ECS_States {
 	// --------------- POWER SUPPLY STATES --------------- //
 
 	// --------------- POWER SUPPLY STATES --------------- //
-	public static volatile boolean POW_OFF_ZONE_1 = true;//
-	public static volatile boolean POW_OFF_ZONE_2 = true;//
-	public static volatile boolean POW_OFF_ZONE_3 = true;//
-	public static volatile boolean POW_OFF_ZONE_4 = true;//
-	public static volatile boolean POW_OFF_ZONE_5 = true;//
-	public static volatile boolean POW_OFF_ZONE_6 = true;//
-	public static volatile boolean POW_OFF_ZONE_7 = true;//
+	public static volatile boolean POW_OFF_ZONE_1 = false;//
+	public static volatile boolean POW_OFF_ZONE_2 = false;//
+	public static volatile boolean POW_OFF_ZONE_3 = false;//
+	public static volatile boolean POW_OFF_ZONE_4 = false;//
+	public static volatile boolean POW_OFF_ZONE_5 = false;//
+	public static volatile boolean POW_OFF_ZONE_6 = false;//
+	public static volatile boolean POW_OFF_ZONE_7 = false;//
 	// --------------- POWER SUPPLY STATES --------------- //	
 	
 	// --------------- APPLIANCE STATES --------------- //

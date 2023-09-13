@@ -15,20 +15,11 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Toolkit;
-
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -56,7 +47,8 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.JTextPane;
 import javax.swing.JProgressBar;
 import javax.swing.AbstractAction;
-import javax.swing.Action; 
+import javax.swing.Action;
+import com.systemj.ipc.SignalClient;
 import com.systemj.netapi.SimpleClient; 
 import com.systemj.netapi.SimpleServer;
 
@@ -110,6 +102,8 @@ public class ECS_Canvas {
 	int lightValue = 5;
     int temperatureValue = 10;
     int humidityValue = 50;
+    int selectedZoneButton = -1; // Initialize to -1
+    boolean firebtnPressed = false;
 	
 	private void initialize() {
 		frmECS = new JFrame();
@@ -341,47 +335,47 @@ public class ECS_Canvas {
 		heatAirConZ2.setBounds(361, 312, 26, 30);
 		ZONES.add(heatAirConZ2);
 		
-		JLabel sAlarmDActZ2 = new JLabel("");
-		sAlarmDActZ2.setIcon(new ImageIcon("ECS_res\\appliances\\smokeAlarmAct.png"));
-		sAlarmDActZ2.setEnabled(false);
-		sAlarmDActZ2.setBounds(426, 180, 32, 30);
-		ZONES.add(sAlarmDActZ2);
+		JLabel sAlarmZ2 = new JLabel("");
+		sAlarmZ2.setIcon(new ImageIcon("ECS_res\\appliances\\smokeAlarmAct.png"));
+		sAlarmZ2.setEnabled(false);
+		sAlarmZ2.setBounds(426, 180, 32, 30);
+		ZONES.add(sAlarmZ2);
 		
-		JLabel sAlarmDActZ1 = new JLabel("");
-		sAlarmDActZ1.setIcon(new ImageIcon("ECS_res\\appliances\\smokeAlarmAct.png"));
-		sAlarmDActZ1.setEnabled(false);
-		sAlarmDActZ1.setBounds(146, 180, 32, 30);
-		ZONES.add(sAlarmDActZ1);
+		JLabel sAlarmZ1 = new JLabel("");
+		sAlarmZ1.setIcon(new ImageIcon("ECS_res\\appliances\\smokeAlarmAct.png"));
+		sAlarmZ1.setEnabled(false);
+		sAlarmZ1.setBounds(146, 180, 32, 30);
+		ZONES.add(sAlarmZ1);
 		
-		JLabel sAlarmDActZ7 = new JLabel("");
-		sAlarmDActZ7.setIcon(new ImageIcon("ECS_res\\appliances\\smokeAlarmAct.png"));
-		sAlarmDActZ7.setEnabled(false);
-		sAlarmDActZ7.setBounds(146, 5, 32, 30);
-		ZONES.add(sAlarmDActZ7);
+		JLabel sAlarmZ7 = new JLabel("");
+		sAlarmZ7.setIcon(new ImageIcon("ECS_res\\appliances\\smokeAlarmAct.png"));
+		sAlarmZ7.setEnabled(false);
+		sAlarmZ7.setBounds(146, 5, 32, 30);
+		ZONES.add(sAlarmZ7);
 		
-		JLabel sAlarmDActZ6 = new JLabel("");
-		sAlarmDActZ6.setIcon(new ImageIcon("ECS_res\\appliances\\smokeAlarmAct.png"));
-		sAlarmDActZ6.setEnabled(false);
-		sAlarmDActZ6.setBounds(704, 5, 32, 30);
-		ZONES.add(sAlarmDActZ6);
+		JLabel sAlarmZ6 = new JLabel("");
+		sAlarmZ6.setIcon(new ImageIcon("ECS_res\\appliances\\smokeAlarmAct.png"));
+		sAlarmZ6.setEnabled(false);
+		sAlarmZ6.setBounds(704, 5, 32, 30);
+		ZONES.add(sAlarmZ6);
 		
-		JLabel sAlarmDActZ4 = new JLabel("");
-		sAlarmDActZ4.setIcon(new ImageIcon("ECS_res\\appliances\\smokeAlarmAct.png"));
-		sAlarmDActZ4.setEnabled(false);
-		sAlarmDActZ4.setBounds(374, 5, 32, 30);
-		ZONES.add(sAlarmDActZ4);
+		JLabel sAlarmZ4 = new JLabel("");
+		sAlarmZ4.setIcon(new ImageIcon("ECS_res\\appliances\\smokeAlarmAct.png"));
+		sAlarmZ4.setEnabled(false);
+		sAlarmZ4.setBounds(374, 5, 32, 30);
+		ZONES.add(sAlarmZ4);
 		
-		JLabel sAlarmDActZ5 = new JLabel("");
-		sAlarmDActZ5.setIcon(new ImageIcon("ECS_res\\appliances\\smokeAlarmAct.png"));
-		sAlarmDActZ5.setEnabled(false);
-		sAlarmDActZ5.setBounds(539, 4, 32, 30);
-		ZONES.add(sAlarmDActZ5);
+		JLabel sAlarmZ5 = new JLabel("");
+		sAlarmZ5.setIcon(new ImageIcon("ECS_res\\appliances\\smokeAlarmAct.png"));
+		sAlarmZ5.setEnabled(false);
+		sAlarmZ5.setBounds(539, 4, 32, 30);
+		ZONES.add(sAlarmZ5);
 		
-		JLabel sAlarmDActZ3 = new JLabel("");
-		sAlarmDActZ3.setIcon(new ImageIcon("ECS_res\\appliances\\smokeAlarmAct.png"));
-		sAlarmDActZ3.setEnabled(false);
-		sAlarmDActZ3.setBounds(653, 180, 32, 30);
-		ZONES.add(sAlarmDActZ3);
+		JLabel sAlarmZ3 = new JLabel("");
+		sAlarmZ3.setIcon(new ImageIcon("ECS_res\\appliances\\smokeAlarmAct.png"));
+		sAlarmZ3.setEnabled(false);
+		sAlarmZ3.setBounds(653, 180, 32, 30);
+		ZONES.add(sAlarmZ3);
 		
 		JLabel coolAirZ4 = new JLabel("");
 		coolAirZ4.setIcon(new ImageIcon("ECS_res\\appliances\\coolAirCon.png"));
@@ -401,15 +395,10 @@ public class ECS_Canvas {
 		coolAirZ5.setBounds(465, 137, 30, 30);
 		ZONES.add(coolAirZ5);
 		
-		JLabel coolAirZ3_1 = new JLabel("");
-		coolAirZ3_1.setIcon(new ImageIcon("ECS_res\\appliances\\coolAirCon.png"));
-		coolAirZ3_1.setEnabled(false);
-		coolAirZ3_1.setBounds(561, 312, 30, 30);
-		ZONES.add(coolAirZ3_1);
-		
 		JLabel coolAirZ3 = new JLabel("");
+		coolAirZ3.setIcon(new ImageIcon("ECS_res\\appliances\\coolAirCon.png"));
 		coolAirZ3.setEnabled(false);
-		coolAirZ3.setBounds(566, 312, 30, 30);
+		coolAirZ3.setBounds(561, 312, 30, 30);
 		ZONES.add(coolAirZ3);
 		
 		JLabel coolAirZ2 = new JLabel("");
@@ -590,6 +579,16 @@ public class ECS_Canvas {
 		FIREtglbtn.setBackground(new Color(87, 87, 130));
 		FIREtglbtn.setIcon(new ImageIcon("ECS_res\\controls\\fire.png"));
 		FIREtglbtn.setOpaque(true);
+		FIREtglbtn.addActionListener(new ActionListener() {
+			@SuppressWarnings("resource")
+			public void actionPerformed(ActionEvent e) {
+				if(firebtnPressed) {
+					firebtnPressed = false;
+				}else {
+					firebtnPressed = true;
+				}
+			}
+		});
 		
 		JToggleButton CLEANtglbtn = new JToggleButton("");
 		CLEANtglbtn.setBounds(10, 0, 127, 91);
@@ -607,6 +606,41 @@ public class ECS_Canvas {
 		JToggleButton[] zoneButtons = new JToggleButton[7];
 		JButton Simulatebtn = new JButton("RUN");
 		Simulatebtn.setEnabled(false);
+		Simulatebtn.addActionListener(new ECS_SignalClient(ECS_Ports.PORT_LOADER_PLANT, ECS_Ports.RUN_SIGNAL));
+		Simulatebtn.addActionListener(new ActionListener() {
+			@SuppressWarnings("resource")
+			public void actionPerformed(ActionEvent e) {
+				try {
+				
+					if (selectedZoneButton == 1 || selectedZoneButton == 7) {
+						SimpleClient sendTemp = new SimpleClient("127.0.0.1", 10001, "ECSPlantCD", "tempZone1_7");
+						SimpleClient sendHumid = new SimpleClient("127.0.0.1", 10001, "ECSPlantCD", "humidZone1_7");
+						SimpleClient sendLight = new SimpleClient("127.0.0.1", 10001, "ECSPlantCD", "lightInt");
+						sendLight.emit(lightValue, 10);
+						sendTemp.emit(temperatureValue, 10);
+						sendHumid.emit(humidityValue, 10);	
+					}else if(selectedZoneButton == 2 || selectedZoneButton == 3) {
+						SimpleClient sendTemp = new SimpleClient("127.0.0.1", 10001, "ECSPlantCD", "tempZone2_3");
+						SimpleClient sendHumid = new SimpleClient("127.0.0.1", 10001, "ECSPlantCD", "humidZone2_3");
+						SimpleClient sendLight = new SimpleClient("127.0.0.1", 10001, "ECSPlantCD", "lightInt");
+						sendLight.emit(lightValue, 10);
+						sendTemp.emit(temperatureValue, 10);
+						sendHumid.emit(humidityValue, 10);	
+					}else if(selectedZoneButton == 4 || selectedZoneButton == 5 || selectedZoneButton == 6) {
+						SimpleClient sendTemp = new SimpleClient("127.0.0.1", 10001, "ECSPlantCD", "tempZone4_5_6");
+						SimpleClient sendHumid = new SimpleClient("127.0.0.1", 10001, "ECSPlantCD", "humidZone4_5_6");
+						SimpleClient sendLight = new SimpleClient("127.0.0.1", 10001, "ECSPlantCD", "lightInt");
+						sendLight.emit(lightValue, 10);
+						sendTemp.emit(temperatureValue, 10);
+						sendHumid.emit(humidityValue, 10);
+					}	
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		
+//		ECS_Ports.PORT_LOADER_PLANT, ECS_Ports.RUN_SIGNAL
 
 		// Add zone buttons to the array
 		zoneButtons[0] = z1btn;
@@ -621,7 +655,6 @@ public class ECS_Canvas {
 		ItemListener zoneSelectionListener = new ItemListener() {
 		    @SuppressWarnings("resource")
 			public void itemStateChanged(ItemEvent e) {
-		        int selectedZoneButton = -1; // Initialize to -1 or another default value
 		        // Check if any zone button is selected
 		        for (int i = 0; i < zoneButtons.length; i++) {
 		            if (zoneButtons[i].isSelected()) {
@@ -637,7 +670,7 @@ public class ECS_Canvas {
 						}
 		                try {
 		                	// emit for 20ms
-							selectedZoneClient.emit(i, 20);
+							selectedZoneClient.emit(i, 10);
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -656,19 +689,18 @@ public class ECS_Canvas {
 		    button.addItemListener(zoneSelectionListener);
 		}
 
+
 		// Create an action for the "RUN" button
+		@SuppressWarnings("serial")
 		Action runAction = new AbstractAction("RUN") {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        // Check the condition, e.g., if a zone is pressed
-		        boolean zoneIsPressed = true;
-
-		        if (zoneIsPressed) {
-		            // do what with what signal
-//		        	System.out.println(selectedZoneButton);
-		        }
+		        boolean zoneIsPressed = true;    
+		        
 		    }
 		};
+		
 
 		// Create the "RUN" button and set its action
 		Simulatebtn.setAction(runAction);
@@ -702,136 +734,229 @@ public class ECS_Canvas {
 	    frmECS.getContentPane().add(txtpnTime);
 	    clockThread.start();
 		
-//	    btnNewButton.addActionListener(e -> {
+	    // STATE CHECKING FOR GUI
+ 	    Simulatebtn.addActionListener(e -> {
 	    
-//		if(!ECS_States.LID_LOADED_POS_3) {
-//			lidLoadedPos3.setVisible(false);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//		}
-//		else {
-//			lidLoadedPos3.setVisible(true);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//		}
-//		if(!ECS_States.FILLED_BOT_POS_2) {
-//			filledBotPos2.setVisible(false);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//		}
-//		else {
-//			filledBotPos2.setVisible(true);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//		}
-//		if(!ECS_States.DONE_BOT_POS_6) {
-//			doneBotPos6.setVisible(false);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//		}
-//		else {
-//			doneBotPos6.setVisible(true);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//		}
-//		if(!ECS_States.DONE_BOT_POS_5) {
-//			doneBotPos5.setVisible(false);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//		}
-//		else {
-//			doneBotPos5.setVisible(true);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//		}
-//		if(!ECS_States.EMPTY_BOT_POS_0) {
-//			emptyBotPos0.setVisible(false);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//		}
-//		else {
-//			emptyBotPos0.setVisible(true);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//		}
+ 	    // CHECK FOR FIRES -- IF THERE IS FIRE TURN ON SMOKE ALARM
+ 	    
+ 	    if(firebtnPressed){
+ 	    	if(!ECS_States.FIRE_ZONE_1) {
+ 				sAlarmZ1.setEnabled(true);
+ 				powerZ1.setEnabled(false);
+ 				System.out.println("ASS FIRE");
+ 			}
+ 			else {
+ 				sAlarmZ1.setEnabled(false);
+ 				powerZ1.setEnabled(true);
+ 			}
+ 			
+ 			if(!ECS_States.FIRE_ZONE_2) {
+ 				sAlarmZ2.setEnabled(true);
+ 				powerZ2.setEnabled(false);
+ 				System.out.println("ASS FIRE");
+
+ 			}
+ 			else {
+ 				sAlarmZ2.setEnabled(false);
+ 				powerZ2.setEnabled(true);
+ 			}
+ 			
+ 			if(!ECS_States.FIRE_ZONE_3) {
+ 				sAlarmZ3.setEnabled(true);
+ 				powerZ3.setEnabled(false);
+ 				System.out.println("ASS FIRE");
+
+ 			}
+ 			else {
+ 				sAlarmZ3.setEnabled(false);
+ 				powerZ3.setEnabled(true);
+ 			}
+ 			
+ 			if(!ECS_States.FIRE_ZONE_4) {
+ 				sAlarmZ4.setEnabled(true);
+ 				powerZ4.setEnabled(false);
+ 				System.out.println("ASS FIRE");
+
+ 			}
+ 			else {
+ 				sAlarmZ4.setEnabled(false);
+ 				powerZ4.setEnabled(true);
+ 			}
+ 			
+ 			if(!ECS_States.FIRE_ZONE_5) {
+ 				sAlarmZ5.setEnabled(true);
+ 				powerZ5.setEnabled(false);
+ 				System.out.println("ASS FIRE");
+
+ 			}
+ 			else {
+ 				sAlarmZ5.setEnabled(false);
+ 				powerZ5.setEnabled(true);
+ 			}
+ 			
+ 			if(!ECS_States.FIRE_ZONE_6) {
+ 				sAlarmZ6.setEnabled(true);
+ 				powerZ6.setEnabled(false);
+ 				System.out.println("ASS FIRE");
+
+ 			}
+ 			else {
+ 				sAlarmZ6.setEnabled(false);
+ 				powerZ6.setEnabled(true);
+ 			}
+ 			
+ 			if(!ECS_States.FIRE_ZONE_7) {
+ 				sAlarmZ7.setEnabled(true);
+ 				powerZ7.setEnabled(false);
+ 				System.out.println("ASS FIRE");
+
+ 			}
+ 			else {
+ 				sAlarmZ7.setEnabled(false);
+ 				powerZ7.setEnabled(true);
+ 			}
+ 	    }
+ 	    	  
+		// CHECK IF ROOMS MUST BE CLEANED
+		
+		// CHECK IF TEMPERATURE AND HUMIDITY MUST BE ADJUSTED
+		if(!ECS_States.FAN_ZONE_1_7) {
+			fanOnZ1.setEnabled(true);
+			fanOnZ7.setEnabled(true);
+		}
+		else {
+			fanOnZ1.setEnabled(false);
+			fanOnZ7.setEnabled(false);
+		}
+		
+		if(!ECS_States.HEAT_ZONE_1_7) {
+			heatOnZ1.setEnabled(true);
+			heatOnZ7.setEnabled(true);
+		}
+		else {
+			heatOnZ1.setEnabled(false);
+			heatOnZ7.setEnabled(false);
+		}
+		
+		if(!ECS_States.AC_COOL_ZONE_2_3) {
+			coolAirZ2.setEnabled(true);
+			coolAirZ3.setEnabled(true);
+		}
+		else {
+			coolAirZ2.setEnabled(false);
+			coolAirZ3.setEnabled(false);
+		}
+		
+		if(!ECS_States.AC_COOL_ZONE_4_5_6) {
+			coolAirZ4.setEnabled(true);
+			coolAirZ5.setEnabled(true);
+			coolAirZ6.setEnabled(true);
+		}
+		else {
+			coolAirZ4.setEnabled(false);
+			coolAirZ5.setEnabled(false);
+			coolAirZ6.setEnabled(false);
+		}
+		
+		if(!ECS_States.AC_HEAT_ZONE_2_3) {
+			heatAirConZ2.setEnabled(true);
+			heatAirConZ3.setEnabled(true);
+		}
+		else {
+			heatAirConZ2.setEnabled(false);
+			heatAirConZ3.setEnabled(false);
+		}
+		
+		if(!ECS_States.AC_HEAT_ZONE_4_5_6) {
+			heatAirConZ4.setEnabled(true);
+			heatAirConZ5.setEnabled(true);
+			heatAirConZ6.setEnabled(true);
+		}
+		else {
+			heatAirConZ4.setEnabled(false);
+			heatAirConZ5.setEnabled(false);
+			heatAirConZ6.setEnabled(false);
+		}
+		
+		if(!ECS_States.HUM_ZONE_1_7) {
+			humZ1.setEnabled(true);
+			humZ7.setEnabled(true);
+		}
+		else {
+			humZ1.setEnabled(false);
+			humZ7.setEnabled(false);
+		}
+		
+		if(!ECS_States.HUM_ZONE_2_3) {
+			humZ2.setEnabled(true);
+			humZ3.setEnabled(true);
+		}
+		else {
+			humZ2.setEnabled(false);
+			humZ3.setEnabled(false);
+		}
+		
+		if(!ECS_States.HUM_ZONE_4_5_6) {
+			humZ4.setEnabled(true);
+			humZ5.setEnabled(true);
+			humZ6.setEnabled(true);
+		}
+		else {
+			humZ4.setEnabled(false);
+			humZ5.setEnabled(false);
+			humZ6.setEnabled(false);
+		}
+		
+		if(!ECS_States.DEHUM_ZONE_1_7) {
+			deHumZ1.setEnabled(true);
+			deHumZ7.setEnabled(true);
+		}
+		else {
+			deHumZ1.setEnabled(false);
+			deHumZ7.setEnabled(false);
+		}
+		
+		if(!ECS_States.DEHUM_ZONE_2_3) {
+			deHumZ2.setEnabled(true);
+			deHumZ3.setEnabled(true);
+		}
+		else {
+			deHumZ2.setEnabled(false);
+			deHumZ3.setEnabled(false);
+		}
+		
+		if(!ECS_States.DEHUM_ZONE_4_5_6) {
+			deHumZ4.setEnabled(true);
+			deHumZ5.setEnabled(true);
+			deHumZ6.setEnabled(true);
+		}
+		else {
+			deHumZ4.setEnabled(false);
+			deHumZ5.setEnabled(false);
+			deHumZ6.setEnabled(false);
+		}
+		
+//		waitls(5s);
 //		
-//		if(!ECS_States.EMPTY_BOT_POS_1) {
-//			emptyBotPos1.setVisible(false);
-////			System.out.println(ECS_States.EMPTY_BOT_POS_1);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//		}
-//		else {
-//			emptyBotPos1.setVisible(true);
-////			System.out.println(ECS_States.EMPTY_BOT_POS_1);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//
-//		}
 //		
-//		if(!ECS_States.EMPTY_BOT_POS_2) {
-//			emptyBotPos2.setVisible(false);
-//		//	System.out.println(ECS_States.EMPTY_BOT_POS_1);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//
-//		}
-//		else {
-//			emptyBotPos2.setVisible(true);
-//			//System.out.println(ECS_States.EMPTY_BOT_POS_1);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//
-//		}
-//		if(!ECS_States.FILLED_BOT_POS_3) {
-//		//	System.out.println("3");
-//			filledBotPos3.setVisible(false);
-////			System.out.println(ECS_States.EMPTY_BOT_POS_1);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//
-//		}
-//		else {
-//			//System.out.println("3_5");
-//			filledBotPos3.setVisible(true);
-////			System.out.println(ECS_States.EMPTY_BOT_POS_1);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//
-//		}
-//		if(!ECS_States.CAP_SCREWED_POS_4) {
-//			//System.out.println("4");
-//			capScrewedPos4.setVisible(false);
-////			System.out.println(ECS_States.EMPTY_BOT_POS_1);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//
-//		}
-//		else {
-//			//System.out.println("4_5");
-//			capScrewedPos4.setVisible(true);
-////			System.out.println(ECS_States.EMPTY_BOT_POS_1);
-//			frmECS.getContentPane().revalidate();
-//			frmECS.getContentPane().repaint();;
-//
-//
-//		}});
+//		
+//		humZ1.setEnabled(false);
+//		humZ2.setEnabled(false);
+//		humZ3.setEnabled(false);
+//		humZ4.setEnabled(false);
+//		humZ5.setEnabled(false);
+//		humZ6.setEnabled(false);
+//		humZ7.setEnabled(false);
+//		
+//		deHumZ1.setEnabled(false);
+//		deHumZ2.setEnabled(false);
+//		deHumZ3.setEnabled(false);
+//		deHumZ4.setEnabled(false);
+//		deHumZ5.setEnabled(false);
+//		deHumZ6.setEnabled(false);
+//		deHumZ7.setEnabled(false);
+
+		});
 
 	}
 }

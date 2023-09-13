@@ -15,35 +15,43 @@ ECS_controller(
 	while(true) {
 		
 		// CHECK FOR POWER CUTS
-		abort(cutPowZ1 || cutPowZ2 || cutPowZ3 || cutPowZ4 || cutPowZ5 || cutPowZ6 || cutPowZ7){
+		present(cutPowZ1 || cutPowZ2 || cutPowZ3 || cutPowZ4 || cutPowZ5 || cutPowZ6 || cutPowZ7){
 			emit powerOff;
 			pause;
 		}
 	
 		// CHECK FOR FIRE
-		abort(fireZone1 || fireZone2 || fireZone3 || fireZone4 || fireZone5 || fireZone6 || fireZone7){
-			
+		present(fireZone1 || fireZone2 || fireZone3 || fireZone4 || fireZone5 || fireZone6 || fireZone7){
+			System.out.println("");
+			System.out.println("Smoke alarm activated please wait for fire to be extinguished...");
+			waitl(5s);
 			emit alarmOff;
 			pause;
 		}
 
 		// CHECK FOR CLEANLINESS
-		abort(cleanZone1 || cleanZone2 || cleanZone3 || cleanZone4 || cleanZone5 || cleanZone6 || cleanZone7){
-			
+		present(cleanZone1 || cleanZone2 || cleanZone3 || cleanZone4 || cleanZone5 || cleanZone6 || cleanZone7){
+			System.out.println("");
+			System.out.println("High levels of dust detected please wait for room to be cleaned...");
+			waitl(5s);
 			emit roomCleaned;
 			pause;
 		}
 		
 		// CHECK FOR TEMPERATURE
-		abort(fanOnZone1_7 || heatOnZone1_7 || airOnZone2_3 || airOnZone4_5_6 || heatOnZone2_3 || heatOnZone4_5_6){
-			
+		present(fanOnZone1_7 || heatOnZone1_7 || airOnZone2_3 || airOnZone4_5_6 || heatOnZone2_3 || heatOnZone4_5_6){
+			System.out.println("");
+			System.out.println("Room temperature is not optimal, please wait for it to moderate...");
+			waitl(5s);
 			emit safeOpTemp;
 			pause;
 		}
 		
 		// CHECK FOR HUMIDITY CHANGES
-		abort(humOnZone1_7 || humOnZone2_3 || humOnZone4_5_6 || deHumOnZone1_7 || deHumOnZone2_3 || deHumOnZone4_5_6){
-			
+		present(humOnZone1_7 || humOnZone2_3 || humOnZone4_5_6 || deHumOnZone1_7 || deHumOnZone2_3 || deHumOnZone4_5_6){
+			System.out.println("");
+			System.out.println("Room humidity is not optimal, please wait for it to moderate...");
+			waitl(5s);
 			emit safeOpHumid;
 			pause;
 		}
