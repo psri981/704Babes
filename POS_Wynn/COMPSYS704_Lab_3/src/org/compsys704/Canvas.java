@@ -15,6 +15,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
@@ -38,6 +40,9 @@ import javax.swing.JSlider;
 import java.awt.Font; 
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import com.systemj.netapi.SimpleClient;
+import com.systemj.netapi.SimpleServer;
+
 
 public class Canvas {
 
@@ -77,6 +82,9 @@ public class Canvas {
 	 */
 	private void initialize() {
 		
+		// INITIALISING LIQUID MIX 
+		
+		int[] liquidMix = {0, 0, 0, 0};
 		
 		frmAbs = new JFrame();
 		frmAbs.getContentPane().setBackground(new Color(87, 87, 130));
@@ -181,19 +189,7 @@ public class Canvas {
 		totalRedWine.setText(sliderRedWine.getValue() + "%");
 		
 		frmAbs.getContentPane().add(totalRedWine);
-		
-
-		
-		JButton buttonPlaceOrder = new JButton("Place Order");
-		buttonPlaceOrder.setFont(new Font("Arial", Font.PLAIN, 14));
-		buttonPlaceOrder.setEnabled(false);
-		buttonPlaceOrder.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		buttonPlaceOrder.setBounds(286, 470, 111, 23);
-		frmAbs.getContentPane().add(buttonPlaceOrder);
-		
+				
 		JLabel labelRedWine = new JLabel("Red Wine");
 		labelRedWine.setFont(new Font("Arial", Font.BOLD, 13));
 		labelRedWine.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -218,6 +214,28 @@ public class Canvas {
 		totalBottles.setBounds(596, 409, 46, 14);
 		frmAbs.getContentPane().add(totalBottles);
 		
+		// PLACE ORDER BUTTON
+		JButton buttonPlaceOrder = new JButton("Place Order");
+		buttonPlaceOrder.setFont(new Font("Arial", Font.PLAIN, 14));
+		buttonPlaceOrder.setEnabled(false);
+		buttonPlaceOrder.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.ORDER_START));
+		buttonPlaceOrder.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					String stringLiquidMix = IntStream.of(liquidMix).mapToObj(String::valueOf).collect(Collectors.joining(","));
+					SimpleClient sendBottleQuantity = new SimpleClient("127.0.0.1", 100001, "PlantCD", "bottleQuantity");
+					sendBottleQuantity.emit(sliderBottles.getValue(), 10);
+					SimpleClient sendLiquidMix = new SimpleClient("127.0.0.1", 100001, "PlantCD", "liquidMix");
+					sendLiquidMix.emit(stringLiquidMix, 10);
+					
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		buttonPlaceOrder.setBounds(286, 470, 111, 23);
+		frmAbs.getContentPane().add(buttonPlaceOrder);
+
 		// BOTTLE EVENT LISTENER
 	    sliderBottles.addChangeListener(new ChangeListener() {
 	        public void stateChanged(ChangeEvent event) {
@@ -230,6 +248,7 @@ public class Canvas {
 	    sliderRedWine.addChangeListener(new ChangeListener() {
 	        public void stateChanged(ChangeEvent event) {
 	        	totalRedWine.setText(sliderRedWine.getValue() + "%");
+	        	liquidMix[0] = sliderRedWine.getValue();
 	    		sliderSugarSyrup.setExtent(100 - (100 - sliderRedWine.getValue() - sliderLemonade.getValue() - sliderOrangeJuice.getValue()));
 	    		sliderOrangeJuice.setExtent(100 - (100 - sliderRedWine.getValue() - sliderSugarSyrup.getValue() - sliderLemonade.getValue()));
 	    		sliderLemonade.setExtent(100 - (100 - sliderOrangeJuice.getValue() - sliderSugarSyrup.getValue() - sliderRedWine.getValue()));
@@ -246,6 +265,7 @@ public class Canvas {
 	    sliderLemonade.addChangeListener(new ChangeListener() {
 	        public void stateChanged(ChangeEvent event) {
 	        	totalLemonade.setText(sliderLemonade.getValue() + "%");
+	        	liquidMix[1] = sliderLemonade.getValue();
 	    		sliderSugarSyrup.setExtent(100 - (100 - sliderRedWine.getValue() - sliderLemonade.getValue() - sliderOrangeJuice.getValue()));
 	    		sliderOrangeJuice.setExtent(100 - (100 - sliderRedWine.getValue() - sliderSugarSyrup.getValue() - sliderLemonade.getValue()));
 	    		sliderRedWine.setExtent(100 - (100 - sliderOrangeJuice.getValue() - sliderSugarSyrup.getValue() - sliderLemonade.getValue()));
@@ -263,6 +283,7 @@ public class Canvas {
 	    sliderOrangeJuice.addChangeListener(new ChangeListener() {
 	        public void stateChanged(ChangeEvent event) {
 	        	totalOrangeJuice.setText(sliderOrangeJuice.getValue() + "%");
+	        	liquidMix[2] = sliderOrangeJuice.getValue();
 	    		sliderSugarSyrup.setExtent(100 - (100 - sliderRedWine.getValue() - sliderLemonade.getValue() - sliderOrangeJuice.getValue()));
 	    		sliderRedWine.setExtent(100 - (100 - sliderOrangeJuice.getValue() - sliderSugarSyrup.getValue() - sliderLemonade.getValue()));
 	    		sliderLemonade.setExtent(100 - (100 - sliderOrangeJuice.getValue() - sliderSugarSyrup.getValue() - sliderRedWine.getValue()));
@@ -280,6 +301,7 @@ public class Canvas {
 	    sliderSugarSyrup.addChangeListener(new ChangeListener() {
 	        public void stateChanged(ChangeEvent event) {
 	        	totalSugarSyrup.setText(sliderSugarSyrup.getValue() + "%");
+	        	liquidMix[3] = sliderSugarSyrup.getValue();
 	        	sliderRedWine.setExtent(100 - (100 - sliderSugarSyrup.getValue() - sliderLemonade.getValue() - sliderOrangeJuice.getValue()));
 	    		sliderOrangeJuice.setExtent(100 - (100 - sliderRedWine.getValue() - sliderSugarSyrup.getValue() - sliderLemonade.getValue()));
 	    		sliderLemonade.setExtent(100 - (100 - sliderOrangeJuice.getValue() - sliderSugarSyrup.getValue() - sliderRedWine.getValue()));
