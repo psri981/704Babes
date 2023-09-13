@@ -8,7 +8,9 @@
 			<iSignal Name="bottleAtPos3"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			<iSignal Name="bottleAtPos4"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			<iSignal Name="bottleAtPos5"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+
 			<iSignal Name="orderStart"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			
 			<iSignal Name="liquidMix"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			<iSignal Name="bottleQuantity"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 

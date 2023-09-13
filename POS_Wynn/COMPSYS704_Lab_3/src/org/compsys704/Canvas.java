@@ -223,9 +223,9 @@ public class Canvas {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					String stringLiquidMix = IntStream.of(liquidMix).mapToObj(String::valueOf).collect(Collectors.joining(","));
-					SimpleClient sendBottleQuantity = new SimpleClient("127.0.0.1", 100001, "PlantCD", "bottleQuantity");
+					SimpleClient sendBottleQuantity = new SimpleClient("127.0.0.1", 10001, "PlantCD", "bottleQuantity");
 					sendBottleQuantity.emit(sliderBottles.getValue(), 10);
-					SimpleClient sendLiquidMix = new SimpleClient("127.0.0.1", 100001, "PlantCD", "liquidMix");
+					SimpleClient sendLiquidMix = new SimpleClient("127.0.0.1", 10001, "PlantCD", "liquidMix");
 					sendLiquidMix.emit(stringLiquidMix, 10);
 					
 				} catch (IOException e1) {
