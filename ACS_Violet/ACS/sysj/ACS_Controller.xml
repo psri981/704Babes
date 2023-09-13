@@ -1,37 +1,37 @@
 <System xmlns="http://systemjtechnology.com">
 	<SubSystem Name="SS1" Local="true">
 		<ClockDomain Name="ACS_ControllerCD" Class="ACS_Controller">
-			<iSignal Name="laserProximity" 			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="firePresent"  			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="door1req"       			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="door2req"     			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="door3req"       			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="person1accessOffice"     Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="person1accessManu"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="zoneOcc0"       			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="zoneOcc1"       			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="zoneOcc2"        		Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="zoneOcc3"       			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="zoneOcc4"       			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="zoneOcc5"       			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="zoneOcc6"        		Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="zoneOcc7"       			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="laserProximity" 			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="firePresent"  			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="door1req"       			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="door2req"     			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="door3req"       			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="person1accessOffice"     Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="person1accessManu"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="zoneOcc0"       			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="zoneOcc1"       			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="zoneOcc2"        		Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="zoneOcc3"       			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="zoneOcc4"       			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="zoneOcc5"       			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="zoneOcc6"        		Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="zoneOcc7"       			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
 
 		
-			<oSignal Name="absSuspend" 				To="ACS_PlantCD.absSuspend" 	  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="proxLaser"  				To="ACS_PlantCD.proxLaser"        Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="unlock1"    				To="ACS_PlantCD.unlock1"    	  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="unlock2"      			To="ACS_PlantCD.unlock2"      	  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="unlock3"      			To="ACS_PlantCD.unlock3"     	   Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="absSuspend" 				To="ACS_PlantCD.absSuspend" 	  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="50001" />
+			<oSignal Name="proxLaser"  				To="ACS_PlantCD.proxLaser"        Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="50001" />
+			<oSignal Name="unlock1"    				To="ACS_PlantCD.unlock1"    	  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="50001" />
+			<oSignal Name="unlock2"      			To="ACS_PlantCD.unlock2"      	  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="50001" />
+			<oSignal Name="unlock3"      			To="ACS_PlantCD.unlock3"     	   Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="50001" />
 
-			<iSignal Name="person1zone"          	Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="person1doorreq" 			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="person2zone"          	Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="person2doorreq" 			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="person3zone"             Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="person3doorreq" 			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="person4zone"          	Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="person4doorreq" 			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="person1zone"          	Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="person1doorreq" 			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="person2zone"          	Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="person2doorreq" 			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="person3zone"             Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="person3doorreq" 			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="person4zone"          	Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="person4doorreq" 			Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
 
 		</ClockDomain>
 	</SubSystem>
