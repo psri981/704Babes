@@ -4,8 +4,8 @@ import com.systemj.Signal;
 import com.systemj.input_Channel;
 import com.systemj.output_Channel;
 
-public class Controller extends ClockDomain{
-  public Controller(String name){super(name);}
+public class POS_Controller extends ClockDomain{
+  public POS_Controller(String name){super(name);}
   Vector currsigs = new Vector();
   private boolean df = false;
   private char [] active;
@@ -35,10 +35,10 @@ public class Controller extends ClockDomain{
         case 1 : 
           S10=2;
           S10=2;
-          if(orderDone.getprestatus()){//sysj\controller.sysj line: 13, column: 11
-            orderDoneFlag.setPresent();//sysj\controller.sysj line: 14, column: 4
+          if(orderDone.getprestatus()){//sysj\POS_controller.sysj line: 13, column: 11
+            orderDoneFlag.setPresent();//sysj\POS_controller.sysj line: 14, column: 4
             currsigs.addElement(orderDoneFlag);
-            System.out.println("Order is completed");//sysj\controller.sysj line: 15, column: 4
+            System.out.println("Order is completed");//sysj\POS_controller.sysj line: 15, column: 4
             active[1]=1;
             ends[1]=1;
             break RUN;
@@ -50,10 +50,10 @@ public class Controller extends ClockDomain{
           }
         
         case 2 : 
-          if(orderDone.getprestatus()){//sysj\controller.sysj line: 13, column: 11
-            orderDoneFlag.setPresent();//sysj\controller.sysj line: 14, column: 4
+          if(orderDone.getprestatus()){//sysj\POS_controller.sysj line: 13, column: 11
+            orderDoneFlag.setPresent();//sysj\POS_controller.sysj line: 14, column: 4
             currsigs.addElement(orderDoneFlag);
-            System.out.println("Order is completed");//sysj\controller.sysj line: 15, column: 4
+            System.out.println("Order is completed");//sysj\POS_controller.sysj line: 15, column: 4
             active[1]=1;
             ends[1]=1;
             break RUN;

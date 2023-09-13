@@ -1,0 +1,41 @@
+import run.POS_GUI;
+
+POS_Plant(
+		input signal orderStart;
+		input signal orderDoneFlag;
+		
+		input String signal liquidMix;
+		input Integer signal bottleQuantity;
+		
+		output signal orderDoneGUIFlag;
+		output signal liquidMixOutput;
+		output signal bottleQuantityOutput;
+		
+		)
+->
+{
+	new Thread(new POS_GUI()).start();
+
+	{// 
+		while(true){
+			present(orderStart){
+				Integer y;
+				String x; 
+				
+				y = #bottleQuantity;
+				x = #liquidMix; 
+				
+				System.out.println("Bottle Quantity: " + y);
+				System.out.println("Liquid Mix: " + x);
+				emit liquidMixOutput;
+				emit bottleQuantityOutput;
+			}
+			pause;
+		}
+	}	
+	||
+	{// To viz
+		{while(true){present(orderDoneFlag){emit orderDoneGUIFlag;} pause;}}
+	}
+	
+}
