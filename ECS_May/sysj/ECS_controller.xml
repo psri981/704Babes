@@ -17,13 +17,8 @@
 			<iSignal Name="cleanZone6"           Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
 			<iSignal Name="cleanZone7"         Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
 			
-			<iSignal Name="cutPowZ1" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
-			<iSignal Name="cutPowZ2"  Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
-			<iSignal Name="cutPowZ3"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
-			<iSignal Name="cutPowZ4"     Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
-			<iSignal Name="cutPowZ5"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
-			<iSignal Name="cutPowZ6"           Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
-			<iSignal Name="cutPowZ7"         Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="cutPow" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="pow" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
 	
 			<oSignal Name="powerOff" To="ECSPlantCD.powerOff" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30003" />
 			<oSignal Name="roomCleaned" To="ECSPlantCD.roomCleaned" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30003" />

@@ -37,20 +37,8 @@ public class ECS_controller extends ClockDomain{
   public Signal deHumOnZone1_7 = new Signal("deHumOnZone1_7", Signal.INPUT);
   public Signal deHumOnZone2_3 = new Signal("deHumOnZone2_3", Signal.INPUT);
   public Signal deHumOnZone4_5_6 = new Signal("deHumOnZone4_5_6", Signal.INPUT);
-  public Signal cutPowZ1 = new Signal("cutPowZ1", Signal.INPUT);
-  public Signal cutPowZ2 = new Signal("cutPowZ2", Signal.INPUT);
-  public Signal cutPowZ3 = new Signal("cutPowZ3", Signal.INPUT);
-  public Signal cutPowZ4 = new Signal("cutPowZ4", Signal.INPUT);
-  public Signal cutPowZ5 = new Signal("cutPowZ5", Signal.INPUT);
-  public Signal cutPowZ6 = new Signal("cutPowZ6", Signal.INPUT);
-  public Signal cutPowZ7 = new Signal("cutPowZ7", Signal.INPUT);
-  public Signal powZ1 = new Signal("powZ1", Signal.INPUT);
-  public Signal powZ2 = new Signal("powZ2", Signal.INPUT);
-  public Signal powZ3 = new Signal("powZ3", Signal.INPUT);
-  public Signal powZ4 = new Signal("powZ4", Signal.INPUT);
-  public Signal powZ5 = new Signal("powZ5", Signal.INPUT);
-  public Signal powZ6 = new Signal("powZ6", Signal.INPUT);
-  public Signal powZ7 = new Signal("powZ7", Signal.INPUT);
+  public Signal cutPow = new Signal("cutPow", Signal.INPUT);
+  public Signal pow = new Signal("pow", Signal.INPUT);
   public Signal safeOpTemp = new Signal("safeOpTemp", Signal.OUTPUT);
   public Signal safeOpHumid = new Signal("safeOpHumid", Signal.OUTPUT);
   public Signal powerOff = new Signal("powerOff", Signal.OUTPUT);
@@ -59,9 +47,9 @@ public class ECS_controller extends ClockDomain{
   public Signal alarmOff = new Signal("alarmOff", Signal.OUTPUT);
   public Signal blindsDown = new Signal("blindsDown", Signal.OUTPUT);
   public Signal evacuated = new Signal("evacuated", Signal.OUTPUT);
-  private long __start_thread_1;//sysj\ECS_controller.sysj line: 23, column: 99
-  private int S5047 = 1;
-  private int S91 = 1;
+  private long __start_thread_1;//sysj\ECS_controller.sysj line: 32, column: 106
+  private int S3538 = 1;
+  private int S8 = 1;
   
   private int[] ends = new int[2];
   private int[] tdone = new int[2];
@@ -73,232 +61,55 @@ public class ECS_controller extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S5047){
+      switch(S3538){
         case 0 : 
-          S5047=0;
+          S3538=0;
           break RUN;
         
         case 1 : 
-          S5047=2;
-          S5047=2;
-          S91=0;
-          if(cutPowZ1.getprestatus() || cutPowZ2.getprestatus() || cutPowZ3.getprestatus() || cutPowZ4.getprestatus() || cutPowZ5.getprestatus() || cutPowZ6.getprestatus() || cutPowZ7.getprestatus()){//sysj\ECS_controller.sysj line: 18, column: 11
-            powerOff.setPresent();//sysj\ECS_controller.sysj line: 19, column: 4
+          S3538=2;
+          S3538=2;
+          if(cutPow.getprestatus()){//sysj\ECS_controller.sysj line: 18, column: 11
+            System.out.println("");//sysj\ECS_controller.sysj line: 19, column: 4
+            System.out.println("Fire detected all power has been cut, please wait...");//sysj\ECS_controller.sysj line: 20, column: 4
+            powerOff.setPresent();//sysj\ECS_controller.sysj line: 21, column: 4
             currsigs.addElement(powerOff);
-            S91=1;
-            if(fireZone1.getprestatus() || fireZone2.getprestatus() || fireZone3.getprestatus() || fireZone4.getprestatus() || fireZone5.getprestatus() || fireZone6.getprestatus() || fireZone7.getprestatus()){//sysj\ECS_controller.sysj line: 23, column: 11
-              System.out.println("");//sysj\ECS_controller.sysj line: 24, column: 4
-              System.out.println("Smoke alarm activated please wait for fire to be extinguished...");//sysj\ECS_controller.sysj line: 25, column: 4
-              __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 23, column: 99
-              if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 23, column: 99
-                ends[1]=2;
-                ;//sysj\ECS_controller.sysj line: 23, column: 99
-                alarmOff.setPresent();//sysj\ECS_controller.sysj line: 27, column: 4
-                currsigs.addElement(alarmOff);
-                S91=2;
-                if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 31, column: 11
-                  System.out.println("");//sysj\ECS_controller.sysj line: 32, column: 4
-                  System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 33, column: 4
-                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 31, column: 106
-                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 31, column: 106
-                    ends[1]=2;
-                    ;//sysj\ECS_controller.sysj line: 31, column: 106
-                    roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 35, column: 4
-                    currsigs.addElement(roomCleaned);
-                    S91=3;
-                    if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                      System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                        ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 39, column: 111
-                        safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                        currsigs.addElement(safeOpTemp);
-                        S91=4;
-                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                            ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 47, column: 114
-                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                            currsigs.addElement(safeOpHumid);
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                          else {
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      S91=4;
-                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                          ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 47, column: 114
-                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                          currsigs.addElement(safeOpHumid);
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                        else {
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S91=5;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                  }
-                  else {
-                    active[1]=1;
-                    ends[1]=1;
-                    break RUN;
-                  }
-                }
-                else {
-                  S91=3;
-                  if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                    System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                    System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                      ends[1]=2;
-                      ;//sysj\ECS_controller.sysj line: 39, column: 111
-                      safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                      currsigs.addElement(safeOpTemp);
-                      S91=4;
-                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                          ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 47, column: 114
-                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                          currsigs.addElement(safeOpHumid);
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                        else {
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S91=5;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      active[1]=1;
-                      ends[1]=1;
-                      break RUN;
-                    }
-                  }
-                  else {
-                    S91=4;
-                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                        ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 47, column: 114
-                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                        currsigs.addElement(safeOpHumid);
-                        S91=5;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                      else {
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      S91=5;
-                      active[1]=1;
-                      ends[1]=1;
-                      break RUN;
-                    }
-                  }
-                }
-              }
-              else {
-                active[1]=1;
-                ends[1]=1;
-                break RUN;
-              }
-            }
-            else {
-              S91=2;
-              if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 31, column: 11
-                System.out.println("");//sysj\ECS_controller.sysj line: 32, column: 4
-                System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 33, column: 4
-                __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 31, column: 106
-                if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 31, column: 106
+            if(fireZone1.getprestatus()){//sysj\ECS_controller.sysj line: 25, column: 12
+              System.out.println("");//sysj\ECS_controller.sysj line: 26, column: 4
+              System.out.println("Smoke alarm activated please wait for fire to be extinguished...");//sysj\ECS_controller.sysj line: 27, column: 4
+              alarmOff.setPresent();//sysj\ECS_controller.sysj line: 28, column: 4
+              currsigs.addElement(alarmOff);
+              S8=0;
+              if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 32, column: 11
+                System.out.println("");//sysj\ECS_controller.sysj line: 33, column: 4
+                System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 34, column: 4
+                __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 32, column: 106
+                if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 32, column: 106
                   ends[1]=2;
-                  ;//sysj\ECS_controller.sysj line: 31, column: 106
-                  roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 35, column: 4
+                  ;//sysj\ECS_controller.sysj line: 32, column: 106
+                  roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 36, column: 4
                   currsigs.addElement(roomCleaned);
-                  S91=3;
-                  if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                    System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                    System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
+                  S8=1;
+                  if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                    System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                    System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
                       ends[1]=2;
-                      ;//sysj\ECS_controller.sysj line: 39, column: 111
-                      safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
+                      ;//sysj\ECS_controller.sysj line: 40, column: 111
+                      safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
                       currsigs.addElement(safeOpTemp);
-                      S91=4;
-                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                      S8=2;
+                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                        System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                           ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 47, column: 114
-                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                          ;//sysj\ECS_controller.sysj line: 48, column: 114
+                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                           currsigs.addElement(safeOpHumid);
-                          S91=5;
+                          S8=3;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
@@ -310,7 +121,7 @@ public class ECS_controller extends ClockDomain{
                         }
                       }
                       else {
-                        S91=5;
+                        S8=3;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
@@ -323,17 +134,17 @@ public class ECS_controller extends ClockDomain{
                     }
                   }
                   else {
-                    S91=4;
-                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                    S8=2;
+                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                      System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                         ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 47, column: 114
-                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                        ;//sysj\ECS_controller.sysj line: 48, column: 114
+                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                         currsigs.addElement(safeOpHumid);
-                        S91=5;
+                        S8=3;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
@@ -345,7 +156,7 @@ public class ECS_controller extends ClockDomain{
                       }
                     }
                     else {
-                      S91=5;
+                      S8=3;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -359,27 +170,27 @@ public class ECS_controller extends ClockDomain{
                 }
               }
               else {
-                S91=3;
-                if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                  System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                  System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
+                S8=1;
+                if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                  System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                  System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
                     ends[1]=2;
-                    ;//sysj\ECS_controller.sysj line: 39, column: 111
-                    safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
+                    ;//sysj\ECS_controller.sysj line: 40, column: 111
+                    safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
                     currsigs.addElement(safeOpTemp);
-                    S91=4;
-                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                    S8=2;
+                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                      System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                         ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 47, column: 114
-                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                        ;//sysj\ECS_controller.sysj line: 48, column: 114
+                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                         currsigs.addElement(safeOpHumid);
-                        S91=5;
+                        S8=3;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
@@ -391,7 +202,7 @@ public class ECS_controller extends ClockDomain{
                       }
                     }
                     else {
-                      S91=5;
+                      S8=3;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -404,17 +215,17 @@ public class ECS_controller extends ClockDomain{
                   }
                 }
                 else {
-                  S91=4;
-                  if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                    System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                    System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                  S8=2;
+                  if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                    System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                    System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                       ends[1]=2;
-                      ;//sysj\ECS_controller.sysj line: 47, column: 114
-                      safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                      ;//sysj\ECS_controller.sysj line: 48, column: 114
+                      safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                       currsigs.addElement(safeOpHumid);
-                      S91=5;
+                      S8=3;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -426,7 +237,174 @@ public class ECS_controller extends ClockDomain{
                     }
                   }
                   else {
-                    S91=5;
+                    S8=3;
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                }
+              }
+            }
+            else {
+              S8=0;
+              if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 32, column: 11
+                System.out.println("");//sysj\ECS_controller.sysj line: 33, column: 4
+                System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 34, column: 4
+                __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 32, column: 106
+                if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 32, column: 106
+                  ends[1]=2;
+                  ;//sysj\ECS_controller.sysj line: 32, column: 106
+                  roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 36, column: 4
+                  currsigs.addElement(roomCleaned);
+                  S8=1;
+                  if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                    System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                    System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
+                      ends[1]=2;
+                      ;//sysj\ECS_controller.sysj line: 40, column: 111
+                      safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
+                      currsigs.addElement(safeOpTemp);
+                      S8=2;
+                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                        System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
+                          ends[1]=2;
+                          ;//sysj\ECS_controller.sysj line: 48, column: 114
+                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                          currsigs.addElement(safeOpHumid);
+                          S8=3;
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                        else {
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                      }
+                      else {
+                        S8=3;
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                    }
+                    else {
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                  }
+                  else {
+                    S8=2;
+                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                      System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
+                        ends[1]=2;
+                        ;//sysj\ECS_controller.sysj line: 48, column: 114
+                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                        currsigs.addElement(safeOpHumid);
+                        S8=3;
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                      else {
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                    }
+                    else {
+                      S8=3;
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                  }
+                }
+                else {
+                  active[1]=1;
+                  ends[1]=1;
+                  break RUN;
+                }
+              }
+              else {
+                S8=1;
+                if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                  System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                  System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
+                    ends[1]=2;
+                    ;//sysj\ECS_controller.sysj line: 40, column: 111
+                    safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
+                    currsigs.addElement(safeOpTemp);
+                    S8=2;
+                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                      System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
+                        ends[1]=2;
+                        ;//sysj\ECS_controller.sysj line: 48, column: 114
+                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                        currsigs.addElement(safeOpHumid);
+                        S8=3;
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                      else {
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                    }
+                    else {
+                      S8=3;
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                  }
+                  else {
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                }
+                else {
+                  S8=2;
+                  if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                    System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                    System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
+                      ends[1]=2;
+                      ;//sysj\ECS_controller.sysj line: 48, column: 114
+                      safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                      currsigs.addElement(safeOpHumid);
+                      S8=3;
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                    else {
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                  }
+                  else {
+                    S8=3;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
@@ -436,220 +414,42 @@ public class ECS_controller extends ClockDomain{
             }
           }
           else {
-            S91=1;
-            if(fireZone1.getprestatus() || fireZone2.getprestatus() || fireZone3.getprestatus() || fireZone4.getprestatus() || fireZone5.getprestatus() || fireZone6.getprestatus() || fireZone7.getprestatus()){//sysj\ECS_controller.sysj line: 23, column: 11
-              System.out.println("");//sysj\ECS_controller.sysj line: 24, column: 4
-              System.out.println("Smoke alarm activated please wait for fire to be extinguished...");//sysj\ECS_controller.sysj line: 25, column: 4
-              __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 23, column: 99
-              if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 23, column: 99
-                ends[1]=2;
-                ;//sysj\ECS_controller.sysj line: 23, column: 99
-                alarmOff.setPresent();//sysj\ECS_controller.sysj line: 27, column: 4
-                currsigs.addElement(alarmOff);
-                S91=2;
-                if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 31, column: 11
-                  System.out.println("");//sysj\ECS_controller.sysj line: 32, column: 4
-                  System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 33, column: 4
-                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 31, column: 106
-                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 31, column: 106
-                    ends[1]=2;
-                    ;//sysj\ECS_controller.sysj line: 31, column: 106
-                    roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 35, column: 4
-                    currsigs.addElement(roomCleaned);
-                    S91=3;
-                    if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                      System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                        ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 39, column: 111
-                        safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                        currsigs.addElement(safeOpTemp);
-                        S91=4;
-                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                            ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 47, column: 114
-                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                            currsigs.addElement(safeOpHumid);
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                          else {
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      S91=4;
-                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                          ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 47, column: 114
-                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                          currsigs.addElement(safeOpHumid);
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                        else {
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S91=5;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                  }
-                  else {
-                    active[1]=1;
-                    ends[1]=1;
-                    break RUN;
-                  }
-                }
-                else {
-                  S91=3;
-                  if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                    System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                    System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                      ends[1]=2;
-                      ;//sysj\ECS_controller.sysj line: 39, column: 111
-                      safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                      currsigs.addElement(safeOpTemp);
-                      S91=4;
-                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                          ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 47, column: 114
-                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                          currsigs.addElement(safeOpHumid);
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                        else {
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S91=5;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      active[1]=1;
-                      ends[1]=1;
-                      break RUN;
-                    }
-                  }
-                  else {
-                    S91=4;
-                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                        ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 47, column: 114
-                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                        currsigs.addElement(safeOpHumid);
-                        S91=5;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                      else {
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      S91=5;
-                      active[1]=1;
-                      ends[1]=1;
-                      break RUN;
-                    }
-                  }
-                }
-              }
-              else {
-                active[1]=1;
-                ends[1]=1;
-                break RUN;
-              }
-            }
-            else {
-              S91=2;
-              if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 31, column: 11
-                System.out.println("");//sysj\ECS_controller.sysj line: 32, column: 4
-                System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 33, column: 4
-                __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 31, column: 106
-                if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 31, column: 106
+            if(fireZone1.getprestatus()){//sysj\ECS_controller.sysj line: 25, column: 12
+              System.out.println("");//sysj\ECS_controller.sysj line: 26, column: 4
+              System.out.println("Smoke alarm activated please wait for fire to be extinguished...");//sysj\ECS_controller.sysj line: 27, column: 4
+              alarmOff.setPresent();//sysj\ECS_controller.sysj line: 28, column: 4
+              currsigs.addElement(alarmOff);
+              S8=0;
+              if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 32, column: 11
+                System.out.println("");//sysj\ECS_controller.sysj line: 33, column: 4
+                System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 34, column: 4
+                __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 32, column: 106
+                if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 32, column: 106
                   ends[1]=2;
-                  ;//sysj\ECS_controller.sysj line: 31, column: 106
-                  roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 35, column: 4
+                  ;//sysj\ECS_controller.sysj line: 32, column: 106
+                  roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 36, column: 4
                   currsigs.addElement(roomCleaned);
-                  S91=3;
-                  if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                    System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                    System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
+                  S8=1;
+                  if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                    System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                    System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
                       ends[1]=2;
-                      ;//sysj\ECS_controller.sysj line: 39, column: 111
-                      safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
+                      ;//sysj\ECS_controller.sysj line: 40, column: 111
+                      safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
                       currsigs.addElement(safeOpTemp);
-                      S91=4;
-                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                      S8=2;
+                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                        System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                           ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 47, column: 114
-                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                          ;//sysj\ECS_controller.sysj line: 48, column: 114
+                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                           currsigs.addElement(safeOpHumid);
-                          S91=5;
+                          S8=3;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
@@ -661,7 +461,7 @@ public class ECS_controller extends ClockDomain{
                         }
                       }
                       else {
-                        S91=5;
+                        S8=3;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
@@ -674,17 +474,17 @@ public class ECS_controller extends ClockDomain{
                     }
                   }
                   else {
-                    S91=4;
-                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                    S8=2;
+                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                      System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                         ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 47, column: 114
-                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                        ;//sysj\ECS_controller.sysj line: 48, column: 114
+                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                         currsigs.addElement(safeOpHumid);
-                        S91=5;
+                        S8=3;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
@@ -696,7 +496,7 @@ public class ECS_controller extends ClockDomain{
                       }
                     }
                     else {
-                      S91=5;
+                      S8=3;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -710,27 +510,27 @@ public class ECS_controller extends ClockDomain{
                 }
               }
               else {
-                S91=3;
-                if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                  System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                  System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
+                S8=1;
+                if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                  System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                  System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
                     ends[1]=2;
-                    ;//sysj\ECS_controller.sysj line: 39, column: 111
-                    safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
+                    ;//sysj\ECS_controller.sysj line: 40, column: 111
+                    safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
                     currsigs.addElement(safeOpTemp);
-                    S91=4;
-                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                    S8=2;
+                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                      System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                         ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 47, column: 114
-                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                        ;//sysj\ECS_controller.sysj line: 48, column: 114
+                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                         currsigs.addElement(safeOpHumid);
-                        S91=5;
+                        S8=3;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
@@ -742,7 +542,7 @@ public class ECS_controller extends ClockDomain{
                       }
                     }
                     else {
-                      S91=5;
+                      S8=3;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -755,17 +555,17 @@ public class ECS_controller extends ClockDomain{
                   }
                 }
                 else {
-                  S91=4;
-                  if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                    System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                    System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                  S8=2;
+                  if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                    System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                    System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                       ends[1]=2;
-                      ;//sysj\ECS_controller.sysj line: 47, column: 114
-                      safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                      ;//sysj\ECS_controller.sysj line: 48, column: 114
+                      safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                       currsigs.addElement(safeOpHumid);
-                      S91=5;
+                      S8=3;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -777,7 +577,174 @@ public class ECS_controller extends ClockDomain{
                     }
                   }
                   else {
-                    S91=5;
+                    S8=3;
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                }
+              }
+            }
+            else {
+              S8=0;
+              if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 32, column: 11
+                System.out.println("");//sysj\ECS_controller.sysj line: 33, column: 4
+                System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 34, column: 4
+                __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 32, column: 106
+                if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 32, column: 106
+                  ends[1]=2;
+                  ;//sysj\ECS_controller.sysj line: 32, column: 106
+                  roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 36, column: 4
+                  currsigs.addElement(roomCleaned);
+                  S8=1;
+                  if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                    System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                    System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
+                      ends[1]=2;
+                      ;//sysj\ECS_controller.sysj line: 40, column: 111
+                      safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
+                      currsigs.addElement(safeOpTemp);
+                      S8=2;
+                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                        System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
+                          ends[1]=2;
+                          ;//sysj\ECS_controller.sysj line: 48, column: 114
+                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                          currsigs.addElement(safeOpHumid);
+                          S8=3;
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                        else {
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                      }
+                      else {
+                        S8=3;
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                    }
+                    else {
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                  }
+                  else {
+                    S8=2;
+                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                      System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
+                        ends[1]=2;
+                        ;//sysj\ECS_controller.sysj line: 48, column: 114
+                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                        currsigs.addElement(safeOpHumid);
+                        S8=3;
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                      else {
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                    }
+                    else {
+                      S8=3;
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                  }
+                }
+                else {
+                  active[1]=1;
+                  ends[1]=1;
+                  break RUN;
+                }
+              }
+              else {
+                S8=1;
+                if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                  System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                  System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
+                    ends[1]=2;
+                    ;//sysj\ECS_controller.sysj line: 40, column: 111
+                    safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
+                    currsigs.addElement(safeOpTemp);
+                    S8=2;
+                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                      System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
+                        ends[1]=2;
+                        ;//sysj\ECS_controller.sysj line: 48, column: 114
+                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                        currsigs.addElement(safeOpHumid);
+                        S8=3;
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                      else {
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                    }
+                    else {
+                      S8=3;
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                  }
+                  else {
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                }
+                else {
+                  S8=2;
+                  if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                    System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                    System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
+                      ends[1]=2;
+                      ;//sysj\ECS_controller.sysj line: 48, column: 114
+                      safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                      currsigs.addElement(safeOpHumid);
+                      S8=3;
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                    else {
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                  }
+                  else {
+                    S8=3;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
@@ -788,105 +755,37 @@ public class ECS_controller extends ClockDomain{
           }
         
         case 2 : 
-          switch(S91){
+          switch(S8){
             case 0 : 
-              S91=0;
-              if(cutPowZ1.getprestatus() || cutPowZ2.getprestatus() || cutPowZ3.getprestatus() || cutPowZ4.getprestatus() || cutPowZ5.getprestatus() || cutPowZ6.getprestatus() || cutPowZ7.getprestatus()){//sysj\ECS_controller.sysj line: 18, column: 11
-                powerOff.setPresent();//sysj\ECS_controller.sysj line: 19, column: 4
-                currsigs.addElement(powerOff);
-                S91=1;
-                if(fireZone1.getprestatus() || fireZone2.getprestatus() || fireZone3.getprestatus() || fireZone4.getprestatus() || fireZone5.getprestatus() || fireZone6.getprestatus() || fireZone7.getprestatus()){//sysj\ECS_controller.sysj line: 23, column: 11
-                  System.out.println("");//sysj\ECS_controller.sysj line: 24, column: 4
-                  System.out.println("Smoke alarm activated please wait for fire to be extinguished...");//sysj\ECS_controller.sysj line: 25, column: 4
-                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 23, column: 99
-                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 23, column: 99
+              if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 32, column: 106
+                ends[1]=2;
+                ;//sysj\ECS_controller.sysj line: 32, column: 106
+                roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 36, column: 4
+                currsigs.addElement(roomCleaned);
+                S8=1;
+                if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                  System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                  System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
                     ends[1]=2;
-                    ;//sysj\ECS_controller.sysj line: 23, column: 99
-                    alarmOff.setPresent();//sysj\ECS_controller.sysj line: 27, column: 4
-                    currsigs.addElement(alarmOff);
-                    S91=2;
-                    if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 31, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 32, column: 4
-                      System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 33, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 31, column: 106
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 31, column: 106
+                    ;//sysj\ECS_controller.sysj line: 40, column: 111
+                    safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
+                    currsigs.addElement(safeOpTemp);
+                    S8=2;
+                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                      System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                         ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 31, column: 106
-                        roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 35, column: 4
-                        currsigs.addElement(roomCleaned);
-                        S91=3;
-                        if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                          System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                            ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 39, column: 111
-                            safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                            currsigs.addElement(safeOpTemp);
-                            S91=4;
-                            if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                              System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                              System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                              __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                              if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                                ends[1]=2;
-                                ;//sysj\ECS_controller.sysj line: 47, column: 114
-                                safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                                currsigs.addElement(safeOpHumid);
-                                S91=5;
-                                active[1]=1;
-                                ends[1]=1;
-                                break RUN;
-                              }
-                              else {
-                                active[1]=1;
-                                ends[1]=1;
-                                break RUN;
-                              }
-                            }
-                            else {
-                              S91=5;
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S91=4;
-                          if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                            System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                            System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                            __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                            if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                              ends[1]=2;
-                              ;//sysj\ECS_controller.sysj line: 47, column: 114
-                              safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                              currsigs.addElement(safeOpHumid);
-                              S91=5;
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                            else {
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
+                        ;//sysj\ECS_controller.sysj line: 48, column: 114
+                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                        currsigs.addElement(safeOpHumid);
+                        S8=3;
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
                       }
                       else {
                         active[1]=1;
@@ -895,79 +794,10 @@ public class ECS_controller extends ClockDomain{
                       }
                     }
                     else {
-                      S91=3;
-                      if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                        System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                          ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 39, column: 111
-                          safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                          currsigs.addElement(safeOpTemp);
-                          S91=4;
-                          if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                            System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                            System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                            __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                            if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                              ends[1]=2;
-                              ;//sysj\ECS_controller.sysj line: 47, column: 114
-                              safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                              currsigs.addElement(safeOpHumid);
-                              S91=5;
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                            else {
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S91=4;
-                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                            ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 47, column: 114
-                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                            currsigs.addElement(safeOpHumid);
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                          else {
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
+                      S8=3;
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
                     }
                   }
                   else {
@@ -977,89 +807,20 @@ public class ECS_controller extends ClockDomain{
                   }
                 }
                 else {
-                  S91=2;
-                  if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 31, column: 11
-                    System.out.println("");//sysj\ECS_controller.sysj line: 32, column: 4
-                    System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 33, column: 4
-                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 31, column: 106
-                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 31, column: 106
+                  S8=2;
+                  if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                    System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                    System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                       ends[1]=2;
-                      ;//sysj\ECS_controller.sysj line: 31, column: 106
-                      roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 35, column: 4
-                      currsigs.addElement(roomCleaned);
-                      S91=3;
-                      if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                        System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                          ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 39, column: 111
-                          safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                          currsigs.addElement(safeOpTemp);
-                          S91=4;
-                          if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                            System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                            System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                            __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                            if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                              ends[1]=2;
-                              ;//sysj\ECS_controller.sysj line: 47, column: 114
-                              safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                              currsigs.addElement(safeOpHumid);
-                              S91=5;
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                            else {
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S91=4;
-                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                            ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 47, column: 114
-                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                            currsigs.addElement(safeOpHumid);
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                          else {
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
+                      ;//sysj\ECS_controller.sysj line: 48, column: 114
+                      safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                      currsigs.addElement(safeOpHumid);
+                      S8=3;
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
                     }
                     else {
                       active[1]=1;
@@ -1068,715 +829,36 @@ public class ECS_controller extends ClockDomain{
                     }
                   }
                   else {
-                    S91=3;
-                    if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                      System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                        ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 39, column: 111
-                        safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                        currsigs.addElement(safeOpTemp);
-                        S91=4;
-                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                            ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 47, column: 114
-                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                            currsigs.addElement(safeOpHumid);
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                          else {
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      S91=4;
-                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                          ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 47, column: 114
-                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                          currsigs.addElement(safeOpHumid);
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                        else {
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S91=5;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
+                    S8=3;
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
                   }
                 }
               }
               else {
-                S91=1;
-                if(fireZone1.getprestatus() || fireZone2.getprestatus() || fireZone3.getprestatus() || fireZone4.getprestatus() || fireZone5.getprestatus() || fireZone6.getprestatus() || fireZone7.getprestatus()){//sysj\ECS_controller.sysj line: 23, column: 11
-                  System.out.println("");//sysj\ECS_controller.sysj line: 24, column: 4
-                  System.out.println("Smoke alarm activated please wait for fire to be extinguished...");//sysj\ECS_controller.sysj line: 25, column: 4
-                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 23, column: 99
-                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 23, column: 99
-                    ends[1]=2;
-                    ;//sysj\ECS_controller.sysj line: 23, column: 99
-                    alarmOff.setPresent();//sysj\ECS_controller.sysj line: 27, column: 4
-                    currsigs.addElement(alarmOff);
-                    S91=2;
-                    if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 31, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 32, column: 4
-                      System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 33, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 31, column: 106
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 31, column: 106
-                        ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 31, column: 106
-                        roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 35, column: 4
-                        currsigs.addElement(roomCleaned);
-                        S91=3;
-                        if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                          System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                            ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 39, column: 111
-                            safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                            currsigs.addElement(safeOpTemp);
-                            S91=4;
-                            if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                              System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                              System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                              __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                              if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                                ends[1]=2;
-                                ;//sysj\ECS_controller.sysj line: 47, column: 114
-                                safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                                currsigs.addElement(safeOpHumid);
-                                S91=5;
-                                active[1]=1;
-                                ends[1]=1;
-                                break RUN;
-                              }
-                              else {
-                                active[1]=1;
-                                ends[1]=1;
-                                break RUN;
-                              }
-                            }
-                            else {
-                              S91=5;
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S91=4;
-                          if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                            System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                            System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                            __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                            if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                              ends[1]=2;
-                              ;//sysj\ECS_controller.sysj line: 47, column: 114
-                              safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                              currsigs.addElement(safeOpHumid);
-                              S91=5;
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                            else {
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                      }
-                      else {
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      S91=3;
-                      if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                        System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                          ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 39, column: 111
-                          safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                          currsigs.addElement(safeOpTemp);
-                          S91=4;
-                          if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                            System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                            System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                            __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                            if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                              ends[1]=2;
-                              ;//sysj\ECS_controller.sysj line: 47, column: 114
-                              safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                              currsigs.addElement(safeOpHumid);
-                              S91=5;
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                            else {
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S91=4;
-                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                            ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 47, column: 114
-                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                            currsigs.addElement(safeOpHumid);
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                          else {
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                    }
-                  }
-                  else {
-                    active[1]=1;
-                    ends[1]=1;
-                    break RUN;
-                  }
-                }
-                else {
-                  S91=2;
-                  if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 31, column: 11
-                    System.out.println("");//sysj\ECS_controller.sysj line: 32, column: 4
-                    System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 33, column: 4
-                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 31, column: 106
-                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 31, column: 106
-                      ends[1]=2;
-                      ;//sysj\ECS_controller.sysj line: 31, column: 106
-                      roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 35, column: 4
-                      currsigs.addElement(roomCleaned);
-                      S91=3;
-                      if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                        System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                          ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 39, column: 111
-                          safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                          currsigs.addElement(safeOpTemp);
-                          S91=4;
-                          if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                            System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                            System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                            __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                            if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                              ends[1]=2;
-                              ;//sysj\ECS_controller.sysj line: 47, column: 114
-                              safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                              currsigs.addElement(safeOpHumid);
-                              S91=5;
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                            else {
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S91=4;
-                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                            ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 47, column: 114
-                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                            currsigs.addElement(safeOpHumid);
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                          else {
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                    }
-                    else {
-                      active[1]=1;
-                      ends[1]=1;
-                      break RUN;
-                    }
-                  }
-                  else {
-                    S91=3;
-                    if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                      System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                        ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 39, column: 111
-                        safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                        currsigs.addElement(safeOpTemp);
-                        S91=4;
-                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                            ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 47, column: 114
-                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                            currsigs.addElement(safeOpHumid);
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                          else {
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      S91=4;
-                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                          ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 47, column: 114
-                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                          currsigs.addElement(safeOpHumid);
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                        else {
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S91=5;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                  }
-                }
+                active[1]=1;
+                ends[1]=1;
+                break RUN;
               }
             
             case 1 : 
-              if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 23, column: 99
+              if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
                 ends[1]=2;
-                ;//sysj\ECS_controller.sysj line: 23, column: 99
-                alarmOff.setPresent();//sysj\ECS_controller.sysj line: 27, column: 4
-                currsigs.addElement(alarmOff);
-                S91=2;
-                if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 31, column: 11
-                  System.out.println("");//sysj\ECS_controller.sysj line: 32, column: 4
-                  System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 33, column: 4
-                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 31, column: 106
-                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 31, column: 106
-                    ends[1]=2;
-                    ;//sysj\ECS_controller.sysj line: 31, column: 106
-                    roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 35, column: 4
-                    currsigs.addElement(roomCleaned);
-                    S91=3;
-                    if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                      System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                        ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 39, column: 111
-                        safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                        currsigs.addElement(safeOpTemp);
-                        S91=4;
-                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                            ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 47, column: 114
-                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                            currsigs.addElement(safeOpHumid);
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                          else {
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      S91=4;
-                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                          ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 47, column: 114
-                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                          currsigs.addElement(safeOpHumid);
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                        else {
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S91=5;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                  }
-                  else {
-                    active[1]=1;
-                    ends[1]=1;
-                    break RUN;
-                  }
-                }
-                else {
-                  S91=3;
-                  if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                    System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                    System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                      ends[1]=2;
-                      ;//sysj\ECS_controller.sysj line: 39, column: 111
-                      safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                      currsigs.addElement(safeOpTemp);
-                      S91=4;
-                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                          ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 47, column: 114
-                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                          currsigs.addElement(safeOpHumid);
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                        else {
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S91=5;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      active[1]=1;
-                      ends[1]=1;
-                      break RUN;
-                    }
-                  }
-                  else {
-                    S91=4;
-                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                        ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 47, column: 114
-                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                        currsigs.addElement(safeOpHumid);
-                        S91=5;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                      else {
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      S91=5;
-                      active[1]=1;
-                      ends[1]=1;
-                      break RUN;
-                    }
-                  }
-                }
-              }
-              else {
-                active[1]=1;
-                ends[1]=1;
-                break RUN;
-              }
-            
-            case 2 : 
-              if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 31, column: 106
-                ends[1]=2;
-                ;//sysj\ECS_controller.sysj line: 31, column: 106
-                roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 35, column: 4
-                currsigs.addElement(roomCleaned);
-                S91=3;
-                if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                  System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                  System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                    ends[1]=2;
-                    ;//sysj\ECS_controller.sysj line: 39, column: 111
-                    safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                    currsigs.addElement(safeOpTemp);
-                    S91=4;
-                    if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                      System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                        ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 47, column: 114
-                        safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                        currsigs.addElement(safeOpHumid);
-                        S91=5;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                      else {
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      S91=5;
-                      active[1]=1;
-                      ends[1]=1;
-                      break RUN;
-                    }
-                  }
-                  else {
-                    active[1]=1;
-                    ends[1]=1;
-                    break RUN;
-                  }
-                }
-                else {
-                  S91=4;
-                  if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                    System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                    System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                      ends[1]=2;
-                      ;//sysj\ECS_controller.sysj line: 47, column: 114
-                      safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                      currsigs.addElement(safeOpHumid);
-                      S91=5;
-                      active[1]=1;
-                      ends[1]=1;
-                      break RUN;
-                    }
-                    else {
-                      active[1]=1;
-                      ends[1]=1;
-                      break RUN;
-                    }
-                  }
-                  else {
-                    S91=5;
-                    active[1]=1;
-                    ends[1]=1;
-                    break RUN;
-                  }
-                }
-              }
-              else {
-                active[1]=1;
-                ends[1]=1;
-                break RUN;
-              }
-            
-            case 3 : 
-              if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                ends[1]=2;
-                ;//sysj\ECS_controller.sysj line: 39, column: 111
-                safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
+                ;//sysj\ECS_controller.sysj line: 40, column: 111
+                safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
                 currsigs.addElement(safeOpTemp);
-                S91=4;
-                if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                  System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                  System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                S8=2;
+                if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                  System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                  System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                     ends[1]=2;
-                    ;//sysj\ECS_controller.sysj line: 47, column: 114
-                    safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                    ;//sysj\ECS_controller.sysj line: 48, column: 114
+                    safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                     currsigs.addElement(safeOpHumid);
-                    S91=5;
+                    S8=3;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
@@ -1788,7 +870,7 @@ public class ECS_controller extends ClockDomain{
                   }
                 }
                 else {
-                  S91=5;
+                  S8=3;
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
@@ -1800,13 +882,13 @@ public class ECS_controller extends ClockDomain{
                 break RUN;
               }
             
-            case 4 : 
-              if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+            case 2 : 
+              if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                 ends[1]=2;
-                ;//sysj\ECS_controller.sysj line: 47, column: 114
-                safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                ;//sysj\ECS_controller.sysj line: 48, column: 114
+                safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                 currsigs.addElement(safeOpHumid);
-                S91=5;
+                S8=3;
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
@@ -1817,226 +899,49 @@ public class ECS_controller extends ClockDomain{
                 break RUN;
               }
             
-            case 5 : 
-              S91=5;
-              S91=0;
-              if(cutPowZ1.getprestatus() || cutPowZ2.getprestatus() || cutPowZ3.getprestatus() || cutPowZ4.getprestatus() || cutPowZ5.getprestatus() || cutPowZ6.getprestatus() || cutPowZ7.getprestatus()){//sysj\ECS_controller.sysj line: 18, column: 11
-                powerOff.setPresent();//sysj\ECS_controller.sysj line: 19, column: 4
+            case 3 : 
+              S8=3;
+              if(cutPow.getprestatus()){//sysj\ECS_controller.sysj line: 18, column: 11
+                System.out.println("");//sysj\ECS_controller.sysj line: 19, column: 4
+                System.out.println("Fire detected all power has been cut, please wait...");//sysj\ECS_controller.sysj line: 20, column: 4
+                powerOff.setPresent();//sysj\ECS_controller.sysj line: 21, column: 4
                 currsigs.addElement(powerOff);
-                S91=1;
-                if(fireZone1.getprestatus() || fireZone2.getprestatus() || fireZone3.getprestatus() || fireZone4.getprestatus() || fireZone5.getprestatus() || fireZone6.getprestatus() || fireZone7.getprestatus()){//sysj\ECS_controller.sysj line: 23, column: 11
-                  System.out.println("");//sysj\ECS_controller.sysj line: 24, column: 4
-                  System.out.println("Smoke alarm activated please wait for fire to be extinguished...");//sysj\ECS_controller.sysj line: 25, column: 4
-                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 23, column: 99
-                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 23, column: 99
-                    ends[1]=2;
-                    ;//sysj\ECS_controller.sysj line: 23, column: 99
-                    alarmOff.setPresent();//sysj\ECS_controller.sysj line: 27, column: 4
-                    currsigs.addElement(alarmOff);
-                    S91=2;
-                    if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 31, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 32, column: 4
-                      System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 33, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 31, column: 106
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 31, column: 106
-                        ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 31, column: 106
-                        roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 35, column: 4
-                        currsigs.addElement(roomCleaned);
-                        S91=3;
-                        if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                          System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                            ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 39, column: 111
-                            safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                            currsigs.addElement(safeOpTemp);
-                            S91=4;
-                            if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                              System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                              System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                              __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                              if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                                ends[1]=2;
-                                ;//sysj\ECS_controller.sysj line: 47, column: 114
-                                safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                                currsigs.addElement(safeOpHumid);
-                                S91=5;
-                                active[1]=1;
-                                ends[1]=1;
-                                break RUN;
-                              }
-                              else {
-                                active[1]=1;
-                                ends[1]=1;
-                                break RUN;
-                              }
-                            }
-                            else {
-                              S91=5;
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S91=4;
-                          if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                            System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                            System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                            __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                            if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                              ends[1]=2;
-                              ;//sysj\ECS_controller.sysj line: 47, column: 114
-                              safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                              currsigs.addElement(safeOpHumid);
-                              S91=5;
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                            else {
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                      }
-                      else {
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      S91=3;
-                      if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                        System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                          ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 39, column: 111
-                          safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                          currsigs.addElement(safeOpTemp);
-                          S91=4;
-                          if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                            System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                            System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                            __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                            if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                              ends[1]=2;
-                              ;//sysj\ECS_controller.sysj line: 47, column: 114
-                              safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                              currsigs.addElement(safeOpHumid);
-                              S91=5;
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                            else {
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S91=4;
-                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                            ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 47, column: 114
-                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                            currsigs.addElement(safeOpHumid);
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                          else {
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                    }
-                  }
-                  else {
-                    active[1]=1;
-                    ends[1]=1;
-                    break RUN;
-                  }
-                }
-                else {
-                  S91=2;
-                  if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 31, column: 11
-                    System.out.println("");//sysj\ECS_controller.sysj line: 32, column: 4
-                    System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 33, column: 4
-                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 31, column: 106
-                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 31, column: 106
+                if(fireZone1.getprestatus()){//sysj\ECS_controller.sysj line: 25, column: 12
+                  System.out.println("");//sysj\ECS_controller.sysj line: 26, column: 4
+                  System.out.println("Smoke alarm activated please wait for fire to be extinguished...");//sysj\ECS_controller.sysj line: 27, column: 4
+                  alarmOff.setPresent();//sysj\ECS_controller.sysj line: 28, column: 4
+                  currsigs.addElement(alarmOff);
+                  S8=0;
+                  if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 32, column: 11
+                    System.out.println("");//sysj\ECS_controller.sysj line: 33, column: 4
+                    System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 34, column: 4
+                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 32, column: 106
+                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 32, column: 106
                       ends[1]=2;
-                      ;//sysj\ECS_controller.sysj line: 31, column: 106
-                      roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 35, column: 4
+                      ;//sysj\ECS_controller.sysj line: 32, column: 106
+                      roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 36, column: 4
                       currsigs.addElement(roomCleaned);
-                      S91=3;
-                      if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                        System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
+                      S8=1;
+                      if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                        System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                        System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
                           ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 39, column: 111
-                          safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
+                          ;//sysj\ECS_controller.sysj line: 40, column: 111
+                          safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
                           currsigs.addElement(safeOpTemp);
-                          S91=4;
-                          if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                            System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                            System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                            __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                            if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                          S8=2;
+                          if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                            System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                            System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                            __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                            if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                               ends[1]=2;
-                              ;//sysj\ECS_controller.sysj line: 47, column: 114
-                              safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                              ;//sysj\ECS_controller.sysj line: 48, column: 114
+                              safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                               currsigs.addElement(safeOpHumid);
-                              S91=5;
+                              S8=3;
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -2048,7 +953,7 @@ public class ECS_controller extends ClockDomain{
                             }
                           }
                           else {
-                            S91=5;
+                            S8=3;
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
@@ -2061,17 +966,17 @@ public class ECS_controller extends ClockDomain{
                         }
                       }
                       else {
-                        S91=4;
-                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                        S8=2;
+                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                          System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                             ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 47, column: 114
-                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                            ;//sysj\ECS_controller.sysj line: 48, column: 114
+                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                             currsigs.addElement(safeOpHumid);
-                            S91=5;
+                            S8=3;
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
@@ -2083,7 +988,7 @@ public class ECS_controller extends ClockDomain{
                           }
                         }
                         else {
-                          S91=5;
+                          S8=3;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
@@ -2097,27 +1002,27 @@ public class ECS_controller extends ClockDomain{
                     }
                   }
                   else {
-                    S91=3;
-                    if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                      System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
+                    S8=1;
+                    if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                      System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                      System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
                         ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 39, column: 111
-                        safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
+                        ;//sysj\ECS_controller.sysj line: 40, column: 111
+                        safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
                         currsigs.addElement(safeOpTemp);
-                        S91=4;
-                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                        S8=2;
+                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                          System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                             ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 47, column: 114
-                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                            ;//sysj\ECS_controller.sysj line: 48, column: 114
+                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                             currsigs.addElement(safeOpHumid);
-                            S91=5;
+                            S8=3;
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
@@ -2129,7 +1034,7 @@ public class ECS_controller extends ClockDomain{
                           }
                         }
                         else {
-                          S91=5;
+                          S8=3;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
@@ -2142,17 +1047,17 @@ public class ECS_controller extends ClockDomain{
                       }
                     }
                     else {
-                      S91=4;
-                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                      S8=2;
+                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                        System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                           ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 47, column: 114
-                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                          ;//sysj\ECS_controller.sysj line: 48, column: 114
+                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                           currsigs.addElement(safeOpHumid);
-                          S91=5;
+                          S8=3;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
@@ -2164,7 +1069,174 @@ public class ECS_controller extends ClockDomain{
                         }
                       }
                       else {
-                        S91=5;
+                        S8=3;
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                    }
+                  }
+                }
+                else {
+                  S8=0;
+                  if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 32, column: 11
+                    System.out.println("");//sysj\ECS_controller.sysj line: 33, column: 4
+                    System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 34, column: 4
+                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 32, column: 106
+                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 32, column: 106
+                      ends[1]=2;
+                      ;//sysj\ECS_controller.sysj line: 32, column: 106
+                      roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 36, column: 4
+                      currsigs.addElement(roomCleaned);
+                      S8=1;
+                      if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                        System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                        System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
+                          ends[1]=2;
+                          ;//sysj\ECS_controller.sysj line: 40, column: 111
+                          safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
+                          currsigs.addElement(safeOpTemp);
+                          S8=2;
+                          if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                            System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                            System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                            __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                            if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
+                              ends[1]=2;
+                              ;//sysj\ECS_controller.sysj line: 48, column: 114
+                              safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                              currsigs.addElement(safeOpHumid);
+                              S8=3;
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                            else {
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                          }
+                          else {
+                            S8=3;
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                        }
+                        else {
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                      }
+                      else {
+                        S8=2;
+                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                          System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
+                            ends[1]=2;
+                            ;//sysj\ECS_controller.sysj line: 48, column: 114
+                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                            currsigs.addElement(safeOpHumid);
+                            S8=3;
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                          else {
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                        }
+                        else {
+                          S8=3;
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                      }
+                    }
+                    else {
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                  }
+                  else {
+                    S8=1;
+                    if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                      System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                      System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
+                        ends[1]=2;
+                        ;//sysj\ECS_controller.sysj line: 40, column: 111
+                        safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
+                        currsigs.addElement(safeOpTemp);
+                        S8=2;
+                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                          System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
+                            ends[1]=2;
+                            ;//sysj\ECS_controller.sysj line: 48, column: 114
+                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                            currsigs.addElement(safeOpHumid);
+                            S8=3;
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                          else {
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                        }
+                        else {
+                          S8=3;
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                      }
+                      else {
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                    }
+                    else {
+                      S8=2;
+                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                        System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
+                          ends[1]=2;
+                          ;//sysj\ECS_controller.sysj line: 48, column: 114
+                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                          currsigs.addElement(safeOpHumid);
+                          S8=3;
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                        else {
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                      }
+                      else {
+                        S8=3;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
@@ -2174,220 +1246,42 @@ public class ECS_controller extends ClockDomain{
                 }
               }
               else {
-                S91=1;
-                if(fireZone1.getprestatus() || fireZone2.getprestatus() || fireZone3.getprestatus() || fireZone4.getprestatus() || fireZone5.getprestatus() || fireZone6.getprestatus() || fireZone7.getprestatus()){//sysj\ECS_controller.sysj line: 23, column: 11
-                  System.out.println("");//sysj\ECS_controller.sysj line: 24, column: 4
-                  System.out.println("Smoke alarm activated please wait for fire to be extinguished...");//sysj\ECS_controller.sysj line: 25, column: 4
-                  __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 23, column: 99
-                  if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 23, column: 99
-                    ends[1]=2;
-                    ;//sysj\ECS_controller.sysj line: 23, column: 99
-                    alarmOff.setPresent();//sysj\ECS_controller.sysj line: 27, column: 4
-                    currsigs.addElement(alarmOff);
-                    S91=2;
-                    if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 31, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 32, column: 4
-                      System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 33, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 31, column: 106
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 31, column: 106
-                        ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 31, column: 106
-                        roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 35, column: 4
-                        currsigs.addElement(roomCleaned);
-                        S91=3;
-                        if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                          System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                            ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 39, column: 111
-                            safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                            currsigs.addElement(safeOpTemp);
-                            S91=4;
-                            if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                              System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                              System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                              __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                              if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                                ends[1]=2;
-                                ;//sysj\ECS_controller.sysj line: 47, column: 114
-                                safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                                currsigs.addElement(safeOpHumid);
-                                S91=5;
-                                active[1]=1;
-                                ends[1]=1;
-                                break RUN;
-                              }
-                              else {
-                                active[1]=1;
-                                ends[1]=1;
-                                break RUN;
-                              }
-                            }
-                            else {
-                              S91=5;
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S91=4;
-                          if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                            System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                            System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                            __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                            if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                              ends[1]=2;
-                              ;//sysj\ECS_controller.sysj line: 47, column: 114
-                              safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                              currsigs.addElement(safeOpHumid);
-                              S91=5;
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                            else {
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                      }
-                      else {
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      S91=3;
-                      if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                        System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
-                          ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 39, column: 111
-                          safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
-                          currsigs.addElement(safeOpTemp);
-                          S91=4;
-                          if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                            System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                            System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                            __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                            if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                              ends[1]=2;
-                              ;//sysj\ECS_controller.sysj line: 47, column: 114
-                              safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                              currsigs.addElement(safeOpHumid);
-                              S91=5;
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                            else {
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S91=4;
-                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
-                            ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 47, column: 114
-                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
-                            currsigs.addElement(safeOpHumid);
-                            S91=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                          else {
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S91=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                    }
-                  }
-                  else {
-                    active[1]=1;
-                    ends[1]=1;
-                    break RUN;
-                  }
-                }
-                else {
-                  S91=2;
-                  if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 31, column: 11
-                    System.out.println("");//sysj\ECS_controller.sysj line: 32, column: 4
-                    System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 33, column: 4
-                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 31, column: 106
-                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 31, column: 106
+                if(fireZone1.getprestatus()){//sysj\ECS_controller.sysj line: 25, column: 12
+                  System.out.println("");//sysj\ECS_controller.sysj line: 26, column: 4
+                  System.out.println("Smoke alarm activated please wait for fire to be extinguished...");//sysj\ECS_controller.sysj line: 27, column: 4
+                  alarmOff.setPresent();//sysj\ECS_controller.sysj line: 28, column: 4
+                  currsigs.addElement(alarmOff);
+                  S8=0;
+                  if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 32, column: 11
+                    System.out.println("");//sysj\ECS_controller.sysj line: 33, column: 4
+                    System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 34, column: 4
+                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 32, column: 106
+                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 32, column: 106
                       ends[1]=2;
-                      ;//sysj\ECS_controller.sysj line: 31, column: 106
-                      roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 35, column: 4
+                      ;//sysj\ECS_controller.sysj line: 32, column: 106
+                      roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 36, column: 4
                       currsigs.addElement(roomCleaned);
-                      S91=3;
-                      if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                        System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
+                      S8=1;
+                      if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                        System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                        System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
                           ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 39, column: 111
-                          safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
+                          ;//sysj\ECS_controller.sysj line: 40, column: 111
+                          safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
                           currsigs.addElement(safeOpTemp);
-                          S91=4;
-                          if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                            System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                            System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                            __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                            if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                          S8=2;
+                          if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                            System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                            System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                            __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                            if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                               ends[1]=2;
-                              ;//sysj\ECS_controller.sysj line: 47, column: 114
-                              safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                              ;//sysj\ECS_controller.sysj line: 48, column: 114
+                              safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                               currsigs.addElement(safeOpHumid);
-                              S91=5;
+                              S8=3;
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -2399,7 +1293,7 @@ public class ECS_controller extends ClockDomain{
                             }
                           }
                           else {
-                            S91=5;
+                            S8=3;
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
@@ -2412,17 +1306,17 @@ public class ECS_controller extends ClockDomain{
                         }
                       }
                       else {
-                        S91=4;
-                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                        S8=2;
+                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                          System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                             ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 47, column: 114
-                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                            ;//sysj\ECS_controller.sysj line: 48, column: 114
+                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                             currsigs.addElement(safeOpHumid);
-                            S91=5;
+                            S8=3;
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
@@ -2434,7 +1328,7 @@ public class ECS_controller extends ClockDomain{
                           }
                         }
                         else {
-                          S91=5;
+                          S8=3;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
@@ -2448,27 +1342,27 @@ public class ECS_controller extends ClockDomain{
                     }
                   }
                   else {
-                    S91=3;
-                    if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 39, column: 11
-                      System.out.println("");//sysj\ECS_controller.sysj line: 40, column: 4
-                      System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 41, column: 4
-                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 39, column: 111
-                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 39, column: 111
+                    S8=1;
+                    if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                      System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                      System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
                         ends[1]=2;
-                        ;//sysj\ECS_controller.sysj line: 39, column: 111
-                        safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 43, column: 4
+                        ;//sysj\ECS_controller.sysj line: 40, column: 111
+                        safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
                         currsigs.addElement(safeOpTemp);
-                        S91=4;
-                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                          System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                        S8=2;
+                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                          System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                             ends[1]=2;
-                            ;//sysj\ECS_controller.sysj line: 47, column: 114
-                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                            ;//sysj\ECS_controller.sysj line: 48, column: 114
+                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                             currsigs.addElement(safeOpHumid);
-                            S91=5;
+                            S8=3;
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
@@ -2480,7 +1374,7 @@ public class ECS_controller extends ClockDomain{
                           }
                         }
                         else {
-                          S91=5;
+                          S8=3;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
@@ -2493,17 +1387,17 @@ public class ECS_controller extends ClockDomain{
                       }
                     }
                     else {
-                      S91=4;
-                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 47, column: 11
-                        System.out.println("");//sysj\ECS_controller.sysj line: 48, column: 4
-                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 49, column: 4
-                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 47, column: 114
-                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 47, column: 114
+                      S8=2;
+                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                        System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
                           ends[1]=2;
-                          ;//sysj\ECS_controller.sysj line: 47, column: 114
-                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 51, column: 4
+                          ;//sysj\ECS_controller.sysj line: 48, column: 114
+                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
                           currsigs.addElement(safeOpHumid);
-                          S91=5;
+                          S8=3;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
@@ -2515,7 +1409,174 @@ public class ECS_controller extends ClockDomain{
                         }
                       }
                       else {
-                        S91=5;
+                        S8=3;
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                    }
+                  }
+                }
+                else {
+                  S8=0;
+                  if(cleanZone1.getprestatus() || cleanZone2.getprestatus() || cleanZone3.getprestatus() || cleanZone4.getprestatus() || cleanZone5.getprestatus() || cleanZone6.getprestatus() || cleanZone7.getprestatus()){//sysj\ECS_controller.sysj line: 32, column: 11
+                    System.out.println("");//sysj\ECS_controller.sysj line: 33, column: 4
+                    System.out.println("High levels of dust detected please wait for room to be cleaned...");//sysj\ECS_controller.sysj line: 34, column: 4
+                    __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 32, column: 106
+                    if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 32, column: 106
+                      ends[1]=2;
+                      ;//sysj\ECS_controller.sysj line: 32, column: 106
+                      roomCleaned.setPresent();//sysj\ECS_controller.sysj line: 36, column: 4
+                      currsigs.addElement(roomCleaned);
+                      S8=1;
+                      if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                        System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                        System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
+                          ends[1]=2;
+                          ;//sysj\ECS_controller.sysj line: 40, column: 111
+                          safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
+                          currsigs.addElement(safeOpTemp);
+                          S8=2;
+                          if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                            System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                            System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                            __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                            if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
+                              ends[1]=2;
+                              ;//sysj\ECS_controller.sysj line: 48, column: 114
+                              safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                              currsigs.addElement(safeOpHumid);
+                              S8=3;
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                            else {
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                          }
+                          else {
+                            S8=3;
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                        }
+                        else {
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                      }
+                      else {
+                        S8=2;
+                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                          System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
+                            ends[1]=2;
+                            ;//sysj\ECS_controller.sysj line: 48, column: 114
+                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                            currsigs.addElement(safeOpHumid);
+                            S8=3;
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                          else {
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                        }
+                        else {
+                          S8=3;
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                      }
+                    }
+                    else {
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                  }
+                  else {
+                    S8=1;
+                    if(fanOnZone1_7.getprestatus() || heatOnZone1_7.getprestatus() || airOnZone2_3.getprestatus() || airOnZone4_5_6.getprestatus() || heatOnZone2_3.getprestatus() || heatOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 40, column: 11
+                      System.out.println("");//sysj\ECS_controller.sysj line: 41, column: 4
+                      System.out.println("Room temperature is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 42, column: 4
+                      __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 40, column: 111
+                      if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 40, column: 111
+                        ends[1]=2;
+                        ;//sysj\ECS_controller.sysj line: 40, column: 111
+                        safeOpTemp.setPresent();//sysj\ECS_controller.sysj line: 44, column: 4
+                        currsigs.addElement(safeOpTemp);
+                        S8=2;
+                        if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                          System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                          System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                          __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                          if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
+                            ends[1]=2;
+                            ;//sysj\ECS_controller.sysj line: 48, column: 114
+                            safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                            currsigs.addElement(safeOpHumid);
+                            S8=3;
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                          else {
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                        }
+                        else {
+                          S8=3;
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                      }
+                      else {
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                    }
+                    else {
+                      S8=2;
+                      if(humOnZone1_7.getprestatus() || humOnZone2_3.getprestatus() || humOnZone4_5_6.getprestatus() || deHumOnZone1_7.getprestatus() || deHumOnZone2_3.getprestatus() || deHumOnZone4_5_6.getprestatus()){//sysj\ECS_controller.sysj line: 48, column: 11
+                        System.out.println("");//sysj\ECS_controller.sysj line: 49, column: 4
+                        System.out.println("Room humidity is not optimal, please wait for it to moderate...");//sysj\ECS_controller.sysj line: 50, column: 4
+                        __start_thread_1 = com.systemj.Timer.getMs();//sysj\ECS_controller.sysj line: 48, column: 114
+                        if(com.systemj.Timer.getMs() - __start_thread_1 >= (5) * 1000){//sysj\ECS_controller.sysj line: 48, column: 114
+                          ends[1]=2;
+                          ;//sysj\ECS_controller.sysj line: 48, column: 114
+                          safeOpHumid.setPresent();//sysj\ECS_controller.sysj line: 52, column: 4
+                          currsigs.addElement(safeOpHumid);
+                          S8=3;
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                        else {
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                      }
+                      else {
+                        S8=3;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
@@ -2579,20 +1640,8 @@ public class ECS_controller extends ClockDomain{
           deHumOnZone1_7.gethook();
           deHumOnZone2_3.gethook();
           deHumOnZone4_5_6.gethook();
-          cutPowZ1.gethook();
-          cutPowZ2.gethook();
-          cutPowZ3.gethook();
-          cutPowZ4.gethook();
-          cutPowZ5.gethook();
-          cutPowZ6.gethook();
-          cutPowZ7.gethook();
-          powZ1.gethook();
-          powZ2.gethook();
-          powZ3.gethook();
-          powZ4.gethook();
-          powZ5.gethook();
-          powZ6.gethook();
-          powZ7.gethook();
+          cutPow.gethook();
+          pow.gethook();
           df = true;
         }
         runClockDomain();
@@ -2623,20 +1672,8 @@ public class ECS_controller extends ClockDomain{
       deHumOnZone1_7.setpreclear();
       deHumOnZone2_3.setpreclear();
       deHumOnZone4_5_6.setpreclear();
-      cutPowZ1.setpreclear();
-      cutPowZ2.setpreclear();
-      cutPowZ3.setpreclear();
-      cutPowZ4.setpreclear();
-      cutPowZ5.setpreclear();
-      cutPowZ6.setpreclear();
-      cutPowZ7.setpreclear();
-      powZ1.setpreclear();
-      powZ2.setpreclear();
-      powZ3.setpreclear();
-      powZ4.setpreclear();
-      powZ5.setpreclear();
-      powZ6.setpreclear();
-      powZ7.setpreclear();
+      cutPow.setpreclear();
+      pow.setpreclear();
       safeOpTemp.setpreclear();
       safeOpHumid.setpreclear();
       powerOff.setpreclear();
@@ -2729,48 +1766,12 @@ public class ECS_controller extends ClockDomain{
       dummyint = deHumOnZone4_5_6.getStatus() ? deHumOnZone4_5_6.setprepresent() : deHumOnZone4_5_6.setpreclear();
       deHumOnZone4_5_6.setpreval(deHumOnZone4_5_6.getValue());
       deHumOnZone4_5_6.setClear();
-      dummyint = cutPowZ1.getStatus() ? cutPowZ1.setprepresent() : cutPowZ1.setpreclear();
-      cutPowZ1.setpreval(cutPowZ1.getValue());
-      cutPowZ1.setClear();
-      dummyint = cutPowZ2.getStatus() ? cutPowZ2.setprepresent() : cutPowZ2.setpreclear();
-      cutPowZ2.setpreval(cutPowZ2.getValue());
-      cutPowZ2.setClear();
-      dummyint = cutPowZ3.getStatus() ? cutPowZ3.setprepresent() : cutPowZ3.setpreclear();
-      cutPowZ3.setpreval(cutPowZ3.getValue());
-      cutPowZ3.setClear();
-      dummyint = cutPowZ4.getStatus() ? cutPowZ4.setprepresent() : cutPowZ4.setpreclear();
-      cutPowZ4.setpreval(cutPowZ4.getValue());
-      cutPowZ4.setClear();
-      dummyint = cutPowZ5.getStatus() ? cutPowZ5.setprepresent() : cutPowZ5.setpreclear();
-      cutPowZ5.setpreval(cutPowZ5.getValue());
-      cutPowZ5.setClear();
-      dummyint = cutPowZ6.getStatus() ? cutPowZ6.setprepresent() : cutPowZ6.setpreclear();
-      cutPowZ6.setpreval(cutPowZ6.getValue());
-      cutPowZ6.setClear();
-      dummyint = cutPowZ7.getStatus() ? cutPowZ7.setprepresent() : cutPowZ7.setpreclear();
-      cutPowZ7.setpreval(cutPowZ7.getValue());
-      cutPowZ7.setClear();
-      dummyint = powZ1.getStatus() ? powZ1.setprepresent() : powZ1.setpreclear();
-      powZ1.setpreval(powZ1.getValue());
-      powZ1.setClear();
-      dummyint = powZ2.getStatus() ? powZ2.setprepresent() : powZ2.setpreclear();
-      powZ2.setpreval(powZ2.getValue());
-      powZ2.setClear();
-      dummyint = powZ3.getStatus() ? powZ3.setprepresent() : powZ3.setpreclear();
-      powZ3.setpreval(powZ3.getValue());
-      powZ3.setClear();
-      dummyint = powZ4.getStatus() ? powZ4.setprepresent() : powZ4.setpreclear();
-      powZ4.setpreval(powZ4.getValue());
-      powZ4.setClear();
-      dummyint = powZ5.getStatus() ? powZ5.setprepresent() : powZ5.setpreclear();
-      powZ5.setpreval(powZ5.getValue());
-      powZ5.setClear();
-      dummyint = powZ6.getStatus() ? powZ6.setprepresent() : powZ6.setpreclear();
-      powZ6.setpreval(powZ6.getValue());
-      powZ6.setClear();
-      dummyint = powZ7.getStatus() ? powZ7.setprepresent() : powZ7.setpreclear();
-      powZ7.setpreval(powZ7.getValue());
-      powZ7.setClear();
+      dummyint = cutPow.getStatus() ? cutPow.setprepresent() : cutPow.setpreclear();
+      cutPow.setpreval(cutPow.getValue());
+      cutPow.setClear();
+      dummyint = pow.getStatus() ? pow.setprepresent() : pow.setpreclear();
+      pow.setpreval(pow.getValue());
+      pow.setClear();
       safeOpTemp.sethook();
       safeOpTemp.setClear();
       safeOpHumid.sethook();
@@ -2815,20 +1816,8 @@ public class ECS_controller extends ClockDomain{
         deHumOnZone1_7.gethook();
         deHumOnZone2_3.gethook();
         deHumOnZone4_5_6.gethook();
-        cutPowZ1.gethook();
-        cutPowZ2.gethook();
-        cutPowZ3.gethook();
-        cutPowZ4.gethook();
-        cutPowZ5.gethook();
-        cutPowZ6.gethook();
-        cutPowZ7.gethook();
-        powZ1.gethook();
-        powZ2.gethook();
-        powZ3.gethook();
-        powZ4.gethook();
-        powZ5.gethook();
-        powZ6.gethook();
-        powZ7.gethook();
+        cutPow.gethook();
+        pow.gethook();
       }
       runFinisher();
       if(active[1] == 0){

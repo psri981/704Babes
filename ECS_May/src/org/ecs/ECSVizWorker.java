@@ -97,25 +97,7 @@ public class ECSVizWorker extends ECS_Worker{
 
 			// -------------- POWER CASES -------------- //
 		case "cutPowZ1_TriggerE":
-			ECS_States.POW_OFF_ZONE_1 = status;
-			break;
-		case "cutPowZ2_TriggerE":
-			ECS_States.POW_OFF_ZONE_2 = status;
-			break;
-		case "cutPowZ3_TriggerE":
-			ECS_States.POW_OFF_ZONE_3 = status;
-			break;
-		case "cutPowZ4_TriggerE":
-			ECS_States.POW_OFF_ZONE_4 = status;
-			break;
-		case "cutPowZ5_TriggerE":
-			ECS_States.POW_OFF_ZONE_5 = status;
-			break;
-		case "cutPowZ6_TriggerE":
-			ECS_States.POW_OFF_ZONE_6 = status;
-			break;
-		case "cutPowZ7_TriggerE":
-			ECS_States.POW_OFF_ZONE_7 = status;
+			ECS_States.POW_OFF= status;
 			break;
 			// -------------- POWER CASES END -------------- //
 

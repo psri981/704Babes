@@ -587,7 +587,7 @@ public class ECS_Canvas {
 					try {
 						System.out.println("Fire Button State: " + firebtnPressed);
 						SimpleClient sendFire = new SimpleClient("127.0.0.1", 30003, "ECSPlantCD", "fire");
-						sendFire.emit(1, 10);
+						sendFire.emit(0, 10);
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -597,7 +597,7 @@ public class ECS_Canvas {
 					try {
 						System.out.println("Fire Button State: " + firebtnPressed);
 						SimpleClient sendFire = new SimpleClient("127.0.0.1", 30003, "ECSPlantCD", "fire");
-						sendFire.emit(0, 10);
+						sendFire.emit(1, 10);
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();

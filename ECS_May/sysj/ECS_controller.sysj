@@ -4,8 +4,8 @@ ECS_controller(
 		input signal fanOnZone1_7, heatOnZone1_7, airOnZone2_3, airOnZone4_5_6, heatOnZone2_3, heatOnZone4_5_6;
 		//input signal blindsDownZone1_7, blindsDownZone2_3, blindsDownZone4_5_6;  
 		input signal humOnZone1_7, humOnZone2_3, humOnZone4_5_6, deHumOnZone1_7, deHumOnZone2_3, deHumOnZone4_5_6;
-		input signal cutPowZ1, cutPowZ2, cutPowZ3, cutPowZ4, cutPowZ5, cutPowZ6, cutPowZ7;
-		input signal powZ1, powZ2, powZ3, powZ4, powZ5, powZ6, powZ7;
+		input signal cutPow;
+		input signal pow;
 		
 		output signal safeOpTemp, safeOpHumid;
 		output signal powerOff, roomCleaned, fireOut, alarmOff, blindsDown, evacuated;
@@ -15,15 +15,16 @@ ECS_controller(
 	while(true) {
 		
 		// CHECK FOR POWER CUTS
-		present(cutPowZ1 || cutPowZ2 || cutPowZ3 || cutPowZ4 || cutPowZ5 || cutPowZ6 || cutPowZ7){
+		present(cutPow){
+			System.out.println("");
+			System.out.println("Fire detected all power has been cut, please wait...");
 			emit powerOff;
-		}
+		}	
 	
 		// CHECK FOR FIRE
-		present(fireZone1 || fireZone2 || fireZone3 || fireZone4 || fireZone5 || fireZone6 || fireZone7){
+		present( fireZone1){
 			System.out.println("");
 			System.out.println("Smoke alarm activated please wait for fire to be extinguished...");
-			waitl(5s);
 			emit alarmOff;
 		}
 

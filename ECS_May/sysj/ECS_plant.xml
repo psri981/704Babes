@@ -56,21 +56,9 @@
 			<oSignal Name="deHumOnZone2_3"       To="ECSControllerCD.deHumOnZone2_3"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
 			<oSignal Name="deHumOnZone4_5_6"       To="ECSControllerCD.deHumOnZone4_5_6"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
 			
-			<oSignal Name="cutPowZ1"       To="ECSControllerCD.cutPowZ1"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
-			<oSignal Name="cutPowZ2"       To="ECSControllerCD.cutPowZ2"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
-			<oSignal Name="cutPowZ3"       To="ECSControllerCD.cutPowZ3"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
-			<oSignal Name="cutPowZ4"       To="ECSControllerCD.cutPowZ4"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
-			<oSignal Name="cutPowZ5"       To="ECSControllerCD.cutPowZ5"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
-			<oSignal Name="cutPowZ6"       To="ECSControllerCD.cutPowZ6"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
-			<oSignal Name="cutPowZ7"       To="ECSControllerCD.cutPowZ7"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="cutPow"       To="ECSControllerCD.cutPow"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
 			
-			<oSignal Name="powZ1"       To="ECSControllerCD.powZ1"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
-			<oSignal Name="powZ2"       To="ECSControllerCD.powZ2"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
-			<oSignal Name="powZ3"       To="ECSControllerCD.powZ3"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
-			<oSignal Name="powZ4"       To="ECSControllerCD.powZ4"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
-			<oSignal Name="powZ5"       To="ECSControllerCD.powZ5"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
-			<oSignal Name="powZ6"       To="ECSControllerCD.powZ6"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
-			<oSignal Name="powZ7"       To="ECSControllerCD.powZ7"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="pow"       To="ECSControllerCD.pow"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
 									
 			<oSignal Name="alarmZone1TriggerE" To="UI.alarmZone1TriggerE" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
 			<oSignal Name="alarmZone2TriggerE" To="UI.alarmZone2TriggerE" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
@@ -102,13 +90,7 @@
 			<oSignal Name="deHumOnZone2_3TriggerE"       To="UI.deHumOnZone2_3TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
 			<oSignal Name="deHumOnZone4_5_6TriggerE"     To="UI.deHumOnZone4_5_6TriggerE"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
 			
-			<oSignal Name="cutPowZ1_TriggerE"       To="UI.cutPowZ1_TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
-			<oSignal Name="cutPowZ2_TriggerE"       To="UI.cutPowZ2_TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
-			<oSignal Name="cutPowZ3_TriggerE"       To="UI.cutPowZ3_TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
-			<oSignal Name="cutPowZ4_TriggerE"       To="UI.cutPowZ4_TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
-			<oSignal Name="cutPowZ5_TriggerE"       To="UI.cutPowZ5_TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
-			<oSignal Name="cutPowZ6_TriggerE"       To="UI.cutPowZ6_TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
-			<oSignal Name="cutPowZ7_TriggerE"       To="UI.cutPowZ7_TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />	
+			<oSignal Name="cutPow_TriggerE"       To="UI.cutPow_TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
 			
 			<oSignal Name="lightIntZ1Trigger"   To="UI.lightIntZ1TriggerE"    Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
 			<oSignal Name="lightIntZ2Trigger"   To="UI.lightIntZ2TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />

@@ -18,14 +18,14 @@ ECS_plant(
 		output signal fanOnZone1_7, heatOnZone1_7, airOnZone2_3, airOnZone4_5_6, heatOnZone2_3, heatOnZone4_5_6;
 		output signal blindsDownZone1_7, blindsDownZone2_3, blindsDownZone4_5_6;  
 		output signal humOnZone1_7, humOnZone2_3, humOnZone4_5_6, deHumOnZone1_7, deHumOnZone2_3, deHumOnZone4_5_6;
-		output signal cutPowZ1, cutPowZ2, cutPowZ3, cutPowZ4, cutPowZ5, cutPowZ6, cutPowZ7;
-		output signal powZ1, powZ2, powZ3, powZ4, powZ5, powZ6, powZ7;
+		output signal cutPow;
+		output signal pow;
 		
 		output signal alarmZone1TriggerE, alarmZone2TriggerE, alarmZone3TriggerE, alarmZone4TriggerE, alarmZone5TriggerE, alarmZone6TriggerE, alarmZone7TriggerE;
 		output signal cleanZone1TriggerE, cleanZone2TriggerE, cleanZone3TriggerE, cleanZone4TriggerE, cleanZone5TriggerE, cleanZone6TriggerE, cleanZone7TriggerE;
 		output signal fanOnZone1_7TriggerE, heatOnZone1_7TriggerE, airOnZone2_3TriggerE, airOnZone4_5_6TriggerE, heatOnZone2_3TriggerE, heatOnZone4_5_6TriggerE;
 		output signal humOnZone1_7TriggerE, humOnZone2_3TriggerE, humOnZone4_5_6TriggerE, deHumOnZone1_7TriggerE, deHumOnZone2_3TriggerE, deHumOnZone4_5_6TriggerE;
-		output signal cutPowZ1_TriggerE, cutPowZ2_TriggerE, cutPowZ3_TriggerE, cutPowZ4_TriggerE, cutPowZ5_TriggerE, cutPowZ6_TriggerE, cutPowZ7_TriggerE;
+		output signal cutPow_TriggerE;
 		output signal lightIntZ1Trigger, lightIntZ2Trigger, lightIntZ3Trigger, lightIntZ4Trigger, lightIntZ5Trigger, lightIntZ6Trigger, lightIntZ7Trigger;
 		)
 ->
@@ -46,7 +46,7 @@ ECS_plant(
 			zone = #selectedZone;
 			
 			System.out.println("");
-			System.out.println("Zone selected is: " + zone);
+			System.out.println("Plant knows zone selected is: " + zone);
 			
 			// Check what zone was selected when run was pressed
 			Integer firePresent = 0;
@@ -63,90 +63,19 @@ ECS_plant(
 			// CHECK FOR FIREEEEEE (MOST IMPORTANT)
 			// SINCE SMOKE ALARM IS BATTERY OPERATED, POWER SHOULD BE SWITCHED OFF IN EVENT OF FIRE
 			if(firePresent == 1){
-				System.out.println("THERE IS A FIRE SEND EVACUATION SIGNAL TO ACS");
-				if(zone == 1){
-					while(true){
-						emit cutPowZ1;
-						pause;
-					}
-					await(powerOff);
-					while(true){
-						emit fireZone1;
-						pause;
-					}
-					await(alarmOff);
-					System.out.println("Fire Out");
-				}	
-				if(zone == 2){
-					while(true){
-						emit cutPowZ2;
-						pause;
-					}
-					await(powerOff);
-					while(true){
-						emit fireZone2;
-						pause;
-					}
-				}			
-				if(zone == 3){
-					while(true){
-						emit cutPowZ3;
-						pause;
-					}
-					await(powerOff);
-					while(true){
-						emit fireZone3;
-						pause;
-					}
-				}			
-				if(zone == 4){
-					while(true){
-						emit cutPowZ4;
-						pause;
-					}
-					await(powerOff);
-					while(true){
-						emit fireZone4;
-						pause;
-					}
-				}				
-				if(zone == 5){
-					while(true){
-						emit cutPowZ5;
-						pause;
-					}
-					await(powerOff);
-					while(true){
-						emit fireZone5;
-						pause;
-					}
-				}			
-				if(zone == 6){
-					while(true){
-						emit cutPowZ6;
-						pause;
-					}
-					await(powerOff);
-					while(true){
-						emit fireZone7;
-						pause;
-					}
-				}			
-				if(zone == 7){
-					while(true){
-						emit cutPowZ7;
-						pause;
-					}
-					await(powerOff);
-					while(true){
-						emit fireZone7;
-						pause;				
-					}
-				}
+				System.out.println("THERE IS A FIRE IN ZONE " + zone + " SEND EVACUATION SIGNAL TO ACS");
+				emit cutPow;
+				await(powerOff);
+				waitl(2s);
+				System.out.println("Power turned off");
+				emit fireZone1;
+				await(alarmOff);
+				waitl(4s);
+				System.out.println("Alarm off, Fire out");	
 			}
 			
 			// Only run rest of code when there is no fire
-			await(run);
+			System.out.println("Trying to rerun programme");	
 
 			// CHECK FOR CLEANLINESS
 			present(dust){
@@ -348,7 +277,6 @@ ECS_plant(
 			// CHECK LIGHT INTENSITY		
 			pause;
 		}
-		pause;
 	}
 	||
 	{// To viz
@@ -404,18 +332,6 @@ ECS_plant(
 		||
 		{while(true){present(deHumOnZone4_5_6){emit deHumOnZone4_5_6TriggerE;} pause;}}
 		||
-		{while(true){present(cutPowZ1){emit cutPowZ1_TriggerE;} pause;}}
-		||
-		{while(true){present(cutPowZ2){emit cutPowZ2_TriggerE;} pause;}}
-		||
-		{while(true){present(cutPowZ3){emit cutPowZ3_TriggerE;} pause;}}
-		||
-		{while(true){present(cutPowZ4){emit cutPowZ4_TriggerE;} pause;}}
-		||
-		{while(true){present(cutPowZ5){emit cutPowZ5_TriggerE;} pause;}}
-		||
-		{while(true){present(cutPowZ6){emit cutPowZ6_TriggerE;} pause;}}
-		||
-		{while(true){present(cutPowZ7){emit cutPowZ7_TriggerE;} pause;}}
+		{while(true){present(cutPow){emit cutPow_TriggerE;} pause;}}
 	}
 }
