@@ -14,32 +14,28 @@ Plant(
 		
 		
 		while(true){
-			{
-				present(accessOffice){
-					System.out.println("OFFIIICEEE");
-					emit accessOffice_t;
-					pause;
-				}
-			}
-			||
-			{
-				await(enable);
-				abort(enable){
-					while(true) {
-						System.out.println("BUTTON WORKS");
-						emit unlock1_t;
-						pause;
-					}
-				}
-				abort(enable){
-					while(true) {
-						System.out.println("should lock");
-						emit lock1_t;
-						pause;
-					}
-				}
-			}
+			await(accessOffice);
+			System.out.println("OFFIIICEEE");
+			emit accessOffice_t;
 			pause;
+//			await(enable);
+//			System.out.println("BUTTON WORKS");
+//			emit unlock1_t;
+//			
+//			abort(unlock1){
+//				while(true) {
+//					//System.out.println("b");
+//					emit lock1_t;
+//					pause;
+//				}
+//			}
+//			abort(!unlock1){
+//				while(true) {
+//					//System.out.println("a");
+//					emit unlock1_t;
+//					pause;
+//				}
+//			}
 		}
 
 	}
@@ -47,6 +43,6 @@ Plant(
 	{//to Viz
 		{while(true) {present(unlock1_t){System.out.println("a"); emit unlock1GUI;} pause;}}
 		||
-		{while(true) {present(lock1_t){System.out.println("b"); emit lock1GUI;} pause;}}
+		{while(true) {present(lock1_t){emit lock1GUI;} pause;}}
 	}
 }

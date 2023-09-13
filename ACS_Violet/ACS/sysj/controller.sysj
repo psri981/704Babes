@@ -36,7 +36,7 @@ Controller(
 	while(true) {
 	//	await(door1req||door2req||door3req);
 		//for loop here
-		//System.out.println(personArray[0][1]);
+		System.out.println(personArray[0][1]);
 		present(person1access){
 			personArray[0][1] = 5;
 			System.out.println("POO");

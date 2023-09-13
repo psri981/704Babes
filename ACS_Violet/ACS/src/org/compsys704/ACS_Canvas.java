@@ -90,7 +90,7 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(locZone0);
 		
 		JLabel door1Unlock = new JLabel("");
-		door1Unlock.setBorder(null);
+		door1Unlock.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		door1Unlock.setBackground(Color.GREEN);
 		door1Unlock.setBounds(53, 141, 10, 70);
 		frmSecurityAccessControl.getContentPane().add(door1Unlock);
@@ -181,7 +181,25 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(lblNewLabel_7);
 		enable.setBounds(80, 380, 85, 21);
 		frmSecurityAccessControl.getContentPane().add(enable);
-
+		
+		enable.addActionListener(e -> {
+			if(States.DOOR1_LOCK) {
+				System.out.println("shit");
+				door1Unlock.setOpaque(true);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+		
+		enable.addActionListener(e -> {
+			if(!States.DOOR1_LOCK){
+				System.out.println("fuck");
+				door1Unlock.setOpaque(false);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+		
 		JLabel lblNewLabel_6_3_1 = new JLabel("Person Location");
 		lblNewLabel_6_3_1.setVerticalAlignment(SwingConstants.TOP);
 		lblNewLabel_6_3_1.setOpaque(true);
@@ -215,8 +233,8 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(Door2Lock);
 		
 		JLabel Door1Lock = new JLabel("");
-		Door1Lock.setOpaque(true);
 		Door1Lock.setBackground(Color.RED);
+		Door1Lock.setOpaque(true);
 		Door1Lock.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		Door1Lock.setBounds(53, 141, 10, 70);
 		frmSecurityAccessControl.getContentPane().add(Door1Lock);
@@ -322,22 +340,5 @@ public class ACS_Canvas {
 		lblNewLabel_6_3.setBackground(new Color(204, 211, 255));
 		lblNewLabel_6_3.setBounds(283, 275, 243, 178);
 		frmSecurityAccessControl.getContentPane().add(lblNewLabel_6_3);
-		
-		enable.addActionListener(e -> {
-			if(States.DOOR1_UNLOCK) {
-				System.out.println("shit");
-				door1Unlock.setOpaque(true);
-				//Door1Lock.setOpaque(false);
-				frmSecurityAccessControl.getContentPane().revalidate();
-				frmSecurityAccessControl.getContentPane().repaint();
-			}
-			else if(States.DOOR1_LOCK){
-				System.out.println("fuck");
-				door1Unlock.setOpaque(false);
-				//Door1Lock.setOpaque(true);
-				frmSecurityAccessControl.getContentPane().revalidate();
-				frmSecurityAccessControl.getContentPane().repaint();
-			}
-		});
 	}
 }
