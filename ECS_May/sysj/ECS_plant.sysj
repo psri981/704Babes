@@ -5,11 +5,12 @@ ECS_plant(
 		input Integer signal humidZone1_7, humidZone2_3, humidZone4_5_6;
 		input Integer signal lightInt;
 		input Integer signal selectedZone;
+		input Integer signal fire;
 		
 		input String signal time;
 		
 		input signal humanZ1, humanZ2, humanZ3, humanZ4, humanZ5, humanZ6, humanZ7;
-		input signal dust, fire, powerOff, roomCleaned, alarmOff, safeOpTemp, safeOpHumid;
+		input signal dust, powerOff, roomCleaned, alarmOff, safeOpTemp, safeOpHumid;
 		input signal run;
 
 		output signal fireZone1, fireZone2, fireZone3, fireZone4, fireZone5, fireZone6, fireZone7;
@@ -47,6 +48,10 @@ ECS_plant(
 			System.out.println("");
 			System.out.println("Zone selected is: " + zone);
 			
+			// Check what zone was selected when run was pressed
+			Integer firePresent = 0;
+			firePresent = #fire;
+			
 			// Check light intensity
 			Integer lightIntensity = 0;
 			lightIntensity = #lightInt;
@@ -57,7 +62,8 @@ ECS_plant(
 			
 			// CHECK FOR FIREEEEEE (MOST IMPORTANT)
 			// SINCE SMOKE ALARM IS BATTERY OPERATED, POWER SHOULD BE SWITCHED OFF IN EVENT OF FIRE
-			present(fire){
+			if(firePresent == 1){
+				System.out.println("THERE IS A FIRE SEND EVACUATION SIGNAL TO ACS");
 				if(zone == 1){
 					while(true){
 						emit cutPowZ1;
@@ -342,6 +348,7 @@ ECS_plant(
 			// CHECK LIGHT INTENSITY		
 			pause;
 		}
+		pause;
 	}
 	||
 	{// To viz
