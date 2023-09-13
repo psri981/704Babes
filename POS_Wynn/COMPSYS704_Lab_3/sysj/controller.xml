@@ -1,19 +1,19 @@
 <System xmlns="http://systemjtechnology.com">
 	<SubSystem Name="SS1" Local="true">
 		<ClockDomain Name="ControllerCD" Class="Controller">
-			<iSignal Name="capOnPos1" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="tableAligned"  Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="botPos1"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="botPos2"     Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="botPos3"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="botPos4"           Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
-			<iSignal Name="botPos5"         Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="capOnPos1" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="tableAligned"  Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="botPos1"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="botPos2"     Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="botPos3"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="botPos4"           Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="botPos5"         Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
 
-			<oSignal Name="bottleAtPos1" To="PlantCD.bottleAtPos1" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="bottleAtPos2" To="PlantCD.bottleAtPos2" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="bottleAtPos3" To="PlantCD.bottleAtPos3" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="bottleAtPos4" To="PlantCD.bottleAtPos4" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
-			<oSignal Name="bottleAtPos5" To="PlantCD.bottleAtPos5" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="bottleAtPos1" To="PlantCD.bottleAtPos1" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30003" />
+			<oSignal Name="bottleAtPos2" To="PlantCD.bottleAtPos2" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30003" />
+			<oSignal Name="bottleAtPos3" To="PlantCD.bottleAtPos3" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30003" />
+			<oSignal Name="bottleAtPos4" To="PlantCD.bottleAtPos4" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30003" />
+			<oSignal Name="bottleAtPos5" To="PlantCD.bottleAtPos5" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30003" />
 
 		</ClockDomain>
 	</SubSystem>

@@ -72,8 +72,8 @@ Java Threads: ( => current thread )
 
 Other Threads:
   0x00000161c1d03c80 GCTaskThread "GC Thread#0" [stack: 0x0000003b1df00000,0x0000003b1e000000] [id=32188]
-  0x00000161c1d14860 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000003b1e000000,0x0000003b1e100000] [id=3152]
-  0x00000161c1d15920 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000003b1e100000,0x0000003b1e200000] [id=27080]
+  0x00000161c1d14860 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000003b1e000000,0x0000003b1e333330] [id=3152]
+  0x00000161c1d15920 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000003b1e333330,0x0000003b1e300000] [id=27080]
 
 [error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffb7c01daf7]
 
@@ -131,27 +131,27 @@ Dynamic libraries:
 0x00007ffbb1700000 - 0x00007ffbb1717000 	D:\uni\704\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\jli.dll
 0x00007ffbca350000 - 0x00007ffbca4ed000 	C:\WINDOWS\System32\USER32.dll
 0x00007ffbb9cf0000 - 0x00007ffbb9f8a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
-0x00007ffbc93d0000 - 0x00007ffbc93f2000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffbc93d0000 - 0x00007ffbc93f3000 	C:\WINDOWS\System32\win32u.dll
 0x00007ffbcb270000 - 0x00007ffbcb30e000 	C:\WINDOWS\System32\msvcrt.dll
 0x00007ffbcb770000 - 0x00007ffbcb79c000 	C:\WINDOWS\System32\GDI32.dll
 0x00007ffbc9950000 - 0x00007ffbc9a65000 	C:\WINDOWS\System32\gdi32full.dll
 0x00007ffbc9500000 - 0x00007ffbc959d000 	C:\WINDOWS\System32\msvcp_win.dll
-0x00007ffbcb320000 - 0x00007ffbcb350000 	C:\WINDOWS\System32\IMM32.DLL
-0x00007ffbb5f20000 - 0x00007ffbb5f2c000 	D:\uni\704\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\vcruntime140_1.dll
+0x00007ffbcb330000 - 0x00007ffbcb350000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffbb5f30000 - 0x00007ffbb5f2c000 	D:\uni\704\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\vcruntime140_1.dll
 0x00007ffb97bf0000 - 0x00007ffb97c81000 	D:\uni\704\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\msvcp140.dll
 0x00007ffb7bd30000 - 0x00007ffb7c978000 	D:\uni\704\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\server\jvm.dll
-0x00007ffbcbb20000 - 0x00007ffbcbbcf000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffbcbb30000 - 0x00007ffbcbbcf000 	C:\WINDOWS\System32\ADVAPI32.dll
 0x00007ffbcae40000 - 0x00007ffbcaedc000 	C:\WINDOWS\System32\sechost.dll
 0x00007ffbcaf90000 - 0x00007ffbcb0b6000 	C:\WINDOWS\System32\RPCRT4.dll
 0x00007ffbb1130000 - 0x00007ffbb1139000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
 0x00007ffbc2ad0000 - 0x00007ffbc2ada000 	C:\WINDOWS\SYSTEM32\VERSION.dll
 0x00007ffbb5e70000 - 0x00007ffbb5e97000 	C:\WINDOWS\SYSTEM32\WINMM.dll
 0x00007ffbcb600000 - 0x00007ffbcb66b000 	C:\WINDOWS\System32\WS2_32.dll
-0x00007ffbc7c40000 - 0x00007ffbc7c52000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffbc7c40000 - 0x00007ffbc7c53000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
 0x00007ffbc4a00000 - 0x00007ffbc4a0a000 	D:\uni\704\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\jimage.dll
 0x00007ffbc7870000 - 0x00007ffbc7a54000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
 0x00007ffbadcd0000 - 0x00007ffbadd04000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
-0x00007ffbc9470000 - 0x00007ffbc94f2000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffbc9470000 - 0x00007ffbc94f3000 	C:\WINDOWS\System32\bcryptPrimitives.dll
 0x00007ffbb5f30000 - 0x00007ffbb5f55000 	D:\uni\704\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.7.v20230425-1502\jre\bin\java.dll
 
 dbghelp: loaded successfully - version: 4.0.5 - missing functions: none

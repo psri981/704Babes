@@ -35,11 +35,17 @@ ECS_plant(
 		while(true){
 				
 			// WAIT FOR USER TO START SIMULATION
+			System.out.println("ECS PLANT STARTED AWAITING RUN BUTTON");
 			await(run);
+			System.out.println("");
+			System.out.println("RUN BUTTON PRESSED");
 			
 			// Check what zone was selected when run was pressed
 			Integer zone = 0;
 			zone = #selectedZone;
+			
+			System.out.println("");
+			System.out.println("Zone selected is: " + zone);
 			
 			// Check light intensity
 			Integer lightIntensity = 0;
@@ -51,7 +57,7 @@ ECS_plant(
 			
 			// CHECK FOR FIREEEEEE (MOST IMPORTANT)
 			// SINCE SMOKE ALARM IS BATTERY OPERATED, POWER SHOULD BE SWITCHED OFF IN EVENT OF FIRE
-			abort(fire){
+			present(fire){
 				if(zone == 1){
 					while(true){
 						emit cutPowZ1;
@@ -137,7 +143,7 @@ ECS_plant(
 			await(run);
 
 			// CHECK FOR CLEANLINESS
-			abort(dust){
+			present(dust){
 			
 				if(zone == 1){
 					while(true){
