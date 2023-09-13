@@ -1,5 +1,5 @@
 package org.compsys704;
 
-public class States {
+public class POS_States {
 	public static volatile boolean ORDER_DONE = false;//
 }

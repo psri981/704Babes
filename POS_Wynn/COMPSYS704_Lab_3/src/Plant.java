@@ -3,7 +3,7 @@ import com.systemj.ClockDomain;
 import com.systemj.Signal;
 import com.systemj.input_Channel;
 import com.systemj.output_Channel;
-import run.GUI;//sysj\plant.sysj line: 1, column: 1
+import run.POS_GUI;//sysj\plant.sysj line: 1, column: 1
 
 public class Plant extends ClockDomain{
   public Plant(String name){super(name);}
@@ -139,7 +139,7 @@ public class Plant extends ClockDomain{
         case 1 : 
           S39=2;
           S39=2;
-          new Thread(new GUI()).start();//sysj\plant.sysj line: 17, column: 2
+          new Thread(new POS_GUI()).start();//sysj\plant.sysj line: 17, column: 2
           thread41(tdone,ends);
           thread42(tdone,ends);
           int biggest43 = 0;

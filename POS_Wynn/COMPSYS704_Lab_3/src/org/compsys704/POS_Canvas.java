@@ -45,7 +45,7 @@ import com.systemj.netapi.SimpleClient;
 import com.systemj.netapi.SimpleServer;
 
 
-public class Canvas {
+public class POS_Canvas {
 
 
 	private JFrame frmAbs;
@@ -55,12 +55,12 @@ public class Canvas {
 	 */
 
 	   public static void main(String[] args) {
-		   SignalServer<POSVizWorker> server = new SignalServer<POSVizWorker>(Ports.PORT_LOADER_VIZ, POSVizWorker.class);
+		   POS_SignalServer<POSVizWorker> server = new POS_SignalServer<POSVizWorker>(POS_Ports.PORT_LOADER_VIZ, POSVizWorker.class);
 		   new Thread(server).start(); 
 		   EventQueue.invokeLater(new Runnable() {
 	            public void run() {
 	                try {
-	                    Canvas window = new Canvas();
+	                    POS_Canvas window = new POS_Canvas();
 	                    window.frmAbs.setVisible(true);
 	                } catch (Exception e) {
 	                    e.printStackTrace();
@@ -73,7 +73,7 @@ public class Canvas {
 	/**
 	 * Create the application.
 	 */
-	public Canvas() {
+	public POS_Canvas() {
 		initialize();		// Listener for Cap at Pos 1
 	}
 
@@ -121,24 +121,6 @@ public class Canvas {
 		labelLemonade.setForeground(new Color(255, 255, 255));
 		labelLemonade.setBounds(63, 219, 68, 16);
 		frmAbs.getContentPane().add(labelLemonade);
-
-		// RED WIN SLIDER
-		JSlider sliderRedWine = new JSlider();
-		sliderRedWine.setBackground(new Color(87, 87, 130));
-		sliderRedWine.setPaintLabels(true);
-		sliderRedWine.setSnapToTicks(true);
-		sliderRedWine.setValue(0);
-		sliderRedWine.setBounds(141, 151, 437, 26);
-		frmAbs.getContentPane().add(sliderRedWine);
-				
-		// LEMONADE SLIDER
-		JSlider sliderLemonade = new JSlider();
-		sliderLemonade.setBackground(new Color(87, 87, 130));
-		sliderLemonade.setValue(0);
-		sliderLemonade.setSnapToTicks(true);
-		sliderLemonade.setPaintLabels(true);
-		sliderLemonade.setBounds(141, 214, 437, 26);
-		frmAbs.getContentPane().add(sliderLemonade);
 		
 		// ORANGE JUICE LABEL
 		JLabel labelOrangeJuice = new JLabel("Orange Juice");
@@ -163,6 +145,25 @@ public class Canvas {
 		labelBottles.setForeground(new Color(255, 255, 255));
 		labelBottles.setBounds(88, 408, 43, 16);
 		frmAbs.getContentPane().add(labelBottles);
+
+		// RED WIN SLIDER
+		JSlider sliderRedWine = new JSlider();
+		sliderRedWine.setBackground(new Color(87, 87, 130));
+		sliderRedWine.setPaintLabels(true);
+		sliderRedWine.setSnapToTicks(true);
+		sliderRedWine.setValue(0);
+		sliderRedWine.setBounds(141, 151, 437, 26);
+		frmAbs.getContentPane().add(sliderRedWine);
+				
+		// LEMONADE SLIDER
+		JSlider sliderLemonade = new JSlider();
+		sliderLemonade.setBackground(new Color(87, 87, 130));
+		sliderLemonade.setValue(0);
+		sliderLemonade.setSnapToTicks(true);
+		sliderLemonade.setPaintLabels(true);
+		sliderLemonade.setBounds(141, 214, 437, 26);
+		frmAbs.getContentPane().add(sliderLemonade);
+		
 
 		// ORANGE JUICE SLIDER
 		JSlider sliderOrangeJuice = new JSlider();
@@ -233,7 +234,7 @@ public class Canvas {
 		JButton buttonPlaceOrder = new JButton("Place Order");
 		buttonPlaceOrder.setFont(new Font("Arial", Font.PLAIN, 14));
 		buttonPlaceOrder.setEnabled(false);
-		buttonPlaceOrder.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.ORDER_START));
+		buttonPlaceOrder.addActionListener(new POS_SignalClient(POS_Ports.PORT_LOADER_PLANT, POS_Ports.ORDER_START));
 		buttonPlaceOrder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {

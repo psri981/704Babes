@@ -11,7 +11,7 @@ public class POSVizWorker extends POS_Worker{
 		switch(signame){
 
 		case "orderDoneGUIFlag":
-			States.ORDER_DONE = status;
+			POS_States.ORDER_DONE = status;
 			break;
 		default: 
 			System.err.println("Wrong sig name : "+signame);

@@ -7,12 +7,12 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Arrays;
 
-public class SignalServer <T extends POS_Worker> implements Runnable {
+public class POS_SignalServer <T extends POS_Worker> implements Runnable {
 	private int SERVER_PORT;
 	public static final String IP = "127.0.0.1";
 	private Class<T> clz;
 
-	public SignalServer(int p, Class<T> c){
+	public POS_SignalServer(int p, Class<T> c){
 		SERVER_PORT = p;
 		clz = c;
 	}

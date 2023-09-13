@@ -1,4 +1,4 @@
-import run.GUI;
+import run.POS_GUI;
 
 POS_Plant(
 		input signal orderStart;
@@ -14,7 +14,7 @@ POS_Plant(
 		)
 ->
 {
-	new Thread(new GUI()).start();
+	new Thread(new POS_GUI()).start();
 
 	{// 
 		while(true){

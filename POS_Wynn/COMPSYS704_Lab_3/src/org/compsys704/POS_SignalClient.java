@@ -9,7 +9,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 
 
-public class SignalClient implements ActionListener{
+public class POS_SignalClient implements ActionListener{
 
 	Socket s = new Socket();
 	ObjectOutputStream oos = null;
@@ -18,7 +18,7 @@ public class SignalClient implements ActionListener{
 	
 	String dest;
 	
-	public SignalClient(int p, String dest){
+	public POS_SignalClient(int p, String dest){
 		this.dest = dest;
 		port = p;
 		try {
