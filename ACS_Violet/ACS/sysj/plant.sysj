@@ -39,11 +39,107 @@ Plant(
 			}
 			||
 			{
+				await(zoneOcc0);
+				abort(!zoneOcc0){
+					while(true) {
+					//	System.out.println("MANUUUUU");
+						emit zoneOcc0_t;
+						pause;
+					}
+				}
+				pause;
+			}
+			||
+			{
 				await(zoneOcc1);
 				abort(!zoneOcc1){
 					while(true) {
 					//	System.out.println("MANUUUUU");
 						emit zoneOcc1_t;
+						pause;
+					}
+				}
+				pause;
+			}
+			||
+			{
+				await(zoneOcc1);
+				abort(!zoneOcc1){
+					while(true) {
+					//	System.out.println("MANUUUUU");
+						emit zoneOcc1_t;
+						pause;
+					}
+				}
+				pause;
+			}
+			||
+			{
+				await(zoneOcc2);
+				abort(!zoneOcc2){
+					while(true) {
+					//	System.out.println("MANUUUUU");
+						emit zoneOcc2_t;
+						pause;
+					}
+				}
+				pause;
+			}
+			||
+			{
+				await(zoneOcc3);
+				abort(!zoneOcc3){
+					while(true) {
+					//	System.out.println("MANUUUUU");
+						emit zoneOcc3_t;
+						pause;
+					}
+				}
+				pause;
+			}
+			||
+			{
+				await(zoneOcc4);
+				abort(!zoneOcc4){
+					while(true) {
+					//	System.out.println("MANUUUUU");
+						emit zoneOcc4_t;
+						pause;
+					}
+				}
+				pause;
+			}
+			||
+			{
+				await(zoneOcc5);
+				abort(!zoneOcc5){
+					while(true) {
+					//	System.out.println("MANUUUUU");
+						emit zoneOcc5_t;
+						pause;
+					}
+				}
+				pause;
+			}
+			||
+			{
+				await(zoneOcc6);
+				abort(!zoneOcc6){
+					while(true) {
+					//	System.out.println("MANUUUUU");
+						emit zoneOcc6_t;
+						pause;
+					}
+				}
+				pause;
+			}
+			||
+			{
+				await(zoneOcc7);
+				abort(!zoneOcc7){
+					while(true) {
+					//	System.out.println("MANUUUUU");
+						emit zoneOcc7_t;
 						pause;
 					}
 				}

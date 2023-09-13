@@ -20,6 +20,7 @@ public class Controller extends ClockDomain{
   public Signal door3req = new Signal("door3req", Signal.INPUT);
   public Signal manuPerm = new Signal("manuPerm", Signal.INPUT);
   public Signal officePerm = new Signal("officePerm", Signal.INPUT);
+  public Signal zoneOcc0_t = new Signal("zoneOcc0_t", Signal.INPUT);
   public Signal zoneOcc1_t = new Signal("zoneOcc1_t", Signal.INPUT);
   public Signal zoneOcc2_t = new Signal("zoneOcc2_t", Signal.INPUT);
   public Signal zoneOcc3_t = new Signal("zoneOcc3_t", Signal.INPUT);
@@ -43,6 +44,7 @@ public class Controller extends ClockDomain{
   public Signal unlock1 = new Signal("unlock1", Signal.OUTPUT);
   public Signal unlock2 = new Signal("unlock2", Signal.OUTPUT);
   public Signal unlock3 = new Signal("unlock3", Signal.OUTPUT);
+  public Signal zoneOcc0 = new Signal("zoneOcc0", Signal.OUTPUT);
   public Signal zoneOcc1 = new Signal("zoneOcc1", Signal.OUTPUT);
   public Signal zoneOcc2 = new Signal("zoneOcc2", Signal.OUTPUT);
   public Signal zoneOcc3 = new Signal("zoneOcc3", Signal.OUTPUT);
@@ -51,9 +53,9 @@ public class Controller extends ClockDomain{
   public Signal zoneOcc6 = new Signal("zoneOcc6", Signal.OUTPUT);
   public Signal zoneOcc7 = new Signal("zoneOcc7", Signal.OUTPUT);
   private int[][] personArray_thread_1;//sysj\controller.sysj line: 10, column: 2
-  private int S3253 = 1;
+  private int S8335 = 1;
   private int S9 = 1;
-  private int S20 = 1;
+  private int S132 = 1;
   
   private int[] ends = new int[2];
   private int[] tdone = new int[2];
@@ -65,14 +67,14 @@ public class Controller extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S3253){
+      switch(S8335){
         case 0 : 
-          S3253=0;
+          S8335=0;
           break RUN;
         
         case 1 : 
-          S3253=2;
-          S3253=2;
+          S8335=2;
+          S8335=2;
           personArray_thread_1 = new int[4][4];//sysj\controller.sysj line: 10, column: 2
           personArray_thread_1[0][0] = 0;//sysj\controller.sysj line: 13, column: 2
           personArray_thread_1[0][1] = 3;//sysj\controller.sysj line: 14, column: 2
@@ -109,8 +111,8 @@ public class Controller extends ClockDomain{
             }
             else {
               S9=2;
-              if(zoneOcc1_t.getprestatus()){//sysj\controller.sysj line: 50, column: 11
-                personArray_thread_1[0][2] = 1;//sysj\controller.sysj line: 51, column: 4
+              if(zoneOcc0_t.getprestatus()){//sysj\controller.sysj line: 50, column: 11
+                personArray_thread_1[0][2] = 0;//sysj\controller.sysj line: 51, column: 4
                 System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 52, column: 4
                 active[1]=1;
                 ends[1]=1;
@@ -118,157 +120,227 @@ public class Controller extends ClockDomain{
               }
               else {
                 S9=3;
-                if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 55, column: 6
-                  if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 56, column: 7
-                    if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 57, column: 11
-                      unlock1.setPresent();//sysj\controller.sysj line: 59, column: 6
-                      currsigs.addElement(unlock1);
-                      S20=0;
-                      if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 60, column: 14
-                        personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 61, column: 7
-                        S20=1;
+                if(zoneOcc1_t.getprestatus()){//sysj\controller.sysj line: 55, column: 11
+                  personArray_thread_1[0][2] = 1;//sysj\controller.sysj line: 56, column: 4
+                  System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 57, column: 4
+                  active[1]=1;
+                  ends[1]=1;
+                  break RUN;
+                }
+                else {
+                  S9=4;
+                  if(zoneOcc2_t.getprestatus()){//sysj\controller.sysj line: 60, column: 11
+                    personArray_thread_1[0][2] = 2;//sysj\controller.sysj line: 61, column: 4
+                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 62, column: 4
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                  else {
+                    S9=5;
+                    if(zoneOcc3_t.getprestatus()){//sysj\controller.sysj line: 65, column: 11
+                      personArray_thread_1[0][2] = 3;//sysj\controller.sysj line: 66, column: 4
+                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 67, column: 4
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                    else {
+                      S9=6;
+                      if(zoneOcc4_t.getprestatus()){//sysj\controller.sysj line: 70, column: 11
+                        personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 71, column: 4
+                        System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 72, column: 4
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                       else {
-                        S20=1;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      ends[1]=2;
-                      ;//sysj\controller.sysj line: 57, column: 5
-                      S9=4;
-                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                        System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                        if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                          if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                            unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
-                            currsigs.addElement(unlock3);
-                            if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                              personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
+                        S9=7;
+                        if(zoneOcc5_t.getprestatus()){//sysj\controller.sysj line: 75, column: 11
+                          personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 76, column: 4
+                          System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 77, column: 4
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                        else {
+                          S9=8;
+                          if(zoneOcc6_t.getprestatus()){//sysj\controller.sysj line: 80, column: 11
+                            personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 81, column: 4
+                            System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 82, column: 4
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                          else {
+                            S9=9;
+                            if(zoneOcc7_t.getprestatus()){//sysj\controller.sysj line: 85, column: 11
+                              personArray_thread_1[0][2] = 7;//sysj\controller.sysj line: 86, column: 4
+                              System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 87, column: 4
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
                             }
                             else {
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
+                              S9=10;
+                              if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 90, column: 6
+                                if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 91, column: 7
+                                  if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 92, column: 11
+                                    unlock1.setPresent();//sysj\controller.sysj line: 94, column: 6
+                                    currsigs.addElement(unlock1);
+                                    S132=0;
+                                    if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 95, column: 14
+                                      personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 96, column: 7
+                                      S132=1;
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                    else {
+                                      S132=1;
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
+                                  else {
+                                    ends[1]=2;
+                                    ;//sysj\controller.sysj line: 92, column: 5
+                                    S9=11;
+                                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                          unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                          currsigs.addElement(unlock3);
+                                          if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                            personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                            active[1]=1;
+                                            ends[1]=1;
+                                            break RUN;
+                                          }
+                                          else {
+                                            active[1]=1;
+                                            ends[1]=1;
+                                            break RUN;
+                                          }
+                                        }
+                                        else {
+                                          ends[1]=2;
+                                          ;//sysj\controller.sysj line: 112, column: 5
+                                          S9=12;
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                      }
+                                      else {
+                                        S9=12;
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                    }
+                                    else {
+                                      S9=12;
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
+                                }
+                                else {
+                                  S9=11;
+                                  if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                    if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                        unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                        currsigs.addElement(unlock3);
+                                        if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                          personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                        else {
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                      }
+                                      else {
+                                        ends[1]=2;
+                                        ;//sysj\controller.sysj line: 112, column: 5
+                                        S9=12;
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                    }
+                                    else {
+                                      S9=12;
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
+                                  else {
+                                    S9=12;
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                }
+                              }
+                              else {
+                                S9=11;
+                                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                  System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                  if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                      unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                      currsigs.addElement(unlock3);
+                                      if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                        personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                      else {
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                    }
+                                    else {
+                                      ends[1]=2;
+                                      ;//sysj\controller.sysj line: 112, column: 5
+                                      S9=12;
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
+                                  else {
+                                    S9=12;
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                }
+                                else {
+                                  S9=12;
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                              }
                             }
                           }
-                          else {
-                            ends[1]=2;
-                            ;//sysj\controller.sysj line: 77, column: 5
-                            S9=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
                         }
-                        else {
-                          S9=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S9=5;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
                       }
                     }
-                  }
-                  else {
-                    S9=4;
-                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                          unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
-                          currsigs.addElement(unlock3);
-                          if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                            personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                          else {
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          ends[1]=2;
-                          ;//sysj\controller.sysj line: 77, column: 5
-                          S9=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S9=5;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      S9=5;
-                      active[1]=1;
-                      ends[1]=1;
-                      break RUN;
-                    }
-                  }
-                }
-                else {
-                  S9=4;
-                  if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                    if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                        unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
-                        currsigs.addElement(unlock3);
-                        if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                          personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                        else {
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        ends[1]=2;
-                        ;//sysj\controller.sysj line: 77, column: 5
-                        S9=5;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
-                      }
-                    }
-                    else {
-                      S9=5;
-                      active[1]=1;
-                      ends[1]=1;
-                      break RUN;
-                    }
-                  }
-                  else {
-                    S9=5;
-                    active[1]=1;
-                    ends[1]=1;
-                    break RUN;
                   }
                 }
               }
@@ -288,8 +360,8 @@ public class Controller extends ClockDomain{
               }
               else {
                 S9=2;
-                if(zoneOcc1_t.getprestatus()){//sysj\controller.sysj line: 50, column: 11
-                  personArray_thread_1[0][2] = 1;//sysj\controller.sysj line: 51, column: 4
+                if(zoneOcc0_t.getprestatus()){//sysj\controller.sysj line: 50, column: 11
+                  personArray_thread_1[0][2] = 0;//sysj\controller.sysj line: 51, column: 4
                   System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 52, column: 4
                   active[1]=1;
                   ends[1]=1;
@@ -297,38 +369,1274 @@ public class Controller extends ClockDomain{
                 }
                 else {
                   S9=3;
-                  if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 55, column: 6
-                    if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 56, column: 7
-                      if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 57, column: 11
-                        unlock1.setPresent();//sysj\controller.sysj line: 59, column: 6
-                        currsigs.addElement(unlock1);
-                        S20=0;
-                        if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 60, column: 14
-                          personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 61, column: 7
-                          S20=1;
+                  if(zoneOcc1_t.getprestatus()){//sysj\controller.sysj line: 55, column: 11
+                    personArray_thread_1[0][2] = 1;//sysj\controller.sysj line: 56, column: 4
+                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 57, column: 4
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                  else {
+                    S9=4;
+                    if(zoneOcc2_t.getprestatus()){//sysj\controller.sysj line: 60, column: 11
+                      personArray_thread_1[0][2] = 2;//sysj\controller.sysj line: 61, column: 4
+                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 62, column: 4
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                    else {
+                      S9=5;
+                      if(zoneOcc3_t.getprestatus()){//sysj\controller.sysj line: 65, column: 11
+                        personArray_thread_1[0][2] = 3;//sysj\controller.sysj line: 66, column: 4
+                        System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 67, column: 4
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                      else {
+                        S9=6;
+                        if(zoneOcc4_t.getprestatus()){//sysj\controller.sysj line: 70, column: 11
+                          personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 71, column: 4
+                          System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 72, column: 4
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
                         }
                         else {
-                          S20=1;
+                          S9=7;
+                          if(zoneOcc5_t.getprestatus()){//sysj\controller.sysj line: 75, column: 11
+                            personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 76, column: 4
+                            System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 77, column: 4
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                          else {
+                            S9=8;
+                            if(zoneOcc6_t.getprestatus()){//sysj\controller.sysj line: 80, column: 11
+                              personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 81, column: 4
+                              System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 82, column: 4
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                            else {
+                              S9=9;
+                              if(zoneOcc7_t.getprestatus()){//sysj\controller.sysj line: 85, column: 11
+                                personArray_thread_1[0][2] = 7;//sysj\controller.sysj line: 86, column: 4
+                                System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 87, column: 4
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                              else {
+                                S9=10;
+                                if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 90, column: 6
+                                  if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 91, column: 7
+                                    if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 92, column: 11
+                                      unlock1.setPresent();//sysj\controller.sysj line: 94, column: 6
+                                      currsigs.addElement(unlock1);
+                                      S132=0;
+                                      if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 95, column: 14
+                                        personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 96, column: 7
+                                        S132=1;
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                      else {
+                                        S132=1;
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                    }
+                                    else {
+                                      ends[1]=2;
+                                      ;//sysj\controller.sysj line: 92, column: 5
+                                      S9=11;
+                                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                        System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                        if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                          if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                            unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                            currsigs.addElement(unlock3);
+                                            if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                              personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                              active[1]=1;
+                                              ends[1]=1;
+                                              break RUN;
+                                            }
+                                            else {
+                                              active[1]=1;
+                                              ends[1]=1;
+                                              break RUN;
+                                            }
+                                          }
+                                          else {
+                                            ends[1]=2;
+                                            ;//sysj\controller.sysj line: 112, column: 5
+                                            S9=12;
+                                            active[1]=1;
+                                            ends[1]=1;
+                                            break RUN;
+                                          }
+                                        }
+                                        else {
+                                          S9=12;
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                      }
+                                      else {
+                                        S9=12;
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                    }
+                                  }
+                                  else {
+                                    S9=11;
+                                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                          unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                          currsigs.addElement(unlock3);
+                                          if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                            personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                            active[1]=1;
+                                            ends[1]=1;
+                                            break RUN;
+                                          }
+                                          else {
+                                            active[1]=1;
+                                            ends[1]=1;
+                                            break RUN;
+                                          }
+                                        }
+                                        else {
+                                          ends[1]=2;
+                                          ;//sysj\controller.sysj line: 112, column: 5
+                                          S9=12;
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                      }
+                                      else {
+                                        S9=12;
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                    }
+                                    else {
+                                      S9=12;
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
+                                }
+                                else {
+                                  S9=11;
+                                  if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                    if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                        unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                        currsigs.addElement(unlock3);
+                                        if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                          personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                        else {
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                      }
+                                      else {
+                                        ends[1]=2;
+                                        ;//sysj\controller.sysj line: 112, column: 5
+                                        S9=12;
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                    }
+                                    else {
+                                      S9=12;
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
+                                  else {
+                                    S9=12;
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            
+            case 1 : 
+              S9=2;
+              if(zoneOcc0_t.getprestatus()){//sysj\controller.sysj line: 50, column: 11
+                personArray_thread_1[0][2] = 0;//sysj\controller.sysj line: 51, column: 4
+                System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 52, column: 4
+                active[1]=1;
+                ends[1]=1;
+                break RUN;
+              }
+              else {
+                S9=3;
+                if(zoneOcc1_t.getprestatus()){//sysj\controller.sysj line: 55, column: 11
+                  personArray_thread_1[0][2] = 1;//sysj\controller.sysj line: 56, column: 4
+                  System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 57, column: 4
+                  active[1]=1;
+                  ends[1]=1;
+                  break RUN;
+                }
+                else {
+                  S9=4;
+                  if(zoneOcc2_t.getprestatus()){//sysj\controller.sysj line: 60, column: 11
+                    personArray_thread_1[0][2] = 2;//sysj\controller.sysj line: 61, column: 4
+                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 62, column: 4
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                  else {
+                    S9=5;
+                    if(zoneOcc3_t.getprestatus()){//sysj\controller.sysj line: 65, column: 11
+                      personArray_thread_1[0][2] = 3;//sysj\controller.sysj line: 66, column: 4
+                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 67, column: 4
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                    else {
+                      S9=6;
+                      if(zoneOcc4_t.getprestatus()){//sysj\controller.sysj line: 70, column: 11
+                        personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 71, column: 4
+                        System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 72, column: 4
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                      else {
+                        S9=7;
+                        if(zoneOcc5_t.getprestatus()){//sysj\controller.sysj line: 75, column: 11
+                          personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 76, column: 4
+                          System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 77, column: 4
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
                         }
+                        else {
+                          S9=8;
+                          if(zoneOcc6_t.getprestatus()){//sysj\controller.sysj line: 80, column: 11
+                            personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 81, column: 4
+                            System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 82, column: 4
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                          else {
+                            S9=9;
+                            if(zoneOcc7_t.getprestatus()){//sysj\controller.sysj line: 85, column: 11
+                              personArray_thread_1[0][2] = 7;//sysj\controller.sysj line: 86, column: 4
+                              System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 87, column: 4
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                            else {
+                              S9=10;
+                              if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 90, column: 6
+                                if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 91, column: 7
+                                  if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 92, column: 11
+                                    unlock1.setPresent();//sysj\controller.sysj line: 94, column: 6
+                                    currsigs.addElement(unlock1);
+                                    S132=0;
+                                    if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 95, column: 14
+                                      personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 96, column: 7
+                                      S132=1;
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                    else {
+                                      S132=1;
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
+                                  else {
+                                    ends[1]=2;
+                                    ;//sysj\controller.sysj line: 92, column: 5
+                                    S9=11;
+                                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                          unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                          currsigs.addElement(unlock3);
+                                          if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                            personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                            active[1]=1;
+                                            ends[1]=1;
+                                            break RUN;
+                                          }
+                                          else {
+                                            active[1]=1;
+                                            ends[1]=1;
+                                            break RUN;
+                                          }
+                                        }
+                                        else {
+                                          ends[1]=2;
+                                          ;//sysj\controller.sysj line: 112, column: 5
+                                          S9=12;
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                      }
+                                      else {
+                                        S9=12;
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                    }
+                                    else {
+                                      S9=12;
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
+                                }
+                                else {
+                                  S9=11;
+                                  if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                    if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                        unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                        currsigs.addElement(unlock3);
+                                        if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                          personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                        else {
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                      }
+                                      else {
+                                        ends[1]=2;
+                                        ;//sysj\controller.sysj line: 112, column: 5
+                                        S9=12;
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                    }
+                                    else {
+                                      S9=12;
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
+                                  else {
+                                    S9=12;
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                }
+                              }
+                              else {
+                                S9=11;
+                                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                  System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                  if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                      unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                      currsigs.addElement(unlock3);
+                                      if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                        personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                      else {
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                    }
+                                    else {
+                                      ends[1]=2;
+                                      ;//sysj\controller.sysj line: 112, column: 5
+                                      S9=12;
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
+                                  else {
+                                    S9=12;
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                }
+                                else {
+                                  S9=12;
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            
+            case 2 : 
+              S9=3;
+              if(zoneOcc1_t.getprestatus()){//sysj\controller.sysj line: 55, column: 11
+                personArray_thread_1[0][2] = 1;//sysj\controller.sysj line: 56, column: 4
+                System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 57, column: 4
+                active[1]=1;
+                ends[1]=1;
+                break RUN;
+              }
+              else {
+                S9=4;
+                if(zoneOcc2_t.getprestatus()){//sysj\controller.sysj line: 60, column: 11
+                  personArray_thread_1[0][2] = 2;//sysj\controller.sysj line: 61, column: 4
+                  System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 62, column: 4
+                  active[1]=1;
+                  ends[1]=1;
+                  break RUN;
+                }
+                else {
+                  S9=5;
+                  if(zoneOcc3_t.getprestatus()){//sysj\controller.sysj line: 65, column: 11
+                    personArray_thread_1[0][2] = 3;//sysj\controller.sysj line: 66, column: 4
+                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 67, column: 4
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                  else {
+                    S9=6;
+                    if(zoneOcc4_t.getprestatus()){//sysj\controller.sysj line: 70, column: 11
+                      personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 71, column: 4
+                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 72, column: 4
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                    else {
+                      S9=7;
+                      if(zoneOcc5_t.getprestatus()){//sysj\controller.sysj line: 75, column: 11
+                        personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 76, column: 4
+                        System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 77, column: 4
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
                       }
                       else {
-                        ends[1]=2;
-                        ;//sysj\controller.sysj line: 57, column: 5
-                        S9=4;
-                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                          System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                          if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                            if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                              unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
+                        S9=8;
+                        if(zoneOcc6_t.getprestatus()){//sysj\controller.sysj line: 80, column: 11
+                          personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 81, column: 4
+                          System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 82, column: 4
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                        else {
+                          S9=9;
+                          if(zoneOcc7_t.getprestatus()){//sysj\controller.sysj line: 85, column: 11
+                            personArray_thread_1[0][2] = 7;//sysj\controller.sysj line: 86, column: 4
+                            System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 87, column: 4
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                          else {
+                            S9=10;
+                            if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 90, column: 6
+                              if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 91, column: 7
+                                if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 92, column: 11
+                                  unlock1.setPresent();//sysj\controller.sysj line: 94, column: 6
+                                  currsigs.addElement(unlock1);
+                                  S132=0;
+                                  if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 95, column: 14
+                                    personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 96, column: 7
+                                    S132=1;
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                  else {
+                                    S132=1;
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                }
+                                else {
+                                  ends[1]=2;
+                                  ;//sysj\controller.sysj line: 92, column: 5
+                                  S9=11;
+                                  if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                    if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                        unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                        currsigs.addElement(unlock3);
+                                        if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                          personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                        else {
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                      }
+                                      else {
+                                        ends[1]=2;
+                                        ;//sysj\controller.sysj line: 112, column: 5
+                                        S9=12;
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                    }
+                                    else {
+                                      S9=12;
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
+                                  else {
+                                    S9=12;
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                }
+                              }
+                              else {
+                                S9=11;
+                                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                  System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                  if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                      unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                      currsigs.addElement(unlock3);
+                                      if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                        personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                      else {
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                    }
+                                    else {
+                                      ends[1]=2;
+                                      ;//sysj\controller.sysj line: 112, column: 5
+                                      S9=12;
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
+                                  else {
+                                    S9=12;
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                }
+                                else {
+                                  S9=12;
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                              }
+                            }
+                            else {
+                              S9=11;
+                              if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                  if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                    unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                    currsigs.addElement(unlock3);
+                                    if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                      personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                    else {
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
+                                  else {
+                                    ends[1]=2;
+                                    ;//sysj\controller.sysj line: 112, column: 5
+                                    S9=12;
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                }
+                                else {
+                                  S9=12;
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                              }
+                              else {
+                                S9=12;
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            
+            case 3 : 
+              S9=4;
+              if(zoneOcc2_t.getprestatus()){//sysj\controller.sysj line: 60, column: 11
+                personArray_thread_1[0][2] = 2;//sysj\controller.sysj line: 61, column: 4
+                System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 62, column: 4
+                active[1]=1;
+                ends[1]=1;
+                break RUN;
+              }
+              else {
+                S9=5;
+                if(zoneOcc3_t.getprestatus()){//sysj\controller.sysj line: 65, column: 11
+                  personArray_thread_1[0][2] = 3;//sysj\controller.sysj line: 66, column: 4
+                  System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 67, column: 4
+                  active[1]=1;
+                  ends[1]=1;
+                  break RUN;
+                }
+                else {
+                  S9=6;
+                  if(zoneOcc4_t.getprestatus()){//sysj\controller.sysj line: 70, column: 11
+                    personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 71, column: 4
+                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 72, column: 4
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                  else {
+                    S9=7;
+                    if(zoneOcc5_t.getprestatus()){//sysj\controller.sysj line: 75, column: 11
+                      personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 76, column: 4
+                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 77, column: 4
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                    else {
+                      S9=8;
+                      if(zoneOcc6_t.getprestatus()){//sysj\controller.sysj line: 80, column: 11
+                        personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 81, column: 4
+                        System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 82, column: 4
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                      else {
+                        S9=9;
+                        if(zoneOcc7_t.getprestatus()){//sysj\controller.sysj line: 85, column: 11
+                          personArray_thread_1[0][2] = 7;//sysj\controller.sysj line: 86, column: 4
+                          System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 87, column: 4
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                        else {
+                          S9=10;
+                          if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 90, column: 6
+                            if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 91, column: 7
+                              if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 92, column: 11
+                                unlock1.setPresent();//sysj\controller.sysj line: 94, column: 6
+                                currsigs.addElement(unlock1);
+                                S132=0;
+                                if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 95, column: 14
+                                  personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 96, column: 7
+                                  S132=1;
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                                else {
+                                  S132=1;
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                              }
+                              else {
+                                ends[1]=2;
+                                ;//sysj\controller.sysj line: 92, column: 5
+                                S9=11;
+                                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                  System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                  if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                      unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                      currsigs.addElement(unlock3);
+                                      if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                        personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                      else {
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                    }
+                                    else {
+                                      ends[1]=2;
+                                      ;//sysj\controller.sysj line: 112, column: 5
+                                      S9=12;
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
+                                  else {
+                                    S9=12;
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                }
+                                else {
+                                  S9=12;
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                              }
+                            }
+                            else {
+                              S9=11;
+                              if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                  if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                    unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                    currsigs.addElement(unlock3);
+                                    if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                      personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                    else {
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
+                                  else {
+                                    ends[1]=2;
+                                    ;//sysj\controller.sysj line: 112, column: 5
+                                    S9=12;
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                }
+                                else {
+                                  S9=12;
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                              }
+                              else {
+                                S9=12;
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                            }
+                          }
+                          else {
+                            S9=11;
+                            if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                              System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                              if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                  unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                  currsigs.addElement(unlock3);
+                                  if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                    personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                  else {
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                }
+                                else {
+                                  ends[1]=2;
+                                  ;//sysj\controller.sysj line: 112, column: 5
+                                  S9=12;
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                              }
+                              else {
+                                S9=12;
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                            }
+                            else {
+                              S9=12;
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            
+            case 4 : 
+              S9=5;
+              if(zoneOcc3_t.getprestatus()){//sysj\controller.sysj line: 65, column: 11
+                personArray_thread_1[0][2] = 3;//sysj\controller.sysj line: 66, column: 4
+                System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 67, column: 4
+                active[1]=1;
+                ends[1]=1;
+                break RUN;
+              }
+              else {
+                S9=6;
+                if(zoneOcc4_t.getprestatus()){//sysj\controller.sysj line: 70, column: 11
+                  personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 71, column: 4
+                  System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 72, column: 4
+                  active[1]=1;
+                  ends[1]=1;
+                  break RUN;
+                }
+                else {
+                  S9=7;
+                  if(zoneOcc5_t.getprestatus()){//sysj\controller.sysj line: 75, column: 11
+                    personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 76, column: 4
+                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 77, column: 4
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                  else {
+                    S9=8;
+                    if(zoneOcc6_t.getprestatus()){//sysj\controller.sysj line: 80, column: 11
+                      personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 81, column: 4
+                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 82, column: 4
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                    else {
+                      S9=9;
+                      if(zoneOcc7_t.getprestatus()){//sysj\controller.sysj line: 85, column: 11
+                        personArray_thread_1[0][2] = 7;//sysj\controller.sysj line: 86, column: 4
+                        System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 87, column: 4
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                      else {
+                        S9=10;
+                        if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 90, column: 6
+                          if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 91, column: 7
+                            if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 92, column: 11
+                              unlock1.setPresent();//sysj\controller.sysj line: 94, column: 6
+                              currsigs.addElement(unlock1);
+                              S132=0;
+                              if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 95, column: 14
+                                personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 96, column: 7
+                                S132=1;
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                              else {
+                                S132=1;
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                            }
+                            else {
+                              ends[1]=2;
+                              ;//sysj\controller.sysj line: 92, column: 5
+                              S9=11;
+                              if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                  if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                    unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                    currsigs.addElement(unlock3);
+                                    if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                      personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                    else {
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
+                                  else {
+                                    ends[1]=2;
+                                    ;//sysj\controller.sysj line: 112, column: 5
+                                    S9=12;
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                }
+                                else {
+                                  S9=12;
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                              }
+                              else {
+                                S9=12;
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                            }
+                          }
+                          else {
+                            S9=11;
+                            if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                              System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                              if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                  unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                  currsigs.addElement(unlock3);
+                                  if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                    personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                  else {
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                }
+                                else {
+                                  ends[1]=2;
+                                  ;//sysj\controller.sysj line: 112, column: 5
+                                  S9=12;
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                              }
+                              else {
+                                S9=12;
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                            }
+                            else {
+                              S9=12;
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                          }
+                        }
+                        else {
+                          S9=11;
+                          if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                            System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                            if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                              if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                currsigs.addElement(unlock3);
+                                if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                  personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                                else {
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                              }
+                              else {
+                                ends[1]=2;
+                                ;//sysj\controller.sysj line: 112, column: 5
+                                S9=12;
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                            }
+                            else {
+                              S9=12;
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                          }
+                          else {
+                            S9=12;
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            
+            case 5 : 
+              S9=6;
+              if(zoneOcc4_t.getprestatus()){//sysj\controller.sysj line: 70, column: 11
+                personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 71, column: 4
+                System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 72, column: 4
+                active[1]=1;
+                ends[1]=1;
+                break RUN;
+              }
+              else {
+                S9=7;
+                if(zoneOcc5_t.getprestatus()){//sysj\controller.sysj line: 75, column: 11
+                  personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 76, column: 4
+                  System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 77, column: 4
+                  active[1]=1;
+                  ends[1]=1;
+                  break RUN;
+                }
+                else {
+                  S9=8;
+                  if(zoneOcc6_t.getprestatus()){//sysj\controller.sysj line: 80, column: 11
+                    personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 81, column: 4
+                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 82, column: 4
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                  else {
+                    S9=9;
+                    if(zoneOcc7_t.getprestatus()){//sysj\controller.sysj line: 85, column: 11
+                      personArray_thread_1[0][2] = 7;//sysj\controller.sysj line: 86, column: 4
+                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 87, column: 4
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                    else {
+                      S9=10;
+                      if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 90, column: 6
+                        if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 91, column: 7
+                          if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 92, column: 11
+                            unlock1.setPresent();//sysj\controller.sysj line: 94, column: 6
+                            currsigs.addElement(unlock1);
+                            S132=0;
+                            if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 95, column: 14
+                              personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 96, column: 7
+                              S132=1;
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                            else {
+                              S132=1;
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                          }
+                          else {
+                            ends[1]=2;
+                            ;//sysj\controller.sysj line: 92, column: 5
+                            S9=11;
+                            if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                              System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                              if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                  unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                  currsigs.addElement(unlock3);
+                                  if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                    personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                  else {
+                                    active[1]=1;
+                                    ends[1]=1;
+                                    break RUN;
+                                  }
+                                }
+                                else {
+                                  ends[1]=2;
+                                  ;//sysj\controller.sysj line: 112, column: 5
+                                  S9=12;
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                              }
+                              else {
+                                S9=12;
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                            }
+                            else {
+                              S9=12;
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                          }
+                        }
+                        else {
+                          S9=11;
+                          if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                            System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                            if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                              if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                currsigs.addElement(unlock3);
+                                if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                  personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                                else {
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                              }
+                              else {
+                                ends[1]=2;
+                                ;//sysj\controller.sysj line: 112, column: 5
+                                S9=12;
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                            }
+                            else {
+                              S9=12;
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                          }
+                          else {
+                            S9=12;
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                        }
+                      }
+                      else {
+                        S9=11;
+                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                          System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                          if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                            if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                              unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
                               currsigs.addElement(unlock3);
-                              if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                                personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
+                              if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
                                 active[1]=1;
                                 ends[1]=1;
                                 break RUN;
@@ -341,22 +1649,165 @@ public class Controller extends ClockDomain{
                             }
                             else {
                               ends[1]=2;
-                              ;//sysj\controller.sysj line: 77, column: 5
-                              S9=5;
+                              ;//sysj\controller.sysj line: 112, column: 5
+                              S9=12;
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
                             }
                           }
                           else {
-                            S9=5;
+                            S9=12;
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
                           }
                         }
                         else {
-                          S9=5;
+                          S9=12;
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            
+            case 6 : 
+              S9=7;
+              if(zoneOcc5_t.getprestatus()){//sysj\controller.sysj line: 75, column: 11
+                personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 76, column: 4
+                System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 77, column: 4
+                active[1]=1;
+                ends[1]=1;
+                break RUN;
+              }
+              else {
+                S9=8;
+                if(zoneOcc6_t.getprestatus()){//sysj\controller.sysj line: 80, column: 11
+                  personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 81, column: 4
+                  System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 82, column: 4
+                  active[1]=1;
+                  ends[1]=1;
+                  break RUN;
+                }
+                else {
+                  S9=9;
+                  if(zoneOcc7_t.getprestatus()){//sysj\controller.sysj line: 85, column: 11
+                    personArray_thread_1[0][2] = 7;//sysj\controller.sysj line: 86, column: 4
+                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 87, column: 4
+                    active[1]=1;
+                    ends[1]=1;
+                    break RUN;
+                  }
+                  else {
+                    S9=10;
+                    if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 90, column: 6
+                      if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 91, column: 7
+                        if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 92, column: 11
+                          unlock1.setPresent();//sysj\controller.sysj line: 94, column: 6
+                          currsigs.addElement(unlock1);
+                          S132=0;
+                          if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 95, column: 14
+                            personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 96, column: 7
+                            S132=1;
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                          else {
+                            S132=1;
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                        }
+                        else {
+                          ends[1]=2;
+                          ;//sysj\controller.sysj line: 92, column: 5
+                          S9=11;
+                          if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                            System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                            if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                              if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                currsigs.addElement(unlock3);
+                                if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                  personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                                else {
+                                  active[1]=1;
+                                  ends[1]=1;
+                                  break RUN;
+                                }
+                              }
+                              else {
+                                ends[1]=2;
+                                ;//sysj\controller.sysj line: 112, column: 5
+                                S9=12;
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                            }
+                            else {
+                              S9=12;
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                          }
+                          else {
+                            S9=12;
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                        }
+                      }
+                      else {
+                        S9=11;
+                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                          System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                          if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                            if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                              unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                              currsigs.addElement(unlock3);
+                              if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                              else {
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                            }
+                            else {
+                              ends[1]=2;
+                              ;//sysj\controller.sysj line: 112, column: 5
+                              S9=12;
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                          }
+                          else {
+                            S9=12;
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                        }
+                        else {
+                          S9=12;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
@@ -364,15 +1815,15 @@ public class Controller extends ClockDomain{
                       }
                     }
                     else {
-                      S9=4;
-                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                        System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                        if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                          if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                            unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
+                      S9=11;
+                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                        System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                        if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                          if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                            unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
                             currsigs.addElement(unlock3);
-                            if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                              personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
+                            if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                              personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -385,22 +1836,155 @@ public class Controller extends ClockDomain{
                           }
                           else {
                             ends[1]=2;
-                            ;//sysj\controller.sysj line: 77, column: 5
-                            S9=5;
+                            ;//sysj\controller.sysj line: 112, column: 5
+                            S9=12;
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
                           }
                         }
                         else {
-                          S9=5;
+                          S9=12;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
                         }
                       }
                       else {
-                        S9=5;
+                        S9=12;
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                    }
+                  }
+                }
+              }
+            
+            case 7 : 
+              S9=8;
+              if(zoneOcc6_t.getprestatus()){//sysj\controller.sysj line: 80, column: 11
+                personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 81, column: 4
+                System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 82, column: 4
+                active[1]=1;
+                ends[1]=1;
+                break RUN;
+              }
+              else {
+                S9=9;
+                if(zoneOcc7_t.getprestatus()){//sysj\controller.sysj line: 85, column: 11
+                  personArray_thread_1[0][2] = 7;//sysj\controller.sysj line: 86, column: 4
+                  System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 87, column: 4
+                  active[1]=1;
+                  ends[1]=1;
+                  break RUN;
+                }
+                else {
+                  S9=10;
+                  if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 90, column: 6
+                    if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 91, column: 7
+                      if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 92, column: 11
+                        unlock1.setPresent();//sysj\controller.sysj line: 94, column: 6
+                        currsigs.addElement(unlock1);
+                        S132=0;
+                        if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 95, column: 14
+                          personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 96, column: 7
+                          S132=1;
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                        else {
+                          S132=1;
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                      }
+                      else {
+                        ends[1]=2;
+                        ;//sysj\controller.sysj line: 92, column: 5
+                        S9=11;
+                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                          System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                          if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                            if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                              unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                              currsigs.addElement(unlock3);
+                              if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                              else {
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                            }
+                            else {
+                              ends[1]=2;
+                              ;//sysj\controller.sysj line: 112, column: 5
+                              S9=12;
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                          }
+                          else {
+                            S9=12;
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                        }
+                        else {
+                          S9=12;
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                      }
+                    }
+                    else {
+                      S9=11;
+                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                        System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                        if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                          if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                            unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                            currsigs.addElement(unlock3);
+                            if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                              personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                            else {
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                          }
+                          else {
+                            ends[1]=2;
+                            ;//sysj\controller.sysj line: 112, column: 5
+                            S9=12;
+                            active[1]=1;
+                            ends[1]=1;
+                            break RUN;
+                          }
+                        }
+                        else {
+                          S9=12;
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                      }
+                      else {
+                        S9=12;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
@@ -408,15 +1992,15 @@ public class Controller extends ClockDomain{
                     }
                   }
                   else {
-                    S9=4;
-                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                          unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
+                    S9=11;
+                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                          unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
                           currsigs.addElement(unlock3);
-                          if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                            personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
+                          if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                            personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
@@ -429,22 +2013,22 @@ public class Controller extends ClockDomain{
                         }
                         else {
                           ends[1]=2;
-                          ;//sysj\controller.sysj line: 77, column: 5
-                          S9=5;
+                          ;//sysj\controller.sysj line: 112, column: 5
+                          S9=12;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
                         }
                       }
                       else {
-                        S9=5;
+                        S9=12;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                     }
                     else {
-                      S9=5;
+                      S9=12;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -453,32 +2037,32 @@ public class Controller extends ClockDomain{
                 }
               }
             
-            case 1 : 
-              S9=2;
-              if(zoneOcc1_t.getprestatus()){//sysj\controller.sysj line: 50, column: 11
-                personArray_thread_1[0][2] = 1;//sysj\controller.sysj line: 51, column: 4
-                System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 52, column: 4
+            case 8 : 
+              S9=9;
+              if(zoneOcc7_t.getprestatus()){//sysj\controller.sysj line: 85, column: 11
+                personArray_thread_1[0][2] = 7;//sysj\controller.sysj line: 86, column: 4
+                System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 87, column: 4
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
               }
               else {
-                S9=3;
-                if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 55, column: 6
-                  if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 56, column: 7
-                    if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 57, column: 11
-                      unlock1.setPresent();//sysj\controller.sysj line: 59, column: 6
+                S9=10;
+                if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 90, column: 6
+                  if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 91, column: 7
+                    if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 92, column: 11
+                      unlock1.setPresent();//sysj\controller.sysj line: 94, column: 6
                       currsigs.addElement(unlock1);
-                      S20=0;
-                      if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 60, column: 14
-                        personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 61, column: 7
-                        S20=1;
+                      S132=0;
+                      if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 95, column: 14
+                        personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 96, column: 7
+                        S132=1;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                       else {
-                        S20=1;
+                        S132=1;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
@@ -486,16 +2070,16 @@ public class Controller extends ClockDomain{
                     }
                     else {
                       ends[1]=2;
-                      ;//sysj\controller.sysj line: 57, column: 5
-                      S9=4;
-                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                        System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                        if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                          if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                            unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
+                      ;//sysj\controller.sysj line: 92, column: 5
+                      S9=11;
+                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                        System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                        if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                          if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                            unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
                             currsigs.addElement(unlock3);
-                            if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                              personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
+                            if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                              personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
                               active[1]=1;
                               ends[1]=1;
                               break RUN;
@@ -508,22 +2092,22 @@ public class Controller extends ClockDomain{
                           }
                           else {
                             ends[1]=2;
-                            ;//sysj\controller.sysj line: 77, column: 5
-                            S9=5;
+                            ;//sysj\controller.sysj line: 112, column: 5
+                            S9=12;
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
                           }
                         }
                         else {
-                          S9=5;
+                          S9=12;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
                         }
                       }
                       else {
-                        S9=5;
+                        S9=12;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
@@ -531,15 +2115,15 @@ public class Controller extends ClockDomain{
                     }
                   }
                   else {
-                    S9=4;
-                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                          unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
+                    S9=11;
+                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                          unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
                           currsigs.addElement(unlock3);
-                          if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                            personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
+                          if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                            personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
@@ -552,22 +2136,22 @@ public class Controller extends ClockDomain{
                         }
                         else {
                           ends[1]=2;
-                          ;//sysj\controller.sysj line: 77, column: 5
-                          S9=5;
+                          ;//sysj\controller.sysj line: 112, column: 5
+                          S9=12;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
                         }
                       }
                       else {
-                        S9=5;
+                        S9=12;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                     }
                     else {
-                      S9=5;
+                      S9=12;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -575,15 +2159,15 @@ public class Controller extends ClockDomain{
                   }
                 }
                 else {
-                  S9=4;
-                  if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                    if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                        unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
+                  S9=11;
+                  if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                    if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                        unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
                         currsigs.addElement(unlock3);
-                        if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                          personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
+                        if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                          personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
@@ -596,22 +2180,22 @@ public class Controller extends ClockDomain{
                       }
                       else {
                         ends[1]=2;
-                        ;//sysj\controller.sysj line: 77, column: 5
-                        S9=5;
+                        ;//sysj\controller.sysj line: 112, column: 5
+                        S9=12;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                     }
                     else {
-                      S9=5;
+                      S9=12;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                   }
                   else {
-                    S9=5;
+                    S9=12;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
@@ -619,23 +2203,23 @@ public class Controller extends ClockDomain{
                 }
               }
             
-            case 2 : 
-              S9=3;
-              if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 55, column: 6
-                if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 56, column: 7
-                  if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 57, column: 11
-                    unlock1.setPresent();//sysj\controller.sysj line: 59, column: 6
+            case 9 : 
+              S9=10;
+              if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 90, column: 6
+                if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 91, column: 7
+                  if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 92, column: 11
+                    unlock1.setPresent();//sysj\controller.sysj line: 94, column: 6
                     currsigs.addElement(unlock1);
-                    S20=0;
-                    if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 60, column: 14
-                      personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 61, column: 7
-                      S20=1;
+                    S132=0;
+                    if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 95, column: 14
+                      personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 96, column: 7
+                      S132=1;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                     else {
-                      S20=1;
+                      S132=1;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -643,16 +2227,16 @@ public class Controller extends ClockDomain{
                   }
                   else {
                     ends[1]=2;
-                    ;//sysj\controller.sysj line: 57, column: 5
-                    S9=4;
-                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                          unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
+                    ;//sysj\controller.sysj line: 92, column: 5
+                    S9=11;
+                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                          unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
                           currsigs.addElement(unlock3);
-                          if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                            personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
+                          if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                            personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
@@ -665,22 +2249,22 @@ public class Controller extends ClockDomain{
                         }
                         else {
                           ends[1]=2;
-                          ;//sysj\controller.sysj line: 77, column: 5
-                          S9=5;
+                          ;//sysj\controller.sysj line: 112, column: 5
+                          S9=12;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
                         }
                       }
                       else {
-                        S9=5;
+                        S9=12;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                     }
                     else {
-                      S9=5;
+                      S9=12;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -688,15 +2272,15 @@ public class Controller extends ClockDomain{
                   }
                 }
                 else {
-                  S9=4;
-                  if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                    if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                        unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
+                  S9=11;
+                  if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                    System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                    if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                        unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
                         currsigs.addElement(unlock3);
-                        if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                          personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
+                        if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                          personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
@@ -709,22 +2293,22 @@ public class Controller extends ClockDomain{
                       }
                       else {
                         ends[1]=2;
-                        ;//sysj\controller.sysj line: 77, column: 5
-                        S9=5;
+                        ;//sysj\controller.sysj line: 112, column: 5
+                        S9=12;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                     }
                     else {
-                      S9=5;
+                      S9=12;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                   }
                   else {
-                    S9=5;
+                    S9=12;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
@@ -732,15 +2316,15 @@ public class Controller extends ClockDomain{
                 }
               }
               else {
-                S9=4;
-                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                  System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                  if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                      unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
+                S9=11;
+                if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                  System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                  if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                      unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
                       currsigs.addElement(unlock3);
-                      if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                        personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
+                      if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                        personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
@@ -753,44 +2337,44 @@ public class Controller extends ClockDomain{
                     }
                     else {
                       ends[1]=2;
-                      ;//sysj\controller.sysj line: 77, column: 5
-                      S9=5;
+                      ;//sysj\controller.sysj line: 112, column: 5
+                      S9=12;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                   }
                   else {
-                    S9=5;
+                    S9=12;
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                 }
                 else {
-                  S9=5;
+                  S9=12;
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
                 }
               }
             
-            case 3 : 
-              switch(S20){
+            case 10 : 
+              switch(S132){
                 case 0 : 
-                  if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 57, column: 11
-                    unlock1.setPresent();//sysj\controller.sysj line: 59, column: 6
+                  if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 92, column: 11
+                    unlock1.setPresent();//sysj\controller.sysj line: 94, column: 6
                     currsigs.addElement(unlock1);
-                    S20=0;
-                    if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 60, column: 14
-                      personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 61, column: 7
-                      S20=1;
+                    S132=0;
+                    if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 95, column: 14
+                      personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 96, column: 7
+                      S132=1;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                     else {
-                      S20=1;
+                      S132=1;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -798,16 +2382,16 @@ public class Controller extends ClockDomain{
                   }
                   else {
                     ends[1]=2;
-                    ;//sysj\controller.sysj line: 57, column: 5
-                    S9=4;
-                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                          unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
+                    ;//sysj\controller.sysj line: 92, column: 5
+                    S9=11;
+                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                          unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
                           currsigs.addElement(unlock3);
-                          if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                            personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
+                          if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                            personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
@@ -820,22 +2404,22 @@ public class Controller extends ClockDomain{
                         }
                         else {
                           ends[1]=2;
-                          ;//sysj\controller.sysj line: 77, column: 5
-                          S9=5;
+                          ;//sysj\controller.sysj line: 112, column: 5
+                          S9=12;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
                         }
                       }
                       else {
-                        S9=5;
+                        S9=12;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                     }
                     else {
-                      S9=5;
+                      S9=12;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -843,20 +2427,20 @@ public class Controller extends ClockDomain{
                   }
                 
                 case 1 : 
-                  S20=1;
-                  if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 57, column: 11
-                    unlock1.setPresent();//sysj\controller.sysj line: 59, column: 6
+                  S132=1;
+                  if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 92, column: 11
+                    unlock1.setPresent();//sysj\controller.sysj line: 94, column: 6
                     currsigs.addElement(unlock1);
-                    S20=0;
-                    if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 60, column: 14
-                      personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 61, column: 7
-                      S20=1;
+                    S132=0;
+                    if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 95, column: 14
+                      personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 96, column: 7
+                      S132=1;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                     else {
-                      S20=1;
+                      S132=1;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -864,16 +2448,16 @@ public class Controller extends ClockDomain{
                   }
                   else {
                     ends[1]=2;
-                    ;//sysj\controller.sysj line: 57, column: 5
-                    S9=4;
-                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                          unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
+                    ;//sysj\controller.sysj line: 92, column: 5
+                    S9=11;
+                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                          unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
                           currsigs.addElement(unlock3);
-                          if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                            personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
+                          if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                            personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
@@ -886,22 +2470,22 @@ public class Controller extends ClockDomain{
                         }
                         else {
                           ends[1]=2;
-                          ;//sysj\controller.sysj line: 77, column: 5
-                          S9=5;
+                          ;//sysj\controller.sysj line: 112, column: 5
+                          S9=12;
                           active[1]=1;
                           ends[1]=1;
                           break RUN;
                         }
                       }
                       else {
-                        S9=5;
+                        S9=12;
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                     }
                     else {
-                      S9=5;
+                      S9=12;
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
@@ -911,12 +2495,12 @@ public class Controller extends ClockDomain{
               }
               break;
             
-            case 4 : 
-              if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
+            case 11 : 
+              if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
                 currsigs.addElement(unlock3);
-                if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                  personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
+                if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                  personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
@@ -929,15 +2513,15 @@ public class Controller extends ClockDomain{
               }
               else {
                 ends[1]=2;
-                ;//sysj\controller.sysj line: 77, column: 5
-                S9=5;
+                ;//sysj\controller.sysj line: 112, column: 5
+                S9=12;
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
               }
             
-            case 5 : 
-              S9=5;
+            case 12 : 
+              S9=12;
               S9=0;
               if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 40, column: 11
                 personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 41, column: 4
@@ -957,8 +2541,8 @@ public class Controller extends ClockDomain{
                 }
                 else {
                   S9=2;
-                  if(zoneOcc1_t.getprestatus()){//sysj\controller.sysj line: 50, column: 11
-                    personArray_thread_1[0][2] = 1;//sysj\controller.sysj line: 51, column: 4
+                  if(zoneOcc0_t.getprestatus()){//sysj\controller.sysj line: 50, column: 11
+                    personArray_thread_1[0][2] = 0;//sysj\controller.sysj line: 51, column: 4
                     System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 52, column: 4
                     active[1]=1;
                     ends[1]=1;
@@ -966,157 +2550,227 @@ public class Controller extends ClockDomain{
                   }
                   else {
                     S9=3;
-                    if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 55, column: 6
-                      if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 56, column: 7
-                        if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 57, column: 11
-                          unlock1.setPresent();//sysj\controller.sysj line: 59, column: 6
-                          currsigs.addElement(unlock1);
-                          S20=0;
-                          if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 60, column: 14
-                            personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 61, column: 7
-                            S20=1;
+                    if(zoneOcc1_t.getprestatus()){//sysj\controller.sysj line: 55, column: 11
+                      personArray_thread_1[0][2] = 1;//sysj\controller.sysj line: 56, column: 4
+                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 57, column: 4
+                      active[1]=1;
+                      ends[1]=1;
+                      break RUN;
+                    }
+                    else {
+                      S9=4;
+                      if(zoneOcc2_t.getprestatus()){//sysj\controller.sysj line: 60, column: 11
+                        personArray_thread_1[0][2] = 2;//sysj\controller.sysj line: 61, column: 4
+                        System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 62, column: 4
+                        active[1]=1;
+                        ends[1]=1;
+                        break RUN;
+                      }
+                      else {
+                        S9=5;
+                        if(zoneOcc3_t.getprestatus()){//sysj\controller.sysj line: 65, column: 11
+                          personArray_thread_1[0][2] = 3;//sysj\controller.sysj line: 66, column: 4
+                          System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 67, column: 4
+                          active[1]=1;
+                          ends[1]=1;
+                          break RUN;
+                        }
+                        else {
+                          S9=6;
+                          if(zoneOcc4_t.getprestatus()){//sysj\controller.sysj line: 70, column: 11
+                            personArray_thread_1[0][2] = 4;//sysj\controller.sysj line: 71, column: 4
+                            System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 72, column: 4
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
                           }
                           else {
-                            S20=1;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          ends[1]=2;
-                          ;//sysj\controller.sysj line: 57, column: 5
-                          S9=4;
-                          if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                            System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                            if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                              if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                                unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
-                                currsigs.addElement(unlock3);
-                                if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                                  personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
+                            S9=7;
+                            if(zoneOcc5_t.getprestatus()){//sysj\controller.sysj line: 75, column: 11
+                              personArray_thread_1[0][2] = 5;//sysj\controller.sysj line: 76, column: 4
+                              System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 77, column: 4
+                              active[1]=1;
+                              ends[1]=1;
+                              break RUN;
+                            }
+                            else {
+                              S9=8;
+                              if(zoneOcc6_t.getprestatus()){//sysj\controller.sysj line: 80, column: 11
+                                personArray_thread_1[0][2] = 6;//sysj\controller.sysj line: 81, column: 4
+                                System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 82, column: 4
+                                active[1]=1;
+                                ends[1]=1;
+                                break RUN;
+                              }
+                              else {
+                                S9=9;
+                                if(zoneOcc7_t.getprestatus()){//sysj\controller.sysj line: 85, column: 11
+                                  personArray_thread_1[0][2] = 7;//sysj\controller.sysj line: 86, column: 4
+                                  System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 87, column: 4
                                   active[1]=1;
                                   ends[1]=1;
                                   break RUN;
                                 }
                                 else {
-                                  active[1]=1;
-                                  ends[1]=1;
-                                  break RUN;
+                                  S9=10;
+                                  if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 90, column: 6
+                                    if(personArray_thread_1[0][2] < 2){//sysj\controller.sysj line: 91, column: 7
+                                      if(personArray_thread_1[0][1] == 0){//sysj\controller.sysj line: 92, column: 11
+                                        unlock1.setPresent();//sysj\controller.sysj line: 94, column: 6
+                                        currsigs.addElement(unlock1);
+                                        S132=0;
+                                        if(person1accessManu.getprestatus()){//sysj\controller.sysj line: 95, column: 14
+                                          personArray_thread_1[0][1] = 1;//sysj\controller.sysj line: 96, column: 7
+                                          S132=1;
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                        else {
+                                          S132=1;
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                      }
+                                      else {
+                                        ends[1]=2;
+                                        ;//sysj\controller.sysj line: 92, column: 5
+                                        S9=11;
+                                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                          System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                          if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                            if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                              unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                              currsigs.addElement(unlock3);
+                                              if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                                personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                                active[1]=1;
+                                                ends[1]=1;
+                                                break RUN;
+                                              }
+                                              else {
+                                                active[1]=1;
+                                                ends[1]=1;
+                                                break RUN;
+                                              }
+                                            }
+                                            else {
+                                              ends[1]=2;
+                                              ;//sysj\controller.sysj line: 112, column: 5
+                                              S9=12;
+                                              active[1]=1;
+                                              ends[1]=1;
+                                              break RUN;
+                                            }
+                                          }
+                                          else {
+                                            S9=12;
+                                            active[1]=1;
+                                            ends[1]=1;
+                                            break RUN;
+                                          }
+                                        }
+                                        else {
+                                          S9=12;
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                      }
+                                    }
+                                    else {
+                                      S9=11;
+                                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                        System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                        if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                          if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                            unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                            currsigs.addElement(unlock3);
+                                            if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                              personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                              active[1]=1;
+                                              ends[1]=1;
+                                              break RUN;
+                                            }
+                                            else {
+                                              active[1]=1;
+                                              ends[1]=1;
+                                              break RUN;
+                                            }
+                                          }
+                                          else {
+                                            ends[1]=2;
+                                            ;//sysj\controller.sysj line: 112, column: 5
+                                            S9=12;
+                                            active[1]=1;
+                                            ends[1]=1;
+                                            break RUN;
+                                          }
+                                        }
+                                        else {
+                                          S9=12;
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                      }
+                                      else {
+                                        S9=12;
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                    }
+                                  }
+                                  else {
+                                    S9=11;
+                                    if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 109, column: 6
+                                      System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 110, column: 4
+                                      if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 111, column: 7
+                                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 112, column: 11
+                                          unlock3.setPresent();//sysj\controller.sysj line: 114, column: 6
+                                          currsigs.addElement(unlock3);
+                                          if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 115, column: 14
+                                            personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 116, column: 7
+                                            active[1]=1;
+                                            ends[1]=1;
+                                            break RUN;
+                                          }
+                                          else {
+                                            active[1]=1;
+                                            ends[1]=1;
+                                            break RUN;
+                                          }
+                                        }
+                                        else {
+                                          ends[1]=2;
+                                          ;//sysj\controller.sysj line: 112, column: 5
+                                          S9=12;
+                                          active[1]=1;
+                                          ends[1]=1;
+                                          break RUN;
+                                        }
+                                      }
+                                      else {
+                                        S9=12;
+                                        active[1]=1;
+                                        ends[1]=1;
+                                        break RUN;
+                                      }
+                                    }
+                                    else {
+                                      S9=12;
+                                      active[1]=1;
+                                      ends[1]=1;
+                                      break RUN;
+                                    }
+                                  }
                                 }
                               }
-                              else {
-                                ends[1]=2;
-                                ;//sysj\controller.sysj line: 77, column: 5
-                                S9=5;
-                                active[1]=1;
-                                ends[1]=1;
-                                break RUN;
-                              }
                             }
-                            else {
-                              S9=5;
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            S9=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
                           }
                         }
-                      }
-                      else {
-                        S9=4;
-                        if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                          System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                          if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                            if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                              unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
-                              currsigs.addElement(unlock3);
-                              if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                                personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
-                                active[1]=1;
-                                ends[1]=1;
-                                break RUN;
-                              }
-                              else {
-                                active[1]=1;
-                                ends[1]=1;
-                                break RUN;
-                              }
-                            }
-                            else {
-                              ends[1]=2;
-                              ;//sysj\controller.sysj line: 77, column: 5
-                              S9=5;
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            S9=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S9=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                    }
-                    else {
-                      S9=4;
-                      if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 74, column: 6
-                        System.out.println(personArray_thread_1[0][1]);//sysj\controller.sysj line: 75, column: 4
-                        if((personArray_thread_1[0][2] == 0) | (personArray_thread_1[0][2] == 2)){//sysj\controller.sysj line: 76, column: 7
-                          if(personArray_thread_1[0][1] == 1){//sysj\controller.sysj line: 77, column: 11
-                            unlock3.setPresent();//sysj\controller.sysj line: 79, column: 6
-                            currsigs.addElement(unlock3);
-                            if(person1accessOffice.getprestatus()){//sysj\controller.sysj line: 80, column: 14
-                              personArray_thread_1[0][1] = 0;//sysj\controller.sysj line: 81, column: 7
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                            else {
-                              active[1]=1;
-                              ends[1]=1;
-                              break RUN;
-                            }
-                          }
-                          else {
-                            ends[1]=2;
-                            ;//sysj\controller.sysj line: 77, column: 5
-                            S9=5;
-                            active[1]=1;
-                            ends[1]=1;
-                            break RUN;
-                          }
-                        }
-                        else {
-                          S9=5;
-                          active[1]=1;
-                          ends[1]=1;
-                          break RUN;
-                        }
-                      }
-                      else {
-                        S9=5;
-                        active[1]=1;
-                        ends[1]=1;
-                        break RUN;
                       }
                     }
                   }
@@ -1160,6 +2814,7 @@ public class Controller extends ClockDomain{
           door3req.gethook();
           manuPerm.gethook();
           officePerm.gethook();
+          zoneOcc0_t.gethook();
           zoneOcc1_t.gethook();
           zoneOcc2_t.gethook();
           zoneOcc3_t.gethook();
@@ -1190,6 +2845,7 @@ public class Controller extends ClockDomain{
       door3req.setpreclear();
       manuPerm.setpreclear();
       officePerm.setpreclear();
+      zoneOcc0_t.setpreclear();
       zoneOcc1_t.setpreclear();
       zoneOcc2_t.setpreclear();
       zoneOcc3_t.setpreclear();
@@ -1213,6 +2869,7 @@ public class Controller extends ClockDomain{
       unlock1.setpreclear();
       unlock2.setpreclear();
       unlock3.setpreclear();
+      zoneOcc0.setpreclear();
       zoneOcc1.setpreclear();
       zoneOcc2.setpreclear();
       zoneOcc3.setpreclear();
@@ -1253,6 +2910,9 @@ public class Controller extends ClockDomain{
       dummyint = officePerm.getStatus() ? officePerm.setprepresent() : officePerm.setpreclear();
       officePerm.setpreval(officePerm.getValue());
       officePerm.setClear();
+      dummyint = zoneOcc0_t.getStatus() ? zoneOcc0_t.setprepresent() : zoneOcc0_t.setpreclear();
+      zoneOcc0_t.setpreval(zoneOcc0_t.getValue());
+      zoneOcc0_t.setClear();
       dummyint = zoneOcc1_t.getStatus() ? zoneOcc1_t.setprepresent() : zoneOcc1_t.setpreclear();
       zoneOcc1_t.setpreval(zoneOcc1_t.getValue());
       zoneOcc1_t.setClear();
@@ -1316,6 +2976,8 @@ public class Controller extends ClockDomain{
       unlock2.setClear();
       unlock3.sethook();
       unlock3.setClear();
+      zoneOcc0.sethook();
+      zoneOcc0.setClear();
       zoneOcc1.sethook();
       zoneOcc1.setClear();
       zoneOcc2.sethook();
@@ -1341,6 +3003,7 @@ public class Controller extends ClockDomain{
         door3req.gethook();
         manuPerm.gethook();
         officePerm.gethook();
+        zoneOcc0_t.gethook();
         zoneOcc1_t.gethook();
         zoneOcc2_t.gethook();
         zoneOcc3_t.gethook();
