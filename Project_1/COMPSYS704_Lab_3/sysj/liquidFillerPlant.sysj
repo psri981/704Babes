@@ -1,11 +1,30 @@
 import run.GUI;
 
-Plant(
+LiquidFillerPlant(
 		input signal bottleAtPos2, dosUnitEvac, dosUnitFilled;
 		output signal valveInjectorOnOff, valveInjectorGUI, valveInletOnOff, valveInletOnOffGUI, dosUnitValveRetract, dosUnitValveRetractGUI, dosUnitValveExtend, dosUnitValveExtendGUI;
 		)
 ->
 {
+	await(bottleAtPos2);
+	abort(dosUnitEvac){
+		emit valveInjectorOnOff;
+	}
+	abort(dosUnitFilled){
+		while(true) {
+			emit valveInjectorOnOff;
+			emit dosUnitValveRetract;
+			pause;
+		}
+	}
+	abort(dosUnitEvac) {
+		while(true) {
+			emit valveInletOnOff;
+			emit dosUnitValveExtend;
+			pause;
+			
+		}
+	}
 	||
 	{// To viz
 		{while(true){present(valveInjectorOnOff){emit valveInjectorGUI;} pause;}}
