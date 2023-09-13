@@ -9,6 +9,8 @@
 			<iSignal Name="bottleAtPos4"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			<iSignal Name="bottleAtPos5"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			<iSignal Name="rotate"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iChannel Name="liquidMixOutput"       From="POSPlantCD.liquidMixOutput" />
+			<iChannel Name="bottleQuantityOutput"       From="POSPlantCD.bottleQuantityOutput" />	
 
 			<oSignal Name="capOnPos1" To="ControllerCD.capOnPos1" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
 			<oSignal Name="tableAligned"  To="ControllerCD.tableAligned"  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
@@ -23,6 +25,24 @@
 			<oSignal Name="lidloaderTriggerE"       To="UI.lidloaderTriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
 			<oSignal Name="capScrewTriggerE"     To="UI.capScrewTriggerE"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
 			<oSignal Name="labelTriggerE"       To="UI.labelTriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
+			
+			<oChannel Name="orderDoneFlag"    To="POSPlantCD.orderDoneFlag" />
+			
+		</ClockDomain>
+	
+		<ClockDomain Name="POSPlantCD" Class="POS_Plant">
+
+			<iSignal Name="orderStart"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50005" />
+			<iSignal Name="liquidMix"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50005" />
+			<iSignal Name="bottleQuantity"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50005" />
+			<iChannel Name="orderDoneFlag"    From="PlantCD.orderDoneFlag" />
+
+			<oSignal Name="orderDoneGUIFlag" To="UI.orderDoneGUIFlag" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="55555" />
+			
+			<oChannel Name="liquidMixOutput"       To="PlantCD.liquidMixOutput" />
+			<oChannel Name="bottleQuantityOutput"       To="PlantCD.bottleQuantityOutput" />	
+					
 		</ClockDomain>
 	</SubSystem>
+
 </System>

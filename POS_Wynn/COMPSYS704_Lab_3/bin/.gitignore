@@ -1,4 +1,6 @@
-/org/
-/run/
+/Controller.class
 /POS_Controller.class
 /POS_Plant.class
+/Plant.class
+/org/
+/run/

@@ -15,6 +15,16 @@
 			<oSignal Name="bottleAtPos4" To="PlantCD.bottleAtPos4" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
 			<oSignal Name="bottleAtPos5" To="PlantCD.bottleAtPos5" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
 
+		</ClockDomain>	
+		<ClockDomain Name="POSControllerCD" Class="POS_Controller">
+		
+			<iSignal Name="orderDone" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="liquidMixOutput" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			<iSignal Name="bottleQuantityOutput" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="50000" />
+			
+			<oSignal Name="orderDoneFlag" To="POSPlantCD.orderDoneFlag" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="50005" />
+
 		</ClockDomain>
 	</SubSystem>
+
 </System>
