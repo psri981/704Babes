@@ -19,8 +19,25 @@ Plant(
 				abort(accessManu){
 					while(true) {
 						//System.out.println("OFFIIICEEE");
-						emit accessOffice_t;
-						pause;
+						{
+							emit accessOffice_t;
+							pause;
+						}
+						||
+						{
+							await(zoneOcc0);
+							emit zoneOcc0_t;
+						}
+						||
+						{
+							await(zoneOcc1);
+							emit zoneOcc1_t;
+						}
+						||
+						{
+							await(zoneOcc7);
+							emit zoneOcc7_t;
+						}
 					}
 				}
 				pause;
@@ -29,10 +46,42 @@ Plant(
 			{
 				await(accessManu);
 				abort(accessOffice){
-					while(true) {
-						//System.out.println("MANUUUUU");
-						emit accessManu_t;
-						pause;
+					while(true){
+						//System.out.println("MANUUU");
+						{
+							emit accessManu_t;
+							pause;
+						}
+						||
+						{
+							await(zoneOcc0);
+							emit zoneOcc0_t;
+						}
+						||
+						{
+							await(zoneOcc2);
+							emit zoneOcc2_t;
+						}
+						||
+						{
+							await(zoneOcc3);
+							emit zoneOcc3_t;
+						}
+						||
+						{
+							await(zoneOcc4);
+							emit zoneOcc4_t;
+						}
+						||
+						{
+							await(zoneOcc5);
+							emit zoneOcc5_t;
+						}
+						||
+						{
+							await(zoneOcc6);
+							emit zoneOcc6_t;
+						}
 					}
 				}
 				pause;

@@ -22,6 +22,15 @@
 			<oSignal Name="unlock1GUI"       To="UI.unlock1GUI" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
 			<oSignal Name="accessOffice_t"       To="ControllerCD.person1accessOffice" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
 			<oSignal Name="accessManu_t"       To="ControllerCD.person1accessManu" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="zoneOcc0_t"       To="ControllerCD.zoneOcc0" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="zoneOcc1_t"       To="ControllerCD.zoneOcc1" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="zoneOcc2_t"       To="ControllerCD.zoneOcc2" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="zoneOcc3_t"       To="ControllerCD.zoneOcc3" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="zoneOcc4_t"       To="ControllerCD.zoneOcc4" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="zoneOcc5_t"       To="ControllerCD.zoneOcc5" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="zoneOcc6_t"       To="ControllerCD.zoneOcc6" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			<oSignal Name="zoneOcc7_t"       To="ControllerCD.zoneOcc7" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10000" />
+			
 		</ClockDomain>
 	</SubSystem>
 </System>

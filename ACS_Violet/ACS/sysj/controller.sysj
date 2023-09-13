@@ -1,7 +1,7 @@
 Controller(
-    input signal unlock1_t, lock1, laserProximity, firePresent, door1req, door2req, door3req, manuPerm, officePerm, zoneOcc0_t, zoneOcc1_t, zoneOcc2_t, zoneOcc3_t, zoneOcc4_t, zoneOcc5_t, zoneOcc6_t, zoneOcc7_t;
+    input signal unlock1_t, lock1, laserProximity, firePresent, door1req, door2req, door3req, manuPerm, officePerm, zoneOcc0, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7;
     input Integer signal person1accessOffice, person1accessManu, person1zone, person1doorreq, person2zone, person2doorreq, person3zone, person3doorreq, person4zone, person4doorreq;
-    output signal absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3, zoneOcc0, zoneOcc1, zoneOcc2, zoneOcc3, zoneOcc4, zoneOcc5, zoneOcc6, zoneOcc7;
+    output signal absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3;
 )
 -> {
 	//MAKING FAKE PEOPLE DONT MIND ME
@@ -45,13 +45,22 @@ Controller(
 	}
 	
 	while(true) {
+		System.out.println(personArray[0][2]);
 		if(personArray[0][1] == 0) { //if they have office access
 			if(personArray[0][2] < 2) { //if they are in zone 1 or not inside
-				abort(person1accessManu){
-					personArray[0][1] = 0;
+				abort(person1accessManu){ //stop once permission changes
+					personArray[0][1] = 0; //log in array
 					while(true) {
 						emit unlock1;
-						System.out.println(personArray[0][1]);
+					//	System.out.println(personArray[0][1]);
+						present(zoneOcc1){
+							personArray[0][2] = 1;
+							System.out.println(personArray[0][2]);
+						}
+						present(zoneOcc7){
+							personArray[0][2] = 7;
+							System.out.println(personArray[0][2]);
+						}
 						pause;
 					}
 				}
@@ -66,7 +75,27 @@ Controller(
 					personArray[0][1] = 1;
 					while(true) {
 						emit unlock3;
-						System.out.println(personArray[0][1]);
+					//	System.out.println(personArray[0][1]);
+						present(zoneOcc2){
+							personArray[0][2] = 2;
+							System.out.println(personArray[0][2]);
+						}
+						present(zoneOcc3){
+							personArray[0][2] = 3;
+							System.out.println(personArray[0][2]);
+						}
+						present(zoneOcc4){
+							personArray[0][2] = 4;
+							System.out.println(personArray[0][2]);
+						}
+						present(zoneOcc5){
+							personArray[0][2] = 5;
+							System.out.println(personArray[0][2]);
+						}
+						present(zoneOcc6){
+							personArray[0][2] = 6;
+							System.out.println(personArray[0][2]);
+						}
 						pause;
 					}
 				}

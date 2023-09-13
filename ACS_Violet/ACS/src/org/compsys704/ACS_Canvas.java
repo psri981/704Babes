@@ -421,6 +421,7 @@ public class ACS_Canvas {
 		locZone3.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_3));
 		locZone2.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_2));
 		locZone1.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_ZONE_OCC_1));		
+		
 		locZone1.addActionListener(e -> {
 			if(States.ROOM1_PRECENSE){
 				System.out.println("INZONE1");
