@@ -1,12 +1,12 @@
 <System xmlns="http://systemjtechnology.com">
 	<SubSystem Name="SS1" Local="true">
-		<ClockDomain Name="ControllerCD" Class="Controller">
+		<ClockDomain Name="POSControllerCD" Class="POS_Controller">
 		
 			<iSignal Name="orderDone" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
 			<iSignal Name="liquidMixOutput" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
 			<iSignal Name="bottleQuantityOutput" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
 			
-			<oSignal Name="orderDoneFlag" To="PlantCD.orderDoneFlag" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="orderDoneFlag" To="POSPlantCD.orderDoneFlag" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
 
 		</ClockDomain>
 	</SubSystem>

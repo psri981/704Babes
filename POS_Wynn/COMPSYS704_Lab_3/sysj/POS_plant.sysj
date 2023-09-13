@@ -1,6 +1,6 @@
 import run.GUI;
 
-Plant(
+POS_Plant(
 		input signal orderStart;
 		input signal orderDoneFlag;
 		

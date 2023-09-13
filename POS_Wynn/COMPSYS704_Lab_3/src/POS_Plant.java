@@ -3,10 +3,10 @@ import com.systemj.ClockDomain;
 import com.systemj.Signal;
 import com.systemj.input_Channel;
 import com.systemj.output_Channel;
-import run.GUI;//sysj\plant.sysj line: 1, column: 1
+import run.GUI;//sysj\POS_plant.sysj line: 1, column: 1
 
-public class Plant extends ClockDomain{
-  public Plant(String name){super(name);}
+public class POS_Plant extends ClockDomain{
+  public POS_Plant(String name){super(name);}
   Vector currsigs = new Vector();
   private boolean df = false;
   private char [] active;
@@ -19,17 +19,17 @@ public class Plant extends ClockDomain{
   public Signal orderDoneGUIFlag = new Signal("orderDoneGUIFlag", Signal.OUTPUT);
   public Signal liquidMixOutput = new Signal("liquidMixOutput", Signal.OUTPUT);
   public Signal bottleQuantityOutput = new Signal("bottleQuantityOutput", Signal.OUTPUT);
-  private Integer y_thread_2;//sysj\plant.sysj line: 22, column: 5
-  private String x_thread_2;//sysj\plant.sysj line: 23, column: 5
-  private int S39 = 1;
-  private int S10 = 1;
-  private int S18 = 1;
+  private Integer y_thread_2;//sysj\POS_plant.sysj line: 22, column: 5
+  private String x_thread_2;//sysj\POS_plant.sysj line: 23, column: 5
+  private int S51 = 1;
+  private int S22 = 1;
+  private int S30 = 1;
   
   private int[] ends = new int[4];
   private int[] tdone = new int[4];
   
-  public void thread45(int [] tdone, int [] ends){
-        switch(S18){
+  public void thread57(int [] tdone, int [] ends){
+        switch(S30){
       case 0 : 
         active[3]=0;
         ends[3]=0;
@@ -37,8 +37,8 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(orderDoneFlag.getprestatus()){//sysj\plant.sysj line: 38, column: 24
-          orderDoneGUIFlag.setPresent();//sysj\plant.sysj line: 38, column: 39
+        if(orderDoneFlag.getprestatus()){//sysj\POS_plant.sysj line: 38, column: 24
+          orderDoneGUIFlag.setPresent();//sysj\POS_plant.sysj line: 38, column: 39
           currsigs.addElement(orderDoneGUIFlag);
           active[3]=1;
           ends[3]=1;
@@ -54,8 +54,8 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread44(int [] tdone, int [] ends){
-        switch(S10){
+  public void thread56(int [] tdone, int [] ends){
+        switch(S22){
       case 0 : 
         active[2]=0;
         ends[2]=0;
@@ -63,14 +63,14 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(orderStart.getprestatus()){//sysj\plant.sysj line: 21, column: 12
-                              y_thread_2 = (bottleQuantity.getpreval() == null ? null : ((Integer)bottleQuantity.getpreval()));//sysj\plant.sysj line: 25, column: 5
-          x_thread_2 = (liquidMix.getpreval() == null ? null : ((String)liquidMix.getpreval()));//sysj\plant.sysj line: 26, column: 5
-          System.out.println("Bottle Quantity: " + y_thread_2);//sysj\plant.sysj line: 28, column: 5
-          System.out.println("Liquid Mix: " + x_thread_2);//sysj\plant.sysj line: 29, column: 5
-          liquidMixOutput.setPresent();//sysj\plant.sysj line: 30, column: 5
+        if(orderStart.getprestatus()){//sysj\POS_plant.sysj line: 21, column: 12
+                              y_thread_2 = (bottleQuantity.getpreval() == null ? null : ((Integer)bottleQuantity.getpreval()));//sysj\POS_plant.sysj line: 25, column: 5
+          x_thread_2 = (liquidMix.getpreval() == null ? null : ((String)liquidMix.getpreval()));//sysj\POS_plant.sysj line: 26, column: 5
+          System.out.println("Bottle Quantity: " + y_thread_2);//sysj\POS_plant.sysj line: 28, column: 5
+          System.out.println("Liquid Mix: " + x_thread_2);//sysj\POS_plant.sysj line: 29, column: 5
+          liquidMixOutput.setPresent();//sysj\POS_plant.sysj line: 30, column: 5
           currsigs.addElement(liquidMixOutput);
-          bottleQuantityOutput.setPresent();//sysj\plant.sysj line: 31, column: 5
+          bottleQuantityOutput.setPresent();//sysj\POS_plant.sysj line: 31, column: 5
           currsigs.addElement(bottleQuantityOutput);
           active[2]=1;
           ends[2]=1;
@@ -86,10 +86,10 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread42(int [] tdone, int [] ends){
-        S18=1;
-    if(orderDoneFlag.getprestatus()){//sysj\plant.sysj line: 38, column: 24
-      orderDoneGUIFlag.setPresent();//sysj\plant.sysj line: 38, column: 39
+  public void thread54(int [] tdone, int [] ends){
+        S30=1;
+    if(orderDoneFlag.getprestatus()){//sysj\POS_plant.sysj line: 38, column: 24
+      orderDoneGUIFlag.setPresent();//sysj\POS_plant.sysj line: 38, column: 39
       currsigs.addElement(orderDoneGUIFlag);
       active[3]=1;
       ends[3]=1;
@@ -102,16 +102,16 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread41(int [] tdone, int [] ends){
-        S10=1;
-    if(orderStart.getprestatus()){//sysj\plant.sysj line: 21, column: 12
-                  y_thread_2 = (bottleQuantity.getpreval() == null ? null : ((Integer)bottleQuantity.getpreval()));//sysj\plant.sysj line: 25, column: 5
-      x_thread_2 = (liquidMix.getpreval() == null ? null : ((String)liquidMix.getpreval()));//sysj\plant.sysj line: 26, column: 5
-      System.out.println("Bottle Quantity: " + y_thread_2);//sysj\plant.sysj line: 28, column: 5
-      System.out.println("Liquid Mix: " + x_thread_2);//sysj\plant.sysj line: 29, column: 5
-      liquidMixOutput.setPresent();//sysj\plant.sysj line: 30, column: 5
+  public void thread53(int [] tdone, int [] ends){
+        S22=1;
+    if(orderStart.getprestatus()){//sysj\POS_plant.sysj line: 21, column: 12
+                  y_thread_2 = (bottleQuantity.getpreval() == null ? null : ((Integer)bottleQuantity.getpreval()));//sysj\POS_plant.sysj line: 25, column: 5
+      x_thread_2 = (liquidMix.getpreval() == null ? null : ((String)liquidMix.getpreval()));//sysj\POS_plant.sysj line: 26, column: 5
+      System.out.println("Bottle Quantity: " + y_thread_2);//sysj\POS_plant.sysj line: 28, column: 5
+      System.out.println("Liquid Mix: " + x_thread_2);//sysj\POS_plant.sysj line: 29, column: 5
+      liquidMixOutput.setPresent();//sysj\POS_plant.sysj line: 30, column: 5
       currsigs.addElement(liquidMixOutput);
-      bottleQuantityOutput.setPresent();//sysj\plant.sysj line: 31, column: 5
+      bottleQuantityOutput.setPresent();//sysj\POS_plant.sysj line: 31, column: 5
       currsigs.addElement(bottleQuantityOutput);
       active[2]=1;
       ends[2]=1;
@@ -131,51 +131,51 @@ public class Plant extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S39){
+      switch(S51){
         case 0 : 
-          S39=0;
+          S51=0;
           break RUN;
         
         case 1 : 
-          S39=2;
-          S39=2;
-          new Thread(new GUI()).start();//sysj\plant.sysj line: 17, column: 2
-          thread41(tdone,ends);
-          thread42(tdone,ends);
-          int biggest43 = 0;
-          if(ends[2]>=biggest43){
-            biggest43=ends[2];
+          S51=2;
+          S51=2;
+          new Thread(new GUI()).start();//sysj\POS_plant.sysj line: 17, column: 2
+          thread53(tdone,ends);
+          thread54(tdone,ends);
+          int biggest55 = 0;
+          if(ends[2]>=biggest55){
+            biggest55=ends[2];
           }
-          if(ends[3]>=biggest43){
-            biggest43=ends[3];
+          if(ends[3]>=biggest55){
+            biggest55=ends[3];
           }
-          if(biggest43 == 1){
+          if(biggest55 == 1){
             active[1]=1;
             ends[1]=1;
             break RUN;
           }
         
         case 2 : 
-          thread44(tdone,ends);
-          thread45(tdone,ends);
-          int biggest46 = 0;
-          if(ends[2]>=biggest46){
-            biggest46=ends[2];
+          thread56(tdone,ends);
+          thread57(tdone,ends);
+          int biggest58 = 0;
+          if(ends[2]>=biggest58){
+            biggest58=ends[2];
           }
-          if(ends[3]>=biggest46){
-            biggest46=ends[3];
+          if(ends[3]>=biggest58){
+            biggest58=ends[3];
           }
-          if(biggest46 == 1){
+          if(biggest58 == 1){
             active[1]=1;
             ends[1]=1;
             break RUN;
           }
           //FINXME code
-          if(biggest46 == 0){
-            S39=0;
+          if(biggest58 == 0){
+            S51=0;
             active[1]=0;
             ends[1]=0;
-            S39=0;
+            S51=0;
             break RUN;
           }
         

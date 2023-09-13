@@ -240,9 +240,9 @@ public class Canvas {
 				    Object[] options = {"Order Done"};
 				    int n = JOptionPane.showOptionDialog(null, "Processing your order...  ","POS Alert", JOptionPane.PLAIN_MESSAGE, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
 					String stringLiquidMix = IntStream.of(liquidMix).mapToObj(String::valueOf).collect(Collectors.joining(","));
-					SimpleClient sendBottleQuantity = new SimpleClient("127.0.0.1", 10001, "PlantCD", "bottleQuantity");
+					SimpleClient sendBottleQuantity = new SimpleClient("127.0.0.1", 10001, "POSPlantCD", "bottleQuantity");
 					sendBottleQuantity.emit(sliderBottles.getValue(), 10);
-					SimpleClient sendLiquidMix = new SimpleClient("127.0.0.1", 10001, "PlantCD", "liquidMix");
+					SimpleClient sendLiquidMix = new SimpleClient("127.0.0.1", 10001, "POSPlantCD", "liquidMix");
 					sendLiquidMix.emit(stringLiquidMix, 10);
 
 				} catch (IOException e1) {

@@ -1,4 +1,4 @@
-Controller(
+POS_Controller(
 		input signal orderDone;
 		input signal liquidMixOutput;
 		input signal bottleQuantityOutput;
