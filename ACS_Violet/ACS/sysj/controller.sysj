@@ -36,6 +36,10 @@ Controller(
 	while(true) {
 	//	await(door1req||door2req||door3req);
 		//for loop here
+		present(person1access){
+			personArray[0][1] = 1;
+			System.out.println("POO");
+		}
 		if(personArray[0][1] == 0) { //if they have office access
 			if(personArray[0][2] < 2) { //if they are in zone 1 or not inside
 				while(personArray[0][3] == 0) { //while they are requesting access to door 1

@@ -18,6 +18,11 @@ public class LoaderVizWorker extends Worker{
 			System.out.println("boo");
 			States.DOOR1_LOCK = status;
 			break;
+			
+		case "accessOfficeGUI":
+			System.out.println("boo");
+			States.DOOR1_LOCK = status;
+			break;
 //		case "pusherRetractedE":
 //			States.PUSHER_RETRACTED = status;
 //			break;

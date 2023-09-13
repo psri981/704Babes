@@ -24,10 +24,14 @@ import java.awt.Font;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.JTextField;
+import javax.swing.ButtonGroup;
 
 public class ACS_Canvas {
 
 	private JFrame frmSecurityAccessControl;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
+	private final ButtonGroup buttonGroup_2 = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -67,6 +71,7 @@ public class ACS_Canvas {
 		enable.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_DOOR1_UNLOCK));
 		
 		JButton accessOffice = new JButton("O");
+		buttonGroup_1.add(accessOffice);
 		accessOffice.setHorizontalAlignment(SwingConstants.LEFT);
 		accessOffice.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		enable.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_OFFICEACCESS));
@@ -78,6 +83,7 @@ public class ACS_Canvas {
 		});
 		
 		JButton locZone0 = new JButton("0");
+		buttonGroup.add(locZone0);
 		locZone0.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone0.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		locZone0.setBounds(406, 420, 39, 21);
@@ -93,20 +99,24 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(btnNewButton_1_1_1);
 		
 		JButton btnNewButton_2_1 = new JButton("Manual");
+		buttonGroup_2.add(btnNewButton_2_1);
 		btnNewButton_2_1.setBounds(148, 407, 85, 21);
 		frmSecurityAccessControl.getContentPane().add(btnNewButton_2_1);
 		
 		JButton btnNewButton_2 = new JButton("Automatic");
+		buttonGroup_2.add(btnNewButton_2);
 		btnNewButton_2.setBounds(28, 407, 85, 21);
 		frmSecurityAccessControl.getContentPane().add(btnNewButton_2);
 		
 		JButton locZone7 = new JButton("7");
+		buttonGroup.add(locZone7);
 		locZone7.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone7.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		locZone7.setBounds(357, 420, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(locZone7);
 		
 		JButton locZone4 = new JButton("4");
+		buttonGroup.add(locZone4);
 		locZone4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -117,30 +127,35 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(locZone4);
 		
 		JButton locZone5 = new JButton("5");
+		buttonGroup.add(locZone5);
 		locZone5.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone5.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		locZone5.setBounds(382, 392, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(locZone5);
 		
 		JButton locZone6 = new JButton("6");
+		buttonGroup.add(locZone6);
 		locZone6.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone6.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		locZone6.setBounds(431, 392, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(locZone6);
 		
 		JButton locZone3 = new JButton("3");
+		buttonGroup.add(locZone3);
 		locZone3.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone3.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		locZone3.setBounds(431, 361, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(locZone3);
 		
 		JButton locZone2 = new JButton("2");
+		buttonGroup.add(locZone2);
 		locZone2.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone2.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		locZone2.setBounds(382, 361, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(locZone2);
 		
 		JButton locZone1 = new JButton("1");
+		buttonGroup.add(locZone1);
 		locZone1.setHorizontalTextPosition(SwingConstants.CENTER);
 		locZone1.setHorizontalAlignment(SwingConstants.LEFT);
 		locZone1.setFont(new Font("Tahoma", Font.PLAIN, 6));
@@ -148,6 +163,7 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(locZone1);
 		
 		JButton btnNewButton_1_1 = new JButton("M");
+		buttonGroup_1.add(btnNewButton_1_1);
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
