@@ -5,7 +5,7 @@ import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.util.Arrays;
 
-public abstract class Worker implements Runnable {
+public abstract class POS_Worker implements Runnable {
 	String signame = null;
 	Socket socket = null;
 	ObjectInputStream ois = null;

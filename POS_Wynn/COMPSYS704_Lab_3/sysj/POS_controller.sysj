@@ -1,0 +1,20 @@
+POS_Controller(
+		input signal orderDone;
+		input signal liquidMixOutput;
+		input signal bottleQuantityOutput;
+		
+		output signal orderDoneFlag; 
+				
+		)
+->{
+	/* TODO: Write control-logic */
+	while(true) {
+	
+		present(orderDone){
+			emit orderDoneFlag;
+			System.out.println("Order is completed");
+		}
+
+		pause;
+	}
+}
