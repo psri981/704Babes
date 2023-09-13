@@ -7,17 +7,11 @@
 			<iSignal Name="humidZone1_7"      Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			<iSignal Name="humidZone2_3"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			<iSignal Name="humidZone4_5_6"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
-			<iSignal Name="lightIntZ1"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
-			<iSignal Name="lightIntZ2"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
-			<iSignal Name="lightIntZ3"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
-			<iSignal Name="lightIntZ4"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
-			<iSignal Name="lightIntZ5"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
-			<iSignal Name="lightIntZ6"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
-			<iSignal Name="lightIntZ7"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 
 			<iSignal Name="dust"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			<iSignal Name="fire"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			<iSignal Name="time"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
+			<iSignal Name="lightInt"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			<iSignal Name="selectedZone"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
 			
 			<iSignal Name="powerOff"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10001" />
@@ -115,6 +109,14 @@
 			<oSignal Name="cutPowZ5_TriggerE"       To="UI.cutPowZ5_TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
 			<oSignal Name="cutPowZ6_TriggerE"       To="UI.cutPowZ6_TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
 			<oSignal Name="cutPowZ7_TriggerE"       To="UI.cutPowZ7_TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />	
+			
+			<oSignal Name="lightIntZ1Trigger"   To="UI.lightIntZ1TriggerE"    Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
+			<oSignal Name="lightIntZ2Trigger"   To="UI.lightIntZ2TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
+			<oSignal Name="lightIntZ3Trigger"   To="UI.lightIntZ3TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
+			<oSignal Name="lightIntZ4Trigger"   To="UI.lightIntZ4TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
+			<oSignal Name="lightIntZ5Trigger"   To="UI.lightIntZ5TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
+			<oSignal Name="lightIntZ6Trigger"   To="UI.lightIntZ6TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
+			<oSignal Name="lightIntZ7Trigger"   To="UI.lightIntZ7TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="20000" />
 			
 		</ClockDomain>
 	</SubSystem>

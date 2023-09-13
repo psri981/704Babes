@@ -3,9 +3,9 @@ import run.ECS_GUI;
 ECS_plant(
 		input Integer signal tempZone1_7, tempZone2_3, tempZone4_5_6;
 		input Integer signal humidZone1_7, humidZone2_3, humidZone4_5_6;
-		input Integer signal lightIntZ1, lightIntZ2, lightIntZ3, lightIntZ4, lightIntZ5, lightIntZ6, lightIntZ7;
+		input Integer signal lightInt;
 		input Integer signal selectedZone;
-
+		
 		input String signal time;
 		
 		input signal humanZ1, humanZ2, humanZ3, humanZ4, humanZ5, humanZ6, humanZ7;
@@ -25,6 +25,7 @@ ECS_plant(
 		output signal fanOnZone1_7TriggerE, heatOnZone1_7TriggerE, airOnZone2_3TriggerE, airOnZone4_5_6TriggerE, heatOnZone2_3TriggerE, heatOnZone4_5_6TriggerE;
 		output signal humOnZone1_7TriggerE, humOnZone2_3TriggerE, humOnZone4_5_6TriggerE, deHumOnZone1_7TriggerE, deHumOnZone2_3TriggerE, deHumOnZone4_5_6TriggerE;
 		output signal cutPowZ1_TriggerE, cutPowZ2_TriggerE, cutPowZ3_TriggerE, cutPowZ4_TriggerE, cutPowZ5_TriggerE, cutPowZ6_TriggerE, cutPowZ7_TriggerE;
+		output signal lightIntZ1Trigger, lightIntZ2Trigger, lightIntZ3Trigger, lightIntZ4Trigger, lightIntZ5Trigger, lightIntZ6Trigger, lightIntZ7Trigger;
 		)
 ->
 {
@@ -39,6 +40,10 @@ ECS_plant(
 			// Check what zone was selected when run was pressed
 			Integer zone = 0;
 			zone = #selectedZone;
+			
+			// Check light intensity
+			Integer lightIntensity = 0;
+			lightIntensity = #lightInt;
 			
 			// Check the time
 			String clock = "";
@@ -385,5 +390,19 @@ ECS_plant(
 		{while(true){present(deHumOnZone2_3){emit deHumOnZone2_3TriggerE;} pause;}}
 		||
 		{while(true){present(deHumOnZone4_5_6){emit deHumOnZone4_5_6TriggerE;} pause;}}
+		||
+		{while(true){present(cutPowZ1){emit cutPowZ1_TriggerE;} pause;}}
+		||
+		{while(true){present(cutPowZ2){emit cutPowZ2_TriggerE;} pause;}}
+		||
+		{while(true){present(cutPowZ3){emit cutPowZ3_TriggerE;} pause;}}
+		||
+		{while(true){present(cutPowZ4){emit cutPowZ4_TriggerE;} pause;}}
+		||
+		{while(true){present(cutPowZ5){emit cutPowZ5_TriggerE;} pause;}}
+		||
+		{while(true){present(cutPowZ6){emit cutPowZ6_TriggerE;} pause;}}
+		||
+		{while(true){present(cutPowZ7){emit cutPowZ7_TriggerE;} pause;}}
 	}
 }

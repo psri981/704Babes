@@ -18,13 +18,7 @@ public class ECS_plant extends ClockDomain{
   public Signal humidZone1_7 = new Signal("humidZone1_7", Signal.INPUT);
   public Signal humidZone2_3 = new Signal("humidZone2_3", Signal.INPUT);
   public Signal humidZone4_5_6 = new Signal("humidZone4_5_6", Signal.INPUT);
-  public Signal lightIntZ1 = new Signal("lightIntZ1", Signal.INPUT);
-  public Signal lightIntZ2 = new Signal("lightIntZ2", Signal.INPUT);
-  public Signal lightIntZ3 = new Signal("lightIntZ3", Signal.INPUT);
-  public Signal lightIntZ4 = new Signal("lightIntZ4", Signal.INPUT);
-  public Signal lightIntZ5 = new Signal("lightIntZ5", Signal.INPUT);
-  public Signal lightIntZ6 = new Signal("lightIntZ6", Signal.INPUT);
-  public Signal lightIntZ7 = new Signal("lightIntZ7", Signal.INPUT);
+  public Signal lightInt = new Signal("lightInt", Signal.INPUT);
   public Signal selectedZone = new Signal("selectedZone", Signal.INPUT);
   public Signal time = new Signal("time", Signal.INPUT);
   public Signal humanZ1 = new Signal("humanZ1", Signal.INPUT);
@@ -118,66 +112,263 @@ public class ECS_plant extends ClockDomain{
   public Signal cutPowZ5_TriggerE = new Signal("cutPowZ5_TriggerE", Signal.OUTPUT);
   public Signal cutPowZ6_TriggerE = new Signal("cutPowZ6_TriggerE", Signal.OUTPUT);
   public Signal cutPowZ7_TriggerE = new Signal("cutPowZ7_TriggerE", Signal.OUTPUT);
-  private Integer zone_thread_2;//sysj\ECS_plant.sysj line: 40, column: 4
-  private String clock_thread_2;//sysj\ECS_plant.sysj line: 44, column: 4
-  private Integer temp17_thread_2;//sysj\ECS_plant.sysj line: 183, column: 5
-  private Integer temp23_thread_2;//sysj\ECS_plant.sysj line: 206, column: 5
-  private Integer temp456_thread_2;//sysj\ECS_plant.sysj line: 229, column: 5
-  private Integer humid17_thread_2;//sysj\ECS_plant.sysj line: 254, column: 5
-  private Integer humid23_thread_2;//sysj\ECS_plant.sysj line: 280, column: 5
-  private Integer humid456_thread_2;//sysj\ECS_plant.sysj line: 306, column: 5
-  private int S19805 = 1;
-  private int S9733 = 1;
-  private int S85 = 1;
-  private int S135 = 1;
-  private int S90 = 1;
-  private int S103 = 1;
-  private int S140 = 1;
-  private int S176 = 1;
-  private int S212 = 1;
-  private int S248 = 1;
-  private int S284 = 1;
-  private int S564 = 1;
-  private int S669 = 1;
-  private int S668 = 1;
-  private int S729 = 1;
-  private int S829 = 1;
-  private int S1009 = 1;
-  private int S1349 = 1;
-  private int S2009 = 1;
-  private int S9943 = 1;
-  private int S9741 = 1;
-  private int S9749 = 1;
-  private int S9757 = 1;
-  private int S9765 = 1;
-  private int S9773 = 1;
-  private int S9781 = 1;
-  private int S9789 = 1;
-  private int S9797 = 1;
-  private int S9805 = 1;
-  private int S9813 = 1;
-  private int S9821 = 1;
-  private int S9829 = 1;
-  private int S9837 = 1;
-  private int S9845 = 1;
-  private int S9853 = 1;
-  private int S9861 = 1;
-  private int S9869 = 1;
-  private int S9877 = 1;
-  private int S9885 = 1;
-  private int S9893 = 1;
-  private int S9901 = 1;
-  private int S9909 = 1;
-  private int S9917 = 1;
-  private int S9925 = 1;
-  private int S9933 = 1;
-  private int S9941 = 1;
+  public Signal lightIntZ1Trigger = new Signal("lightIntZ1Trigger", Signal.OUTPUT);
+  public Signal lightIntZ2Trigger = new Signal("lightIntZ2Trigger", Signal.OUTPUT);
+  public Signal lightIntZ3Trigger = new Signal("lightIntZ3Trigger", Signal.OUTPUT);
+  public Signal lightIntZ4Trigger = new Signal("lightIntZ4Trigger", Signal.OUTPUT);
+  public Signal lightIntZ5Trigger = new Signal("lightIntZ5Trigger", Signal.OUTPUT);
+  public Signal lightIntZ6Trigger = new Signal("lightIntZ6Trigger", Signal.OUTPUT);
+  public Signal lightIntZ7Trigger = new Signal("lightIntZ7Trigger", Signal.OUTPUT);
+  private Integer zone_thread_2;//sysj\ECS_plant.sysj line: 41, column: 4
+  private Integer lightIntensity_thread_2;//sysj\ECS_plant.sysj line: 45, column: 4
+  private String clock_thread_2;//sysj\ECS_plant.sysj line: 49, column: 4
+  private Integer temp17_thread_2;//sysj\ECS_plant.sysj line: 188, column: 5
+  private Integer temp23_thread_2;//sysj\ECS_plant.sysj line: 211, column: 5
+  private Integer temp456_thread_2;//sysj\ECS_plant.sysj line: 234, column: 5
+  private Integer humid17_thread_2;//sysj\ECS_plant.sysj line: 259, column: 5
+  private Integer humid23_thread_2;//sysj\ECS_plant.sysj line: 285, column: 5
+  private Integer humid456_thread_2;//sysj\ECS_plant.sysj line: 311, column: 5
+  private int S21465 = 1;
+  private int S11281 = 1;
+  private int S1633 = 1;
+  private int S1683 = 1;
+  private int S1638 = 1;
+  private int S1651 = 1;
+  private int S1688 = 1;
+  private int S1724 = 1;
+  private int S1760 = 1;
+  private int S1796 = 1;
+  private int S1832 = 1;
+  private int S2112 = 1;
+  private int S2217 = 1;
+  private int S2216 = 1;
+  private int S2277 = 1;
+  private int S2377 = 1;
+  private int S2557 = 1;
+  private int S2897 = 1;
+  private int S3557 = 1;
+  private int S11547 = 1;
+  private int S11289 = 1;
+  private int S11297 = 1;
+  private int S11305 = 1;
+  private int S11313 = 1;
+  private int S11321 = 1;
+  private int S11329 = 1;
+  private int S11337 = 1;
+  private int S11345 = 1;
+  private int S11353 = 1;
+  private int S11361 = 1;
+  private int S11369 = 1;
+  private int S11377 = 1;
+  private int S11385 = 1;
+  private int S11393 = 1;
+  private int S11401 = 1;
+  private int S11409 = 1;
+  private int S11417 = 1;
+  private int S11425 = 1;
+  private int S11433 = 1;
+  private int S11441 = 1;
+  private int S11449 = 1;
+  private int S11457 = 1;
+  private int S11465 = 1;
+  private int S11473 = 1;
+  private int S11481 = 1;
+  private int S11489 = 1;
+  private int S11497 = 1;
+  private int S11505 = 1;
+  private int S11513 = 1;
+  private int S11521 = 1;
+  private int S11529 = 1;
+  private int S11537 = 1;
+  private int S11545 = 1;
   
-  private int[] ends = new int[30];
-  private int[] tdone = new int[30];
+  private int[] ends = new int[37];
+  private int[] tdone = new int[37];
   
-  public void thread19864(int [] tdone, int [] ends){
-        switch(S9941){
+  public void thread21538(int [] tdone, int [] ends){
+        switch(S11545){
+      case 0 : 
+        active[36]=0;
+        ends[36]=0;
+        tdone[36]=1;
+        break;
+      
+      case 1 : 
+        if(cutPowZ7.getprestatus()){//sysj\ECS_plant.sysj line: 406, column: 24
+          cutPowZ7_TriggerE.setPresent();//sysj\ECS_plant.sysj line: 406, column: 34
+          currsigs.addElement(cutPowZ7_TriggerE);
+          active[36]=1;
+          ends[36]=1;
+          tdone[36]=1;
+        }
+        else {
+          active[36]=1;
+          ends[36]=1;
+          tdone[36]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread21537(int [] tdone, int [] ends){
+        switch(S11537){
+      case 0 : 
+        active[35]=0;
+        ends[35]=0;
+        tdone[35]=1;
+        break;
+      
+      case 1 : 
+        if(cutPowZ6.getprestatus()){//sysj\ECS_plant.sysj line: 404, column: 24
+          cutPowZ6_TriggerE.setPresent();//sysj\ECS_plant.sysj line: 404, column: 34
+          currsigs.addElement(cutPowZ6_TriggerE);
+          active[35]=1;
+          ends[35]=1;
+          tdone[35]=1;
+        }
+        else {
+          active[35]=1;
+          ends[35]=1;
+          tdone[35]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread21536(int [] tdone, int [] ends){
+        switch(S11529){
+      case 0 : 
+        active[34]=0;
+        ends[34]=0;
+        tdone[34]=1;
+        break;
+      
+      case 1 : 
+        if(cutPowZ5.getprestatus()){//sysj\ECS_plant.sysj line: 402, column: 24
+          cutPowZ5_TriggerE.setPresent();//sysj\ECS_plant.sysj line: 402, column: 34
+          currsigs.addElement(cutPowZ5_TriggerE);
+          active[34]=1;
+          ends[34]=1;
+          tdone[34]=1;
+        }
+        else {
+          active[34]=1;
+          ends[34]=1;
+          tdone[34]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread21535(int [] tdone, int [] ends){
+        switch(S11521){
+      case 0 : 
+        active[33]=0;
+        ends[33]=0;
+        tdone[33]=1;
+        break;
+      
+      case 1 : 
+        if(cutPowZ4.getprestatus()){//sysj\ECS_plant.sysj line: 400, column: 24
+          cutPowZ4_TriggerE.setPresent();//sysj\ECS_plant.sysj line: 400, column: 34
+          currsigs.addElement(cutPowZ4_TriggerE);
+          active[33]=1;
+          ends[33]=1;
+          tdone[33]=1;
+        }
+        else {
+          active[33]=1;
+          ends[33]=1;
+          tdone[33]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread21534(int [] tdone, int [] ends){
+        switch(S11513){
+      case 0 : 
+        active[32]=0;
+        ends[32]=0;
+        tdone[32]=1;
+        break;
+      
+      case 1 : 
+        if(cutPowZ3.getprestatus()){//sysj\ECS_plant.sysj line: 398, column: 24
+          cutPowZ3_TriggerE.setPresent();//sysj\ECS_plant.sysj line: 398, column: 34
+          currsigs.addElement(cutPowZ3_TriggerE);
+          active[32]=1;
+          ends[32]=1;
+          tdone[32]=1;
+        }
+        else {
+          active[32]=1;
+          ends[32]=1;
+          tdone[32]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread21533(int [] tdone, int [] ends){
+        switch(S11505){
+      case 0 : 
+        active[31]=0;
+        ends[31]=0;
+        tdone[31]=1;
+        break;
+      
+      case 1 : 
+        if(cutPowZ2.getprestatus()){//sysj\ECS_plant.sysj line: 396, column: 24
+          cutPowZ2_TriggerE.setPresent();//sysj\ECS_plant.sysj line: 396, column: 34
+          currsigs.addElement(cutPowZ2_TriggerE);
+          active[31]=1;
+          ends[31]=1;
+          tdone[31]=1;
+        }
+        else {
+          active[31]=1;
+          ends[31]=1;
+          tdone[31]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread21532(int [] tdone, int [] ends){
+        switch(S11497){
+      case 0 : 
+        active[30]=0;
+        ends[30]=0;
+        tdone[30]=1;
+        break;
+      
+      case 1 : 
+        if(cutPowZ1.getprestatus()){//sysj\ECS_plant.sysj line: 394, column: 24
+          cutPowZ1_TriggerE.setPresent();//sysj\ECS_plant.sysj line: 394, column: 34
+          currsigs.addElement(cutPowZ1_TriggerE);
+          active[30]=1;
+          ends[30]=1;
+          tdone[30]=1;
+        }
+        else {
+          active[30]=1;
+          ends[30]=1;
+          tdone[30]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread21531(int [] tdone, int [] ends){
+        switch(S11489){
       case 0 : 
         active[29]=0;
         ends[29]=0;
@@ -185,8 +376,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(deHumOnZone4_5_6.getprestatus()){//sysj\ECS_plant.sysj line: 387, column: 24
-          deHumOnZone4_5_6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 387, column: 42
+        if(deHumOnZone4_5_6.getprestatus()){//sysj\ECS_plant.sysj line: 392, column: 24
+          deHumOnZone4_5_6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 392, column: 42
           currsigs.addElement(deHumOnZone4_5_6TriggerE);
           active[29]=1;
           ends[29]=1;
@@ -202,8 +393,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19863(int [] tdone, int [] ends){
-        switch(S9933){
+  public void thread21530(int [] tdone, int [] ends){
+        switch(S11481){
       case 0 : 
         active[28]=0;
         ends[28]=0;
@@ -211,8 +402,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(deHumOnZone2_3.getprestatus()){//sysj\ECS_plant.sysj line: 385, column: 24
-          deHumOnZone2_3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 385, column: 40
+        if(deHumOnZone2_3.getprestatus()){//sysj\ECS_plant.sysj line: 390, column: 24
+          deHumOnZone2_3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 390, column: 40
           currsigs.addElement(deHumOnZone2_3TriggerE);
           active[28]=1;
           ends[28]=1;
@@ -228,8 +419,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19862(int [] tdone, int [] ends){
-        switch(S9925){
+  public void thread21529(int [] tdone, int [] ends){
+        switch(S11473){
       case 0 : 
         active[27]=0;
         ends[27]=0;
@@ -237,8 +428,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(deHumOnZone1_7.getprestatus()){//sysj\ECS_plant.sysj line: 383, column: 24
-          deHumOnZone1_7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 383, column: 40
+        if(deHumOnZone1_7.getprestatus()){//sysj\ECS_plant.sysj line: 388, column: 24
+          deHumOnZone1_7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 388, column: 40
           currsigs.addElement(deHumOnZone1_7TriggerE);
           active[27]=1;
           ends[27]=1;
@@ -254,8 +445,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19861(int [] tdone, int [] ends){
-        switch(S9917){
+  public void thread21528(int [] tdone, int [] ends){
+        switch(S11465){
       case 0 : 
         active[26]=0;
         ends[26]=0;
@@ -263,8 +454,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(humOnZone4_5_6.getprestatus()){//sysj\ECS_plant.sysj line: 381, column: 24
-          humOnZone4_5_6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 381, column: 40
+        if(humOnZone4_5_6.getprestatus()){//sysj\ECS_plant.sysj line: 386, column: 24
+          humOnZone4_5_6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 386, column: 40
           currsigs.addElement(humOnZone4_5_6TriggerE);
           active[26]=1;
           ends[26]=1;
@@ -280,8 +471,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19860(int [] tdone, int [] ends){
-        switch(S9909){
+  public void thread21527(int [] tdone, int [] ends){
+        switch(S11457){
       case 0 : 
         active[25]=0;
         ends[25]=0;
@@ -289,8 +480,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(humOnZone2_3.getprestatus()){//sysj\ECS_plant.sysj line: 379, column: 24
-          humOnZone2_3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 379, column: 38
+        if(humOnZone2_3.getprestatus()){//sysj\ECS_plant.sysj line: 384, column: 24
+          humOnZone2_3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 384, column: 38
           currsigs.addElement(humOnZone2_3TriggerE);
           active[25]=1;
           ends[25]=1;
@@ -306,8 +497,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19859(int [] tdone, int [] ends){
-        switch(S9901){
+  public void thread21526(int [] tdone, int [] ends){
+        switch(S11449){
       case 0 : 
         active[24]=0;
         ends[24]=0;
@@ -315,8 +506,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(humOnZone1_7.getprestatus()){//sysj\ECS_plant.sysj line: 377, column: 24
-          humOnZone1_7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 377, column: 38
+        if(humOnZone1_7.getprestatus()){//sysj\ECS_plant.sysj line: 382, column: 24
+          humOnZone1_7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 382, column: 38
           currsigs.addElement(humOnZone1_7TriggerE);
           active[24]=1;
           ends[24]=1;
@@ -332,8 +523,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19858(int [] tdone, int [] ends){
-        switch(S9893){
+  public void thread21525(int [] tdone, int [] ends){
+        switch(S11441){
       case 0 : 
         active[23]=0;
         ends[23]=0;
@@ -341,8 +532,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(heatOnZone4_5_6.getprestatus()){//sysj\ECS_plant.sysj line: 375, column: 24
-          heatOnZone4_5_6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 375, column: 41
+        if(heatOnZone4_5_6.getprestatus()){//sysj\ECS_plant.sysj line: 380, column: 24
+          heatOnZone4_5_6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 380, column: 41
           currsigs.addElement(heatOnZone4_5_6TriggerE);
           active[23]=1;
           ends[23]=1;
@@ -358,8 +549,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19857(int [] tdone, int [] ends){
-        switch(S9885){
+  public void thread21524(int [] tdone, int [] ends){
+        switch(S11433){
       case 0 : 
         active[22]=0;
         ends[22]=0;
@@ -367,8 +558,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(heatOnZone2_3.getprestatus()){//sysj\ECS_plant.sysj line: 373, column: 24
-          heatOnZone2_3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 373, column: 39
+        if(heatOnZone2_3.getprestatus()){//sysj\ECS_plant.sysj line: 378, column: 24
+          heatOnZone2_3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 378, column: 39
           currsigs.addElement(heatOnZone2_3TriggerE);
           active[22]=1;
           ends[22]=1;
@@ -384,8 +575,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19856(int [] tdone, int [] ends){
-        switch(S9877){
+  public void thread21523(int [] tdone, int [] ends){
+        switch(S11425){
       case 0 : 
         active[21]=0;
         ends[21]=0;
@@ -393,8 +584,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(airOnZone4_5_6.getprestatus()){//sysj\ECS_plant.sysj line: 371, column: 24
-          airOnZone4_5_6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 371, column: 40
+        if(airOnZone4_5_6.getprestatus()){//sysj\ECS_plant.sysj line: 376, column: 24
+          airOnZone4_5_6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 376, column: 40
           currsigs.addElement(airOnZone4_5_6TriggerE);
           active[21]=1;
           ends[21]=1;
@@ -410,8 +601,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19855(int [] tdone, int [] ends){
-        switch(S9869){
+  public void thread21522(int [] tdone, int [] ends){
+        switch(S11417){
       case 0 : 
         active[20]=0;
         ends[20]=0;
@@ -419,8 +610,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(airOnZone2_3.getprestatus()){//sysj\ECS_plant.sysj line: 369, column: 24
-          airOnZone2_3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 369, column: 38
+        if(airOnZone2_3.getprestatus()){//sysj\ECS_plant.sysj line: 374, column: 24
+          airOnZone2_3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 374, column: 38
           currsigs.addElement(airOnZone2_3TriggerE);
           active[20]=1;
           ends[20]=1;
@@ -436,8 +627,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19854(int [] tdone, int [] ends){
-        switch(S9861){
+  public void thread21521(int [] tdone, int [] ends){
+        switch(S11409){
       case 0 : 
         active[19]=0;
         ends[19]=0;
@@ -445,8 +636,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(heatOnZone1_7.getprestatus()){//sysj\ECS_plant.sysj line: 367, column: 24
-          heatOnZone1_7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 367, column: 39
+        if(heatOnZone1_7.getprestatus()){//sysj\ECS_plant.sysj line: 372, column: 24
+          heatOnZone1_7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 372, column: 39
           currsigs.addElement(heatOnZone1_7TriggerE);
           active[19]=1;
           ends[19]=1;
@@ -462,8 +653,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19853(int [] tdone, int [] ends){
-        switch(S9853){
+  public void thread21520(int [] tdone, int [] ends){
+        switch(S11401){
       case 0 : 
         active[18]=0;
         ends[18]=0;
@@ -471,8 +662,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(fanOnZone1_7.getprestatus()){//sysj\ECS_plant.sysj line: 365, column: 24
-          fanOnZone1_7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 365, column: 38
+        if(fanOnZone1_7.getprestatus()){//sysj\ECS_plant.sysj line: 370, column: 24
+          fanOnZone1_7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 370, column: 38
           currsigs.addElement(fanOnZone1_7TriggerE);
           active[18]=1;
           ends[18]=1;
@@ -488,8 +679,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19852(int [] tdone, int [] ends){
-        switch(S9845){
+  public void thread21519(int [] tdone, int [] ends){
+        switch(S11393){
       case 0 : 
         active[17]=0;
         ends[17]=0;
@@ -497,8 +688,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(cleanZone7.getprestatus()){//sysj\ECS_plant.sysj line: 363, column: 24
-          cleanZone7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 363, column: 36
+        if(cleanZone7.getprestatus()){//sysj\ECS_plant.sysj line: 368, column: 24
+          cleanZone7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 368, column: 36
           currsigs.addElement(cleanZone7TriggerE);
           active[17]=1;
           ends[17]=1;
@@ -514,8 +705,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19851(int [] tdone, int [] ends){
-        switch(S9837){
+  public void thread21518(int [] tdone, int [] ends){
+        switch(S11385){
       case 0 : 
         active[16]=0;
         ends[16]=0;
@@ -523,8 +714,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(cleanZone6.getprestatus()){//sysj\ECS_plant.sysj line: 361, column: 24
-          cleanZone6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 361, column: 36
+        if(cleanZone6.getprestatus()){//sysj\ECS_plant.sysj line: 366, column: 24
+          cleanZone6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 366, column: 36
           currsigs.addElement(cleanZone6TriggerE);
           active[16]=1;
           ends[16]=1;
@@ -540,8 +731,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19850(int [] tdone, int [] ends){
-        switch(S9829){
+  public void thread21517(int [] tdone, int [] ends){
+        switch(S11377){
       case 0 : 
         active[15]=0;
         ends[15]=0;
@@ -549,8 +740,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(cleanZone5.getprestatus()){//sysj\ECS_plant.sysj line: 359, column: 24
-          cleanZone5TriggerE.setPresent();//sysj\ECS_plant.sysj line: 359, column: 36
+        if(cleanZone5.getprestatus()){//sysj\ECS_plant.sysj line: 364, column: 24
+          cleanZone5TriggerE.setPresent();//sysj\ECS_plant.sysj line: 364, column: 36
           currsigs.addElement(cleanZone5TriggerE);
           active[15]=1;
           ends[15]=1;
@@ -566,8 +757,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19849(int [] tdone, int [] ends){
-        switch(S9821){
+  public void thread21516(int [] tdone, int [] ends){
+        switch(S11369){
       case 0 : 
         active[14]=0;
         ends[14]=0;
@@ -575,8 +766,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(cleanZone4.getprestatus()){//sysj\ECS_plant.sysj line: 357, column: 24
-          cleanZone4TriggerE.setPresent();//sysj\ECS_plant.sysj line: 357, column: 36
+        if(cleanZone4.getprestatus()){//sysj\ECS_plant.sysj line: 362, column: 24
+          cleanZone4TriggerE.setPresent();//sysj\ECS_plant.sysj line: 362, column: 36
           currsigs.addElement(cleanZone4TriggerE);
           active[14]=1;
           ends[14]=1;
@@ -592,8 +783,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19848(int [] tdone, int [] ends){
-        switch(S9813){
+  public void thread21515(int [] tdone, int [] ends){
+        switch(S11361){
       case 0 : 
         active[13]=0;
         ends[13]=0;
@@ -601,8 +792,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(cleanZone3.getprestatus()){//sysj\ECS_plant.sysj line: 355, column: 24
-          cleanZone3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 355, column: 36
+        if(cleanZone3.getprestatus()){//sysj\ECS_plant.sysj line: 360, column: 24
+          cleanZone3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 360, column: 36
           currsigs.addElement(cleanZone3TriggerE);
           active[13]=1;
           ends[13]=1;
@@ -618,8 +809,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19847(int [] tdone, int [] ends){
-        switch(S9805){
+  public void thread21514(int [] tdone, int [] ends){
+        switch(S11353){
       case 0 : 
         active[12]=0;
         ends[12]=0;
@@ -627,8 +818,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(cleanZone2.getprestatus()){//sysj\ECS_plant.sysj line: 353, column: 24
-          cleanZone2TriggerE.setPresent();//sysj\ECS_plant.sysj line: 353, column: 36
+        if(cleanZone2.getprestatus()){//sysj\ECS_plant.sysj line: 358, column: 24
+          cleanZone2TriggerE.setPresent();//sysj\ECS_plant.sysj line: 358, column: 36
           currsigs.addElement(cleanZone2TriggerE);
           active[12]=1;
           ends[12]=1;
@@ -644,8 +835,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19846(int [] tdone, int [] ends){
-        switch(S9797){
+  public void thread21513(int [] tdone, int [] ends){
+        switch(S11345){
       case 0 : 
         active[11]=0;
         ends[11]=0;
@@ -653,8 +844,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(cleanZone1.getprestatus()){//sysj\ECS_plant.sysj line: 351, column: 24
-          cleanZone1TriggerE.setPresent();//sysj\ECS_plant.sysj line: 351, column: 36
+        if(cleanZone1.getprestatus()){//sysj\ECS_plant.sysj line: 356, column: 24
+          cleanZone1TriggerE.setPresent();//sysj\ECS_plant.sysj line: 356, column: 36
           currsigs.addElement(cleanZone1TriggerE);
           active[11]=1;
           ends[11]=1;
@@ -670,8 +861,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19845(int [] tdone, int [] ends){
-        switch(S9789){
+  public void thread21512(int [] tdone, int [] ends){
+        switch(S11337){
       case 0 : 
         active[10]=0;
         ends[10]=0;
@@ -679,8 +870,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(fireZone7.getprestatus()){//sysj\ECS_plant.sysj line: 349, column: 24
-          alarmZone7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 349, column: 35
+        if(fireZone7.getprestatus()){//sysj\ECS_plant.sysj line: 354, column: 24
+          alarmZone7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 354, column: 35
           currsigs.addElement(alarmZone7TriggerE);
           active[10]=1;
           ends[10]=1;
@@ -696,8 +887,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19844(int [] tdone, int [] ends){
-        switch(S9781){
+  public void thread21511(int [] tdone, int [] ends){
+        switch(S11329){
       case 0 : 
         active[9]=0;
         ends[9]=0;
@@ -705,8 +896,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(fireZone6.getprestatus()){//sysj\ECS_plant.sysj line: 347, column: 24
-          alarmZone6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 347, column: 35
+        if(fireZone6.getprestatus()){//sysj\ECS_plant.sysj line: 352, column: 24
+          alarmZone6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 352, column: 35
           currsigs.addElement(alarmZone6TriggerE);
           active[9]=1;
           ends[9]=1;
@@ -722,8 +913,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19843(int [] tdone, int [] ends){
-        switch(S9773){
+  public void thread21510(int [] tdone, int [] ends){
+        switch(S11321){
       case 0 : 
         active[8]=0;
         ends[8]=0;
@@ -731,8 +922,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(fireZone5.getprestatus()){//sysj\ECS_plant.sysj line: 345, column: 24
-          alarmZone5TriggerE.setPresent();//sysj\ECS_plant.sysj line: 345, column: 35
+        if(fireZone5.getprestatus()){//sysj\ECS_plant.sysj line: 350, column: 24
+          alarmZone5TriggerE.setPresent();//sysj\ECS_plant.sysj line: 350, column: 35
           currsigs.addElement(alarmZone5TriggerE);
           active[8]=1;
           ends[8]=1;
@@ -748,8 +939,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19842(int [] tdone, int [] ends){
-        switch(S9765){
+  public void thread21509(int [] tdone, int [] ends){
+        switch(S11313){
       case 0 : 
         active[7]=0;
         ends[7]=0;
@@ -757,8 +948,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(fireZone4.getprestatus()){//sysj\ECS_plant.sysj line: 343, column: 24
-          alarmZone4TriggerE.setPresent();//sysj\ECS_plant.sysj line: 343, column: 35
+        if(fireZone4.getprestatus()){//sysj\ECS_plant.sysj line: 348, column: 24
+          alarmZone4TriggerE.setPresent();//sysj\ECS_plant.sysj line: 348, column: 35
           currsigs.addElement(alarmZone4TriggerE);
           active[7]=1;
           ends[7]=1;
@@ -774,8 +965,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19841(int [] tdone, int [] ends){
-        switch(S9757){
+  public void thread21508(int [] tdone, int [] ends){
+        switch(S11305){
       case 0 : 
         active[6]=0;
         ends[6]=0;
@@ -783,8 +974,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(fireZone3.getprestatus()){//sysj\ECS_plant.sysj line: 341, column: 24
-          alarmZone3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 341, column: 35
+        if(fireZone3.getprestatus()){//sysj\ECS_plant.sysj line: 346, column: 24
+          alarmZone3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 346, column: 35
           currsigs.addElement(alarmZone3TriggerE);
           active[6]=1;
           ends[6]=1;
@@ -800,8 +991,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19840(int [] tdone, int [] ends){
-        switch(S9749){
+  public void thread21507(int [] tdone, int [] ends){
+        switch(S11297){
       case 0 : 
         active[5]=0;
         ends[5]=0;
@@ -809,8 +1000,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(fireZone2.getprestatus()){//sysj\ECS_plant.sysj line: 339, column: 24
-          alarmZone2TriggerE.setPresent();//sysj\ECS_plant.sysj line: 339, column: 35
+        if(fireZone2.getprestatus()){//sysj\ECS_plant.sysj line: 344, column: 24
+          alarmZone2TriggerE.setPresent();//sysj\ECS_plant.sysj line: 344, column: 35
           currsigs.addElement(alarmZone2TriggerE);
           active[5]=1;
           ends[5]=1;
@@ -826,8 +1017,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19839(int [] tdone, int [] ends){
-        switch(S9741){
+  public void thread21506(int [] tdone, int [] ends){
+        switch(S11289){
       case 0 : 
         active[4]=0;
         ends[4]=0;
@@ -835,8 +1026,8 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(fireZone1.getprestatus()){//sysj\ECS_plant.sysj line: 337, column: 24
-          alarmZone1TriggerE.setPresent();//sysj\ECS_plant.sysj line: 337, column: 35
+        if(fireZone1.getprestatus()){//sysj\ECS_plant.sysj line: 342, column: 24
+          alarmZone1TriggerE.setPresent();//sysj\ECS_plant.sysj line: 342, column: 35
           currsigs.addElement(alarmZone1TriggerE);
           active[4]=1;
           ends[4]=1;
@@ -852,8 +1043,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19838(int [] tdone, int [] ends){
-        switch(S9943){
+  public void thread21505(int [] tdone, int [] ends){
+        switch(S11547){
       case 0 : 
         active[3]=0;
         ends[3]=0;
@@ -861,119 +1052,147 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        thread19839(tdone,ends);
-        thread19840(tdone,ends);
-        thread19841(tdone,ends);
-        thread19842(tdone,ends);
-        thread19843(tdone,ends);
-        thread19844(tdone,ends);
-        thread19845(tdone,ends);
-        thread19846(tdone,ends);
-        thread19847(tdone,ends);
-        thread19848(tdone,ends);
-        thread19849(tdone,ends);
-        thread19850(tdone,ends);
-        thread19851(tdone,ends);
-        thread19852(tdone,ends);
-        thread19853(tdone,ends);
-        thread19854(tdone,ends);
-        thread19855(tdone,ends);
-        thread19856(tdone,ends);
-        thread19857(tdone,ends);
-        thread19858(tdone,ends);
-        thread19859(tdone,ends);
-        thread19860(tdone,ends);
-        thread19861(tdone,ends);
-        thread19862(tdone,ends);
-        thread19863(tdone,ends);
-        thread19864(tdone,ends);
-        int biggest19865 = 0;
-        if(ends[4]>=biggest19865){
-          biggest19865=ends[4];
+        thread21506(tdone,ends);
+        thread21507(tdone,ends);
+        thread21508(tdone,ends);
+        thread21509(tdone,ends);
+        thread21510(tdone,ends);
+        thread21511(tdone,ends);
+        thread21512(tdone,ends);
+        thread21513(tdone,ends);
+        thread21514(tdone,ends);
+        thread21515(tdone,ends);
+        thread21516(tdone,ends);
+        thread21517(tdone,ends);
+        thread21518(tdone,ends);
+        thread21519(tdone,ends);
+        thread21520(tdone,ends);
+        thread21521(tdone,ends);
+        thread21522(tdone,ends);
+        thread21523(tdone,ends);
+        thread21524(tdone,ends);
+        thread21525(tdone,ends);
+        thread21526(tdone,ends);
+        thread21527(tdone,ends);
+        thread21528(tdone,ends);
+        thread21529(tdone,ends);
+        thread21530(tdone,ends);
+        thread21531(tdone,ends);
+        thread21532(tdone,ends);
+        thread21533(tdone,ends);
+        thread21534(tdone,ends);
+        thread21535(tdone,ends);
+        thread21536(tdone,ends);
+        thread21537(tdone,ends);
+        thread21538(tdone,ends);
+        int biggest21539 = 0;
+        if(ends[4]>=biggest21539){
+          biggest21539=ends[4];
         }
-        if(ends[5]>=biggest19865){
-          biggest19865=ends[5];
+        if(ends[5]>=biggest21539){
+          biggest21539=ends[5];
         }
-        if(ends[6]>=biggest19865){
-          biggest19865=ends[6];
+        if(ends[6]>=biggest21539){
+          biggest21539=ends[6];
         }
-        if(ends[7]>=biggest19865){
-          biggest19865=ends[7];
+        if(ends[7]>=biggest21539){
+          biggest21539=ends[7];
         }
-        if(ends[8]>=biggest19865){
-          biggest19865=ends[8];
+        if(ends[8]>=biggest21539){
+          biggest21539=ends[8];
         }
-        if(ends[9]>=biggest19865){
-          biggest19865=ends[9];
+        if(ends[9]>=biggest21539){
+          biggest21539=ends[9];
         }
-        if(ends[10]>=biggest19865){
-          biggest19865=ends[10];
+        if(ends[10]>=biggest21539){
+          biggest21539=ends[10];
         }
-        if(ends[11]>=biggest19865){
-          biggest19865=ends[11];
+        if(ends[11]>=biggest21539){
+          biggest21539=ends[11];
         }
-        if(ends[12]>=biggest19865){
-          biggest19865=ends[12];
+        if(ends[12]>=biggest21539){
+          biggest21539=ends[12];
         }
-        if(ends[13]>=biggest19865){
-          biggest19865=ends[13];
+        if(ends[13]>=biggest21539){
+          biggest21539=ends[13];
         }
-        if(ends[14]>=biggest19865){
-          biggest19865=ends[14];
+        if(ends[14]>=biggest21539){
+          biggest21539=ends[14];
         }
-        if(ends[15]>=biggest19865){
-          biggest19865=ends[15];
+        if(ends[15]>=biggest21539){
+          biggest21539=ends[15];
         }
-        if(ends[16]>=biggest19865){
-          biggest19865=ends[16];
+        if(ends[16]>=biggest21539){
+          biggest21539=ends[16];
         }
-        if(ends[17]>=biggest19865){
-          biggest19865=ends[17];
+        if(ends[17]>=biggest21539){
+          biggest21539=ends[17];
         }
-        if(ends[18]>=biggest19865){
-          biggest19865=ends[18];
+        if(ends[18]>=biggest21539){
+          biggest21539=ends[18];
         }
-        if(ends[19]>=biggest19865){
-          biggest19865=ends[19];
+        if(ends[19]>=biggest21539){
+          biggest21539=ends[19];
         }
-        if(ends[20]>=biggest19865){
-          biggest19865=ends[20];
+        if(ends[20]>=biggest21539){
+          biggest21539=ends[20];
         }
-        if(ends[21]>=biggest19865){
-          biggest19865=ends[21];
+        if(ends[21]>=biggest21539){
+          biggest21539=ends[21];
         }
-        if(ends[22]>=biggest19865){
-          biggest19865=ends[22];
+        if(ends[22]>=biggest21539){
+          biggest21539=ends[22];
         }
-        if(ends[23]>=biggest19865){
-          biggest19865=ends[23];
+        if(ends[23]>=biggest21539){
+          biggest21539=ends[23];
         }
-        if(ends[24]>=biggest19865){
-          biggest19865=ends[24];
+        if(ends[24]>=biggest21539){
+          biggest21539=ends[24];
         }
-        if(ends[25]>=biggest19865){
-          biggest19865=ends[25];
+        if(ends[25]>=biggest21539){
+          biggest21539=ends[25];
         }
-        if(ends[26]>=biggest19865){
-          biggest19865=ends[26];
+        if(ends[26]>=biggest21539){
+          biggest21539=ends[26];
         }
-        if(ends[27]>=biggest19865){
-          biggest19865=ends[27];
+        if(ends[27]>=biggest21539){
+          biggest21539=ends[27];
         }
-        if(ends[28]>=biggest19865){
-          biggest19865=ends[28];
+        if(ends[28]>=biggest21539){
+          biggest21539=ends[28];
         }
-        if(ends[29]>=biggest19865){
-          biggest19865=ends[29];
+        if(ends[29]>=biggest21539){
+          biggest21539=ends[29];
         }
-        if(biggest19865 == 1){
+        if(ends[30]>=biggest21539){
+          biggest21539=ends[30];
+        }
+        if(ends[31]>=biggest21539){
+          biggest21539=ends[31];
+        }
+        if(ends[32]>=biggest21539){
+          biggest21539=ends[32];
+        }
+        if(ends[33]>=biggest21539){
+          biggest21539=ends[33];
+        }
+        if(ends[34]>=biggest21539){
+          biggest21539=ends[34];
+        }
+        if(ends[35]>=biggest21539){
+          biggest21539=ends[35];
+        }
+        if(ends[36]>=biggest21539){
+          biggest21539=ends[36];
+        }
+        if(biggest21539 == 1){
           active[3]=1;
           ends[3]=1;
           tdone[3]=1;
         }
         //FINXME code
-        if(biggest19865 == 0){
-          S9943=0;
+        if(biggest21539 == 0){
+          S11547=0;
           active[3]=0;
           ends[3]=0;
           tdone[3]=1;
@@ -983,8 +1202,8 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19837(int [] tdone, int [] ends){
-        switch(S9733){
+  public void thread21504(int [] tdone, int [] ends){
+        switch(S11281){
       case 0 : 
         active[2]=0;
         ends[2]=0;
@@ -992,85 +1211,87 @@ public class ECS_plant extends ClockDomain{
         break;
       
       case 1 : 
-        switch(S85){
+        switch(S1633){
           case 0 : 
-            if(run.getprestatus()){//sysj\ECS_plant.sysj line: 37, column: 10
-              zone_thread_2 = 0;//sysj\ECS_plant.sysj line: 40, column: 4
-              zone_thread_2 = (selectedZone.getpreval() == null ? null : ((Integer)selectedZone.getpreval()));//sysj\ECS_plant.sysj line: 41, column: 4
-              clock_thread_2 = "";//sysj\ECS_plant.sysj line: 44, column: 4
-              clock_thread_2 = (time.getpreval() == null ? null : ((String)time.getpreval()));//sysj\ECS_plant.sysj line: 45, column: 4
-              S85=1;
-              S135=0;
-              if(zone_thread_2 == 1){//sysj\ECS_plant.sysj line: 50, column: 8
-                S90=0;
-                cutPowZ1.setPresent();//sysj\ECS_plant.sysj line: 52, column: 7
+            if(run.getprestatus()){//sysj\ECS_plant.sysj line: 38, column: 10
+              zone_thread_2 = 0;//sysj\ECS_plant.sysj line: 41, column: 4
+              zone_thread_2 = (selectedZone.getpreval() == null ? null : ((Integer)selectedZone.getpreval()));//sysj\ECS_plant.sysj line: 42, column: 4
+              lightIntensity_thread_2 = 0;//sysj\ECS_plant.sysj line: 45, column: 4
+              lightIntensity_thread_2 = (lightInt.getpreval() == null ? null : ((Integer)lightInt.getpreval()));//sysj\ECS_plant.sysj line: 46, column: 4
+              clock_thread_2 = "";//sysj\ECS_plant.sysj line: 49, column: 4
+              clock_thread_2 = (time.getpreval() == null ? null : ((String)time.getpreval()));//sysj\ECS_plant.sysj line: 50, column: 4
+              S1633=1;
+              S1683=0;
+              if(zone_thread_2 == 1){//sysj\ECS_plant.sysj line: 55, column: 8
+                S1638=0;
+                cutPowZ1.setPresent();//sysj\ECS_plant.sysj line: 57, column: 7
                 currsigs.addElement(cutPowZ1);
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
               }
               else {
-                S135=1;
-                if(zone_thread_2 == 2){//sysj\ECS_plant.sysj line: 63, column: 8
-                  S103=0;
-                  cutPowZ2.setPresent();//sysj\ECS_plant.sysj line: 65, column: 7
+                S1683=1;
+                if(zone_thread_2 == 2){//sysj\ECS_plant.sysj line: 68, column: 8
+                  S1651=0;
+                  cutPowZ2.setPresent();//sysj\ECS_plant.sysj line: 70, column: 7
                   currsigs.addElement(cutPowZ2);
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S135=2;
-                  if(zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 74, column: 8
-                    S140=0;
-                    cutPowZ3.setPresent();//sysj\ECS_plant.sysj line: 76, column: 7
+                  S1683=2;
+                  if(zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 79, column: 8
+                    S1688=0;
+                    cutPowZ3.setPresent();//sysj\ECS_plant.sysj line: 81, column: 7
                     currsigs.addElement(cutPowZ3);
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S135=3;
-                    if(zone_thread_2 == 4){//sysj\ECS_plant.sysj line: 85, column: 8
-                      S176=0;
-                      cutPowZ4.setPresent();//sysj\ECS_plant.sysj line: 87, column: 7
+                    S1683=3;
+                    if(zone_thread_2 == 4){//sysj\ECS_plant.sysj line: 90, column: 8
+                      S1724=0;
+                      cutPowZ4.setPresent();//sysj\ECS_plant.sysj line: 92, column: 7
                       currsigs.addElement(cutPowZ4);
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S135=4;
-                      if(zone_thread_2 == 5){//sysj\ECS_plant.sysj line: 96, column: 8
-                        S212=0;
-                        cutPowZ5.setPresent();//sysj\ECS_plant.sysj line: 98, column: 7
+                      S1683=4;
+                      if(zone_thread_2 == 5){//sysj\ECS_plant.sysj line: 101, column: 8
+                        S1760=0;
+                        cutPowZ5.setPresent();//sysj\ECS_plant.sysj line: 103, column: 7
                         currsigs.addElement(cutPowZ5);
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        S135=5;
-                        if(zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 107, column: 8
-                          S248=0;
-                          cutPowZ6.setPresent();//sysj\ECS_plant.sysj line: 109, column: 7
+                        S1683=5;
+                        if(zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 112, column: 8
+                          S1796=0;
+                          cutPowZ6.setPresent();//sysj\ECS_plant.sysj line: 114, column: 7
                           currsigs.addElement(cutPowZ6);
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S135=6;
-                          if(zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 118, column: 8
-                            S284=0;
-                            cutPowZ7.setPresent();//sysj\ECS_plant.sysj line: 120, column: 7
+                          S1683=6;
+                          if(zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 123, column: 8
+                            S1832=0;
+                            cutPowZ7.setPresent();//sysj\ECS_plant.sysj line: 125, column: 7
                             currsigs.addElement(cutPowZ7);
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S85=2;
+                            S1633=2;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -1090,18 +1311,18 @@ public class ECS_plant extends ClockDomain{
             break;
           
           case 1 : 
-            if(fire.getprestatus()){//sysj\ECS_plant.sysj line: 49, column: 10
-              S85=2;
+            if(fire.getprestatus()){//sysj\ECS_plant.sysj line: 54, column: 10
+              S1633=2;
               active[2]=1;
               ends[2]=1;
               tdone[2]=1;
             }
             else {
-              switch(S135){
+              switch(S1683){
                 case 0 : 
-                  switch(S90){
+                  switch(S1638){
                     case 0 : 
-                      cutPowZ1.setPresent();//sysj\ECS_plant.sysj line: 52, column: 7
+                      cutPowZ1.setPresent();//sysj\ECS_plant.sysj line: 57, column: 7
                       currsigs.addElement(cutPowZ1);
                       active[2]=1;
                       ends[2]=1;
@@ -1109,9 +1330,9 @@ public class ECS_plant extends ClockDomain{
                       break;
                     
                     case 1 : 
-                      if(powerOff.getprestatus()){//sysj\ECS_plant.sysj line: 55, column: 12
-                        S90=2;
-                        fireZone1.setPresent();//sysj\ECS_plant.sysj line: 57, column: 7
+                      if(powerOff.getprestatus()){//sysj\ECS_plant.sysj line: 60, column: 12
+                        S1638=2;
+                        fireZone1.setPresent();//sysj\ECS_plant.sysj line: 62, column: 7
                         currsigs.addElement(fireZone1);
                         active[2]=1;
                         ends[2]=1;
@@ -1125,7 +1346,7 @@ public class ECS_plant extends ClockDomain{
                       break;
                     
                     case 2 : 
-                      fireZone1.setPresent();//sysj\ECS_plant.sysj line: 57, column: 7
+                      fireZone1.setPresent();//sysj\ECS_plant.sysj line: 62, column: 7
                       currsigs.addElement(fireZone1);
                       active[2]=1;
                       ends[2]=1;
@@ -1133,69 +1354,69 @@ public class ECS_plant extends ClockDomain{
                       break;
                     
                     case 3 : 
-                      if(alarmOff.getprestatus()){//sysj\ECS_plant.sysj line: 60, column: 12
-                        System.out.println("Fire Out");//sysj\ECS_plant.sysj line: 61, column: 6
-                        S135=1;
-                        if(zone_thread_2 == 2){//sysj\ECS_plant.sysj line: 63, column: 8
-                          S103=0;
-                          cutPowZ2.setPresent();//sysj\ECS_plant.sysj line: 65, column: 7
+                      if(alarmOff.getprestatus()){//sysj\ECS_plant.sysj line: 65, column: 12
+                        System.out.println("Fire Out");//sysj\ECS_plant.sysj line: 66, column: 6
+                        S1683=1;
+                        if(zone_thread_2 == 2){//sysj\ECS_plant.sysj line: 68, column: 8
+                          S1651=0;
+                          cutPowZ2.setPresent();//sysj\ECS_plant.sysj line: 70, column: 7
                           currsigs.addElement(cutPowZ2);
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S135=2;
-                          if(zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 74, column: 8
-                            S140=0;
-                            cutPowZ3.setPresent();//sysj\ECS_plant.sysj line: 76, column: 7
+                          S1683=2;
+                          if(zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 79, column: 8
+                            S1688=0;
+                            cutPowZ3.setPresent();//sysj\ECS_plant.sysj line: 81, column: 7
                             currsigs.addElement(cutPowZ3);
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S135=3;
-                            if(zone_thread_2 == 4){//sysj\ECS_plant.sysj line: 85, column: 8
-                              S176=0;
-                              cutPowZ4.setPresent();//sysj\ECS_plant.sysj line: 87, column: 7
+                            S1683=3;
+                            if(zone_thread_2 == 4){//sysj\ECS_plant.sysj line: 90, column: 8
+                              S1724=0;
+                              cutPowZ4.setPresent();//sysj\ECS_plant.sysj line: 92, column: 7
                               currsigs.addElement(cutPowZ4);
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S135=4;
-                              if(zone_thread_2 == 5){//sysj\ECS_plant.sysj line: 96, column: 8
-                                S212=0;
-                                cutPowZ5.setPresent();//sysj\ECS_plant.sysj line: 98, column: 7
+                              S1683=4;
+                              if(zone_thread_2 == 5){//sysj\ECS_plant.sysj line: 101, column: 8
+                                S1760=0;
+                                cutPowZ5.setPresent();//sysj\ECS_plant.sysj line: 103, column: 7
                                 currsigs.addElement(cutPowZ5);
                                 active[2]=1;
                                 ends[2]=1;
                                 tdone[2]=1;
                               }
                               else {
-                                S135=5;
-                                if(zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 107, column: 8
-                                  S248=0;
-                                  cutPowZ6.setPresent();//sysj\ECS_plant.sysj line: 109, column: 7
+                                S1683=5;
+                                if(zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 112, column: 8
+                                  S1796=0;
+                                  cutPowZ6.setPresent();//sysj\ECS_plant.sysj line: 114, column: 7
                                   currsigs.addElement(cutPowZ6);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  S135=6;
-                                  if(zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 118, column: 8
-                                    S284=0;
-                                    cutPowZ7.setPresent();//sysj\ECS_plant.sysj line: 120, column: 7
+                                  S1683=6;
+                                  if(zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 123, column: 8
+                                    S1832=0;
+                                    cutPowZ7.setPresent();//sysj\ECS_plant.sysj line: 125, column: 7
                                     currsigs.addElement(cutPowZ7);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    S85=2;
+                                    S1633=2;
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
@@ -1217,9 +1438,9 @@ public class ECS_plant extends ClockDomain{
                   break;
                 
                 case 1 : 
-                  switch(S103){
+                  switch(S1651){
                     case 0 : 
-                      cutPowZ2.setPresent();//sysj\ECS_plant.sysj line: 65, column: 7
+                      cutPowZ2.setPresent();//sysj\ECS_plant.sysj line: 70, column: 7
                       currsigs.addElement(cutPowZ2);
                       active[2]=1;
                       ends[2]=1;
@@ -1227,9 +1448,9 @@ public class ECS_plant extends ClockDomain{
                       break;
                     
                     case 1 : 
-                      if(powerOff.getprestatus()){//sysj\ECS_plant.sysj line: 68, column: 12
-                        S103=2;
-                        fireZone2.setPresent();//sysj\ECS_plant.sysj line: 70, column: 7
+                      if(powerOff.getprestatus()){//sysj\ECS_plant.sysj line: 73, column: 12
+                        S1651=2;
+                        fireZone2.setPresent();//sysj\ECS_plant.sysj line: 75, column: 7
                         currsigs.addElement(fireZone2);
                         active[2]=1;
                         ends[2]=1;
@@ -1243,7 +1464,7 @@ public class ECS_plant extends ClockDomain{
                       break;
                     
                     case 2 : 
-                      fireZone2.setPresent();//sysj\ECS_plant.sysj line: 70, column: 7
+                      fireZone2.setPresent();//sysj\ECS_plant.sysj line: 75, column: 7
                       currsigs.addElement(fireZone2);
                       active[2]=1;
                       ends[2]=1;
@@ -1254,9 +1475,9 @@ public class ECS_plant extends ClockDomain{
                   break;
                 
                 case 2 : 
-                  switch(S140){
+                  switch(S1688){
                     case 0 : 
-                      cutPowZ3.setPresent();//sysj\ECS_plant.sysj line: 76, column: 7
+                      cutPowZ3.setPresent();//sysj\ECS_plant.sysj line: 81, column: 7
                       currsigs.addElement(cutPowZ3);
                       active[2]=1;
                       ends[2]=1;
@@ -1264,9 +1485,9 @@ public class ECS_plant extends ClockDomain{
                       break;
                     
                     case 1 : 
-                      if(powerOff.getprestatus()){//sysj\ECS_plant.sysj line: 79, column: 12
-                        S140=2;
-                        fireZone3.setPresent();//sysj\ECS_plant.sysj line: 81, column: 7
+                      if(powerOff.getprestatus()){//sysj\ECS_plant.sysj line: 84, column: 12
+                        S1688=2;
+                        fireZone3.setPresent();//sysj\ECS_plant.sysj line: 86, column: 7
                         currsigs.addElement(fireZone3);
                         active[2]=1;
                         ends[2]=1;
@@ -1280,7 +1501,7 @@ public class ECS_plant extends ClockDomain{
                       break;
                     
                     case 2 : 
-                      fireZone3.setPresent();//sysj\ECS_plant.sysj line: 81, column: 7
+                      fireZone3.setPresent();//sysj\ECS_plant.sysj line: 86, column: 7
                       currsigs.addElement(fireZone3);
                       active[2]=1;
                       ends[2]=1;
@@ -1291,9 +1512,9 @@ public class ECS_plant extends ClockDomain{
                   break;
                 
                 case 3 : 
-                  switch(S176){
+                  switch(S1724){
                     case 0 : 
-                      cutPowZ4.setPresent();//sysj\ECS_plant.sysj line: 87, column: 7
+                      cutPowZ4.setPresent();//sysj\ECS_plant.sysj line: 92, column: 7
                       currsigs.addElement(cutPowZ4);
                       active[2]=1;
                       ends[2]=1;
@@ -1301,9 +1522,9 @@ public class ECS_plant extends ClockDomain{
                       break;
                     
                     case 1 : 
-                      if(powerOff.getprestatus()){//sysj\ECS_plant.sysj line: 90, column: 12
-                        S176=2;
-                        fireZone4.setPresent();//sysj\ECS_plant.sysj line: 92, column: 7
+                      if(powerOff.getprestatus()){//sysj\ECS_plant.sysj line: 95, column: 12
+                        S1724=2;
+                        fireZone4.setPresent();//sysj\ECS_plant.sysj line: 97, column: 7
                         currsigs.addElement(fireZone4);
                         active[2]=1;
                         ends[2]=1;
@@ -1317,7 +1538,7 @@ public class ECS_plant extends ClockDomain{
                       break;
                     
                     case 2 : 
-                      fireZone4.setPresent();//sysj\ECS_plant.sysj line: 92, column: 7
+                      fireZone4.setPresent();//sysj\ECS_plant.sysj line: 97, column: 7
                       currsigs.addElement(fireZone4);
                       active[2]=1;
                       ends[2]=1;
@@ -1328,9 +1549,9 @@ public class ECS_plant extends ClockDomain{
                   break;
                 
                 case 4 : 
-                  switch(S212){
+                  switch(S1760){
                     case 0 : 
-                      cutPowZ5.setPresent();//sysj\ECS_plant.sysj line: 98, column: 7
+                      cutPowZ5.setPresent();//sysj\ECS_plant.sysj line: 103, column: 7
                       currsigs.addElement(cutPowZ5);
                       active[2]=1;
                       ends[2]=1;
@@ -1338,9 +1559,9 @@ public class ECS_plant extends ClockDomain{
                       break;
                     
                     case 1 : 
-                      if(powerOff.getprestatus()){//sysj\ECS_plant.sysj line: 101, column: 12
-                        S212=2;
-                        fireZone5.setPresent();//sysj\ECS_plant.sysj line: 103, column: 7
+                      if(powerOff.getprestatus()){//sysj\ECS_plant.sysj line: 106, column: 12
+                        S1760=2;
+                        fireZone5.setPresent();//sysj\ECS_plant.sysj line: 108, column: 7
                         currsigs.addElement(fireZone5);
                         active[2]=1;
                         ends[2]=1;
@@ -1354,7 +1575,7 @@ public class ECS_plant extends ClockDomain{
                       break;
                     
                     case 2 : 
-                      fireZone5.setPresent();//sysj\ECS_plant.sysj line: 103, column: 7
+                      fireZone5.setPresent();//sysj\ECS_plant.sysj line: 108, column: 7
                       currsigs.addElement(fireZone5);
                       active[2]=1;
                       ends[2]=1;
@@ -1365,9 +1586,9 @@ public class ECS_plant extends ClockDomain{
                   break;
                 
                 case 5 : 
-                  switch(S248){
+                  switch(S1796){
                     case 0 : 
-                      cutPowZ6.setPresent();//sysj\ECS_plant.sysj line: 109, column: 7
+                      cutPowZ6.setPresent();//sysj\ECS_plant.sysj line: 114, column: 7
                       currsigs.addElement(cutPowZ6);
                       active[2]=1;
                       ends[2]=1;
@@ -1375,9 +1596,9 @@ public class ECS_plant extends ClockDomain{
                       break;
                     
                     case 1 : 
-                      if(powerOff.getprestatus()){//sysj\ECS_plant.sysj line: 112, column: 12
-                        S248=2;
-                        fireZone7.setPresent();//sysj\ECS_plant.sysj line: 114, column: 7
+                      if(powerOff.getprestatus()){//sysj\ECS_plant.sysj line: 117, column: 12
+                        S1796=2;
+                        fireZone7.setPresent();//sysj\ECS_plant.sysj line: 119, column: 7
                         currsigs.addElement(fireZone7);
                         active[2]=1;
                         ends[2]=1;
@@ -1391,7 +1612,7 @@ public class ECS_plant extends ClockDomain{
                       break;
                     
                     case 2 : 
-                      fireZone7.setPresent();//sysj\ECS_plant.sysj line: 114, column: 7
+                      fireZone7.setPresent();//sysj\ECS_plant.sysj line: 119, column: 7
                       currsigs.addElement(fireZone7);
                       active[2]=1;
                       ends[2]=1;
@@ -1402,9 +1623,9 @@ public class ECS_plant extends ClockDomain{
                   break;
                 
                 case 6 : 
-                  switch(S284){
+                  switch(S1832){
                     case 0 : 
-                      cutPowZ7.setPresent();//sysj\ECS_plant.sysj line: 120, column: 7
+                      cutPowZ7.setPresent();//sysj\ECS_plant.sysj line: 125, column: 7
                       currsigs.addElement(cutPowZ7);
                       active[2]=1;
                       ends[2]=1;
@@ -1412,9 +1633,9 @@ public class ECS_plant extends ClockDomain{
                       break;
                     
                     case 1 : 
-                      if(powerOff.getprestatus()){//sysj\ECS_plant.sysj line: 123, column: 12
-                        S284=2;
-                        fireZone7.setPresent();//sysj\ECS_plant.sysj line: 125, column: 7
+                      if(powerOff.getprestatus()){//sysj\ECS_plant.sysj line: 128, column: 12
+                        S1832=2;
+                        fireZone7.setPresent();//sysj\ECS_plant.sysj line: 130, column: 7
                         currsigs.addElement(fireZone7);
                         active[2]=1;
                         ends[2]=1;
@@ -1428,7 +1649,7 @@ public class ECS_plant extends ClockDomain{
                       break;
                     
                     case 2 : 
-                      fireZone7.setPresent();//sysj\ECS_plant.sysj line: 125, column: 7
+                      fireZone7.setPresent();//sysj\ECS_plant.sysj line: 130, column: 7
                       currsigs.addElement(fireZone7);
                       active[2]=1;
                       ends[2]=1;
@@ -1443,245 +1664,245 @@ public class ECS_plant extends ClockDomain{
             break;
           
           case 2 : 
-            if(run.getprestatus()){//sysj\ECS_plant.sysj line: 132, column: 10
-              S85=3;
-              S564=0;
-              if(zone_thread_2 == 1){//sysj\ECS_plant.sysj line: 137, column: 8
-                cleanZone1.setPresent();//sysj\ECS_plant.sysj line: 139, column: 7
+            if(run.getprestatus()){//sysj\ECS_plant.sysj line: 137, column: 10
+              S1633=3;
+              S2112=0;
+              if(zone_thread_2 == 1){//sysj\ECS_plant.sysj line: 142, column: 8
+                cleanZone1.setPresent();//sysj\ECS_plant.sysj line: 144, column: 7
                 currsigs.addElement(cleanZone1);
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
               }
               else {
-                S564=1;
-                if(zone_thread_2 == 2){//sysj\ECS_plant.sysj line: 143, column: 8
-                  cleanZone2.setPresent();//sysj\ECS_plant.sysj line: 145, column: 7
+                S2112=1;
+                if(zone_thread_2 == 2){//sysj\ECS_plant.sysj line: 148, column: 8
+                  cleanZone2.setPresent();//sysj\ECS_plant.sysj line: 150, column: 7
                   currsigs.addElement(cleanZone2);
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S564=2;
-                  if(zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 149, column: 8
-                    cleanZone3.setPresent();//sysj\ECS_plant.sysj line: 151, column: 7
+                  S2112=2;
+                  if(zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 154, column: 8
+                    cleanZone3.setPresent();//sysj\ECS_plant.sysj line: 156, column: 7
                     currsigs.addElement(cleanZone3);
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S564=3;
-                    if(zone_thread_2 == 4){//sysj\ECS_plant.sysj line: 155, column: 8
-                      cleanZone4.setPresent();//sysj\ECS_plant.sysj line: 157, column: 7
+                    S2112=3;
+                    if(zone_thread_2 == 4){//sysj\ECS_plant.sysj line: 160, column: 8
+                      cleanZone4.setPresent();//sysj\ECS_plant.sysj line: 162, column: 7
                       currsigs.addElement(cleanZone4);
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S564=4;
-                      if(zone_thread_2 == 5){//sysj\ECS_plant.sysj line: 161, column: 8
-                        cleanZone5.setPresent();//sysj\ECS_plant.sysj line: 163, column: 7
+                      S2112=4;
+                      if(zone_thread_2 == 5){//sysj\ECS_plant.sysj line: 166, column: 8
+                        cleanZone5.setPresent();//sysj\ECS_plant.sysj line: 168, column: 7
                         currsigs.addElement(cleanZone5);
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        S564=5;
-                        if(zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 167, column: 8
-                          cleanZone7.setPresent();//sysj\ECS_plant.sysj line: 169, column: 7
+                        S2112=5;
+                        if(zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 172, column: 8
+                          cleanZone7.setPresent();//sysj\ECS_plant.sysj line: 174, column: 7
                           currsigs.addElement(cleanZone7);
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S564=6;
-                          if(zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 173, column: 8
-                            cleanZone7.setPresent();//sysj\ECS_plant.sysj line: 175, column: 7
+                          S2112=6;
+                          if(zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 178, column: 8
+                            cleanZone7.setPresent();//sysj\ECS_plant.sysj line: 180, column: 7
                             currsigs.addElement(cleanZone7);
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S85=4;
-                            if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 182, column: 7
-                              temp17_thread_2 = 0;//sysj\ECS_plant.sysj line: 183, column: 5
-                              temp17_thread_2 = (tempZone1_7.getpreval() == null ? null : ((Integer)tempZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 184, column: 5
-                              if(temp17_thread_2 > 22){//sysj\ECS_plant.sysj line: 185, column: 8
-                                S669=0;
-                                System.out.println("");//sysj\ECS_plant.sysj line: 187, column: 7
-                                System.out.println("Room temperature is too high at " + temp17_thread_2);//sysj\ECS_plant.sysj line: 188, column: 7
-                                fanOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 189, column: 7
+                            S1633=4;
+                            if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 187, column: 7
+                              temp17_thread_2 = 0;//sysj\ECS_plant.sysj line: 188, column: 5
+                              temp17_thread_2 = (tempZone1_7.getpreval() == null ? null : ((Integer)tempZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 189, column: 5
+                              if(temp17_thread_2 > 22){//sysj\ECS_plant.sysj line: 190, column: 8
+                                S2217=0;
+                                System.out.println("");//sysj\ECS_plant.sysj line: 192, column: 7
+                                System.out.println("Room temperature is too high at " + temp17_thread_2);//sysj\ECS_plant.sysj line: 193, column: 7
+                                fanOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 194, column: 7
                                 currsigs.addElement(fanOnZone1_7);
                                 active[2]=1;
                                 ends[2]=1;
                                 tdone[2]=1;
                               }
                               else {
-                                S669=1;
-                                if(temp17_thread_2 < 21){//sysj\ECS_plant.sysj line: 192, column: 15
-                                  S668=0;
-                                  System.out.println("Room temperature is too low at " + temp17_thread_2);//sysj\ECS_plant.sysj line: 194, column: 7
-                                  heatOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 195, column: 7
+                                S2217=1;
+                                if(temp17_thread_2 < 21){//sysj\ECS_plant.sysj line: 197, column: 15
+                                  S2216=0;
+                                  System.out.println("Room temperature is too low at " + temp17_thread_2);//sysj\ECS_plant.sysj line: 199, column: 7
+                                  heatOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 200, column: 7
                                   currsigs.addElement(heatOnZone1_7);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  S668=1;
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 199, column: 6
-                                  System.out.println("Room temperature is safe at" + temp17_thread_2);//sysj\ECS_plant.sysj line: 200, column: 6
-                                  S85=5;
-                                  if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 205, column: 7
-                                    temp23_thread_2 = 0;//sysj\ECS_plant.sysj line: 206, column: 5
-                                    temp23_thread_2 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 207, column: 5
-                                    if(temp23_thread_2 > 22){//sysj\ECS_plant.sysj line: 208, column: 8
-                                      S729=0;
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 210, column: 7
-                                      System.out.println("Room temperature is too high at " + temp23_thread_2);//sysj\ECS_plant.sysj line: 211, column: 7
-                                      airOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 212, column: 7
+                                  S2216=1;
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 204, column: 6
+                                  System.out.println("Room temperature is safe at" + temp17_thread_2);//sysj\ECS_plant.sysj line: 205, column: 6
+                                  S1633=5;
+                                  if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 210, column: 7
+                                    temp23_thread_2 = 0;//sysj\ECS_plant.sysj line: 211, column: 5
+                                    temp23_thread_2 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 212, column: 5
+                                    if(temp23_thread_2 > 22){//sysj\ECS_plant.sysj line: 213, column: 8
+                                      S2277=0;
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 215, column: 7
+                                      System.out.println("Room temperature is too high at " + temp23_thread_2);//sysj\ECS_plant.sysj line: 216, column: 7
+                                      airOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 217, column: 7
                                       currsigs.addElement(airOnZone2_3);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      S729=1;
-                                      if(temp23_thread_2 < 21){//sysj\ECS_plant.sysj line: 215, column: 15
-                                        heatOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 217, column: 7
+                                      S2277=1;
+                                      if(temp23_thread_2 < 21){//sysj\ECS_plant.sysj line: 220, column: 15
+                                        heatOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 222, column: 7
                                         currsigs.addElement(heatOnZone2_3);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 221, column: 6
-                                        System.out.println("Room temperature is safe at" + temp23_thread_2);//sysj\ECS_plant.sysj line: 222, column: 6
-                                        S85=6;
-                                        if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 228, column: 7
-                                          temp456_thread_2 = 0;//sysj\ECS_plant.sysj line: 229, column: 5
-                                          temp456_thread_2 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 230, column: 5
-                                          if(temp456_thread_2 > 22){//sysj\ECS_plant.sysj line: 231, column: 8
-                                            S829=0;
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 233, column: 7
-                                            System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 234, column: 7
-                                            airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 235, column: 7
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 226, column: 6
+                                        System.out.println("Room temperature is safe at" + temp23_thread_2);//sysj\ECS_plant.sysj line: 227, column: 6
+                                        S1633=6;
+                                        if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 233, column: 7
+                                          temp456_thread_2 = 0;//sysj\ECS_plant.sysj line: 234, column: 5
+                                          temp456_thread_2 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 235, column: 5
+                                          if(temp456_thread_2 > 22){//sysj\ECS_plant.sysj line: 236, column: 8
+                                            S2377=0;
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 238, column: 7
+                                            System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 239, column: 7
+                                            airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 240, column: 7
                                             currsigs.addElement(airOnZone4_5_6);
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
                                           }
                                           else {
-                                            S829=1;
-                                            if(temp456_thread_2 < 21){//sysj\ECS_plant.sysj line: 238, column: 15
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 240, column: 7
-                                              System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 241, column: 7
-                                              heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 242, column: 7
+                                            S2377=1;
+                                            if(temp456_thread_2 < 21){//sysj\ECS_plant.sysj line: 243, column: 15
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 245, column: 7
+                                              System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 246, column: 7
+                                              heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 247, column: 7
                                               currsigs.addElement(heatOnZone4_5_6);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 246, column: 6
-                                              System.out.println("Room temperature is safe at" + temp456_thread_2);//sysj\ECS_plant.sysj line: 247, column: 6
-                                              S85=7;
-                                              if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 253, column: 7
-                                                humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 254, column: 5
-                                                humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 255, column: 5
-                                                if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 256, column: 8
-                                                  S1009=0;
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                                                  System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                                                  deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 251, column: 6
+                                              System.out.println("Room temperature is safe at" + temp456_thread_2);//sysj\ECS_plant.sysj line: 252, column: 6
+                                              S1633=7;
+                                              if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 258, column: 7
+                                                humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 259, column: 5
+                                                humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 260, column: 5
+                                                if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 261, column: 8
+                                                  S2557=0;
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                                                  System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                                                  deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                                                   currsigs.addElement(deHumOnZone1_7);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  S1009=1;
-                                                  if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 264, column: 15
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                                                    System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                                                    humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                                                  S2557=1;
+                                                  if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 269, column: 15
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                                                    System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                                                    humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                                                     currsigs.addElement(humOnZone1_7);
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
                                                   }
                                                   else {
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 273, column: 6
-                                                    System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 274, column: 6
-                                                    S85=8;
-                                                    if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                                      humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                                      humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                                      if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                                        S1349=0;
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                                        System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                                        deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 278, column: 6
+                                                    System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 279, column: 6
+                                                    S1633=8;
+                                                    if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                                      humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                                      humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                                      if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                                        S2897=0;
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                                        System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                                        deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                                         currsigs.addElement(deHumOnZone2_3);
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
                                                       }
                                                       else {
-                                                        S1349=1;
-                                                        if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                                          System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                                          System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                                          humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                                        S2897=1;
+                                                        if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                                          System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                                          System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                                          humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                                           currsigs.addElement(humOnZone2_3);
                                                           active[2]=1;
                                                           ends[2]=1;
                                                           tdone[2]=1;
                                                         }
                                                         else {
-                                                          System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                                          System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                                          S85=9;
-                                                          if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                            humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                            humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                            if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                              S2009=0;
-                                                              System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                              System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                              deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                                          System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                                          System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                                          S1633=9;
+                                                          if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                            humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                            humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                            if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                              S3557=0;
+                                                              System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                              System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                              deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                               currsigs.addElement(deHumOnZone4_5_6);
                                                               active[2]=1;
                                                               ends[2]=1;
                                                               tdone[2]=1;
                                                             }
                                                             else {
-                                                              S2009=1;
-                                                              if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                                System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                                System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                                humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                              S3557=1;
+                                                              if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                                System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                                System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                                humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                                 currsigs.addElement(humOnZone4_5_6);
                                                                 active[2]=1;
                                                                 ends[2]=1;
                                                                 tdone[2]=1;
                                                               }
                                                               else {
-                                                                System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                                System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                                S85=10;
+                                                                System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                                System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                                S1633=10;
                                                                 active[2]=1;
                                                                 ends[2]=1;
                                                                 tdone[2]=1;
@@ -1689,7 +1910,7 @@ public class ECS_plant extends ClockDomain{
                                                             }
                                                           }
                                                           else {
-                                                            S85=10;
+                                                            S1633=10;
                                                             active[2]=1;
                                                             ends[2]=1;
                                                             tdone[2]=1;
@@ -1698,37 +1919,37 @@ public class ECS_plant extends ClockDomain{
                                                       }
                                                     }
                                                     else {
-                                                      S85=9;
-                                                      if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                        humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                        humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                        if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                          S2009=0;
-                                                          System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                          System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                          deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                                      S1633=9;
+                                                      if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                        humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                        humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                        if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                          S3557=0;
+                                                          System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                          System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                          deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                           currsigs.addElement(deHumOnZone4_5_6);
                                                           active[2]=1;
                                                           ends[2]=1;
                                                           tdone[2]=1;
                                                         }
                                                         else {
-                                                          S2009=1;
-                                                          if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                            System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                            System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                            humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                          S3557=1;
+                                                          if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                            System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                            System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                            humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                             currsigs.addElement(humOnZone4_5_6);
                                                             active[2]=1;
                                                             ends[2]=1;
                                                             tdone[2]=1;
                                                           }
                                                           else {
-                                                            System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                            System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                            S85=10;
+                                                            System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                            System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                            S1633=10;
                                                             active[2]=1;
                                                             ends[2]=1;
                                                             tdone[2]=1;
@@ -1736,7 +1957,7 @@ public class ECS_plant extends ClockDomain{
                                                         }
                                                       }
                                                       else {
-                                                        S85=10;
+                                                        S1633=10;
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
@@ -1746,67 +1967,67 @@ public class ECS_plant extends ClockDomain{
                                                 }
                                               }
                                               else {
-                                                S85=8;
-                                                if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                                  humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                                  humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                                  if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                                    S1349=0;
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                                    System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                                    deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                                S1633=8;
+                                                if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                                  humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                                  humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                                  if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                                    S2897=0;
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                                    System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                                    deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                                     currsigs.addElement(deHumOnZone2_3);
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
                                                   }
                                                   else {
-                                                    S1349=1;
-                                                    if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                                      System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                                      humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                                    S2897=1;
+                                                    if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                                      System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                                      humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                                       currsigs.addElement(humOnZone2_3);
                                                       active[2]=1;
                                                       ends[2]=1;
                                                       tdone[2]=1;
                                                     }
                                                     else {
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                                      System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                                      S85=9;
-                                                      if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                        humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                        humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                        if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                          S2009=0;
-                                                          System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                          System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                          deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                                      System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                                      S1633=9;
+                                                      if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                        humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                        humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                        if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                          S3557=0;
+                                                          System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                          System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                          deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                           currsigs.addElement(deHumOnZone4_5_6);
                                                           active[2]=1;
                                                           ends[2]=1;
                                                           tdone[2]=1;
                                                         }
                                                         else {
-                                                          S2009=1;
-                                                          if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                            System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                            System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                            humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                          S3557=1;
+                                                          if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                            System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                            System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                            humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                             currsigs.addElement(humOnZone4_5_6);
                                                             active[2]=1;
                                                             ends[2]=1;
                                                             tdone[2]=1;
                                                           }
                                                           else {
-                                                            System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                            System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                            S85=10;
+                                                            System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                            System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                            S1633=10;
                                                             active[2]=1;
                                                             ends[2]=1;
                                                             tdone[2]=1;
@@ -1814,7 +2035,7 @@ public class ECS_plant extends ClockDomain{
                                                         }
                                                       }
                                                       else {
-                                                        S85=10;
+                                                        S1633=10;
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
@@ -1823,37 +2044,37 @@ public class ECS_plant extends ClockDomain{
                                                   }
                                                 }
                                                 else {
-                                                  S85=9;
-                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                      S2009=0;
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                                  S1633=9;
+                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                      S3557=0;
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                       currsigs.addElement(deHumOnZone4_5_6);
                                                       active[2]=1;
                                                       ends[2]=1;
                                                       tdone[2]=1;
                                                     }
                                                     else {
-                                                      S2009=1;
-                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                      S3557=1;
+                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                         currsigs.addElement(humOnZone4_5_6);
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
                                                       }
                                                       else {
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                        S85=10;
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                        S1633=10;
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
@@ -1861,7 +2082,7 @@ public class ECS_plant extends ClockDomain{
                                                     }
                                                   }
                                                   else {
-                                                    S85=10;
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -1872,97 +2093,97 @@ public class ECS_plant extends ClockDomain{
                                           }
                                         }
                                         else {
-                                          S85=7;
-                                          if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 253, column: 7
-                                            humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 254, column: 5
-                                            humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 255, column: 5
-                                            if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 256, column: 8
-                                              S1009=0;
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                                              System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                                              deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                                          S1633=7;
+                                          if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 258, column: 7
+                                            humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 259, column: 5
+                                            humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 260, column: 5
+                                            if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 261, column: 8
+                                              S2557=0;
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                                              System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                                              deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                                               currsigs.addElement(deHumOnZone1_7);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              S1009=1;
-                                              if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 264, column: 15
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                                                System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                                                humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                                              S2557=1;
+                                              if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 269, column: 15
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                                                System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                                                humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                                                 currsigs.addElement(humOnZone1_7);
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
                                               }
                                               else {
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 273, column: 6
-                                                System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 274, column: 6
-                                                S85=8;
-                                                if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                                  humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                                  humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                                  if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                                    S1349=0;
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                                    System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                                    deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 278, column: 6
+                                                System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 279, column: 6
+                                                S1633=8;
+                                                if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                                  humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                                  humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                                  if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                                    S2897=0;
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                                    System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                                    deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                                     currsigs.addElement(deHumOnZone2_3);
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
                                                   }
                                                   else {
-                                                    S1349=1;
-                                                    if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                                      System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                                      humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                                    S2897=1;
+                                                    if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                                      System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                                      humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                                       currsigs.addElement(humOnZone2_3);
                                                       active[2]=1;
                                                       ends[2]=1;
                                                       tdone[2]=1;
                                                     }
                                                     else {
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                                      System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                                      S85=9;
-                                                      if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                        humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                        humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                        if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                          S2009=0;
-                                                          System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                          System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                          deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                                      System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                                      S1633=9;
+                                                      if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                        humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                        humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                        if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                          S3557=0;
+                                                          System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                          System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                          deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                           currsigs.addElement(deHumOnZone4_5_6);
                                                           active[2]=1;
                                                           ends[2]=1;
                                                           tdone[2]=1;
                                                         }
                                                         else {
-                                                          S2009=1;
-                                                          if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                            System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                            System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                            humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                          S3557=1;
+                                                          if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                            System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                            System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                            humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                             currsigs.addElement(humOnZone4_5_6);
                                                             active[2]=1;
                                                             ends[2]=1;
                                                             tdone[2]=1;
                                                           }
                                                           else {
-                                                            System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                            System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                            S85=10;
+                                                            System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                            System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                            S1633=10;
                                                             active[2]=1;
                                                             ends[2]=1;
                                                             tdone[2]=1;
@@ -1970,7 +2191,7 @@ public class ECS_plant extends ClockDomain{
                                                         }
                                                       }
                                                       else {
-                                                        S85=10;
+                                                        S1633=10;
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
@@ -1979,37 +2200,37 @@ public class ECS_plant extends ClockDomain{
                                                   }
                                                 }
                                                 else {
-                                                  S85=9;
-                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                      S2009=0;
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                                  S1633=9;
+                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                      S3557=0;
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                       currsigs.addElement(deHumOnZone4_5_6);
                                                       active[2]=1;
                                                       ends[2]=1;
                                                       tdone[2]=1;
                                                     }
                                                     else {
-                                                      S2009=1;
-                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                      S3557=1;
+                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                         currsigs.addElement(humOnZone4_5_6);
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
                                                       }
                                                       else {
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                        S85=10;
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                        S1633=10;
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
@@ -2017,7 +2238,7 @@ public class ECS_plant extends ClockDomain{
                                                     }
                                                   }
                                                   else {
-                                                    S85=10;
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -2027,67 +2248,67 @@ public class ECS_plant extends ClockDomain{
                                             }
                                           }
                                           else {
-                                            S85=8;
-                                            if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                              humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                              humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                              if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                                S1349=0;
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                                System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                                deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                            S1633=8;
+                                            if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                              humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                              humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                              if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                                S2897=0;
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                                System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                                deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                                 currsigs.addElement(deHumOnZone2_3);
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
                                               }
                                               else {
-                                                S1349=1;
-                                                if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                                  System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                                  humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                                S2897=1;
+                                                if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                                  System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                                  humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                                   currsigs.addElement(humOnZone2_3);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                                  System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                                  S85=9;
-                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                      S2009=0;
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                                  System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                                  S1633=9;
+                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                      S3557=0;
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                       currsigs.addElement(deHumOnZone4_5_6);
                                                       active[2]=1;
                                                       ends[2]=1;
                                                       tdone[2]=1;
                                                     }
                                                     else {
-                                                      S2009=1;
-                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                      S3557=1;
+                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                         currsigs.addElement(humOnZone4_5_6);
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
                                                       }
                                                       else {
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                        S85=10;
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                        S1633=10;
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
@@ -2095,7 +2316,7 @@ public class ECS_plant extends ClockDomain{
                                                     }
                                                   }
                                                   else {
-                                                    S85=10;
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -2104,37 +2325,37 @@ public class ECS_plant extends ClockDomain{
                                               }
                                             }
                                             else {
-                                              S85=9;
-                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                  S2009=0;
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                              S1633=9;
+                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                  S3557=0;
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                   currsigs.addElement(deHumOnZone4_5_6);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  S2009=1;
-                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                  S3557=1;
+                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                     currsigs.addElement(humOnZone4_5_6);
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
                                                   }
                                                   else {
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                    S85=10;
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -2142,7 +2363,7 @@ public class ECS_plant extends ClockDomain{
                                                 }
                                               }
                                               else {
-                                                S85=10;
+                                                S1633=10;
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
@@ -2154,125 +2375,125 @@ public class ECS_plant extends ClockDomain{
                                     }
                                   }
                                   else {
-                                    S85=6;
-                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 228, column: 7
-                                      temp456_thread_2 = 0;//sysj\ECS_plant.sysj line: 229, column: 5
-                                      temp456_thread_2 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 230, column: 5
-                                      if(temp456_thread_2 > 22){//sysj\ECS_plant.sysj line: 231, column: 8
-                                        S829=0;
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 233, column: 7
-                                        System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 234, column: 7
-                                        airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 235, column: 7
+                                    S1633=6;
+                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 233, column: 7
+                                      temp456_thread_2 = 0;//sysj\ECS_plant.sysj line: 234, column: 5
+                                      temp456_thread_2 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 235, column: 5
+                                      if(temp456_thread_2 > 22){//sysj\ECS_plant.sysj line: 236, column: 8
+                                        S2377=0;
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 238, column: 7
+                                        System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 239, column: 7
+                                        airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 240, column: 7
                                         currsigs.addElement(airOnZone4_5_6);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        S829=1;
-                                        if(temp456_thread_2 < 21){//sysj\ECS_plant.sysj line: 238, column: 15
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 240, column: 7
-                                          System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 241, column: 7
-                                          heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 242, column: 7
+                                        S2377=1;
+                                        if(temp456_thread_2 < 21){//sysj\ECS_plant.sysj line: 243, column: 15
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 245, column: 7
+                                          System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 246, column: 7
+                                          heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 247, column: 7
                                           currsigs.addElement(heatOnZone4_5_6);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 246, column: 6
-                                          System.out.println("Room temperature is safe at" + temp456_thread_2);//sysj\ECS_plant.sysj line: 247, column: 6
-                                          S85=7;
-                                          if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 253, column: 7
-                                            humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 254, column: 5
-                                            humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 255, column: 5
-                                            if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 256, column: 8
-                                              S1009=0;
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                                              System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                                              deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 251, column: 6
+                                          System.out.println("Room temperature is safe at" + temp456_thread_2);//sysj\ECS_plant.sysj line: 252, column: 6
+                                          S1633=7;
+                                          if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 258, column: 7
+                                            humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 259, column: 5
+                                            humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 260, column: 5
+                                            if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 261, column: 8
+                                              S2557=0;
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                                              System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                                              deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                                               currsigs.addElement(deHumOnZone1_7);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              S1009=1;
-                                              if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 264, column: 15
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                                                System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                                                humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                                              S2557=1;
+                                              if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 269, column: 15
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                                                System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                                                humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                                                 currsigs.addElement(humOnZone1_7);
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
                                               }
                                               else {
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 273, column: 6
-                                                System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 274, column: 6
-                                                S85=8;
-                                                if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                                  humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                                  humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                                  if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                                    S1349=0;
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                                    System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                                    deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 278, column: 6
+                                                System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 279, column: 6
+                                                S1633=8;
+                                                if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                                  humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                                  humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                                  if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                                    S2897=0;
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                                    System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                                    deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                                     currsigs.addElement(deHumOnZone2_3);
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
                                                   }
                                                   else {
-                                                    S1349=1;
-                                                    if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                                      System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                                      humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                                    S2897=1;
+                                                    if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                                      System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                                      humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                                       currsigs.addElement(humOnZone2_3);
                                                       active[2]=1;
                                                       ends[2]=1;
                                                       tdone[2]=1;
                                                     }
                                                     else {
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                                      System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                                      S85=9;
-                                                      if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                        humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                        humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                        if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                          S2009=0;
-                                                          System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                          System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                          deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                                      System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                                      S1633=9;
+                                                      if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                        humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                        humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                        if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                          S3557=0;
+                                                          System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                          System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                          deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                           currsigs.addElement(deHumOnZone4_5_6);
                                                           active[2]=1;
                                                           ends[2]=1;
                                                           tdone[2]=1;
                                                         }
                                                         else {
-                                                          S2009=1;
-                                                          if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                            System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                            System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                            humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                          S3557=1;
+                                                          if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                            System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                            System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                            humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                             currsigs.addElement(humOnZone4_5_6);
                                                             active[2]=1;
                                                             ends[2]=1;
                                                             tdone[2]=1;
                                                           }
                                                           else {
-                                                            System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                            System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                            S85=10;
+                                                            System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                            System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                            S1633=10;
                                                             active[2]=1;
                                                             ends[2]=1;
                                                             tdone[2]=1;
@@ -2280,7 +2501,7 @@ public class ECS_plant extends ClockDomain{
                                                         }
                                                       }
                                                       else {
-                                                        S85=10;
+                                                        S1633=10;
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
@@ -2289,37 +2510,37 @@ public class ECS_plant extends ClockDomain{
                                                   }
                                                 }
                                                 else {
-                                                  S85=9;
-                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                      S2009=0;
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                                  S1633=9;
+                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                      S3557=0;
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                       currsigs.addElement(deHumOnZone4_5_6);
                                                       active[2]=1;
                                                       ends[2]=1;
                                                       tdone[2]=1;
                                                     }
                                                     else {
-                                                      S2009=1;
-                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                      S3557=1;
+                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                         currsigs.addElement(humOnZone4_5_6);
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
                                                       }
                                                       else {
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                        S85=10;
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                        S1633=10;
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
@@ -2327,7 +2548,7 @@ public class ECS_plant extends ClockDomain{
                                                     }
                                                   }
                                                   else {
-                                                    S85=10;
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -2337,67 +2558,67 @@ public class ECS_plant extends ClockDomain{
                                             }
                                           }
                                           else {
-                                            S85=8;
-                                            if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                              humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                              humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                              if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                                S1349=0;
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                                System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                                deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                            S1633=8;
+                                            if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                              humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                              humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                              if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                                S2897=0;
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                                System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                                deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                                 currsigs.addElement(deHumOnZone2_3);
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
                                               }
                                               else {
-                                                S1349=1;
-                                                if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                                  System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                                  humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                                S2897=1;
+                                                if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                                  System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                                  humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                                   currsigs.addElement(humOnZone2_3);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                                  System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                                  S85=9;
-                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                      S2009=0;
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                                  System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                                  S1633=9;
+                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                      S3557=0;
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                       currsigs.addElement(deHumOnZone4_5_6);
                                                       active[2]=1;
                                                       ends[2]=1;
                                                       tdone[2]=1;
                                                     }
                                                     else {
-                                                      S2009=1;
-                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                      S3557=1;
+                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                         currsigs.addElement(humOnZone4_5_6);
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
                                                       }
                                                       else {
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                        S85=10;
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                        S1633=10;
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
@@ -2405,7 +2626,7 @@ public class ECS_plant extends ClockDomain{
                                                     }
                                                   }
                                                   else {
-                                                    S85=10;
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -2414,37 +2635,37 @@ public class ECS_plant extends ClockDomain{
                                               }
                                             }
                                             else {
-                                              S85=9;
-                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                  S2009=0;
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                              S1633=9;
+                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                  S3557=0;
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                   currsigs.addElement(deHumOnZone4_5_6);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  S2009=1;
-                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                  S3557=1;
+                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                     currsigs.addElement(humOnZone4_5_6);
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
                                                   }
                                                   else {
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                    S85=10;
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -2452,7 +2673,7 @@ public class ECS_plant extends ClockDomain{
                                                 }
                                               }
                                               else {
-                                                S85=10;
+                                                S1633=10;
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
@@ -2463,97 +2684,97 @@ public class ECS_plant extends ClockDomain{
                                       }
                                     }
                                     else {
-                                      S85=7;
-                                      if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 253, column: 7
-                                        humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 254, column: 5
-                                        humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 255, column: 5
-                                        if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 256, column: 8
-                                          S1009=0;
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                                          System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                                          deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                                      S1633=7;
+                                      if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 258, column: 7
+                                        humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 259, column: 5
+                                        humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 260, column: 5
+                                        if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 261, column: 8
+                                          S2557=0;
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                                          System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                                          deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                                           currsigs.addElement(deHumOnZone1_7);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          S1009=1;
-                                          if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 264, column: 15
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                                            System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                                            humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                                          S2557=1;
+                                          if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 269, column: 15
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                                            System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                                            humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                                             currsigs.addElement(humOnZone1_7);
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
                                           }
                                           else {
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 273, column: 6
-                                            System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 274, column: 6
-                                            S85=8;
-                                            if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                              humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                              humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                              if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                                S1349=0;
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                                System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                                deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 278, column: 6
+                                            System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 279, column: 6
+                                            S1633=8;
+                                            if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                              humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                              humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                              if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                                S2897=0;
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                                System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                                deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                                 currsigs.addElement(deHumOnZone2_3);
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
                                               }
                                               else {
-                                                S1349=1;
-                                                if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                                  System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                                  humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                                S2897=1;
+                                                if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                                  System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                                  humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                                   currsigs.addElement(humOnZone2_3);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                                  System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                                  S85=9;
-                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                      S2009=0;
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                                  System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                                  S1633=9;
+                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                      S3557=0;
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                       currsigs.addElement(deHumOnZone4_5_6);
                                                       active[2]=1;
                                                       ends[2]=1;
                                                       tdone[2]=1;
                                                     }
                                                     else {
-                                                      S2009=1;
-                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                      S3557=1;
+                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                         currsigs.addElement(humOnZone4_5_6);
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
                                                       }
                                                       else {
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                        S85=10;
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                        S1633=10;
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
@@ -2561,7 +2782,7 @@ public class ECS_plant extends ClockDomain{
                                                     }
                                                   }
                                                   else {
-                                                    S85=10;
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -2570,37 +2791,37 @@ public class ECS_plant extends ClockDomain{
                                               }
                                             }
                                             else {
-                                              S85=9;
-                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                  S2009=0;
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                              S1633=9;
+                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                  S3557=0;
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                   currsigs.addElement(deHumOnZone4_5_6);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  S2009=1;
-                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                  S3557=1;
+                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                     currsigs.addElement(humOnZone4_5_6);
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
                                                   }
                                                   else {
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                    S85=10;
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -2608,7 +2829,7 @@ public class ECS_plant extends ClockDomain{
                                                 }
                                               }
                                               else {
-                                                S85=10;
+                                                S1633=10;
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
@@ -2618,67 +2839,67 @@ public class ECS_plant extends ClockDomain{
                                         }
                                       }
                                       else {
-                                        S85=8;
-                                        if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                          humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                          humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                          if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                            S1349=0;
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                            System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                            deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                        S1633=8;
+                                        if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                          humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                          humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                          if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                            S2897=0;
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                            System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                            deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                             currsigs.addElement(deHumOnZone2_3);
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
                                           }
                                           else {
-                                            S1349=1;
-                                            if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                              System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                              humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                            S2897=1;
+                                            if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                              System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                              humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                               currsigs.addElement(humOnZone2_3);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                              System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                              S85=9;
-                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                  S2009=0;
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                              System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                              S1633=9;
+                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                  S3557=0;
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                   currsigs.addElement(deHumOnZone4_5_6);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  S2009=1;
-                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                  S3557=1;
+                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                     currsigs.addElement(humOnZone4_5_6);
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
                                                   }
                                                   else {
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                    S85=10;
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -2686,7 +2907,7 @@ public class ECS_plant extends ClockDomain{
                                                 }
                                               }
                                               else {
-                                                S85=10;
+                                                S1633=10;
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
@@ -2695,37 +2916,37 @@ public class ECS_plant extends ClockDomain{
                                           }
                                         }
                                         else {
-                                          S85=9;
-                                          if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                            humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                            humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                            if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                              S2009=0;
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                              System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                              deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                          S1633=9;
+                                          if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                            humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                            humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                            if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                              S3557=0;
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                              System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                              deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                               currsigs.addElement(deHumOnZone4_5_6);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              S2009=1;
-                                              if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                              S3557=1;
+                                              if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                 currsigs.addElement(humOnZone4_5_6);
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
                                               }
                                               else {
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                S85=10;
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                S1633=10;
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
@@ -2733,7 +2954,7 @@ public class ECS_plant extends ClockDomain{
                                             }
                                           }
                                           else {
-                                            S85=10;
+                                            S1633=10;
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
@@ -2746,151 +2967,151 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S85=5;
-                              if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 205, column: 7
-                                temp23_thread_2 = 0;//sysj\ECS_plant.sysj line: 206, column: 5
-                                temp23_thread_2 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 207, column: 5
-                                if(temp23_thread_2 > 22){//sysj\ECS_plant.sysj line: 208, column: 8
-                                  S729=0;
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 210, column: 7
-                                  System.out.println("Room temperature is too high at " + temp23_thread_2);//sysj\ECS_plant.sysj line: 211, column: 7
-                                  airOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 212, column: 7
+                              S1633=5;
+                              if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 210, column: 7
+                                temp23_thread_2 = 0;//sysj\ECS_plant.sysj line: 211, column: 5
+                                temp23_thread_2 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 212, column: 5
+                                if(temp23_thread_2 > 22){//sysj\ECS_plant.sysj line: 213, column: 8
+                                  S2277=0;
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 215, column: 7
+                                  System.out.println("Room temperature is too high at " + temp23_thread_2);//sysj\ECS_plant.sysj line: 216, column: 7
+                                  airOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 217, column: 7
                                   currsigs.addElement(airOnZone2_3);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  S729=1;
-                                  if(temp23_thread_2 < 21){//sysj\ECS_plant.sysj line: 215, column: 15
-                                    heatOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 217, column: 7
+                                  S2277=1;
+                                  if(temp23_thread_2 < 21){//sysj\ECS_plant.sysj line: 220, column: 15
+                                    heatOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 222, column: 7
                                     currsigs.addElement(heatOnZone2_3);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 221, column: 6
-                                    System.out.println("Room temperature is safe at" + temp23_thread_2);//sysj\ECS_plant.sysj line: 222, column: 6
-                                    S85=6;
-                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 228, column: 7
-                                      temp456_thread_2 = 0;//sysj\ECS_plant.sysj line: 229, column: 5
-                                      temp456_thread_2 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 230, column: 5
-                                      if(temp456_thread_2 > 22){//sysj\ECS_plant.sysj line: 231, column: 8
-                                        S829=0;
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 233, column: 7
-                                        System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 234, column: 7
-                                        airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 235, column: 7
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 226, column: 6
+                                    System.out.println("Room temperature is safe at" + temp23_thread_2);//sysj\ECS_plant.sysj line: 227, column: 6
+                                    S1633=6;
+                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 233, column: 7
+                                      temp456_thread_2 = 0;//sysj\ECS_plant.sysj line: 234, column: 5
+                                      temp456_thread_2 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 235, column: 5
+                                      if(temp456_thread_2 > 22){//sysj\ECS_plant.sysj line: 236, column: 8
+                                        S2377=0;
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 238, column: 7
+                                        System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 239, column: 7
+                                        airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 240, column: 7
                                         currsigs.addElement(airOnZone4_5_6);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        S829=1;
-                                        if(temp456_thread_2 < 21){//sysj\ECS_plant.sysj line: 238, column: 15
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 240, column: 7
-                                          System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 241, column: 7
-                                          heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 242, column: 7
+                                        S2377=1;
+                                        if(temp456_thread_2 < 21){//sysj\ECS_plant.sysj line: 243, column: 15
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 245, column: 7
+                                          System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 246, column: 7
+                                          heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 247, column: 7
                                           currsigs.addElement(heatOnZone4_5_6);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 246, column: 6
-                                          System.out.println("Room temperature is safe at" + temp456_thread_2);//sysj\ECS_plant.sysj line: 247, column: 6
-                                          S85=7;
-                                          if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 253, column: 7
-                                            humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 254, column: 5
-                                            humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 255, column: 5
-                                            if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 256, column: 8
-                                              S1009=0;
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                                              System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                                              deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 251, column: 6
+                                          System.out.println("Room temperature is safe at" + temp456_thread_2);//sysj\ECS_plant.sysj line: 252, column: 6
+                                          S1633=7;
+                                          if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 258, column: 7
+                                            humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 259, column: 5
+                                            humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 260, column: 5
+                                            if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 261, column: 8
+                                              S2557=0;
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                                              System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                                              deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                                               currsigs.addElement(deHumOnZone1_7);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              S1009=1;
-                                              if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 264, column: 15
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                                                System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                                                humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                                              S2557=1;
+                                              if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 269, column: 15
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                                                System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                                                humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                                                 currsigs.addElement(humOnZone1_7);
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
                                               }
                                               else {
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 273, column: 6
-                                                System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 274, column: 6
-                                                S85=8;
-                                                if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                                  humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                                  humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                                  if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                                    S1349=0;
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                                    System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                                    deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 278, column: 6
+                                                System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 279, column: 6
+                                                S1633=8;
+                                                if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                                  humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                                  humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                                  if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                                    S2897=0;
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                                    System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                                    deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                                     currsigs.addElement(deHumOnZone2_3);
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
                                                   }
                                                   else {
-                                                    S1349=1;
-                                                    if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                                      System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                                      humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                                    S2897=1;
+                                                    if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                                      System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                                      humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                                       currsigs.addElement(humOnZone2_3);
                                                       active[2]=1;
                                                       ends[2]=1;
                                                       tdone[2]=1;
                                                     }
                                                     else {
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                                      System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                                      S85=9;
-                                                      if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                        humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                        humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                        if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                          S2009=0;
-                                                          System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                          System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                          deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                                      System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                                      S1633=9;
+                                                      if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                        humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                        humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                        if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                          S3557=0;
+                                                          System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                          System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                          deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                           currsigs.addElement(deHumOnZone4_5_6);
                                                           active[2]=1;
                                                           ends[2]=1;
                                                           tdone[2]=1;
                                                         }
                                                         else {
-                                                          S2009=1;
-                                                          if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                            System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                            System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                            humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                          S3557=1;
+                                                          if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                            System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                            System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                            humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                             currsigs.addElement(humOnZone4_5_6);
                                                             active[2]=1;
                                                             ends[2]=1;
                                                             tdone[2]=1;
                                                           }
                                                           else {
-                                                            System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                            System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                            S85=10;
+                                                            System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                            System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                            S1633=10;
                                                             active[2]=1;
                                                             ends[2]=1;
                                                             tdone[2]=1;
@@ -2898,7 +3119,7 @@ public class ECS_plant extends ClockDomain{
                                                         }
                                                       }
                                                       else {
-                                                        S85=10;
+                                                        S1633=10;
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
@@ -2907,37 +3128,37 @@ public class ECS_plant extends ClockDomain{
                                                   }
                                                 }
                                                 else {
-                                                  S85=9;
-                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                      S2009=0;
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                                  S1633=9;
+                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                      S3557=0;
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                       currsigs.addElement(deHumOnZone4_5_6);
                                                       active[2]=1;
                                                       ends[2]=1;
                                                       tdone[2]=1;
                                                     }
                                                     else {
-                                                      S2009=1;
-                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                      S3557=1;
+                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                         currsigs.addElement(humOnZone4_5_6);
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
                                                       }
                                                       else {
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                        S85=10;
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                        S1633=10;
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
@@ -2945,7 +3166,7 @@ public class ECS_plant extends ClockDomain{
                                                     }
                                                   }
                                                   else {
-                                                    S85=10;
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -2955,67 +3176,67 @@ public class ECS_plant extends ClockDomain{
                                             }
                                           }
                                           else {
-                                            S85=8;
-                                            if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                              humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                              humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                              if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                                S1349=0;
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                                System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                                deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                            S1633=8;
+                                            if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                              humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                              humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                              if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                                S2897=0;
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                                System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                                deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                                 currsigs.addElement(deHumOnZone2_3);
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
                                               }
                                               else {
-                                                S1349=1;
-                                                if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                                  System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                                  humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                                S2897=1;
+                                                if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                                  System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                                  humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                                   currsigs.addElement(humOnZone2_3);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                                  System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                                  S85=9;
-                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                      S2009=0;
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                                  System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                                  S1633=9;
+                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                      S3557=0;
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                       currsigs.addElement(deHumOnZone4_5_6);
                                                       active[2]=1;
                                                       ends[2]=1;
                                                       tdone[2]=1;
                                                     }
                                                     else {
-                                                      S2009=1;
-                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                      S3557=1;
+                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                         currsigs.addElement(humOnZone4_5_6);
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
                                                       }
                                                       else {
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                        S85=10;
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                        S1633=10;
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
@@ -3023,7 +3244,7 @@ public class ECS_plant extends ClockDomain{
                                                     }
                                                   }
                                                   else {
-                                                    S85=10;
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -3032,37 +3253,37 @@ public class ECS_plant extends ClockDomain{
                                               }
                                             }
                                             else {
-                                              S85=9;
-                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                  S2009=0;
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                              S1633=9;
+                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                  S3557=0;
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                   currsigs.addElement(deHumOnZone4_5_6);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  S2009=1;
-                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                  S3557=1;
+                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                     currsigs.addElement(humOnZone4_5_6);
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
                                                   }
                                                   else {
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                    S85=10;
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -3070,7 +3291,7 @@ public class ECS_plant extends ClockDomain{
                                                 }
                                               }
                                               else {
-                                                S85=10;
+                                                S1633=10;
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
@@ -3081,97 +3302,97 @@ public class ECS_plant extends ClockDomain{
                                       }
                                     }
                                     else {
-                                      S85=7;
-                                      if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 253, column: 7
-                                        humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 254, column: 5
-                                        humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 255, column: 5
-                                        if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 256, column: 8
-                                          S1009=0;
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                                          System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                                          deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                                      S1633=7;
+                                      if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 258, column: 7
+                                        humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 259, column: 5
+                                        humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 260, column: 5
+                                        if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 261, column: 8
+                                          S2557=0;
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                                          System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                                          deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                                           currsigs.addElement(deHumOnZone1_7);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          S1009=1;
-                                          if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 264, column: 15
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                                            System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                                            humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                                          S2557=1;
+                                          if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 269, column: 15
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                                            System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                                            humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                                             currsigs.addElement(humOnZone1_7);
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
                                           }
                                           else {
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 273, column: 6
-                                            System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 274, column: 6
-                                            S85=8;
-                                            if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                              humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                              humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                              if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                                S1349=0;
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                                System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                                deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 278, column: 6
+                                            System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 279, column: 6
+                                            S1633=8;
+                                            if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                              humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                              humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                              if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                                S2897=0;
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                                System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                                deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                                 currsigs.addElement(deHumOnZone2_3);
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
                                               }
                                               else {
-                                                S1349=1;
-                                                if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                                  System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                                  humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                                S2897=1;
+                                                if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                                  System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                                  humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                                   currsigs.addElement(humOnZone2_3);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                                  System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                                  S85=9;
-                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                      S2009=0;
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                                  System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                                  S1633=9;
+                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                      S3557=0;
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                       currsigs.addElement(deHumOnZone4_5_6);
                                                       active[2]=1;
                                                       ends[2]=1;
                                                       tdone[2]=1;
                                                     }
                                                     else {
-                                                      S2009=1;
-                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                      S3557=1;
+                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                         currsigs.addElement(humOnZone4_5_6);
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
                                                       }
                                                       else {
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                        S85=10;
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                        S1633=10;
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
@@ -3179,7 +3400,7 @@ public class ECS_plant extends ClockDomain{
                                                     }
                                                   }
                                                   else {
-                                                    S85=10;
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -3188,37 +3409,37 @@ public class ECS_plant extends ClockDomain{
                                               }
                                             }
                                             else {
-                                              S85=9;
-                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                  S2009=0;
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                              S1633=9;
+                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                  S3557=0;
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                   currsigs.addElement(deHumOnZone4_5_6);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  S2009=1;
-                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                  S3557=1;
+                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                     currsigs.addElement(humOnZone4_5_6);
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
                                                   }
                                                   else {
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                    S85=10;
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -3226,7 +3447,7 @@ public class ECS_plant extends ClockDomain{
                                                 }
                                               }
                                               else {
-                                                S85=10;
+                                                S1633=10;
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
@@ -3236,67 +3457,67 @@ public class ECS_plant extends ClockDomain{
                                         }
                                       }
                                       else {
-                                        S85=8;
-                                        if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                          humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                          humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                          if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                            S1349=0;
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                            System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                            deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                        S1633=8;
+                                        if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                          humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                          humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                          if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                            S2897=0;
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                            System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                            deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                             currsigs.addElement(deHumOnZone2_3);
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
                                           }
                                           else {
-                                            S1349=1;
-                                            if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                              System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                              humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                            S2897=1;
+                                            if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                              System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                              humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                               currsigs.addElement(humOnZone2_3);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                              System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                              S85=9;
-                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                  S2009=0;
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                              System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                              S1633=9;
+                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                  S3557=0;
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                   currsigs.addElement(deHumOnZone4_5_6);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  S2009=1;
-                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                  S3557=1;
+                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                     currsigs.addElement(humOnZone4_5_6);
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
                                                   }
                                                   else {
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                    S85=10;
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -3304,7 +3525,7 @@ public class ECS_plant extends ClockDomain{
                                                 }
                                               }
                                               else {
-                                                S85=10;
+                                                S1633=10;
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
@@ -3313,37 +3534,37 @@ public class ECS_plant extends ClockDomain{
                                           }
                                         }
                                         else {
-                                          S85=9;
-                                          if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                            humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                            humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                            if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                              S2009=0;
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                              System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                              deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                          S1633=9;
+                                          if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                            humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                            humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                            if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                              S3557=0;
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                              System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                              deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                               currsigs.addElement(deHumOnZone4_5_6);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              S2009=1;
-                                              if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                              S3557=1;
+                                              if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                 currsigs.addElement(humOnZone4_5_6);
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
                                               }
                                               else {
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                S85=10;
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                S1633=10;
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
@@ -3351,7 +3572,7 @@ public class ECS_plant extends ClockDomain{
                                             }
                                           }
                                           else {
-                                            S85=10;
+                                            S1633=10;
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
@@ -3363,125 +3584,125 @@ public class ECS_plant extends ClockDomain{
                                 }
                               }
                               else {
-                                S85=6;
-                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 228, column: 7
-                                  temp456_thread_2 = 0;//sysj\ECS_plant.sysj line: 229, column: 5
-                                  temp456_thread_2 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 230, column: 5
-                                  if(temp456_thread_2 > 22){//sysj\ECS_plant.sysj line: 231, column: 8
-                                    S829=0;
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 233, column: 7
-                                    System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 234, column: 7
-                                    airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 235, column: 7
+                                S1633=6;
+                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 233, column: 7
+                                  temp456_thread_2 = 0;//sysj\ECS_plant.sysj line: 234, column: 5
+                                  temp456_thread_2 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 235, column: 5
+                                  if(temp456_thread_2 > 22){//sysj\ECS_plant.sysj line: 236, column: 8
+                                    S2377=0;
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 238, column: 7
+                                    System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 239, column: 7
+                                    airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 240, column: 7
                                     currsigs.addElement(airOnZone4_5_6);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    S829=1;
-                                    if(temp456_thread_2 < 21){//sysj\ECS_plant.sysj line: 238, column: 15
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 240, column: 7
-                                      System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 241, column: 7
-                                      heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 242, column: 7
+                                    S2377=1;
+                                    if(temp456_thread_2 < 21){//sysj\ECS_plant.sysj line: 243, column: 15
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 245, column: 7
+                                      System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 246, column: 7
+                                      heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 247, column: 7
                                       currsigs.addElement(heatOnZone4_5_6);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 246, column: 6
-                                      System.out.println("Room temperature is safe at" + temp456_thread_2);//sysj\ECS_plant.sysj line: 247, column: 6
-                                      S85=7;
-                                      if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 253, column: 7
-                                        humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 254, column: 5
-                                        humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 255, column: 5
-                                        if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 256, column: 8
-                                          S1009=0;
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                                          System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                                          deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 251, column: 6
+                                      System.out.println("Room temperature is safe at" + temp456_thread_2);//sysj\ECS_plant.sysj line: 252, column: 6
+                                      S1633=7;
+                                      if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 258, column: 7
+                                        humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 259, column: 5
+                                        humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 260, column: 5
+                                        if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 261, column: 8
+                                          S2557=0;
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                                          System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                                          deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                                           currsigs.addElement(deHumOnZone1_7);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          S1009=1;
-                                          if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 264, column: 15
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                                            System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                                            humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                                          S2557=1;
+                                          if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 269, column: 15
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                                            System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                                            humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                                             currsigs.addElement(humOnZone1_7);
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
                                           }
                                           else {
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 273, column: 6
-                                            System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 274, column: 6
-                                            S85=8;
-                                            if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                              humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                              humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                              if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                                S1349=0;
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                                System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                                deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 278, column: 6
+                                            System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 279, column: 6
+                                            S1633=8;
+                                            if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                              humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                              humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                              if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                                S2897=0;
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                                System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                                deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                                 currsigs.addElement(deHumOnZone2_3);
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
                                               }
                                               else {
-                                                S1349=1;
-                                                if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                                  System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                                  humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                                S2897=1;
+                                                if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                                  System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                                  humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                                   currsigs.addElement(humOnZone2_3);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                                  System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                                  S85=9;
-                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                      S2009=0;
-                                                      System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                                  System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                                  S1633=9;
+                                                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                    humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                    humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                    if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                      S3557=0;
+                                                      System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                      System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                      deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                       currsigs.addElement(deHumOnZone4_5_6);
                                                       active[2]=1;
                                                       ends[2]=1;
                                                       tdone[2]=1;
                                                     }
                                                     else {
-                                                      S2009=1;
-                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                      S3557=1;
+                                                      if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                        System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                        humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                         currsigs.addElement(humOnZone4_5_6);
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
                                                       }
                                                       else {
-                                                        System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                        S85=10;
+                                                        System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                        System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                        S1633=10;
                                                         active[2]=1;
                                                         ends[2]=1;
                                                         tdone[2]=1;
@@ -3489,7 +3710,7 @@ public class ECS_plant extends ClockDomain{
                                                     }
                                                   }
                                                   else {
-                                                    S85=10;
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -3498,37 +3719,37 @@ public class ECS_plant extends ClockDomain{
                                               }
                                             }
                                             else {
-                                              S85=9;
-                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                  S2009=0;
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                              S1633=9;
+                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                  S3557=0;
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                   currsigs.addElement(deHumOnZone4_5_6);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  S2009=1;
-                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                  S3557=1;
+                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                     currsigs.addElement(humOnZone4_5_6);
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
                                                   }
                                                   else {
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                    S85=10;
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -3536,7 +3757,7 @@ public class ECS_plant extends ClockDomain{
                                                 }
                                               }
                                               else {
-                                                S85=10;
+                                                S1633=10;
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
@@ -3546,67 +3767,67 @@ public class ECS_plant extends ClockDomain{
                                         }
                                       }
                                       else {
-                                        S85=8;
-                                        if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                          humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                          humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                          if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                            S1349=0;
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                            System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                            deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                        S1633=8;
+                                        if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                          humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                          humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                          if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                            S2897=0;
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                            System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                            deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                             currsigs.addElement(deHumOnZone2_3);
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
                                           }
                                           else {
-                                            S1349=1;
-                                            if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                              System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                              humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                            S2897=1;
+                                            if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                              System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                              humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                               currsigs.addElement(humOnZone2_3);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                              System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                              S85=9;
-                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                  S2009=0;
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                              System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                              S1633=9;
+                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                  S3557=0;
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                   currsigs.addElement(deHumOnZone4_5_6);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  S2009=1;
-                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                  S3557=1;
+                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                     currsigs.addElement(humOnZone4_5_6);
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
                                                   }
                                                   else {
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                    S85=10;
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -3614,7 +3835,7 @@ public class ECS_plant extends ClockDomain{
                                                 }
                                               }
                                               else {
-                                                S85=10;
+                                                S1633=10;
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
@@ -3623,37 +3844,37 @@ public class ECS_plant extends ClockDomain{
                                           }
                                         }
                                         else {
-                                          S85=9;
-                                          if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                            humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                            humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                            if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                              S2009=0;
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                              System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                              deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                          S1633=9;
+                                          if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                            humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                            humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                            if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                              S3557=0;
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                              System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                              deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                               currsigs.addElement(deHumOnZone4_5_6);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              S2009=1;
-                                              if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                              S3557=1;
+                                              if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                 currsigs.addElement(humOnZone4_5_6);
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
                                               }
                                               else {
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                S85=10;
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                S1633=10;
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
@@ -3661,7 +3882,7 @@ public class ECS_plant extends ClockDomain{
                                             }
                                           }
                                           else {
-                                            S85=10;
+                                            S1633=10;
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
@@ -3672,97 +3893,97 @@ public class ECS_plant extends ClockDomain{
                                   }
                                 }
                                 else {
-                                  S85=7;
-                                  if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 253, column: 7
-                                    humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 254, column: 5
-                                    humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 255, column: 5
-                                    if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 256, column: 8
-                                      S1009=0;
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                                      System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                                      deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                                  S1633=7;
+                                  if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 258, column: 7
+                                    humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 259, column: 5
+                                    humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 260, column: 5
+                                    if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 261, column: 8
+                                      S2557=0;
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                                      System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                                      deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                                       currsigs.addElement(deHumOnZone1_7);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      S1009=1;
-                                      if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 264, column: 15
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                                        System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                                        humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                                      S2557=1;
+                                      if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 269, column: 15
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                                        System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                                        humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                                         currsigs.addElement(humOnZone1_7);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 273, column: 6
-                                        System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 274, column: 6
-                                        S85=8;
-                                        if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                          humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                          humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                          if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                            S1349=0;
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                            System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                            deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 278, column: 6
+                                        System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 279, column: 6
+                                        S1633=8;
+                                        if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                          humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                          humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                          if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                            S2897=0;
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                            System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                            deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                             currsigs.addElement(deHumOnZone2_3);
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
                                           }
                                           else {
-                                            S1349=1;
-                                            if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                              System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                              humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                            S2897=1;
+                                            if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                              System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                              humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                               currsigs.addElement(humOnZone2_3);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                              System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                              S85=9;
-                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                  S2009=0;
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                              System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                              S1633=9;
+                                              if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                                humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                                humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                                if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                  S3557=0;
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                  System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                  deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                   currsigs.addElement(deHumOnZone4_5_6);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  S2009=1;
-                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                  S3557=1;
+                                                  if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                    System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                    humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                     currsigs.addElement(humOnZone4_5_6);
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
                                                   }
                                                   else {
-                                                    System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                    S85=10;
+                                                    System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                    System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                    S1633=10;
                                                     active[2]=1;
                                                     ends[2]=1;
                                                     tdone[2]=1;
@@ -3770,7 +3991,7 @@ public class ECS_plant extends ClockDomain{
                                                 }
                                               }
                                               else {
-                                                S85=10;
+                                                S1633=10;
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
@@ -3779,37 +4000,37 @@ public class ECS_plant extends ClockDomain{
                                           }
                                         }
                                         else {
-                                          S85=9;
-                                          if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                            humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                            humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                            if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                              S2009=0;
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                              System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                              deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                          S1633=9;
+                                          if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                            humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                            humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                            if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                              S3557=0;
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                              System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                              deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                               currsigs.addElement(deHumOnZone4_5_6);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              S2009=1;
-                                              if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                              S3557=1;
+                                              if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                 currsigs.addElement(humOnZone4_5_6);
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
                                               }
                                               else {
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                S85=10;
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                S1633=10;
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
@@ -3817,7 +4038,7 @@ public class ECS_plant extends ClockDomain{
                                             }
                                           }
                                           else {
-                                            S85=10;
+                                            S1633=10;
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
@@ -3827,67 +4048,67 @@ public class ECS_plant extends ClockDomain{
                                     }
                                   }
                                   else {
-                                    S85=8;
-                                    if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                      humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                      humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                      if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                        S1349=0;
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                        System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                        deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                    S1633=8;
+                                    if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                      humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                      humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                      if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                        S2897=0;
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                        System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                        deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                         currsigs.addElement(deHumOnZone2_3);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        S1349=1;
-                                        if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                          System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                          humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                        S2897=1;
+                                        if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                          System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                          humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                           currsigs.addElement(humOnZone2_3);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                          System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                          S85=9;
-                                          if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                            humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                            humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                            if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                              S2009=0;
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                              System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                              deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                          System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                          S1633=9;
+                                          if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                            humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                            humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                            if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                              S3557=0;
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                              System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                              deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                               currsigs.addElement(deHumOnZone4_5_6);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              S2009=1;
-                                              if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                              S3557=1;
+                                              if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                 currsigs.addElement(humOnZone4_5_6);
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
                                               }
                                               else {
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                S85=10;
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                S1633=10;
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
@@ -3895,7 +4116,7 @@ public class ECS_plant extends ClockDomain{
                                             }
                                           }
                                           else {
-                                            S85=10;
+                                            S1633=10;
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
@@ -3904,37 +4125,37 @@ public class ECS_plant extends ClockDomain{
                                       }
                                     }
                                     else {
-                                      S85=9;
-                                      if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                        humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                        humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                        if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                          S2009=0;
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                          System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                          deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                      S1633=9;
+                                      if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                        humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                        humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                        if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                          S3557=0;
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                          System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                          deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                           currsigs.addElement(deHumOnZone4_5_6);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          S2009=1;
-                                          if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                            System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                            humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                          S3557=1;
+                                          if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                            System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                            humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                             currsigs.addElement(humOnZone4_5_6);
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
                                           }
                                           else {
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                            System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                            S85=10;
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                            System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                            S1633=10;
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
@@ -3942,7 +4163,7 @@ public class ECS_plant extends ClockDomain{
                                         }
                                       }
                                       else {
-                                        S85=10;
+                                        S1633=10;
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
@@ -3968,181 +4189,181 @@ public class ECS_plant extends ClockDomain{
             break;
           
           case 3 : 
-            if(dust.getprestatus()){//sysj\ECS_plant.sysj line: 135, column: 10
-              S85=4;
-              if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 182, column: 7
-                temp17_thread_2 = 0;//sysj\ECS_plant.sysj line: 183, column: 5
-                temp17_thread_2 = (tempZone1_7.getpreval() == null ? null : ((Integer)tempZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 184, column: 5
-                if(temp17_thread_2 > 22){//sysj\ECS_plant.sysj line: 185, column: 8
-                  S669=0;
-                  System.out.println("");//sysj\ECS_plant.sysj line: 187, column: 7
-                  System.out.println("Room temperature is too high at " + temp17_thread_2);//sysj\ECS_plant.sysj line: 188, column: 7
-                  fanOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 189, column: 7
+            if(dust.getprestatus()){//sysj\ECS_plant.sysj line: 140, column: 10
+              S1633=4;
+              if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 187, column: 7
+                temp17_thread_2 = 0;//sysj\ECS_plant.sysj line: 188, column: 5
+                temp17_thread_2 = (tempZone1_7.getpreval() == null ? null : ((Integer)tempZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 189, column: 5
+                if(temp17_thread_2 > 22){//sysj\ECS_plant.sysj line: 190, column: 8
+                  S2217=0;
+                  System.out.println("");//sysj\ECS_plant.sysj line: 192, column: 7
+                  System.out.println("Room temperature is too high at " + temp17_thread_2);//sysj\ECS_plant.sysj line: 193, column: 7
+                  fanOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 194, column: 7
                   currsigs.addElement(fanOnZone1_7);
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S669=1;
-                  if(temp17_thread_2 < 21){//sysj\ECS_plant.sysj line: 192, column: 15
-                    S668=0;
-                    System.out.println("Room temperature is too low at " + temp17_thread_2);//sysj\ECS_plant.sysj line: 194, column: 7
-                    heatOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 195, column: 7
+                  S2217=1;
+                  if(temp17_thread_2 < 21){//sysj\ECS_plant.sysj line: 197, column: 15
+                    S2216=0;
+                    System.out.println("Room temperature is too low at " + temp17_thread_2);//sysj\ECS_plant.sysj line: 199, column: 7
+                    heatOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 200, column: 7
                     currsigs.addElement(heatOnZone1_7);
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S668=1;
-                    System.out.println("");//sysj\ECS_plant.sysj line: 199, column: 6
-                    System.out.println("Room temperature is safe at" + temp17_thread_2);//sysj\ECS_plant.sysj line: 200, column: 6
-                    S85=5;
-                    if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 205, column: 7
-                      temp23_thread_2 = 0;//sysj\ECS_plant.sysj line: 206, column: 5
-                      temp23_thread_2 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 207, column: 5
-                      if(temp23_thread_2 > 22){//sysj\ECS_plant.sysj line: 208, column: 8
-                        S729=0;
-                        System.out.println("");//sysj\ECS_plant.sysj line: 210, column: 7
-                        System.out.println("Room temperature is too high at " + temp23_thread_2);//sysj\ECS_plant.sysj line: 211, column: 7
-                        airOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 212, column: 7
+                    S2216=1;
+                    System.out.println("");//sysj\ECS_plant.sysj line: 204, column: 6
+                    System.out.println("Room temperature is safe at" + temp17_thread_2);//sysj\ECS_plant.sysj line: 205, column: 6
+                    S1633=5;
+                    if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 210, column: 7
+                      temp23_thread_2 = 0;//sysj\ECS_plant.sysj line: 211, column: 5
+                      temp23_thread_2 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 212, column: 5
+                      if(temp23_thread_2 > 22){//sysj\ECS_plant.sysj line: 213, column: 8
+                        S2277=0;
+                        System.out.println("");//sysj\ECS_plant.sysj line: 215, column: 7
+                        System.out.println("Room temperature is too high at " + temp23_thread_2);//sysj\ECS_plant.sysj line: 216, column: 7
+                        airOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 217, column: 7
                         currsigs.addElement(airOnZone2_3);
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        S729=1;
-                        if(temp23_thread_2 < 21){//sysj\ECS_plant.sysj line: 215, column: 15
-                          heatOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 217, column: 7
+                        S2277=1;
+                        if(temp23_thread_2 < 21){//sysj\ECS_plant.sysj line: 220, column: 15
+                          heatOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 222, column: 7
                           currsigs.addElement(heatOnZone2_3);
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          System.out.println("");//sysj\ECS_plant.sysj line: 221, column: 6
-                          System.out.println("Room temperature is safe at" + temp23_thread_2);//sysj\ECS_plant.sysj line: 222, column: 6
-                          S85=6;
-                          if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 228, column: 7
-                            temp456_thread_2 = 0;//sysj\ECS_plant.sysj line: 229, column: 5
-                            temp456_thread_2 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 230, column: 5
-                            if(temp456_thread_2 > 22){//sysj\ECS_plant.sysj line: 231, column: 8
-                              S829=0;
-                              System.out.println("");//sysj\ECS_plant.sysj line: 233, column: 7
-                              System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 234, column: 7
-                              airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 235, column: 7
+                          System.out.println("");//sysj\ECS_plant.sysj line: 226, column: 6
+                          System.out.println("Room temperature is safe at" + temp23_thread_2);//sysj\ECS_plant.sysj line: 227, column: 6
+                          S1633=6;
+                          if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 233, column: 7
+                            temp456_thread_2 = 0;//sysj\ECS_plant.sysj line: 234, column: 5
+                            temp456_thread_2 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 235, column: 5
+                            if(temp456_thread_2 > 22){//sysj\ECS_plant.sysj line: 236, column: 8
+                              S2377=0;
+                              System.out.println("");//sysj\ECS_plant.sysj line: 238, column: 7
+                              System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 239, column: 7
+                              airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 240, column: 7
                               currsigs.addElement(airOnZone4_5_6);
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S829=1;
-                              if(temp456_thread_2 < 21){//sysj\ECS_plant.sysj line: 238, column: 15
-                                System.out.println("");//sysj\ECS_plant.sysj line: 240, column: 7
-                                System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 241, column: 7
-                                heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 242, column: 7
+                              S2377=1;
+                              if(temp456_thread_2 < 21){//sysj\ECS_plant.sysj line: 243, column: 15
+                                System.out.println("");//sysj\ECS_plant.sysj line: 245, column: 7
+                                System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 246, column: 7
+                                heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 247, column: 7
                                 currsigs.addElement(heatOnZone4_5_6);
                                 active[2]=1;
                                 ends[2]=1;
                                 tdone[2]=1;
                               }
                               else {
-                                System.out.println("");//sysj\ECS_plant.sysj line: 246, column: 6
-                                System.out.println("Room temperature is safe at" + temp456_thread_2);//sysj\ECS_plant.sysj line: 247, column: 6
-                                S85=7;
-                                if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 253, column: 7
-                                  humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 254, column: 5
-                                  humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 255, column: 5
-                                  if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 256, column: 8
-                                    S1009=0;
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                                    System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                                    deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                                System.out.println("");//sysj\ECS_plant.sysj line: 251, column: 6
+                                System.out.println("Room temperature is safe at" + temp456_thread_2);//sysj\ECS_plant.sysj line: 252, column: 6
+                                S1633=7;
+                                if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 258, column: 7
+                                  humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 259, column: 5
+                                  humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 260, column: 5
+                                  if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 261, column: 8
+                                    S2557=0;
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                                    System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                                    deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                                     currsigs.addElement(deHumOnZone1_7);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    S1009=1;
-                                    if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 264, column: 15
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                                      System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                                      humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                                    S2557=1;
+                                    if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 269, column: 15
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                                      System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                                      humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                                       currsigs.addElement(humOnZone1_7);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 273, column: 6
-                                      System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 274, column: 6
-                                      S85=8;
-                                      if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                        humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                        humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                        if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                          S1349=0;
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                          System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                          deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 278, column: 6
+                                      System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 279, column: 6
+                                      S1633=8;
+                                      if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                        humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                        humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                        if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                          S2897=0;
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                          System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                          deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                           currsigs.addElement(deHumOnZone2_3);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          S1349=1;
-                                          if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                            System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                            humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                          S2897=1;
+                                          if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                            System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                            humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                             currsigs.addElement(humOnZone2_3);
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
                                           }
                                           else {
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                            System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                            S85=9;
-                                            if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                              humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                              humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                              if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                                S2009=0;
-                                                System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                                System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                                deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                            System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                            S1633=9;
+                                            if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                              humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                              humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                              if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                                S3557=0;
+                                                System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                                System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                                deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                                 currsigs.addElement(deHumOnZone4_5_6);
                                                 active[2]=1;
                                                 ends[2]=1;
                                                 tdone[2]=1;
                                               }
                                               else {
-                                                S2009=1;
-                                                if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                                  System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                                  humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                                S3557=1;
+                                                if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                                  System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                                  humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                                   currsigs.addElement(humOnZone4_5_6);
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
                                                 }
                                                 else {
-                                                  System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                                  System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                                  S85=10;
+                                                  System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                                  System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                                  S1633=10;
                                                   active[2]=1;
                                                   ends[2]=1;
                                                   tdone[2]=1;
@@ -4150,7 +4371,7 @@ public class ECS_plant extends ClockDomain{
                                               }
                                             }
                                             else {
-                                              S85=10;
+                                              S1633=10;
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
@@ -4159,37 +4380,37 @@ public class ECS_plant extends ClockDomain{
                                         }
                                       }
                                       else {
-                                        S85=9;
-                                        if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                          humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                          humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                          if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                            S2009=0;
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                            System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                            deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                        S1633=9;
+                                        if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                          humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                          humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                          if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                            S3557=0;
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                            System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                            deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                             currsigs.addElement(deHumOnZone4_5_6);
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
                                           }
                                           else {
-                                            S2009=1;
-                                            if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                              System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                              humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                            S3557=1;
+                                            if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                              System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                              humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                               currsigs.addElement(humOnZone4_5_6);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                              System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                              S85=10;
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                              System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                              S1633=10;
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
@@ -4197,7 +4418,7 @@ public class ECS_plant extends ClockDomain{
                                           }
                                         }
                                         else {
-                                          S85=10;
+                                          S1633=10;
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
@@ -4207,67 +4428,67 @@ public class ECS_plant extends ClockDomain{
                                   }
                                 }
                                 else {
-                                  S85=8;
-                                  if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                    humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                    humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                    if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                      S1349=0;
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                      System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                      deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                  S1633=8;
+                                  if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                    humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                    humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                    if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                      S2897=0;
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                      System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                      deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                       currsigs.addElement(deHumOnZone2_3);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      S1349=1;
-                                      if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                        System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                        humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                      S2897=1;
+                                      if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                        System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                        humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                         currsigs.addElement(humOnZone2_3);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                        System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                        S85=9;
-                                        if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                          humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                          humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                          if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                            S2009=0;
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                            System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                            deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                        System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                        S1633=9;
+                                        if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                          humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                          humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                          if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                            S3557=0;
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                            System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                            deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                             currsigs.addElement(deHumOnZone4_5_6);
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
                                           }
                                           else {
-                                            S2009=1;
-                                            if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                              System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                              humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                            S3557=1;
+                                            if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                              System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                              humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                               currsigs.addElement(humOnZone4_5_6);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                              System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                              S85=10;
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                              System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                              S1633=10;
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
@@ -4275,7 +4496,7 @@ public class ECS_plant extends ClockDomain{
                                           }
                                         }
                                         else {
-                                          S85=10;
+                                          S1633=10;
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
@@ -4284,37 +4505,37 @@ public class ECS_plant extends ClockDomain{
                                     }
                                   }
                                   else {
-                                    S85=9;
-                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                        S2009=0;
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                    S1633=9;
+                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                        S3557=0;
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                         currsigs.addElement(deHumOnZone4_5_6);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        S2009=1;
-                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                        S3557=1;
+                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                           currsigs.addElement(humOnZone4_5_6);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                          S85=10;
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                          S1633=10;
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
@@ -4322,7 +4543,7 @@ public class ECS_plant extends ClockDomain{
                                       }
                                     }
                                     else {
-                                      S85=10;
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -4333,97 +4554,97 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            S85=7;
-                            if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 253, column: 7
-                              humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 254, column: 5
-                              humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 255, column: 5
-                              if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 256, column: 8
-                                S1009=0;
-                                System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                                System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                                deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                            S1633=7;
+                            if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 258, column: 7
+                              humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 259, column: 5
+                              humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 260, column: 5
+                              if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 261, column: 8
+                                S2557=0;
+                                System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                                System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                                deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                                 currsigs.addElement(deHumOnZone1_7);
                                 active[2]=1;
                                 ends[2]=1;
                                 tdone[2]=1;
                               }
                               else {
-                                S1009=1;
-                                if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 264, column: 15
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                                  System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                                  humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                                S2557=1;
+                                if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 269, column: 15
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                                  System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                                  humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                                   currsigs.addElement(humOnZone1_7);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 273, column: 6
-                                  System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 274, column: 6
-                                  S85=8;
-                                  if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                    humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                    humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                    if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                      S1349=0;
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                      System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                      deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 278, column: 6
+                                  System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 279, column: 6
+                                  S1633=8;
+                                  if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                    humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                    humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                    if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                      S2897=0;
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                      System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                      deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                       currsigs.addElement(deHumOnZone2_3);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      S1349=1;
-                                      if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                        System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                        humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                      S2897=1;
+                                      if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                        System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                        humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                         currsigs.addElement(humOnZone2_3);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                        System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                        S85=9;
-                                        if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                          humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                          humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                          if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                            S2009=0;
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                            System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                            deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                        System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                        S1633=9;
+                                        if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                          humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                          humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                          if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                            S3557=0;
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                            System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                            deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                             currsigs.addElement(deHumOnZone4_5_6);
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
                                           }
                                           else {
-                                            S2009=1;
-                                            if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                              System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                              humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                            S3557=1;
+                                            if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                              System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                              humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                               currsigs.addElement(humOnZone4_5_6);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                              System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                              S85=10;
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                              System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                              S1633=10;
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
@@ -4431,7 +4652,7 @@ public class ECS_plant extends ClockDomain{
                                           }
                                         }
                                         else {
-                                          S85=10;
+                                          S1633=10;
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
@@ -4440,37 +4661,37 @@ public class ECS_plant extends ClockDomain{
                                     }
                                   }
                                   else {
-                                    S85=9;
-                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                        S2009=0;
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                    S1633=9;
+                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                        S3557=0;
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                         currsigs.addElement(deHumOnZone4_5_6);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        S2009=1;
-                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                        S3557=1;
+                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                           currsigs.addElement(humOnZone4_5_6);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                          S85=10;
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                          S1633=10;
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
@@ -4478,7 +4699,7 @@ public class ECS_plant extends ClockDomain{
                                       }
                                     }
                                     else {
-                                      S85=10;
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -4488,67 +4709,67 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S85=8;
-                              if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                  S1349=0;
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                  System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                  deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                              S1633=8;
+                              if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                  S2897=0;
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                  System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                  deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                   currsigs.addElement(deHumOnZone2_3);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  S1349=1;
-                                  if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                    System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                    humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                  S2897=1;
+                                  if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                    System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                    humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                     currsigs.addElement(humOnZone2_3);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                    System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                    S85=9;
-                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                        S2009=0;
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                    System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                    S1633=9;
+                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                        S3557=0;
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                         currsigs.addElement(deHumOnZone4_5_6);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        S2009=1;
-                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                        S3557=1;
+                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                           currsigs.addElement(humOnZone4_5_6);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                          S85=10;
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                          S1633=10;
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
@@ -4556,7 +4777,7 @@ public class ECS_plant extends ClockDomain{
                                       }
                                     }
                                     else {
-                                      S85=10;
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -4565,37 +4786,37 @@ public class ECS_plant extends ClockDomain{
                                 }
                               }
                               else {
-                                S85=9;
-                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                    S2009=0;
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                S1633=9;
+                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                    S3557=0;
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                     currsigs.addElement(deHumOnZone4_5_6);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    S2009=1;
-                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                    S3557=1;
+                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                       currsigs.addElement(humOnZone4_5_6);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                      S85=10;
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -4603,7 +4824,7 @@ public class ECS_plant extends ClockDomain{
                                   }
                                 }
                                 else {
-                                  S85=10;
+                                  S1633=10;
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
@@ -4615,125 +4836,125 @@ public class ECS_plant extends ClockDomain{
                       }
                     }
                     else {
-                      S85=6;
-                      if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 228, column: 7
-                        temp456_thread_2 = 0;//sysj\ECS_plant.sysj line: 229, column: 5
-                        temp456_thread_2 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 230, column: 5
-                        if(temp456_thread_2 > 22){//sysj\ECS_plant.sysj line: 231, column: 8
-                          S829=0;
-                          System.out.println("");//sysj\ECS_plant.sysj line: 233, column: 7
-                          System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 234, column: 7
-                          airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 235, column: 7
+                      S1633=6;
+                      if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 233, column: 7
+                        temp456_thread_2 = 0;//sysj\ECS_plant.sysj line: 234, column: 5
+                        temp456_thread_2 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 235, column: 5
+                        if(temp456_thread_2 > 22){//sysj\ECS_plant.sysj line: 236, column: 8
+                          S2377=0;
+                          System.out.println("");//sysj\ECS_plant.sysj line: 238, column: 7
+                          System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 239, column: 7
+                          airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 240, column: 7
                           currsigs.addElement(airOnZone4_5_6);
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S829=1;
-                          if(temp456_thread_2 < 21){//sysj\ECS_plant.sysj line: 238, column: 15
-                            System.out.println("");//sysj\ECS_plant.sysj line: 240, column: 7
-                            System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 241, column: 7
-                            heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 242, column: 7
+                          S2377=1;
+                          if(temp456_thread_2 < 21){//sysj\ECS_plant.sysj line: 243, column: 15
+                            System.out.println("");//sysj\ECS_plant.sysj line: 245, column: 7
+                            System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 246, column: 7
+                            heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 247, column: 7
                             currsigs.addElement(heatOnZone4_5_6);
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            System.out.println("");//sysj\ECS_plant.sysj line: 246, column: 6
-                            System.out.println("Room temperature is safe at" + temp456_thread_2);//sysj\ECS_plant.sysj line: 247, column: 6
-                            S85=7;
-                            if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 253, column: 7
-                              humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 254, column: 5
-                              humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 255, column: 5
-                              if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 256, column: 8
-                                S1009=0;
-                                System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                                System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                                deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                            System.out.println("");//sysj\ECS_plant.sysj line: 251, column: 6
+                            System.out.println("Room temperature is safe at" + temp456_thread_2);//sysj\ECS_plant.sysj line: 252, column: 6
+                            S1633=7;
+                            if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 258, column: 7
+                              humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 259, column: 5
+                              humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 260, column: 5
+                              if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 261, column: 8
+                                S2557=0;
+                                System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                                System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                                deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                                 currsigs.addElement(deHumOnZone1_7);
                                 active[2]=1;
                                 ends[2]=1;
                                 tdone[2]=1;
                               }
                               else {
-                                S1009=1;
-                                if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 264, column: 15
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                                  System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                                  humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                                S2557=1;
+                                if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 269, column: 15
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                                  System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                                  humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                                   currsigs.addElement(humOnZone1_7);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 273, column: 6
-                                  System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 274, column: 6
-                                  S85=8;
-                                  if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                    humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                    humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                    if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                      S1349=0;
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                      System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                      deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 278, column: 6
+                                  System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 279, column: 6
+                                  S1633=8;
+                                  if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                    humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                    humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                    if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                      S2897=0;
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                      System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                      deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                       currsigs.addElement(deHumOnZone2_3);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      S1349=1;
-                                      if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                        System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                        humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                      S2897=1;
+                                      if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                        System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                        humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                         currsigs.addElement(humOnZone2_3);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                        System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                        S85=9;
-                                        if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                          humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                          humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                          if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                            S2009=0;
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                            System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                            deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                        System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                        S1633=9;
+                                        if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                          humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                          humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                          if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                            S3557=0;
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                            System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                            deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                             currsigs.addElement(deHumOnZone4_5_6);
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
                                           }
                                           else {
-                                            S2009=1;
-                                            if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                              System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                              humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                            S3557=1;
+                                            if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                              System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                              humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                               currsigs.addElement(humOnZone4_5_6);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                              System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                              S85=10;
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                              System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                              S1633=10;
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
@@ -4741,7 +4962,7 @@ public class ECS_plant extends ClockDomain{
                                           }
                                         }
                                         else {
-                                          S85=10;
+                                          S1633=10;
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
@@ -4750,37 +4971,37 @@ public class ECS_plant extends ClockDomain{
                                     }
                                   }
                                   else {
-                                    S85=9;
-                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                        S2009=0;
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                    S1633=9;
+                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                        S3557=0;
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                         currsigs.addElement(deHumOnZone4_5_6);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        S2009=1;
-                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                        S3557=1;
+                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                           currsigs.addElement(humOnZone4_5_6);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                          S85=10;
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                          S1633=10;
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
@@ -4788,7 +5009,7 @@ public class ECS_plant extends ClockDomain{
                                       }
                                     }
                                     else {
-                                      S85=10;
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -4798,67 +5019,67 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S85=8;
-                              if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                  S1349=0;
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                  System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                  deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                              S1633=8;
+                              if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                  S2897=0;
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                  System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                  deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                   currsigs.addElement(deHumOnZone2_3);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  S1349=1;
-                                  if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                    System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                    humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                  S2897=1;
+                                  if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                    System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                    humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                     currsigs.addElement(humOnZone2_3);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                    System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                    S85=9;
-                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                        S2009=0;
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                    System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                    S1633=9;
+                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                        S3557=0;
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                         currsigs.addElement(deHumOnZone4_5_6);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        S2009=1;
-                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                        S3557=1;
+                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                           currsigs.addElement(humOnZone4_5_6);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                          S85=10;
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                          S1633=10;
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
@@ -4866,7 +5087,7 @@ public class ECS_plant extends ClockDomain{
                                       }
                                     }
                                     else {
-                                      S85=10;
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -4875,37 +5096,37 @@ public class ECS_plant extends ClockDomain{
                                 }
                               }
                               else {
-                                S85=9;
-                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                    S2009=0;
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                S1633=9;
+                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                    S3557=0;
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                     currsigs.addElement(deHumOnZone4_5_6);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    S2009=1;
-                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                    S3557=1;
+                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                       currsigs.addElement(humOnZone4_5_6);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                      S85=10;
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -4913,7 +5134,7 @@ public class ECS_plant extends ClockDomain{
                                   }
                                 }
                                 else {
-                                  S85=10;
+                                  S1633=10;
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
@@ -4924,97 +5145,97 @@ public class ECS_plant extends ClockDomain{
                         }
                       }
                       else {
-                        S85=7;
-                        if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 253, column: 7
-                          humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 254, column: 5
-                          humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 255, column: 5
-                          if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 256, column: 8
-                            S1009=0;
-                            System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                            System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                            deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                        S1633=7;
+                        if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 258, column: 7
+                          humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 259, column: 5
+                          humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 260, column: 5
+                          if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 261, column: 8
+                            S2557=0;
+                            System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                            System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                            deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                             currsigs.addElement(deHumOnZone1_7);
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1009=1;
-                            if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 264, column: 15
-                              System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                              System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                              humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                            S2557=1;
+                            if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 269, column: 15
+                              System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                              System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                              humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                               currsigs.addElement(humOnZone1_7);
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              System.out.println("");//sysj\ECS_plant.sysj line: 273, column: 6
-                              System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 274, column: 6
-                              S85=8;
-                              if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                  S1349=0;
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                  System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                  deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                              System.out.println("");//sysj\ECS_plant.sysj line: 278, column: 6
+                              System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 279, column: 6
+                              S1633=8;
+                              if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                  S2897=0;
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                  System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                  deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                   currsigs.addElement(deHumOnZone2_3);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  S1349=1;
-                                  if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                    System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                    humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                  S2897=1;
+                                  if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                    System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                    humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                     currsigs.addElement(humOnZone2_3);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                    System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                    S85=9;
-                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                        S2009=0;
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                    System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                    S1633=9;
+                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                        S3557=0;
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                         currsigs.addElement(deHumOnZone4_5_6);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        S2009=1;
-                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                        S3557=1;
+                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                           currsigs.addElement(humOnZone4_5_6);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                          S85=10;
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                          S1633=10;
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
@@ -5022,7 +5243,7 @@ public class ECS_plant extends ClockDomain{
                                       }
                                     }
                                     else {
-                                      S85=10;
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -5031,37 +5252,37 @@ public class ECS_plant extends ClockDomain{
                                 }
                               }
                               else {
-                                S85=9;
-                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                    S2009=0;
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                S1633=9;
+                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                    S3557=0;
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                     currsigs.addElement(deHumOnZone4_5_6);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    S2009=1;
-                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                    S3557=1;
+                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                       currsigs.addElement(humOnZone4_5_6);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                      S85=10;
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -5069,7 +5290,7 @@ public class ECS_plant extends ClockDomain{
                                   }
                                 }
                                 else {
-                                  S85=10;
+                                  S1633=10;
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
@@ -5079,67 +5300,67 @@ public class ECS_plant extends ClockDomain{
                           }
                         }
                         else {
-                          S85=8;
-                          if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                            humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                            humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                            if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                              S1349=0;
-                              System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                              System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                              deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                          S1633=8;
+                          if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                            humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                            humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                            if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                              S2897=0;
+                              System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                              System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                              deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                               currsigs.addElement(deHumOnZone2_3);
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1349=1;
-                              if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                              S2897=1;
+                              if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                 currsigs.addElement(humOnZone2_3);
                                 active[2]=1;
                                 ends[2]=1;
                                 tdone[2]=1;
                               }
                               else {
-                                System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                S85=9;
-                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                    S2009=0;
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                S1633=9;
+                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                    S3557=0;
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                     currsigs.addElement(deHumOnZone4_5_6);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    S2009=1;
-                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                    S3557=1;
+                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                       currsigs.addElement(humOnZone4_5_6);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                      S85=10;
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -5147,7 +5368,7 @@ public class ECS_plant extends ClockDomain{
                                   }
                                 }
                                 else {
-                                  S85=10;
+                                  S1633=10;
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
@@ -5156,37 +5377,37 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            S85=9;
-                            if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                              humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                              humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                              if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                S2009=0;
-                                System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                            S1633=9;
+                            if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                              humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                              humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                              if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                S3557=0;
+                                System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                 currsigs.addElement(deHumOnZone4_5_6);
                                 active[2]=1;
                                 ends[2]=1;
                                 tdone[2]=1;
                               }
                               else {
-                                S2009=1;
-                                if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                  System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                  humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                S3557=1;
+                                if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                  System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                  humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                   currsigs.addElement(humOnZone4_5_6);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                  System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                  S85=10;
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                  System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                  S1633=10;
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
@@ -5194,7 +5415,7 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S85=10;
+                              S1633=10;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -5207,151 +5428,151 @@ public class ECS_plant extends ClockDomain{
                 }
               }
               else {
-                S85=5;
-                if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 205, column: 7
-                  temp23_thread_2 = 0;//sysj\ECS_plant.sysj line: 206, column: 5
-                  temp23_thread_2 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 207, column: 5
-                  if(temp23_thread_2 > 22){//sysj\ECS_plant.sysj line: 208, column: 8
-                    S729=0;
-                    System.out.println("");//sysj\ECS_plant.sysj line: 210, column: 7
-                    System.out.println("Room temperature is too high at " + temp23_thread_2);//sysj\ECS_plant.sysj line: 211, column: 7
-                    airOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 212, column: 7
+                S1633=5;
+                if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 210, column: 7
+                  temp23_thread_2 = 0;//sysj\ECS_plant.sysj line: 211, column: 5
+                  temp23_thread_2 = (tempZone2_3.getpreval() == null ? null : ((Integer)tempZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 212, column: 5
+                  if(temp23_thread_2 > 22){//sysj\ECS_plant.sysj line: 213, column: 8
+                    S2277=0;
+                    System.out.println("");//sysj\ECS_plant.sysj line: 215, column: 7
+                    System.out.println("Room temperature is too high at " + temp23_thread_2);//sysj\ECS_plant.sysj line: 216, column: 7
+                    airOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 217, column: 7
                     currsigs.addElement(airOnZone2_3);
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S729=1;
-                    if(temp23_thread_2 < 21){//sysj\ECS_plant.sysj line: 215, column: 15
-                      heatOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 217, column: 7
+                    S2277=1;
+                    if(temp23_thread_2 < 21){//sysj\ECS_plant.sysj line: 220, column: 15
+                      heatOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 222, column: 7
                       currsigs.addElement(heatOnZone2_3);
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      System.out.println("");//sysj\ECS_plant.sysj line: 221, column: 6
-                      System.out.println("Room temperature is safe at" + temp23_thread_2);//sysj\ECS_plant.sysj line: 222, column: 6
-                      S85=6;
-                      if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 228, column: 7
-                        temp456_thread_2 = 0;//sysj\ECS_plant.sysj line: 229, column: 5
-                        temp456_thread_2 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 230, column: 5
-                        if(temp456_thread_2 > 22){//sysj\ECS_plant.sysj line: 231, column: 8
-                          S829=0;
-                          System.out.println("");//sysj\ECS_plant.sysj line: 233, column: 7
-                          System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 234, column: 7
-                          airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 235, column: 7
+                      System.out.println("");//sysj\ECS_plant.sysj line: 226, column: 6
+                      System.out.println("Room temperature is safe at" + temp23_thread_2);//sysj\ECS_plant.sysj line: 227, column: 6
+                      S1633=6;
+                      if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 233, column: 7
+                        temp456_thread_2 = 0;//sysj\ECS_plant.sysj line: 234, column: 5
+                        temp456_thread_2 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 235, column: 5
+                        if(temp456_thread_2 > 22){//sysj\ECS_plant.sysj line: 236, column: 8
+                          S2377=0;
+                          System.out.println("");//sysj\ECS_plant.sysj line: 238, column: 7
+                          System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 239, column: 7
+                          airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 240, column: 7
                           currsigs.addElement(airOnZone4_5_6);
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S829=1;
-                          if(temp456_thread_2 < 21){//sysj\ECS_plant.sysj line: 238, column: 15
-                            System.out.println("");//sysj\ECS_plant.sysj line: 240, column: 7
-                            System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 241, column: 7
-                            heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 242, column: 7
+                          S2377=1;
+                          if(temp456_thread_2 < 21){//sysj\ECS_plant.sysj line: 243, column: 15
+                            System.out.println("");//sysj\ECS_plant.sysj line: 245, column: 7
+                            System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 246, column: 7
+                            heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 247, column: 7
                             currsigs.addElement(heatOnZone4_5_6);
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            System.out.println("");//sysj\ECS_plant.sysj line: 246, column: 6
-                            System.out.println("Room temperature is safe at" + temp456_thread_2);//sysj\ECS_plant.sysj line: 247, column: 6
-                            S85=7;
-                            if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 253, column: 7
-                              humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 254, column: 5
-                              humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 255, column: 5
-                              if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 256, column: 8
-                                S1009=0;
-                                System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                                System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                                deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                            System.out.println("");//sysj\ECS_plant.sysj line: 251, column: 6
+                            System.out.println("Room temperature is safe at" + temp456_thread_2);//sysj\ECS_plant.sysj line: 252, column: 6
+                            S1633=7;
+                            if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 258, column: 7
+                              humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 259, column: 5
+                              humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 260, column: 5
+                              if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 261, column: 8
+                                S2557=0;
+                                System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                                System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                                deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                                 currsigs.addElement(deHumOnZone1_7);
                                 active[2]=1;
                                 ends[2]=1;
                                 tdone[2]=1;
                               }
                               else {
-                                S1009=1;
-                                if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 264, column: 15
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                                  System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                                  humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                                S2557=1;
+                                if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 269, column: 15
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                                  System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                                  humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                                   currsigs.addElement(humOnZone1_7);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 273, column: 6
-                                  System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 274, column: 6
-                                  S85=8;
-                                  if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                    humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                    humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                    if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                      S1349=0;
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                      System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                      deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 278, column: 6
+                                  System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 279, column: 6
+                                  S1633=8;
+                                  if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                    humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                    humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                    if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                      S2897=0;
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                      System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                      System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                      deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                       currsigs.addElement(deHumOnZone2_3);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      S1349=1;
-                                      if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                        System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                        humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                      S2897=1;
+                                      if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                        System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                        System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                        humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                         currsigs.addElement(humOnZone2_3);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                        System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                        S85=9;
-                                        if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                          humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                          humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                          if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                            S2009=0;
-                                            System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                            System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                            deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                        System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                        S1633=9;
+                                        if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                          humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                          humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                          if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                            S3557=0;
+                                            System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                            System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                            deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                             currsigs.addElement(deHumOnZone4_5_6);
                                             active[2]=1;
                                             ends[2]=1;
                                             tdone[2]=1;
                                           }
                                           else {
-                                            S2009=1;
-                                            if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                              System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                              humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                            S3557=1;
+                                            if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                              System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                              humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                               currsigs.addElement(humOnZone4_5_6);
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
                                             }
                                             else {
-                                              System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                              System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                              S85=10;
+                                              System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                              System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                              S1633=10;
                                               active[2]=1;
                                               ends[2]=1;
                                               tdone[2]=1;
@@ -5359,7 +5580,7 @@ public class ECS_plant extends ClockDomain{
                                           }
                                         }
                                         else {
-                                          S85=10;
+                                          S1633=10;
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
@@ -5368,37 +5589,37 @@ public class ECS_plant extends ClockDomain{
                                     }
                                   }
                                   else {
-                                    S85=9;
-                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                        S2009=0;
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                    S1633=9;
+                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                        S3557=0;
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                         currsigs.addElement(deHumOnZone4_5_6);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        S2009=1;
-                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                        S3557=1;
+                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                           currsigs.addElement(humOnZone4_5_6);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                          S85=10;
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                          S1633=10;
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
@@ -5406,7 +5627,7 @@ public class ECS_plant extends ClockDomain{
                                       }
                                     }
                                     else {
-                                      S85=10;
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -5416,67 +5637,67 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S85=8;
-                              if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                  S1349=0;
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                  System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                  deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                              S1633=8;
+                              if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                  S2897=0;
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                  System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                  deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                   currsigs.addElement(deHumOnZone2_3);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  S1349=1;
-                                  if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                    System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                    humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                  S2897=1;
+                                  if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                    System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                    humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                     currsigs.addElement(humOnZone2_3);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                    System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                    S85=9;
-                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                        S2009=0;
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                    System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                    S1633=9;
+                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                        S3557=0;
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                         currsigs.addElement(deHumOnZone4_5_6);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        S2009=1;
-                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                        S3557=1;
+                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                           currsigs.addElement(humOnZone4_5_6);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                          S85=10;
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                          S1633=10;
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
@@ -5484,7 +5705,7 @@ public class ECS_plant extends ClockDomain{
                                       }
                                     }
                                     else {
-                                      S85=10;
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -5493,37 +5714,37 @@ public class ECS_plant extends ClockDomain{
                                 }
                               }
                               else {
-                                S85=9;
-                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                    S2009=0;
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                S1633=9;
+                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                    S3557=0;
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                     currsigs.addElement(deHumOnZone4_5_6);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    S2009=1;
-                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                    S3557=1;
+                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                       currsigs.addElement(humOnZone4_5_6);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                      S85=10;
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -5531,7 +5752,7 @@ public class ECS_plant extends ClockDomain{
                                   }
                                 }
                                 else {
-                                  S85=10;
+                                  S1633=10;
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
@@ -5542,97 +5763,97 @@ public class ECS_plant extends ClockDomain{
                         }
                       }
                       else {
-                        S85=7;
-                        if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 253, column: 7
-                          humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 254, column: 5
-                          humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 255, column: 5
-                          if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 256, column: 8
-                            S1009=0;
-                            System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                            System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                            deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                        S1633=7;
+                        if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 258, column: 7
+                          humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 259, column: 5
+                          humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 260, column: 5
+                          if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 261, column: 8
+                            S2557=0;
+                            System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                            System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                            deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                             currsigs.addElement(deHumOnZone1_7);
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1009=1;
-                            if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 264, column: 15
-                              System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                              System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                              humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                            S2557=1;
+                            if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 269, column: 15
+                              System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                              System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                              humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                               currsigs.addElement(humOnZone1_7);
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              System.out.println("");//sysj\ECS_plant.sysj line: 273, column: 6
-                              System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 274, column: 6
-                              S85=8;
-                              if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                  S1349=0;
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                  System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                  deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                              System.out.println("");//sysj\ECS_plant.sysj line: 278, column: 6
+                              System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 279, column: 6
+                              S1633=8;
+                              if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                  S2897=0;
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                  System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                  deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                   currsigs.addElement(deHumOnZone2_3);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  S1349=1;
-                                  if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                    System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                    humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                  S2897=1;
+                                  if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                    System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                    humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                     currsigs.addElement(humOnZone2_3);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                    System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                    S85=9;
-                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                        S2009=0;
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                    System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                    S1633=9;
+                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                        S3557=0;
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                         currsigs.addElement(deHumOnZone4_5_6);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        S2009=1;
-                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                        S3557=1;
+                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                           currsigs.addElement(humOnZone4_5_6);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                          S85=10;
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                          S1633=10;
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
@@ -5640,7 +5861,7 @@ public class ECS_plant extends ClockDomain{
                                       }
                                     }
                                     else {
-                                      S85=10;
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -5649,37 +5870,37 @@ public class ECS_plant extends ClockDomain{
                                 }
                               }
                               else {
-                                S85=9;
-                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                    S2009=0;
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                S1633=9;
+                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                    S3557=0;
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                     currsigs.addElement(deHumOnZone4_5_6);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    S2009=1;
-                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                    S3557=1;
+                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                       currsigs.addElement(humOnZone4_5_6);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                      S85=10;
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -5687,7 +5908,7 @@ public class ECS_plant extends ClockDomain{
                                   }
                                 }
                                 else {
-                                  S85=10;
+                                  S1633=10;
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
@@ -5697,67 +5918,67 @@ public class ECS_plant extends ClockDomain{
                           }
                         }
                         else {
-                          S85=8;
-                          if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                            humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                            humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                            if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                              S1349=0;
-                              System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                              System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                              deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                          S1633=8;
+                          if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                            humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                            humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                            if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                              S2897=0;
+                              System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                              System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                              deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                               currsigs.addElement(deHumOnZone2_3);
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1349=1;
-                              if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                              S2897=1;
+                              if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                 currsigs.addElement(humOnZone2_3);
                                 active[2]=1;
                                 ends[2]=1;
                                 tdone[2]=1;
                               }
                               else {
-                                System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                S85=9;
-                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                    S2009=0;
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                S1633=9;
+                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                    S3557=0;
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                     currsigs.addElement(deHumOnZone4_5_6);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    S2009=1;
-                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                    S3557=1;
+                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                       currsigs.addElement(humOnZone4_5_6);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                      S85=10;
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -5765,7 +5986,7 @@ public class ECS_plant extends ClockDomain{
                                   }
                                 }
                                 else {
-                                  S85=10;
+                                  S1633=10;
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
@@ -5774,37 +5995,37 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            S85=9;
-                            if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                              humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                              humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                              if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                S2009=0;
-                                System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                            S1633=9;
+                            if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                              humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                              humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                              if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                S3557=0;
+                                System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                 currsigs.addElement(deHumOnZone4_5_6);
                                 active[2]=1;
                                 ends[2]=1;
                                 tdone[2]=1;
                               }
                               else {
-                                S2009=1;
-                                if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                  System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                  humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                S3557=1;
+                                if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                  System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                  humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                   currsigs.addElement(humOnZone4_5_6);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                  System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                  S85=10;
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                  System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                  S1633=10;
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
@@ -5812,7 +6033,7 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S85=10;
+                              S1633=10;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -5824,125 +6045,125 @@ public class ECS_plant extends ClockDomain{
                   }
                 }
                 else {
-                  S85=6;
-                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 228, column: 7
-                    temp456_thread_2 = 0;//sysj\ECS_plant.sysj line: 229, column: 5
-                    temp456_thread_2 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 230, column: 5
-                    if(temp456_thread_2 > 22){//sysj\ECS_plant.sysj line: 231, column: 8
-                      S829=0;
-                      System.out.println("");//sysj\ECS_plant.sysj line: 233, column: 7
-                      System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 234, column: 7
-                      airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 235, column: 7
+                  S1633=6;
+                  if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 233, column: 7
+                    temp456_thread_2 = 0;//sysj\ECS_plant.sysj line: 234, column: 5
+                    temp456_thread_2 = (tempZone4_5_6.getpreval() == null ? null : ((Integer)tempZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 235, column: 5
+                    if(temp456_thread_2 > 22){//sysj\ECS_plant.sysj line: 236, column: 8
+                      S2377=0;
+                      System.out.println("");//sysj\ECS_plant.sysj line: 238, column: 7
+                      System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 239, column: 7
+                      airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 240, column: 7
                       currsigs.addElement(airOnZone4_5_6);
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S829=1;
-                      if(temp456_thread_2 < 21){//sysj\ECS_plant.sysj line: 238, column: 15
-                        System.out.println("");//sysj\ECS_plant.sysj line: 240, column: 7
-                        System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 241, column: 7
-                        heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 242, column: 7
+                      S2377=1;
+                      if(temp456_thread_2 < 21){//sysj\ECS_plant.sysj line: 243, column: 15
+                        System.out.println("");//sysj\ECS_plant.sysj line: 245, column: 7
+                        System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 246, column: 7
+                        heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 247, column: 7
                         currsigs.addElement(heatOnZone4_5_6);
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        System.out.println("");//sysj\ECS_plant.sysj line: 246, column: 6
-                        System.out.println("Room temperature is safe at" + temp456_thread_2);//sysj\ECS_plant.sysj line: 247, column: 6
-                        S85=7;
-                        if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 253, column: 7
-                          humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 254, column: 5
-                          humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 255, column: 5
-                          if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 256, column: 8
-                            S1009=0;
-                            System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                            System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                            deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                        System.out.println("");//sysj\ECS_plant.sysj line: 251, column: 6
+                        System.out.println("Room temperature is safe at" + temp456_thread_2);//sysj\ECS_plant.sysj line: 252, column: 6
+                        S1633=7;
+                        if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 258, column: 7
+                          humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 259, column: 5
+                          humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 260, column: 5
+                          if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 261, column: 8
+                            S2557=0;
+                            System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                            System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                            deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                             currsigs.addElement(deHumOnZone1_7);
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1009=1;
-                            if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 264, column: 15
-                              System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                              System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                              humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                            S2557=1;
+                            if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 269, column: 15
+                              System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                              System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                              humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                               currsigs.addElement(humOnZone1_7);
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              System.out.println("");//sysj\ECS_plant.sysj line: 273, column: 6
-                              System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 274, column: 6
-                              S85=8;
-                              if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                                humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                                humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                                if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                                  S1349=0;
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                                  System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                                  deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                              System.out.println("");//sysj\ECS_plant.sysj line: 278, column: 6
+                              System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 279, column: 6
+                              S1633=8;
+                              if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                                humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                                humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                                if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                                  S2897=0;
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                                  System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                                  System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                                  deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                                   currsigs.addElement(deHumOnZone2_3);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  S1349=1;
-                                  if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                    System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                    humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                                  S2897=1;
+                                  if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                    System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                    System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                    humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                     currsigs.addElement(humOnZone2_3);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                    System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                    S85=9;
-                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                        S2009=0;
-                                        System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                    System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                    S1633=9;
+                                    if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                      humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                      humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                      if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                        S3557=0;
+                                        System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                        System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                        deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                         currsigs.addElement(deHumOnZone4_5_6);
                                         active[2]=1;
                                         ends[2]=1;
                                         tdone[2]=1;
                                       }
                                       else {
-                                        S2009=1;
-                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                        S3557=1;
+                                        if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                          System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                          humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                           currsigs.addElement(humOnZone4_5_6);
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
                                         }
                                         else {
-                                          System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                          S85=10;
+                                          System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                          System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                          S1633=10;
                                           active[2]=1;
                                           ends[2]=1;
                                           tdone[2]=1;
@@ -5950,7 +6171,7 @@ public class ECS_plant extends ClockDomain{
                                       }
                                     }
                                     else {
-                                      S85=10;
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -5959,37 +6180,37 @@ public class ECS_plant extends ClockDomain{
                                 }
                               }
                               else {
-                                S85=9;
-                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                    S2009=0;
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                S1633=9;
+                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                    S3557=0;
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                     currsigs.addElement(deHumOnZone4_5_6);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    S2009=1;
-                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                    S3557=1;
+                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                       currsigs.addElement(humOnZone4_5_6);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                      S85=10;
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -5997,7 +6218,7 @@ public class ECS_plant extends ClockDomain{
                                   }
                                 }
                                 else {
-                                  S85=10;
+                                  S1633=10;
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
@@ -6007,67 +6228,67 @@ public class ECS_plant extends ClockDomain{
                           }
                         }
                         else {
-                          S85=8;
-                          if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                            humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                            humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                            if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                              S1349=0;
-                              System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                              System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                              deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                          S1633=8;
+                          if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                            humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                            humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                            if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                              S2897=0;
+                              System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                              System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                              deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                               currsigs.addElement(deHumOnZone2_3);
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1349=1;
-                              if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                              S2897=1;
+                              if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                 currsigs.addElement(humOnZone2_3);
                                 active[2]=1;
                                 ends[2]=1;
                                 tdone[2]=1;
                               }
                               else {
-                                System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                S85=9;
-                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                    S2009=0;
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                S1633=9;
+                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                    S3557=0;
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                     currsigs.addElement(deHumOnZone4_5_6);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    S2009=1;
-                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                    S3557=1;
+                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                       currsigs.addElement(humOnZone4_5_6);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                      S85=10;
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -6075,7 +6296,7 @@ public class ECS_plant extends ClockDomain{
                                   }
                                 }
                                 else {
-                                  S85=10;
+                                  S1633=10;
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
@@ -6084,37 +6305,37 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            S85=9;
-                            if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                              humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                              humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                              if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                S2009=0;
-                                System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                            S1633=9;
+                            if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                              humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                              humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                              if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                S3557=0;
+                                System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                 currsigs.addElement(deHumOnZone4_5_6);
                                 active[2]=1;
                                 ends[2]=1;
                                 tdone[2]=1;
                               }
                               else {
-                                S2009=1;
-                                if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                  System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                  humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                S3557=1;
+                                if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                  System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                  humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                   currsigs.addElement(humOnZone4_5_6);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                  System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                  S85=10;
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                  System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                  S1633=10;
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
@@ -6122,7 +6343,7 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S85=10;
+                              S1633=10;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -6133,97 +6354,97 @@ public class ECS_plant extends ClockDomain{
                     }
                   }
                   else {
-                    S85=7;
-                    if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 253, column: 7
-                      humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 254, column: 5
-                      humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 255, column: 5
-                      if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 256, column: 8
-                        S1009=0;
-                        System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                        System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                        deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                    S1633=7;
+                    if(zone_thread_2 == 1 || zone_thread_2 == 7){//sysj\ECS_plant.sysj line: 258, column: 7
+                      humid17_thread_2 = 0;//sysj\ECS_plant.sysj line: 259, column: 5
+                      humid17_thread_2 = (humidZone1_7.getpreval() == null ? null : ((Integer)humidZone1_7.getpreval()));//sysj\ECS_plant.sysj line: 260, column: 5
+                      if(humid17_thread_2 > 60){//sysj\ECS_plant.sysj line: 261, column: 8
+                        S2557=0;
+                        System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                        System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                        System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                        deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                         currsigs.addElement(deHumOnZone1_7);
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        S1009=1;
-                        if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 264, column: 15
-                          System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                          System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                          humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                        S2557=1;
+                        if(humid17_thread_2 < 30){//sysj\ECS_plant.sysj line: 269, column: 15
+                          System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                          System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                          System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                          humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                           currsigs.addElement(humOnZone1_7);
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          System.out.println("");//sysj\ECS_plant.sysj line: 273, column: 6
-                          System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 274, column: 6
-                          S85=8;
-                          if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                            humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                            humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                            if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                              S1349=0;
-                              System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                              System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                              deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                          System.out.println("");//sysj\ECS_plant.sysj line: 278, column: 6
+                          System.out.println("Room humidity is safe at" + humid17_thread_2);//sysj\ECS_plant.sysj line: 279, column: 6
+                          S1633=8;
+                          if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                            humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                            humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                            if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                              S2897=0;
+                              System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                              System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                              System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                              deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                               currsigs.addElement(deHumOnZone2_3);
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1349=1;
-                              if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                                System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                                System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                                humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                              S2897=1;
+                              if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                                System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                                System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                                humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                                 currsigs.addElement(humOnZone2_3);
                                 active[2]=1;
                                 ends[2]=1;
                                 tdone[2]=1;
                               }
                               else {
-                                System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                                System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                                S85=9;
-                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                    S2009=0;
-                                    System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                                System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                                System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                                S1633=9;
+                                if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                                  humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                                  humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                                  if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                    S3557=0;
+                                    System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                    System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                    System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                    deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                     currsigs.addElement(deHumOnZone4_5_6);
                                     active[2]=1;
                                     ends[2]=1;
                                     tdone[2]=1;
                                   }
                                   else {
-                                    S2009=1;
-                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                    S3557=1;
+                                    if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                      System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                      System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                      humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                       currsigs.addElement(humOnZone4_5_6);
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
                                     }
                                     else {
-                                      System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                      S85=10;
+                                      System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                      System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                      S1633=10;
                                       active[2]=1;
                                       ends[2]=1;
                                       tdone[2]=1;
@@ -6231,7 +6452,7 @@ public class ECS_plant extends ClockDomain{
                                   }
                                 }
                                 else {
-                                  S85=10;
+                                  S1633=10;
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
@@ -6240,37 +6461,37 @@ public class ECS_plant extends ClockDomain{
                             }
                           }
                           else {
-                            S85=9;
-                            if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                              humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                              humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                              if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                S2009=0;
-                                System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                            S1633=9;
+                            if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                              humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                              humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                              if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                S3557=0;
+                                System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                 currsigs.addElement(deHumOnZone4_5_6);
                                 active[2]=1;
                                 ends[2]=1;
                                 tdone[2]=1;
                               }
                               else {
-                                S2009=1;
-                                if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                  System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                  humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                S3557=1;
+                                if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                  System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                  humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                   currsigs.addElement(humOnZone4_5_6);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                  System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                  S85=10;
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                  System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                  S1633=10;
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
@@ -6278,7 +6499,7 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S85=10;
+                              S1633=10;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -6288,67 +6509,67 @@ public class ECS_plant extends ClockDomain{
                       }
                     }
                     else {
-                      S85=8;
-                      if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 279, column: 7
-                        humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 280, column: 5
-                        humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 281, column: 5
-                        if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 282, column: 8
-                          S1349=0;
-                          System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                          System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                          deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                      S1633=8;
+                      if(zone_thread_2 == 2 || zone_thread_2 == 3){//sysj\ECS_plant.sysj line: 284, column: 7
+                        humid23_thread_2 = 0;//sysj\ECS_plant.sysj line: 285, column: 5
+                        humid23_thread_2 = (humidZone2_3.getpreval() == null ? null : ((Integer)humidZone2_3.getpreval()));//sysj\ECS_plant.sysj line: 286, column: 5
+                        if(humid23_thread_2 > 60){//sysj\ECS_plant.sysj line: 287, column: 8
+                          S2897=0;
+                          System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                          System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                          System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                          deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                           currsigs.addElement(deHumOnZone2_3);
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1349=1;
-                          if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 290, column: 15
-                            System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                            System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                            humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                          S2897=1;
+                          if(humid23_thread_2 < 30){//sysj\ECS_plant.sysj line: 295, column: 15
+                            System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                            System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                            System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                            humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                             currsigs.addElement(humOnZone2_3);
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            System.out.println("");//sysj\ECS_plant.sysj line: 299, column: 6
-                            System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 300, column: 6
-                            S85=9;
-                            if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                              humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                              humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                              if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                                S2009=0;
-                                System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                                System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                                deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                            System.out.println("");//sysj\ECS_plant.sysj line: 304, column: 6
+                            System.out.println("Room humidity is safe at" + humid23_thread_2);//sysj\ECS_plant.sysj line: 305, column: 6
+                            S1633=9;
+                            if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                              humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                              humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                              if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                                S3557=0;
+                                System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                                System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                                deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                                 currsigs.addElement(deHumOnZone4_5_6);
                                 active[2]=1;
                                 ends[2]=1;
                                 tdone[2]=1;
                               }
                               else {
-                                S2009=1;
-                                if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                                  System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                                  humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                                S3557=1;
+                                if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                                  System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                                  System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                                  humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                                   currsigs.addElement(humOnZone4_5_6);
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
                                 }
                                 else {
-                                  System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                                  System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                                  S85=10;
+                                  System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                                  System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                                  S1633=10;
                                   active[2]=1;
                                   ends[2]=1;
                                   tdone[2]=1;
@@ -6356,7 +6577,7 @@ public class ECS_plant extends ClockDomain{
                               }
                             }
                             else {
-                              S85=10;
+                              S1633=10;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -6365,37 +6586,37 @@ public class ECS_plant extends ClockDomain{
                         }
                       }
                       else {
-                        S85=9;
-                        if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 305, column: 7
-                          humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 306, column: 5
-                          humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 307, column: 5
-                          if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 308, column: 8
-                            S2009=0;
-                            System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                            System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                            deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                        S1633=9;
+                        if(zone_thread_2 == 4 || zone_thread_2 == 5 || zone_thread_2 == 6){//sysj\ECS_plant.sysj line: 310, column: 7
+                          humid456_thread_2 = 0;//sysj\ECS_plant.sysj line: 311, column: 5
+                          humid456_thread_2 = (humidZone4_5_6.getpreval() == null ? null : ((Integer)humidZone4_5_6.getpreval()));//sysj\ECS_plant.sysj line: 312, column: 5
+                          if(humid456_thread_2 > 60){//sysj\ECS_plant.sysj line: 313, column: 8
+                            S3557=0;
+                            System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                            System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                            System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                            deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                             currsigs.addElement(deHumOnZone4_5_6);
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S2009=1;
-                            if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 316, column: 15
-                              System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                              System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                              humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                            S3557=1;
+                            if(humid456_thread_2 < 30){//sysj\ECS_plant.sysj line: 321, column: 15
+                              System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                              System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                              System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                              humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                               currsigs.addElement(humOnZone4_5_6);
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              System.out.println("");//sysj\ECS_plant.sysj line: 325, column: 6
-                              System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 326, column: 6
-                              S85=10;
+                              System.out.println("");//sysj\ECS_plant.sysj line: 330, column: 6
+                              System.out.println("Room humidity is safe at" + humid456_thread_2);//sysj\ECS_plant.sysj line: 331, column: 6
+                              S1633=10;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -6403,7 +6624,7 @@ public class ECS_plant extends ClockDomain{
                           }
                         }
                         else {
-                          S85=10;
+                          S1633=10;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -6415,9 +6636,9 @@ public class ECS_plant extends ClockDomain{
               }
             }
             else {
-              switch(S564){
+              switch(S2112){
                 case 0 : 
-                  cleanZone1.setPresent();//sysj\ECS_plant.sysj line: 139, column: 7
+                  cleanZone1.setPresent();//sysj\ECS_plant.sysj line: 144, column: 7
                   currsigs.addElement(cleanZone1);
                   active[2]=1;
                   ends[2]=1;
@@ -6425,7 +6646,7 @@ public class ECS_plant extends ClockDomain{
                   break;
                 
                 case 1 : 
-                  cleanZone2.setPresent();//sysj\ECS_plant.sysj line: 145, column: 7
+                  cleanZone2.setPresent();//sysj\ECS_plant.sysj line: 150, column: 7
                   currsigs.addElement(cleanZone2);
                   active[2]=1;
                   ends[2]=1;
@@ -6433,7 +6654,7 @@ public class ECS_plant extends ClockDomain{
                   break;
                 
                 case 2 : 
-                  cleanZone3.setPresent();//sysj\ECS_plant.sysj line: 151, column: 7
+                  cleanZone3.setPresent();//sysj\ECS_plant.sysj line: 156, column: 7
                   currsigs.addElement(cleanZone3);
                   active[2]=1;
                   ends[2]=1;
@@ -6441,7 +6662,7 @@ public class ECS_plant extends ClockDomain{
                   break;
                 
                 case 3 : 
-                  cleanZone4.setPresent();//sysj\ECS_plant.sysj line: 157, column: 7
+                  cleanZone4.setPresent();//sysj\ECS_plant.sysj line: 162, column: 7
                   currsigs.addElement(cleanZone4);
                   active[2]=1;
                   ends[2]=1;
@@ -6449,7 +6670,7 @@ public class ECS_plant extends ClockDomain{
                   break;
                 
                 case 4 : 
-                  cleanZone5.setPresent();//sysj\ECS_plant.sysj line: 163, column: 7
+                  cleanZone5.setPresent();//sysj\ECS_plant.sysj line: 168, column: 7
                   currsigs.addElement(cleanZone5);
                   active[2]=1;
                   ends[2]=1;
@@ -6457,7 +6678,7 @@ public class ECS_plant extends ClockDomain{
                   break;
                 
                 case 5 : 
-                  cleanZone7.setPresent();//sysj\ECS_plant.sysj line: 169, column: 7
+                  cleanZone7.setPresent();//sysj\ECS_plant.sysj line: 174, column: 7
                   currsigs.addElement(cleanZone7);
                   active[2]=1;
                   ends[2]=1;
@@ -6465,7 +6686,7 @@ public class ECS_plant extends ClockDomain{
                   break;
                 
                 case 6 : 
-                  cleanZone7.setPresent();//sysj\ECS_plant.sysj line: 175, column: 7
+                  cleanZone7.setPresent();//sysj\ECS_plant.sysj line: 180, column: 7
                   currsigs.addElement(cleanZone7);
                   active[2]=1;
                   ends[2]=1;
@@ -6477,11 +6698,11 @@ public class ECS_plant extends ClockDomain{
             break;
           
           case 4 : 
-            switch(S669){
+            switch(S2217){
               case 0 : 
-                System.out.println("");//sysj\ECS_plant.sysj line: 187, column: 7
-                System.out.println("Room temperature is too high at " + temp17_thread_2);//sysj\ECS_plant.sysj line: 188, column: 7
-                fanOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 189, column: 7
+                System.out.println("");//sysj\ECS_plant.sysj line: 192, column: 7
+                System.out.println("Room temperature is too high at " + temp17_thread_2);//sysj\ECS_plant.sysj line: 193, column: 7
+                fanOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 194, column: 7
                 currsigs.addElement(fanOnZone1_7);
                 active[2]=1;
                 ends[2]=1;
@@ -6489,10 +6710,10 @@ public class ECS_plant extends ClockDomain{
                 break;
               
               case 1 : 
-                switch(S668){
+                switch(S2216){
                   case 0 : 
-                    System.out.println("Room temperature is too low at " + temp17_thread_2);//sysj\ECS_plant.sysj line: 194, column: 7
-                    heatOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 195, column: 7
+                    System.out.println("Room temperature is too low at " + temp17_thread_2);//sysj\ECS_plant.sysj line: 199, column: 7
+                    heatOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 200, column: 7
                     currsigs.addElement(heatOnZone1_7);
                     active[2]=1;
                     ends[2]=1;
@@ -6500,7 +6721,7 @@ public class ECS_plant extends ClockDomain{
                     break;
                   
                   case 1 : 
-                    S85=0;
+                    S1633=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -6513,11 +6734,11 @@ public class ECS_plant extends ClockDomain{
             break;
           
           case 5 : 
-            switch(S729){
+            switch(S2277){
               case 0 : 
-                System.out.println("");//sysj\ECS_plant.sysj line: 210, column: 7
-                System.out.println("Room temperature is too high at " + temp23_thread_2);//sysj\ECS_plant.sysj line: 211, column: 7
-                airOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 212, column: 7
+                System.out.println("");//sysj\ECS_plant.sysj line: 215, column: 7
+                System.out.println("Room temperature is too high at " + temp23_thread_2);//sysj\ECS_plant.sysj line: 216, column: 7
+                airOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 217, column: 7
                 currsigs.addElement(airOnZone2_3);
                 active[2]=1;
                 ends[2]=1;
@@ -6525,7 +6746,7 @@ public class ECS_plant extends ClockDomain{
                 break;
               
               case 1 : 
-                heatOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 217, column: 7
+                heatOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 222, column: 7
                 currsigs.addElement(heatOnZone2_3);
                 active[2]=1;
                 ends[2]=1;
@@ -6536,11 +6757,11 @@ public class ECS_plant extends ClockDomain{
             break;
           
           case 6 : 
-            switch(S829){
+            switch(S2377){
               case 0 : 
-                System.out.println("");//sysj\ECS_plant.sysj line: 233, column: 7
-                System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 234, column: 7
-                airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 235, column: 7
+                System.out.println("");//sysj\ECS_plant.sysj line: 238, column: 7
+                System.out.println("Room temperature is too high at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 239, column: 7
+                airOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 240, column: 7
                 currsigs.addElement(airOnZone4_5_6);
                 active[2]=1;
                 ends[2]=1;
@@ -6548,9 +6769,9 @@ public class ECS_plant extends ClockDomain{
                 break;
               
               case 1 : 
-                System.out.println("");//sysj\ECS_plant.sysj line: 240, column: 7
-                System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 241, column: 7
-                heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 242, column: 7
+                System.out.println("");//sysj\ECS_plant.sysj line: 245, column: 7
+                System.out.println("Room temperature is too low at " + temp456_thread_2);//sysj\ECS_plant.sysj line: 246, column: 7
+                heatOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 247, column: 7
                 currsigs.addElement(heatOnZone4_5_6);
                 active[2]=1;
                 ends[2]=1;
@@ -6561,12 +6782,12 @@ public class ECS_plant extends ClockDomain{
             break;
           
           case 7 : 
-            switch(S1009){
+            switch(S2557){
               case 0 : 
-                System.out.println("");//sysj\ECS_plant.sysj line: 258, column: 7
-                System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 259, column: 7
-                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 260, column: 7
-                deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 261, column: 7
+                System.out.println("");//sysj\ECS_plant.sysj line: 263, column: 7
+                System.out.println("Room humidity is too high at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 264, column: 7
+                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 265, column: 7
+                deHumOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 266, column: 7
                 currsigs.addElement(deHumOnZone1_7);
                 active[2]=1;
                 ends[2]=1;
@@ -6574,10 +6795,10 @@ public class ECS_plant extends ClockDomain{
                 break;
               
               case 1 : 
-                System.out.println("");//sysj\ECS_plant.sysj line: 266, column: 7
-                System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 267, column: 7
-                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 268, column: 7
-                humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 269, column: 7
+                System.out.println("");//sysj\ECS_plant.sysj line: 271, column: 7
+                System.out.println("Room humidity is too low at " + humid17_thread_2);//sysj\ECS_plant.sysj line: 272, column: 7
+                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 273, column: 7
+                humOnZone1_7.setPresent();//sysj\ECS_plant.sysj line: 274, column: 7
                 currsigs.addElement(humOnZone1_7);
                 active[2]=1;
                 ends[2]=1;
@@ -6588,12 +6809,12 @@ public class ECS_plant extends ClockDomain{
             break;
           
           case 8 : 
-            switch(S1349){
+            switch(S2897){
               case 0 : 
-                System.out.println("");//sysj\ECS_plant.sysj line: 284, column: 7
-                System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 285, column: 7
-                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 286, column: 7
-                deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 287, column: 7
+                System.out.println("");//sysj\ECS_plant.sysj line: 289, column: 7
+                System.out.println("Room humidity is too high at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 290, column: 7
+                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 291, column: 7
+                deHumOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 292, column: 7
                 currsigs.addElement(deHumOnZone2_3);
                 active[2]=1;
                 ends[2]=1;
@@ -6601,10 +6822,10 @@ public class ECS_plant extends ClockDomain{
                 break;
               
               case 1 : 
-                System.out.println("");//sysj\ECS_plant.sysj line: 292, column: 7
-                System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 293, column: 7
-                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 294, column: 7
-                humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 295, column: 7
+                System.out.println("");//sysj\ECS_plant.sysj line: 297, column: 7
+                System.out.println("Room humidity is too low at " + humid23_thread_2);//sysj\ECS_plant.sysj line: 298, column: 7
+                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 299, column: 7
+                humOnZone2_3.setPresent();//sysj\ECS_plant.sysj line: 300, column: 7
                 currsigs.addElement(humOnZone2_3);
                 active[2]=1;
                 ends[2]=1;
@@ -6615,12 +6836,12 @@ public class ECS_plant extends ClockDomain{
             break;
           
           case 9 : 
-            switch(S2009){
+            switch(S3557){
               case 0 : 
-                System.out.println("");//sysj\ECS_plant.sysj line: 310, column: 7
-                System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 311, column: 7
-                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 312, column: 7
-                deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 313, column: 7
+                System.out.println("");//sysj\ECS_plant.sysj line: 315, column: 7
+                System.out.println("Room humidity is too high at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 316, column: 7
+                System.out.println("Turning off humidifier");//sysj\ECS_plant.sysj line: 317, column: 7
+                deHumOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 318, column: 7
                 currsigs.addElement(deHumOnZone4_5_6);
                 active[2]=1;
                 ends[2]=1;
@@ -6628,10 +6849,10 @@ public class ECS_plant extends ClockDomain{
                 break;
               
               case 1 : 
-                System.out.println("");//sysj\ECS_plant.sysj line: 318, column: 7
-                System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 319, column: 7
-                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 320, column: 7
-                humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 321, column: 7
+                System.out.println("");//sysj\ECS_plant.sysj line: 323, column: 7
+                System.out.println("Room humidity is too low at " + humid456_thread_2);//sysj\ECS_plant.sysj line: 324, column: 7
+                System.out.println("Turning on humidifier");//sysj\ECS_plant.sysj line: 325, column: 7
+                humOnZone4_5_6.setPresent();//sysj\ECS_plant.sysj line: 326, column: 7
                 currsigs.addElement(humOnZone4_5_6);
                 active[2]=1;
                 ends[2]=1;
@@ -6642,8 +6863,8 @@ public class ECS_plant extends ClockDomain{
             break;
           
           case 10 : 
-            S85=10;
-            S85=0;
+            S1633=10;
+            S1633=0;
             active[2]=1;
             ends[2]=1;
             tdone[2]=1;
@@ -6655,10 +6876,122 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19834(int [] tdone, int [] ends){
-        S9941=1;
-    if(deHumOnZone4_5_6.getprestatus()){//sysj\ECS_plant.sysj line: 387, column: 24
-      deHumOnZone4_5_6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 387, column: 42
+  public void thread21501(int [] tdone, int [] ends){
+        S11545=1;
+    if(cutPowZ7.getprestatus()){//sysj\ECS_plant.sysj line: 406, column: 24
+      cutPowZ7_TriggerE.setPresent();//sysj\ECS_plant.sysj line: 406, column: 34
+      currsigs.addElement(cutPowZ7_TriggerE);
+      active[36]=1;
+      ends[36]=1;
+      tdone[36]=1;
+    }
+    else {
+      active[36]=1;
+      ends[36]=1;
+      tdone[36]=1;
+    }
+  }
+
+  public void thread21500(int [] tdone, int [] ends){
+        S11537=1;
+    if(cutPowZ6.getprestatus()){//sysj\ECS_plant.sysj line: 404, column: 24
+      cutPowZ6_TriggerE.setPresent();//sysj\ECS_plant.sysj line: 404, column: 34
+      currsigs.addElement(cutPowZ6_TriggerE);
+      active[35]=1;
+      ends[35]=1;
+      tdone[35]=1;
+    }
+    else {
+      active[35]=1;
+      ends[35]=1;
+      tdone[35]=1;
+    }
+  }
+
+  public void thread21499(int [] tdone, int [] ends){
+        S11529=1;
+    if(cutPowZ5.getprestatus()){//sysj\ECS_plant.sysj line: 402, column: 24
+      cutPowZ5_TriggerE.setPresent();//sysj\ECS_plant.sysj line: 402, column: 34
+      currsigs.addElement(cutPowZ5_TriggerE);
+      active[34]=1;
+      ends[34]=1;
+      tdone[34]=1;
+    }
+    else {
+      active[34]=1;
+      ends[34]=1;
+      tdone[34]=1;
+    }
+  }
+
+  public void thread21498(int [] tdone, int [] ends){
+        S11521=1;
+    if(cutPowZ4.getprestatus()){//sysj\ECS_plant.sysj line: 400, column: 24
+      cutPowZ4_TriggerE.setPresent();//sysj\ECS_plant.sysj line: 400, column: 34
+      currsigs.addElement(cutPowZ4_TriggerE);
+      active[33]=1;
+      ends[33]=1;
+      tdone[33]=1;
+    }
+    else {
+      active[33]=1;
+      ends[33]=1;
+      tdone[33]=1;
+    }
+  }
+
+  public void thread21497(int [] tdone, int [] ends){
+        S11513=1;
+    if(cutPowZ3.getprestatus()){//sysj\ECS_plant.sysj line: 398, column: 24
+      cutPowZ3_TriggerE.setPresent();//sysj\ECS_plant.sysj line: 398, column: 34
+      currsigs.addElement(cutPowZ3_TriggerE);
+      active[32]=1;
+      ends[32]=1;
+      tdone[32]=1;
+    }
+    else {
+      active[32]=1;
+      ends[32]=1;
+      tdone[32]=1;
+    }
+  }
+
+  public void thread21496(int [] tdone, int [] ends){
+        S11505=1;
+    if(cutPowZ2.getprestatus()){//sysj\ECS_plant.sysj line: 396, column: 24
+      cutPowZ2_TriggerE.setPresent();//sysj\ECS_plant.sysj line: 396, column: 34
+      currsigs.addElement(cutPowZ2_TriggerE);
+      active[31]=1;
+      ends[31]=1;
+      tdone[31]=1;
+    }
+    else {
+      active[31]=1;
+      ends[31]=1;
+      tdone[31]=1;
+    }
+  }
+
+  public void thread21495(int [] tdone, int [] ends){
+        S11497=1;
+    if(cutPowZ1.getprestatus()){//sysj\ECS_plant.sysj line: 394, column: 24
+      cutPowZ1_TriggerE.setPresent();//sysj\ECS_plant.sysj line: 394, column: 34
+      currsigs.addElement(cutPowZ1_TriggerE);
+      active[30]=1;
+      ends[30]=1;
+      tdone[30]=1;
+    }
+    else {
+      active[30]=1;
+      ends[30]=1;
+      tdone[30]=1;
+    }
+  }
+
+  public void thread21494(int [] tdone, int [] ends){
+        S11489=1;
+    if(deHumOnZone4_5_6.getprestatus()){//sysj\ECS_plant.sysj line: 392, column: 24
+      deHumOnZone4_5_6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 392, column: 42
       currsigs.addElement(deHumOnZone4_5_6TriggerE);
       active[29]=1;
       ends[29]=1;
@@ -6671,10 +7004,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19833(int [] tdone, int [] ends){
-        S9933=1;
-    if(deHumOnZone2_3.getprestatus()){//sysj\ECS_plant.sysj line: 385, column: 24
-      deHumOnZone2_3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 385, column: 40
+  public void thread21493(int [] tdone, int [] ends){
+        S11481=1;
+    if(deHumOnZone2_3.getprestatus()){//sysj\ECS_plant.sysj line: 390, column: 24
+      deHumOnZone2_3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 390, column: 40
       currsigs.addElement(deHumOnZone2_3TriggerE);
       active[28]=1;
       ends[28]=1;
@@ -6687,10 +7020,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19832(int [] tdone, int [] ends){
-        S9925=1;
-    if(deHumOnZone1_7.getprestatus()){//sysj\ECS_plant.sysj line: 383, column: 24
-      deHumOnZone1_7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 383, column: 40
+  public void thread21492(int [] tdone, int [] ends){
+        S11473=1;
+    if(deHumOnZone1_7.getprestatus()){//sysj\ECS_plant.sysj line: 388, column: 24
+      deHumOnZone1_7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 388, column: 40
       currsigs.addElement(deHumOnZone1_7TriggerE);
       active[27]=1;
       ends[27]=1;
@@ -6703,10 +7036,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19831(int [] tdone, int [] ends){
-        S9917=1;
-    if(humOnZone4_5_6.getprestatus()){//sysj\ECS_plant.sysj line: 381, column: 24
-      humOnZone4_5_6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 381, column: 40
+  public void thread21491(int [] tdone, int [] ends){
+        S11465=1;
+    if(humOnZone4_5_6.getprestatus()){//sysj\ECS_plant.sysj line: 386, column: 24
+      humOnZone4_5_6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 386, column: 40
       currsigs.addElement(humOnZone4_5_6TriggerE);
       active[26]=1;
       ends[26]=1;
@@ -6719,10 +7052,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19830(int [] tdone, int [] ends){
-        S9909=1;
-    if(humOnZone2_3.getprestatus()){//sysj\ECS_plant.sysj line: 379, column: 24
-      humOnZone2_3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 379, column: 38
+  public void thread21490(int [] tdone, int [] ends){
+        S11457=1;
+    if(humOnZone2_3.getprestatus()){//sysj\ECS_plant.sysj line: 384, column: 24
+      humOnZone2_3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 384, column: 38
       currsigs.addElement(humOnZone2_3TriggerE);
       active[25]=1;
       ends[25]=1;
@@ -6735,10 +7068,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19829(int [] tdone, int [] ends){
-        S9901=1;
-    if(humOnZone1_7.getprestatus()){//sysj\ECS_plant.sysj line: 377, column: 24
-      humOnZone1_7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 377, column: 38
+  public void thread21489(int [] tdone, int [] ends){
+        S11449=1;
+    if(humOnZone1_7.getprestatus()){//sysj\ECS_plant.sysj line: 382, column: 24
+      humOnZone1_7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 382, column: 38
       currsigs.addElement(humOnZone1_7TriggerE);
       active[24]=1;
       ends[24]=1;
@@ -6751,10 +7084,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19828(int [] tdone, int [] ends){
-        S9893=1;
-    if(heatOnZone4_5_6.getprestatus()){//sysj\ECS_plant.sysj line: 375, column: 24
-      heatOnZone4_5_6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 375, column: 41
+  public void thread21488(int [] tdone, int [] ends){
+        S11441=1;
+    if(heatOnZone4_5_6.getprestatus()){//sysj\ECS_plant.sysj line: 380, column: 24
+      heatOnZone4_5_6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 380, column: 41
       currsigs.addElement(heatOnZone4_5_6TriggerE);
       active[23]=1;
       ends[23]=1;
@@ -6767,10 +7100,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19827(int [] tdone, int [] ends){
-        S9885=1;
-    if(heatOnZone2_3.getprestatus()){//sysj\ECS_plant.sysj line: 373, column: 24
-      heatOnZone2_3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 373, column: 39
+  public void thread21487(int [] tdone, int [] ends){
+        S11433=1;
+    if(heatOnZone2_3.getprestatus()){//sysj\ECS_plant.sysj line: 378, column: 24
+      heatOnZone2_3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 378, column: 39
       currsigs.addElement(heatOnZone2_3TriggerE);
       active[22]=1;
       ends[22]=1;
@@ -6783,10 +7116,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19826(int [] tdone, int [] ends){
-        S9877=1;
-    if(airOnZone4_5_6.getprestatus()){//sysj\ECS_plant.sysj line: 371, column: 24
-      airOnZone4_5_6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 371, column: 40
+  public void thread21486(int [] tdone, int [] ends){
+        S11425=1;
+    if(airOnZone4_5_6.getprestatus()){//sysj\ECS_plant.sysj line: 376, column: 24
+      airOnZone4_5_6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 376, column: 40
       currsigs.addElement(airOnZone4_5_6TriggerE);
       active[21]=1;
       ends[21]=1;
@@ -6799,10 +7132,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19825(int [] tdone, int [] ends){
-        S9869=1;
-    if(airOnZone2_3.getprestatus()){//sysj\ECS_plant.sysj line: 369, column: 24
-      airOnZone2_3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 369, column: 38
+  public void thread21485(int [] tdone, int [] ends){
+        S11417=1;
+    if(airOnZone2_3.getprestatus()){//sysj\ECS_plant.sysj line: 374, column: 24
+      airOnZone2_3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 374, column: 38
       currsigs.addElement(airOnZone2_3TriggerE);
       active[20]=1;
       ends[20]=1;
@@ -6815,10 +7148,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19824(int [] tdone, int [] ends){
-        S9861=1;
-    if(heatOnZone1_7.getprestatus()){//sysj\ECS_plant.sysj line: 367, column: 24
-      heatOnZone1_7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 367, column: 39
+  public void thread21484(int [] tdone, int [] ends){
+        S11409=1;
+    if(heatOnZone1_7.getprestatus()){//sysj\ECS_plant.sysj line: 372, column: 24
+      heatOnZone1_7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 372, column: 39
       currsigs.addElement(heatOnZone1_7TriggerE);
       active[19]=1;
       ends[19]=1;
@@ -6831,10 +7164,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19823(int [] tdone, int [] ends){
-        S9853=1;
-    if(fanOnZone1_7.getprestatus()){//sysj\ECS_plant.sysj line: 365, column: 24
-      fanOnZone1_7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 365, column: 38
+  public void thread21483(int [] tdone, int [] ends){
+        S11401=1;
+    if(fanOnZone1_7.getprestatus()){//sysj\ECS_plant.sysj line: 370, column: 24
+      fanOnZone1_7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 370, column: 38
       currsigs.addElement(fanOnZone1_7TriggerE);
       active[18]=1;
       ends[18]=1;
@@ -6847,10 +7180,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19822(int [] tdone, int [] ends){
-        S9845=1;
-    if(cleanZone7.getprestatus()){//sysj\ECS_plant.sysj line: 363, column: 24
-      cleanZone7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 363, column: 36
+  public void thread21482(int [] tdone, int [] ends){
+        S11393=1;
+    if(cleanZone7.getprestatus()){//sysj\ECS_plant.sysj line: 368, column: 24
+      cleanZone7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 368, column: 36
       currsigs.addElement(cleanZone7TriggerE);
       active[17]=1;
       ends[17]=1;
@@ -6863,10 +7196,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19821(int [] tdone, int [] ends){
-        S9837=1;
-    if(cleanZone6.getprestatus()){//sysj\ECS_plant.sysj line: 361, column: 24
-      cleanZone6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 361, column: 36
+  public void thread21481(int [] tdone, int [] ends){
+        S11385=1;
+    if(cleanZone6.getprestatus()){//sysj\ECS_plant.sysj line: 366, column: 24
+      cleanZone6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 366, column: 36
       currsigs.addElement(cleanZone6TriggerE);
       active[16]=1;
       ends[16]=1;
@@ -6879,10 +7212,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19820(int [] tdone, int [] ends){
-        S9829=1;
-    if(cleanZone5.getprestatus()){//sysj\ECS_plant.sysj line: 359, column: 24
-      cleanZone5TriggerE.setPresent();//sysj\ECS_plant.sysj line: 359, column: 36
+  public void thread21480(int [] tdone, int [] ends){
+        S11377=1;
+    if(cleanZone5.getprestatus()){//sysj\ECS_plant.sysj line: 364, column: 24
+      cleanZone5TriggerE.setPresent();//sysj\ECS_plant.sysj line: 364, column: 36
       currsigs.addElement(cleanZone5TriggerE);
       active[15]=1;
       ends[15]=1;
@@ -6895,10 +7228,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19819(int [] tdone, int [] ends){
-        S9821=1;
-    if(cleanZone4.getprestatus()){//sysj\ECS_plant.sysj line: 357, column: 24
-      cleanZone4TriggerE.setPresent();//sysj\ECS_plant.sysj line: 357, column: 36
+  public void thread21479(int [] tdone, int [] ends){
+        S11369=1;
+    if(cleanZone4.getprestatus()){//sysj\ECS_plant.sysj line: 362, column: 24
+      cleanZone4TriggerE.setPresent();//sysj\ECS_plant.sysj line: 362, column: 36
       currsigs.addElement(cleanZone4TriggerE);
       active[14]=1;
       ends[14]=1;
@@ -6911,10 +7244,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19818(int [] tdone, int [] ends){
-        S9813=1;
-    if(cleanZone3.getprestatus()){//sysj\ECS_plant.sysj line: 355, column: 24
-      cleanZone3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 355, column: 36
+  public void thread21478(int [] tdone, int [] ends){
+        S11361=1;
+    if(cleanZone3.getprestatus()){//sysj\ECS_plant.sysj line: 360, column: 24
+      cleanZone3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 360, column: 36
       currsigs.addElement(cleanZone3TriggerE);
       active[13]=1;
       ends[13]=1;
@@ -6927,10 +7260,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19817(int [] tdone, int [] ends){
-        S9805=1;
-    if(cleanZone2.getprestatus()){//sysj\ECS_plant.sysj line: 353, column: 24
-      cleanZone2TriggerE.setPresent();//sysj\ECS_plant.sysj line: 353, column: 36
+  public void thread21477(int [] tdone, int [] ends){
+        S11353=1;
+    if(cleanZone2.getprestatus()){//sysj\ECS_plant.sysj line: 358, column: 24
+      cleanZone2TriggerE.setPresent();//sysj\ECS_plant.sysj line: 358, column: 36
       currsigs.addElement(cleanZone2TriggerE);
       active[12]=1;
       ends[12]=1;
@@ -6943,10 +7276,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19816(int [] tdone, int [] ends){
-        S9797=1;
-    if(cleanZone1.getprestatus()){//sysj\ECS_plant.sysj line: 351, column: 24
-      cleanZone1TriggerE.setPresent();//sysj\ECS_plant.sysj line: 351, column: 36
+  public void thread21476(int [] tdone, int [] ends){
+        S11345=1;
+    if(cleanZone1.getprestatus()){//sysj\ECS_plant.sysj line: 356, column: 24
+      cleanZone1TriggerE.setPresent();//sysj\ECS_plant.sysj line: 356, column: 36
       currsigs.addElement(cleanZone1TriggerE);
       active[11]=1;
       ends[11]=1;
@@ -6959,10 +7292,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19815(int [] tdone, int [] ends){
-        S9789=1;
-    if(fireZone7.getprestatus()){//sysj\ECS_plant.sysj line: 349, column: 24
-      alarmZone7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 349, column: 35
+  public void thread21475(int [] tdone, int [] ends){
+        S11337=1;
+    if(fireZone7.getprestatus()){//sysj\ECS_plant.sysj line: 354, column: 24
+      alarmZone7TriggerE.setPresent();//sysj\ECS_plant.sysj line: 354, column: 35
       currsigs.addElement(alarmZone7TriggerE);
       active[10]=1;
       ends[10]=1;
@@ -6975,10 +7308,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19814(int [] tdone, int [] ends){
-        S9781=1;
-    if(fireZone6.getprestatus()){//sysj\ECS_plant.sysj line: 347, column: 24
-      alarmZone6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 347, column: 35
+  public void thread21474(int [] tdone, int [] ends){
+        S11329=1;
+    if(fireZone6.getprestatus()){//sysj\ECS_plant.sysj line: 352, column: 24
+      alarmZone6TriggerE.setPresent();//sysj\ECS_plant.sysj line: 352, column: 35
       currsigs.addElement(alarmZone6TriggerE);
       active[9]=1;
       ends[9]=1;
@@ -6991,10 +7324,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19813(int [] tdone, int [] ends){
-        S9773=1;
-    if(fireZone5.getprestatus()){//sysj\ECS_plant.sysj line: 345, column: 24
-      alarmZone5TriggerE.setPresent();//sysj\ECS_plant.sysj line: 345, column: 35
+  public void thread21473(int [] tdone, int [] ends){
+        S11321=1;
+    if(fireZone5.getprestatus()){//sysj\ECS_plant.sysj line: 350, column: 24
+      alarmZone5TriggerE.setPresent();//sysj\ECS_plant.sysj line: 350, column: 35
       currsigs.addElement(alarmZone5TriggerE);
       active[8]=1;
       ends[8]=1;
@@ -7007,10 +7340,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19812(int [] tdone, int [] ends){
-        S9765=1;
-    if(fireZone4.getprestatus()){//sysj\ECS_plant.sysj line: 343, column: 24
-      alarmZone4TriggerE.setPresent();//sysj\ECS_plant.sysj line: 343, column: 35
+  public void thread21472(int [] tdone, int [] ends){
+        S11313=1;
+    if(fireZone4.getprestatus()){//sysj\ECS_plant.sysj line: 348, column: 24
+      alarmZone4TriggerE.setPresent();//sysj\ECS_plant.sysj line: 348, column: 35
       currsigs.addElement(alarmZone4TriggerE);
       active[7]=1;
       ends[7]=1;
@@ -7023,10 +7356,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19811(int [] tdone, int [] ends){
-        S9757=1;
-    if(fireZone3.getprestatus()){//sysj\ECS_plant.sysj line: 341, column: 24
-      alarmZone3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 341, column: 35
+  public void thread21471(int [] tdone, int [] ends){
+        S11305=1;
+    if(fireZone3.getprestatus()){//sysj\ECS_plant.sysj line: 346, column: 24
+      alarmZone3TriggerE.setPresent();//sysj\ECS_plant.sysj line: 346, column: 35
       currsigs.addElement(alarmZone3TriggerE);
       active[6]=1;
       ends[6]=1;
@@ -7039,10 +7372,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19810(int [] tdone, int [] ends){
-        S9749=1;
-    if(fireZone2.getprestatus()){//sysj\ECS_plant.sysj line: 339, column: 24
-      alarmZone2TriggerE.setPresent();//sysj\ECS_plant.sysj line: 339, column: 35
+  public void thread21470(int [] tdone, int [] ends){
+        S11297=1;
+    if(fireZone2.getprestatus()){//sysj\ECS_plant.sysj line: 344, column: 24
+      alarmZone2TriggerE.setPresent();//sysj\ECS_plant.sysj line: 344, column: 35
       currsigs.addElement(alarmZone2TriggerE);
       active[5]=1;
       ends[5]=1;
@@ -7055,10 +7388,10 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19809(int [] tdone, int [] ends){
-        S9741=1;
-    if(fireZone1.getprestatus()){//sysj\ECS_plant.sysj line: 337, column: 24
-      alarmZone1TriggerE.setPresent();//sysj\ECS_plant.sysj line: 337, column: 35
+  public void thread21469(int [] tdone, int [] ends){
+        S11289=1;
+    if(fireZone1.getprestatus()){//sysj\ECS_plant.sysj line: 342, column: 24
+      alarmZone1TriggerE.setPresent();//sysj\ECS_plant.sysj line: 342, column: 35
       currsigs.addElement(alarmZone1TriggerE);
       active[4]=1;
       ends[4]=1;
@@ -7071,123 +7404,151 @@ public class ECS_plant extends ClockDomain{
     }
   }
 
-  public void thread19808(int [] tdone, int [] ends){
-        S9943=1;
-    thread19809(tdone,ends);
-    thread19810(tdone,ends);
-    thread19811(tdone,ends);
-    thread19812(tdone,ends);
-    thread19813(tdone,ends);
-    thread19814(tdone,ends);
-    thread19815(tdone,ends);
-    thread19816(tdone,ends);
-    thread19817(tdone,ends);
-    thread19818(tdone,ends);
-    thread19819(tdone,ends);
-    thread19820(tdone,ends);
-    thread19821(tdone,ends);
-    thread19822(tdone,ends);
-    thread19823(tdone,ends);
-    thread19824(tdone,ends);
-    thread19825(tdone,ends);
-    thread19826(tdone,ends);
-    thread19827(tdone,ends);
-    thread19828(tdone,ends);
-    thread19829(tdone,ends);
-    thread19830(tdone,ends);
-    thread19831(tdone,ends);
-    thread19832(tdone,ends);
-    thread19833(tdone,ends);
-    thread19834(tdone,ends);
-    int biggest19835 = 0;
-    if(ends[4]>=biggest19835){
-      biggest19835=ends[4];
+  public void thread21468(int [] tdone, int [] ends){
+        S11547=1;
+    thread21469(tdone,ends);
+    thread21470(tdone,ends);
+    thread21471(tdone,ends);
+    thread21472(tdone,ends);
+    thread21473(tdone,ends);
+    thread21474(tdone,ends);
+    thread21475(tdone,ends);
+    thread21476(tdone,ends);
+    thread21477(tdone,ends);
+    thread21478(tdone,ends);
+    thread21479(tdone,ends);
+    thread21480(tdone,ends);
+    thread21481(tdone,ends);
+    thread21482(tdone,ends);
+    thread21483(tdone,ends);
+    thread21484(tdone,ends);
+    thread21485(tdone,ends);
+    thread21486(tdone,ends);
+    thread21487(tdone,ends);
+    thread21488(tdone,ends);
+    thread21489(tdone,ends);
+    thread21490(tdone,ends);
+    thread21491(tdone,ends);
+    thread21492(tdone,ends);
+    thread21493(tdone,ends);
+    thread21494(tdone,ends);
+    thread21495(tdone,ends);
+    thread21496(tdone,ends);
+    thread21497(tdone,ends);
+    thread21498(tdone,ends);
+    thread21499(tdone,ends);
+    thread21500(tdone,ends);
+    thread21501(tdone,ends);
+    int biggest21502 = 0;
+    if(ends[4]>=biggest21502){
+      biggest21502=ends[4];
     }
-    if(ends[5]>=biggest19835){
-      biggest19835=ends[5];
+    if(ends[5]>=biggest21502){
+      biggest21502=ends[5];
     }
-    if(ends[6]>=biggest19835){
-      biggest19835=ends[6];
+    if(ends[6]>=biggest21502){
+      biggest21502=ends[6];
     }
-    if(ends[7]>=biggest19835){
-      biggest19835=ends[7];
+    if(ends[7]>=biggest21502){
+      biggest21502=ends[7];
     }
-    if(ends[8]>=biggest19835){
-      biggest19835=ends[8];
+    if(ends[8]>=biggest21502){
+      biggest21502=ends[8];
     }
-    if(ends[9]>=biggest19835){
-      biggest19835=ends[9];
+    if(ends[9]>=biggest21502){
+      biggest21502=ends[9];
     }
-    if(ends[10]>=biggest19835){
-      biggest19835=ends[10];
+    if(ends[10]>=biggest21502){
+      biggest21502=ends[10];
     }
-    if(ends[11]>=biggest19835){
-      biggest19835=ends[11];
+    if(ends[11]>=biggest21502){
+      biggest21502=ends[11];
     }
-    if(ends[12]>=biggest19835){
-      biggest19835=ends[12];
+    if(ends[12]>=biggest21502){
+      biggest21502=ends[12];
     }
-    if(ends[13]>=biggest19835){
-      biggest19835=ends[13];
+    if(ends[13]>=biggest21502){
+      biggest21502=ends[13];
     }
-    if(ends[14]>=biggest19835){
-      biggest19835=ends[14];
+    if(ends[14]>=biggest21502){
+      biggest21502=ends[14];
     }
-    if(ends[15]>=biggest19835){
-      biggest19835=ends[15];
+    if(ends[15]>=biggest21502){
+      biggest21502=ends[15];
     }
-    if(ends[16]>=biggest19835){
-      biggest19835=ends[16];
+    if(ends[16]>=biggest21502){
+      biggest21502=ends[16];
     }
-    if(ends[17]>=biggest19835){
-      biggest19835=ends[17];
+    if(ends[17]>=biggest21502){
+      biggest21502=ends[17];
     }
-    if(ends[18]>=biggest19835){
-      biggest19835=ends[18];
+    if(ends[18]>=biggest21502){
+      biggest21502=ends[18];
     }
-    if(ends[19]>=biggest19835){
-      biggest19835=ends[19];
+    if(ends[19]>=biggest21502){
+      biggest21502=ends[19];
     }
-    if(ends[20]>=biggest19835){
-      biggest19835=ends[20];
+    if(ends[20]>=biggest21502){
+      biggest21502=ends[20];
     }
-    if(ends[21]>=biggest19835){
-      biggest19835=ends[21];
+    if(ends[21]>=biggest21502){
+      biggest21502=ends[21];
     }
-    if(ends[22]>=biggest19835){
-      biggest19835=ends[22];
+    if(ends[22]>=biggest21502){
+      biggest21502=ends[22];
     }
-    if(ends[23]>=biggest19835){
-      biggest19835=ends[23];
+    if(ends[23]>=biggest21502){
+      biggest21502=ends[23];
     }
-    if(ends[24]>=biggest19835){
-      biggest19835=ends[24];
+    if(ends[24]>=biggest21502){
+      biggest21502=ends[24];
     }
-    if(ends[25]>=biggest19835){
-      biggest19835=ends[25];
+    if(ends[25]>=biggest21502){
+      biggest21502=ends[25];
     }
-    if(ends[26]>=biggest19835){
-      biggest19835=ends[26];
+    if(ends[26]>=biggest21502){
+      biggest21502=ends[26];
     }
-    if(ends[27]>=biggest19835){
-      biggest19835=ends[27];
+    if(ends[27]>=biggest21502){
+      biggest21502=ends[27];
     }
-    if(ends[28]>=biggest19835){
-      biggest19835=ends[28];
+    if(ends[28]>=biggest21502){
+      biggest21502=ends[28];
     }
-    if(ends[29]>=biggest19835){
-      biggest19835=ends[29];
+    if(ends[29]>=biggest21502){
+      biggest21502=ends[29];
     }
-    if(biggest19835 == 1){
+    if(ends[30]>=biggest21502){
+      biggest21502=ends[30];
+    }
+    if(ends[31]>=biggest21502){
+      biggest21502=ends[31];
+    }
+    if(ends[32]>=biggest21502){
+      biggest21502=ends[32];
+    }
+    if(ends[33]>=biggest21502){
+      biggest21502=ends[33];
+    }
+    if(ends[34]>=biggest21502){
+      biggest21502=ends[34];
+    }
+    if(ends[35]>=biggest21502){
+      biggest21502=ends[35];
+    }
+    if(ends[36]>=biggest21502){
+      biggest21502=ends[36];
+    }
+    if(biggest21502 == 1){
       active[3]=1;
       ends[3]=1;
       tdone[3]=1;
     }
   }
 
-  public void thread19807(int [] tdone, int [] ends){
-        S9733=1;
-    S85=0;
+  public void thread21467(int [] tdone, int [] ends){
+        S11281=1;
+    S1633=0;
     active[2]=1;
     ends[2]=1;
     tdone[2]=1;
@@ -7200,51 +7561,51 @@ public class ECS_plant extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S19805){
+      switch(S21465){
         case 0 : 
-          S19805=0;
+          S21465=0;
           break RUN;
         
         case 1 : 
-          S19805=2;
-          S19805=2;
-          new Thread(new ECS_GUI()).start();//sysj\ECS_plant.sysj line: 31, column: 2
-          thread19807(tdone,ends);
-          thread19808(tdone,ends);
-          int biggest19836 = 0;
-          if(ends[2]>=biggest19836){
-            biggest19836=ends[2];
+          S21465=2;
+          S21465=2;
+          new Thread(new ECS_GUI()).start();//sysj\ECS_plant.sysj line: 32, column: 2
+          thread21467(tdone,ends);
+          thread21468(tdone,ends);
+          int biggest21503 = 0;
+          if(ends[2]>=biggest21503){
+            biggest21503=ends[2];
           }
-          if(ends[3]>=biggest19836){
-            biggest19836=ends[3];
+          if(ends[3]>=biggest21503){
+            biggest21503=ends[3];
           }
-          if(biggest19836 == 1){
+          if(biggest21503 == 1){
             active[1]=1;
             ends[1]=1;
             break RUN;
           }
         
         case 2 : 
-          thread19837(tdone,ends);
-          thread19838(tdone,ends);
-          int biggest19866 = 0;
-          if(ends[2]>=biggest19866){
-            biggest19866=ends[2];
+          thread21504(tdone,ends);
+          thread21505(tdone,ends);
+          int biggest21540 = 0;
+          if(ends[2]>=biggest21540){
+            biggest21540=ends[2];
           }
-          if(ends[3]>=biggest19866){
-            biggest19866=ends[3];
+          if(ends[3]>=biggest21540){
+            biggest21540=ends[3];
           }
-          if(biggest19866 == 1){
+          if(biggest21540 == 1){
             active[1]=1;
             ends[1]=1;
             break RUN;
           }
           //FINXME code
-          if(biggest19866 == 0){
-            S19805=0;
+          if(biggest21540 == 0){
+            S21465=0;
             active[1]=0;
             ends[1]=0;
-            S19805=0;
+            S21465=0;
             break RUN;
           }
         
@@ -7253,9 +7614,9 @@ public class ECS_plant extends ClockDomain{
   }
 
   public void init(){
-    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     paused = paused1;
     active = active1;
     suspended = suspended1;
@@ -7280,13 +7641,7 @@ public class ECS_plant extends ClockDomain{
           humidZone1_7.gethook();
           humidZone2_3.gethook();
           humidZone4_5_6.gethook();
-          lightIntZ1.gethook();
-          lightIntZ2.gethook();
-          lightIntZ3.gethook();
-          lightIntZ4.gethook();
-          lightIntZ5.gethook();
-          lightIntZ6.gethook();
-          lightIntZ7.gethook();
+          lightInt.gethook();
           selectedZone.gethook();
           time.gethook();
           humanZ1.gethook();
@@ -7314,13 +7669,7 @@ public class ECS_plant extends ClockDomain{
       humidZone1_7.setpreclear();
       humidZone2_3.setpreclear();
       humidZone4_5_6.setpreclear();
-      lightIntZ1.setpreclear();
-      lightIntZ2.setpreclear();
-      lightIntZ3.setpreclear();
-      lightIntZ4.setpreclear();
-      lightIntZ5.setpreclear();
-      lightIntZ6.setpreclear();
-      lightIntZ7.setpreclear();
+      lightInt.setpreclear();
       selectedZone.setpreclear();
       time.setpreclear();
       humanZ1.setpreclear();
@@ -7414,6 +7763,13 @@ public class ECS_plant extends ClockDomain{
       cutPowZ5_TriggerE.setpreclear();
       cutPowZ6_TriggerE.setpreclear();
       cutPowZ7_TriggerE.setpreclear();
+      lightIntZ1Trigger.setpreclear();
+      lightIntZ2Trigger.setpreclear();
+      lightIntZ3Trigger.setpreclear();
+      lightIntZ4Trigger.setpreclear();
+      lightIntZ5Trigger.setpreclear();
+      lightIntZ6Trigger.setpreclear();
+      lightIntZ7Trigger.setpreclear();
       int dummyint = 0;
       for(int qw=0;qw<currsigs.size();++qw){
         dummyint = ((Signal)currsigs.elementAt(qw)).getStatus() ? ((Signal)currsigs.elementAt(qw)).setprepresent() : ((Signal)currsigs.elementAt(qw)).setpreclear();
@@ -7438,27 +7794,9 @@ public class ECS_plant extends ClockDomain{
       dummyint = humidZone4_5_6.getStatus() ? humidZone4_5_6.setprepresent() : humidZone4_5_6.setpreclear();
       humidZone4_5_6.setpreval(humidZone4_5_6.getValue());
       humidZone4_5_6.setClear();
-      dummyint = lightIntZ1.getStatus() ? lightIntZ1.setprepresent() : lightIntZ1.setpreclear();
-      lightIntZ1.setpreval(lightIntZ1.getValue());
-      lightIntZ1.setClear();
-      dummyint = lightIntZ2.getStatus() ? lightIntZ2.setprepresent() : lightIntZ2.setpreclear();
-      lightIntZ2.setpreval(lightIntZ2.getValue());
-      lightIntZ2.setClear();
-      dummyint = lightIntZ3.getStatus() ? lightIntZ3.setprepresent() : lightIntZ3.setpreclear();
-      lightIntZ3.setpreval(lightIntZ3.getValue());
-      lightIntZ3.setClear();
-      dummyint = lightIntZ4.getStatus() ? lightIntZ4.setprepresent() : lightIntZ4.setpreclear();
-      lightIntZ4.setpreval(lightIntZ4.getValue());
-      lightIntZ4.setClear();
-      dummyint = lightIntZ5.getStatus() ? lightIntZ5.setprepresent() : lightIntZ5.setpreclear();
-      lightIntZ5.setpreval(lightIntZ5.getValue());
-      lightIntZ5.setClear();
-      dummyint = lightIntZ6.getStatus() ? lightIntZ6.setprepresent() : lightIntZ6.setpreclear();
-      lightIntZ6.setpreval(lightIntZ6.getValue());
-      lightIntZ6.setClear();
-      dummyint = lightIntZ7.getStatus() ? lightIntZ7.setprepresent() : lightIntZ7.setpreclear();
-      lightIntZ7.setpreval(lightIntZ7.getValue());
-      lightIntZ7.setClear();
+      dummyint = lightInt.getStatus() ? lightInt.setprepresent() : lightInt.setpreclear();
+      lightInt.setpreval(lightInt.getValue());
+      lightInt.setClear();
       dummyint = selectedZone.getStatus() ? selectedZone.setprepresent() : selectedZone.setpreclear();
       selectedZone.setpreval(selectedZone.getValue());
       selectedZone.setClear();
@@ -7662,6 +8000,20 @@ public class ECS_plant extends ClockDomain{
       cutPowZ6_TriggerE.setClear();
       cutPowZ7_TriggerE.sethook();
       cutPowZ7_TriggerE.setClear();
+      lightIntZ1Trigger.sethook();
+      lightIntZ1Trigger.setClear();
+      lightIntZ2Trigger.sethook();
+      lightIntZ2Trigger.setClear();
+      lightIntZ3Trigger.sethook();
+      lightIntZ3Trigger.setClear();
+      lightIntZ4Trigger.sethook();
+      lightIntZ4Trigger.setClear();
+      lightIntZ5Trigger.sethook();
+      lightIntZ5Trigger.setClear();
+      lightIntZ6Trigger.sethook();
+      lightIntZ6Trigger.setClear();
+      lightIntZ7Trigger.sethook();
+      lightIntZ7Trigger.setClear();
       if(paused[1]!=0 || suspended[1]!=0 || active[1]!=1);
       else{
         tempZone1_7.gethook();
@@ -7670,13 +8022,7 @@ public class ECS_plant extends ClockDomain{
         humidZone1_7.gethook();
         humidZone2_3.gethook();
         humidZone4_5_6.gethook();
-        lightIntZ1.gethook();
-        lightIntZ2.gethook();
-        lightIntZ3.gethook();
-        lightIntZ4.gethook();
-        lightIntZ5.gethook();
-        lightIntZ6.gethook();
-        lightIntZ7.gethook();
+        lightInt.gethook();
         selectedZone.gethook();
         time.gethook();
         humanZ1.gethook();
