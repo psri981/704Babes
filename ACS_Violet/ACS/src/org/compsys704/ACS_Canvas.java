@@ -346,6 +346,7 @@ public class ACS_Canvas {
 			if(States.ACCESS_OFFICE){
 				System.out.println("ACCESSOFFICE");
 				door1Unlock.setOpaque(true);
+				door3Unlock.setOpaque(false);
 				frmSecurityAccessControl.getContentPane().revalidate();
 				frmSecurityAccessControl.getContentPane().repaint();
 			}
@@ -354,6 +355,7 @@ public class ACS_Canvas {
 			if(States.ACCESS_MANU){
 				System.out.println("ACCESSMANU");
 				door3Unlock.setOpaque(true);
+				door1Unlock.setOpaque(false);
 				frmSecurityAccessControl.getContentPane().revalidate();
 				frmSecurityAccessControl.getContentPane().repaint();
 			}
