@@ -57,7 +57,7 @@ public class ACS_Canvas {
 	private void initialize() {
 		frmSecurityAccessControl = new JFrame();
 		frmSecurityAccessControl.setTitle("Security Access Control GUI");
-		frmSecurityAccessControl.setBounds(500, 500, 500, 500);
+		frmSecurityAccessControl.setBounds(500, 500, 550, 500);
 		frmSecurityAccessControl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSecurityAccessControl.getContentPane().setLayout(null);
 		
@@ -65,13 +65,23 @@ public class ACS_Canvas {
 		btnNewButton.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
 		btnNewButton.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SIGNAL_DOOR1_UNLOCK));
 		
-		JButton btnNewButton_1 = new JButton("Office");
+		JButton btnNewButton_1 = new JButton("O");
 		btnNewButton_1.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
+		
+		JButton btnNewButton_1_1_1 = new JButton("Fire");
+		btnNewButton_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
+		btnNewButton_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 6));
+		btnNewButton_1_1_1.setBounds(422, 296, 42, 21);
+		frmSecurityAccessControl.getContentPane().add(btnNewButton_1_1_1);
 		
 		JButton btnNewButton_2_1 = new JButton("Manual");
 		btnNewButton_2_1.setBounds(148, 407, 85, 21);
@@ -81,55 +91,58 @@ public class ACS_Canvas {
 		btnNewButton_2.setBounds(28, 407, 85, 21);
 		frmSecurityAccessControl.getContentPane().add(btnNewButton_2);
 		
-		JButton btnNewButton_1_1_1_1_1_1_1 = new JButton("Zone 2");
+		JButton btnNewButton_1_1_1_1_1_1_1 = new JButton("7");
 		btnNewButton_1_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNewButton_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		btnNewButton_1_1_1_1_1_1_1.setBounds(350, 423, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(btnNewButton_1_1_1_1_1_1_1);
 		
-		JButton btnNewButton_1_1_1_1_3 = new JButton("Zone 1");
+		JButton btnNewButton_1_1_1_1_3 = new JButton("4");
+		btnNewButton_1_1_1_1_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton_1_1_1_1_3.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNewButton_1_1_1_1_3.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		btnNewButton_1_1_1_1_3.setBounds(300, 392, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(btnNewButton_1_1_1_1_3);
 		
-		JButton btnNewButton_1_1_1_1_1_1 = new JButton("Zone 2");
+		JButton btnNewButton_1_1_1_1_1_1 = new JButton("5");
 		btnNewButton_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNewButton_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		btnNewButton_1_1_1_1_1_1.setBounds(350, 392, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(btnNewButton_1_1_1_1_1_1);
 		
-		JButton btnNewButton_1_1_1_1_2_1 = new JButton("Zone 3");
+		JButton btnNewButton_1_1_1_1_2_1 = new JButton("5");
 		btnNewButton_1_1_1_1_2_1.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNewButton_1_1_1_1_2_1.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		btnNewButton_1_1_1_1_2_1.setBounds(399, 392, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(btnNewButton_1_1_1_1_2_1);
 		
-		JButton btnNewButton_1_1_1_1_2 = new JButton("Zone 3");
+		JButton btnNewButton_1_1_1_1_2 = new JButton("3");
 		btnNewButton_1_1_1_1_2.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNewButton_1_1_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		btnNewButton_1_1_1_1_2.setBounds(399, 361, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(btnNewButton_1_1_1_1_2);
 		
-		JButton btnNewButton_1_1_1_1_1 = new JButton("Zone 2");
+		JButton btnNewButton_1_1_1_1_1 = new JButton("2");
 		btnNewButton_1_1_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNewButton_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		btnNewButton_1_1_1_1_1.setBounds(350, 361, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(btnNewButton_1_1_1_1_1);
 		
-		JButton btnNewButton_1_1_1_1 = new JButton("Zone 1");
+		JButton btnNewButton_1_1_1_1 = new JButton("1");
+		btnNewButton_1_1_1_1.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnNewButton_1_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNewButton_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		btnNewButton_1_1_1_1.setBounds(300, 361, 39, 21);
 		frmSecurityAccessControl.getContentPane().add(btnNewButton_1_1_1_1);
 		
-		JButton btnNewButton_1_1_1 = new JButton("Fire");
-		btnNewButton_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-		btnNewButton_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 6));
-		btnNewButton_1_1_1.setBounds(425, 296, 39, 21);
-		frmSecurityAccessControl.getContentPane().add(btnNewButton_1_1_1);
-		
-		JButton btnNewButton_1_1 = new JButton("Manu");
+		JButton btnNewButton_1_1 = new JButton("M");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton_1_1.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNewButton_1_1.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		btnNewButton_1_1.setBounds(373, 296, 39, 21);
@@ -143,6 +156,13 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(lblNewLabel_7);
 		btnNewButton.setBounds(94, 316, 85, 21);
 		frmSecurityAccessControl.getContentPane().add(btnNewButton);
+		
+		JLabel zoneRed = new JLabel("");
+		zoneRed.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
+		zoneRed.setHorizontalAlignment(SwingConstants.CENTER);
+		zoneRed.setBackground(Color.RED);
+		zoneRed.setBounds(79, 289, 117, 73);
+		frmSecurityAccessControl.getContentPane().add(zoneRed);
 		
 		btnNewButton.addActionListener(e -> {
 			if(!States.DOOR1_UNLOCK) {
@@ -160,13 +180,6 @@ public class ACS_Canvas {
 		zone1.setBackground(Color.GREEN);
 		zone1.setBounds(79, 289, 117, 73);
 		frmSecurityAccessControl.getContentPane().add(zone1);
-		
-		JLabel zoneRed = new JLabel("");
-		zoneRed.setBorder(new EtchedBorder(EtchedBorder.RAISED, null, null));
-		zoneRed.setHorizontalAlignment(SwingConstants.CENTER);
-		zoneRed.setBackground(Color.RED);
-		zoneRed.setBounds(79, 289, 117, 73);
-		frmSecurityAccessControl.getContentPane().add(zoneRed);
 		
 		JLabel lblNewLabel_6_3_1 = new JLabel("Person Location");
 		lblNewLabel_6_3_1.setVerticalAlignment(SwingConstants.TOP);
