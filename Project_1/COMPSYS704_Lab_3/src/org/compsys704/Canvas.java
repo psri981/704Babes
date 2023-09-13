@@ -71,6 +71,7 @@ public class Canvas {
 	 */
 	private void initialize() {
 		frmAbs = new JFrame();
+		frmAbs.getContentPane().setBackground(new Color(87, 87, 130));
 		frmAbs.setTitle("ABS");
 		frmAbs.setBounds(100, 100, 700, 600);
 		frmAbs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

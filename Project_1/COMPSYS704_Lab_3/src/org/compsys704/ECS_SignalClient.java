@@ -9,7 +9,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 
 
-public class POS_SignalClient implements ActionListener{
+public class ECS_SignalClient implements ActionListener{
 
 	Socket s = new Socket();
 	ObjectOutputStream oos = null;
@@ -18,7 +18,7 @@ public class POS_SignalClient implements ActionListener{
 	
 	String dest;
 	
-	public POS_SignalClient(int p, String dest){
+	public ECS_SignalClient(int p, String dest){
 		this.dest = dest;
 		port = p;
 		try {
@@ -42,7 +42,7 @@ public class POS_SignalClient implements ActionListener{
 					throw new ConnectException("Not thru");
 			}
 			oos.writeObject(new Object[]{true});
-			Thread.sleep(10);
+			Thread.sleep(50);
 			oos.writeObject(new Object[]{false});
 		}
 		catch (IOException | InterruptedException ee) {

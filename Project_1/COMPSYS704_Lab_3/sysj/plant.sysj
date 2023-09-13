@@ -1,5 +1,6 @@
 import run.GUI;
 import run.POS_GUI;
+import run.ECS_GUI;
 
 Plant(
 		input signal capOnBottleAtPos1, tableAlignedWithSensor, bottleAtPos1, bottleAtPos2, bottleAtPos3, bottleAtPos4, bottleAtPos5;
@@ -18,6 +19,8 @@ Plant(
 		
 		while(true){
 			
+	
+			
 			// Get number of bottles ordered
 			Integer bottles = 0;
 			receive bottleQuantityOutput;
@@ -28,12 +31,9 @@ Plant(
 			liquidMix = (String)#liquidMixOutput;
 			System.out.println("Liquid Mix: " + liquidMix);
 			
-			Integer bottlesDone = 0;
+			Integer bottlesDone = 0;			
 			
-			while(bottlesDone != bottles){
-			System.out.println("I am in here");
-			
-			
+			while(bottlesDone != bottles){	
 				abort(rotate){
 					while(true) {
 						emit botPos1;
@@ -41,6 +41,9 @@ Plant(
 						pause;
 					}
 				}
+				
+				await(!rotate);
+				
 				abort(bottleAtPos1 && rotate){
 					while(true) {
 						//System.out.println("bottleAtPos1 aborted");
@@ -48,13 +51,16 @@ Plant(
 						pause;
 					}
 				}
-				
+			
+				await(!rotate);
+
 				abort(bottleAtPos2 && rotate){
 					while(true) {
 						emit botPos3;
 						pause;
 					}
 				}
+					await(!rotate);
 	
 				abort(bottleAtPos3 && rotate){
 					while(true) {
@@ -62,6 +68,7 @@ Plant(
 						pause;
 					}
 				}
+					await(!rotate);
 	
 				abort(bottleAtPos4 && rotate){
 					while(true) {
@@ -69,15 +76,16 @@ Plant(
 						pause;
 					}
 				}
+				await(!rotate);
 	
 				abort(bottleAtPos5 && rotate){
 					emit tableAligned;
 					bottlesDone++;
 					System.out.println(bottlesDone);
+					System.out.println("Bottle Loc: To Labelling");
 				}
-			
-			
-			pause;
+				
+			pause; 
 			}
 			pause;
 		}
@@ -135,4 +143,185 @@ POS_Plant(
 	{// To viz
 	}
 	
+}
+
+
+
+ECS_plant(
+		input Integer signal tempZone1_7, tempZone2_3, tempZone4_5_6;
+		input Integer signal humidZone1_7, humidZone2_3, humidZone4_5_6;
+		input Integer signal lightInt;
+		input Integer signal selectedZone;
+		input Integer signal fire;
+		
+		input String signal time;
+		
+		input signal humanZ1, humanZ2, humanZ3, humanZ4, humanZ5, humanZ6, humanZ7;
+		input signal dust, powerOff, roomCleaned, alarmOff, safeOpTemp, safeOpHumid;
+		input signal run;
+
+		output signal fireZone1, fireZone2, fireZone3, fireZone4, fireZone5, fireZone6, fireZone7;
+		output signal cleanZone1, cleanZone2, cleanZone3, cleanZone4, cleanZone5, cleanZone6, cleanZone7;
+		output signal fanOnZone1_7, heatOnZone1_7, airOnZone2_3, airOnZone4_5_6, heatOnZone2_3, heatOnZone4_5_6;
+		output signal blindsDownZone1_7, blindsDownZone2_3, blindsDownZone4_5_6;  
+		output signal humOnZone1_7, humOnZone2_3, humOnZone4_5_6, deHumOnZone1_7, deHumOnZone2_3, deHumOnZone4_5_6;
+		output signal cutPow;
+		output signal pow, fireExt;
+		
+		output signal alarmZone1TriggerE, alarmZone2TriggerE, alarmZone3TriggerE, alarmZone4TriggerE, alarmZone5TriggerE, alarmZone6TriggerE, alarmZone7TriggerE;
+		output signal cleanZone1TriggerE, cleanZone2TriggerE, cleanZone3TriggerE, cleanZone4TriggerE, cleanZone5TriggerE, cleanZone6TriggerE, cleanZone7TriggerE;
+		output signal fanOnZone1_7TriggerE, heatOnZone1_7TriggerE, airOnZone2_3TriggerE, airOnZone4_5_6TriggerE, heatOnZone2_3TriggerE, heatOnZone4_5_6TriggerE;
+		output signal humOnZone1_7TriggerE, humOnZone2_3TriggerE, humOnZone4_5_6TriggerE, deHumOnZone1_7TriggerE, deHumOnZone2_3TriggerE, deHumOnZone4_5_6TriggerE;
+		output signal cutPow_TriggerE, fireExtE;
+		output signal lightIntZ1Trigger, lightIntZ2Trigger, lightIntZ3Trigger, lightIntZ4Trigger, lightIntZ5Trigger, lightIntZ6Trigger, lightIntZ7Trigger;
+		)
+->
+{
+	new Thread(new ECS_GUI()).start();
+
+	{// 
+		while(true){
+				
+			
+			// WAIT FOR USER TO START SIMULATION
+			present(run){
+				
+				// Check what zone was selected when run was pressed
+				Integer zone = 0;
+				zone = #selectedZone;
+				
+				System.out.println("");
+				System.out.println("Plant knows zone selected is: " + zone);
+				
+				// Check what zone was selected when run was pressed
+				Integer firePresent = 0;
+				firePresent = #fire;
+				
+				// Check light intensity
+				Integer lightIntensity = 0;
+				lightIntensity = #lightInt;
+				
+				// Check the time
+				String clock = "";
+				clock = #time;
+				
+				// CHECK FOR FIREEEEEE (MOST IMPORTANT)
+				// SINCE SMOKE ALARM IS BATTERY OPERATED, POWER SHOULD BE SWITCHED OFF IN EVENT OF FIRE
+				if(firePresent == 1){
+					System.out.println("THERE IS A FIRE IN ZONE " + zone + " SEND EVACUATION SIGNAL TO ACS");
+					emit cutPow;
+					await(powerOff);
+					waitl(2s);
+					System.out.println("Power turned off");
+					emit fireZone1;
+					await(alarmOff);
+					waitl(4s);
+					System.out.println("Alarm off, Fire out");
+					//emit fireExt;	
+				}
+				
+				
+				//emit fireExt;	
+				// CHECK TEMPERATURES FOR ZONES 1 & 7
+				if(zone == 1 || zone == 7){
+					Integer temp17 = 0;
+					temp17 = #tempZone1_7;
+					if(temp17 > 22){
+							System.out.println("");
+							System.out.println("Room temperature is too high at " + temp17);
+							emit fanOnZone1_7;
+					} else if(temp17 < 21){
+							System.out.println("Room temperature is too low at " + temp17);
+							emit heatOnZone1_7;
+					} else {
+						System.out.println("");
+						System.out.println("Room temperature is safe at" + temp17);
+					}	
+				}
+				
+				// CHECK TEMPERATURES FOR ZONES 2 & 3
+				if(zone == 2 || zone == 3){
+					Integer temp23 = 0;
+					temp23 = #tempZone2_3;
+					if(temp23 > 22){
+							System.out.println("");
+							System.out.println("Room temperature is too high at " + temp23);
+							emit airOnZone2_3;
+					} else if(temp23 < 21){
+							emit heatOnZone2_3;
+					} else {
+						System.out.println("");
+						System.out.println("Room temperature is safe at" + temp23);
+					}	
+				}
+				
+					
+				// CHECK TEMPERATURE FOR ZONES 4 & 5 & 6
+				if(zone == 4 || zone == 5 || zone == 6){
+					Integer temp456 = 0;
+					temp456 = #tempZone4_5_6;
+					if(temp456 > 22){
+							System.out.println("");
+							System.out.println("Room temperature is too high at " + temp456);
+							emit airOnZone4_5_6;
+					} else if(temp456 < 21){
+							System.out.println("");
+							System.out.println("Room temperature is too low at " + temp456);
+							emit heatOnZone4_5_6;
+					} else {
+						System.out.println("");
+						System.out.println("Room temperature is safe at" + temp456);
+					}	
+				}
+					
+			}
+			pause;
+		}
+	}
+	||
+	{// To viz
+		{while(true){present(fireZone1){emit alarmZone1TriggerE;} pause;}}
+		||
+		{while(true){present(fireExt){emit fireExtE;} pause;}}
+		||
+		{while(true){present(cleanZone1){emit cleanZone1TriggerE;} pause;}}
+		||
+		{while(true){present(cleanZone2){emit cleanZone2TriggerE;} pause;}}
+		||
+		{while(true){present(cleanZone3){emit cleanZone3TriggerE;} pause;}}
+		||
+		{while(true){present(cleanZone4){emit cleanZone4TriggerE;} pause;}}
+		||
+		{while(true){present(cleanZone5){emit cleanZone5TriggerE;} pause;}}
+		||
+		{while(true){present(cleanZone6){emit cleanZone6TriggerE;} pause;}}
+		||
+		{while(true){present(cleanZone7){emit cleanZone7TriggerE;} pause;}}
+		||
+		{while(true){present(fanOnZone1_7){emit fanOnZone1_7TriggerE;} pause;}}
+		||
+		{while(true){present(heatOnZone1_7){emit heatOnZone1_7TriggerE;} pause;}}
+		||
+		{while(true){present(airOnZone2_3){emit airOnZone2_3TriggerE;} pause;}}
+		||
+		{while(true){present(airOnZone4_5_6){emit airOnZone4_5_6TriggerE;} pause;}}
+		||
+		{while(true){present(heatOnZone2_3){emit heatOnZone2_3TriggerE;} pause;}}
+		||
+		{while(true){present(heatOnZone4_5_6){emit heatOnZone4_5_6TriggerE;} pause;}}
+		||
+		{while(true){present(humOnZone1_7){emit humOnZone1_7TriggerE;} pause;}}
+		||
+		{while(true){present(humOnZone2_3){emit humOnZone2_3TriggerE;} pause;}}
+		||
+		{while(true){present(humOnZone4_5_6){emit humOnZone4_5_6TriggerE;} pause;}}
+		||
+		{while(true){present(deHumOnZone1_7){emit deHumOnZone1_7TriggerE;} pause;}}
+		||
+		{while(true){present(deHumOnZone2_3){emit deHumOnZone2_3TriggerE;} pause;}}
+		||
+		{while(true){present(deHumOnZone4_5_6){emit deHumOnZone4_5_6TriggerE;} pause;}}
+		||
+		{while(true){present(cutPow){emit cutPow_TriggerE;} pause;}}
+	}
 }

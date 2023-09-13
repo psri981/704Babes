@@ -49,3 +49,58 @@ POS_Controller(
 		pause;
 	}
 }
+
+ECS_controller(
+		input signal fireZone1, fireZone2, fireZone3, fireZone4, fireZone5, fireZone6, fireZone7;
+		input signal cleanZone1, cleanZone2, cleanZone3, cleanZone4, cleanZone5, cleanZone6, cleanZone7;
+		input signal fanOnZone1_7, heatOnZone1_7, airOnZone2_3, airOnZone4_5_6, heatOnZone2_3, heatOnZone4_5_6;
+		//input signal blindsDownZone1_7, blindsDownZone2_3, blindsDownZone4_5_6;  
+		input signal humOnZone1_7, humOnZone2_3, humOnZone4_5_6, deHumOnZone1_7, deHumOnZone2_3, deHumOnZone4_5_6;
+		input signal cutPow;
+		input signal pow;
+		
+		output signal safeOpTemp, safeOpHumid;
+		output signal powerOff, roomCleaned, fireOut, alarmOff, blindsDown, evacuated;
+		)
+->{
+	/* TODO: Write control-logic */
+	while(true) {
+		
+		// CHECK FOR POWER CUTS
+		present(cutPow){
+			System.out.println("");
+			System.out.println("Fire detected all power has been cut, please wait...");
+			emit powerOff;
+		}	
+	
+		// CHECK FOR FIRE
+		present( fireZone1){
+			System.out.println("");
+			System.out.println("Smoke alarm activated please wait for fire to be extinguished...");
+			emit alarmOff;
+		}
+
+		// CHECK FOR CLEANLINESS
+		present(cleanZone1 || cleanZone2 || cleanZone3 || cleanZone4 || cleanZone5 || cleanZone6 || cleanZone7){
+			System.out.println("");
+			System.out.println("High levels of dust detected please wait for room to be cleaned...");
+			emit roomCleaned;
+		}
+		
+		// CHECK FOR TEMPERATURE
+		present(fanOnZone1_7 || heatOnZone1_7 || airOnZone2_3 || airOnZone4_5_6 || heatOnZone2_3 || heatOnZone4_5_6){
+			System.out.println("");
+			System.out.println("Room temperature is not optimal, please wait for it to moderate...");
+			emit safeOpTemp;
+		}
+		
+		// CHECK FOR HUMIDITY CHANGES
+		present(humOnZone1_7 || humOnZone2_3 || humOnZone4_5_6 || deHumOnZone1_7 || deHumOnZone2_3 || deHumOnZone4_5_6){
+			System.out.println("");
+			System.out.println("Room humidity is not optimal, please wait for it to moderate...");
+			emit safeOpHumid;
+		}
+		
+		pause;
+	}
+}

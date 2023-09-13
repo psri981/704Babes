@@ -25,6 +25,37 @@
 			<oSignal Name="orderDoneFlag" To="POSPlantCD.orderDoneFlag" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="50005" />
 
 		</ClockDomain>
+		
+				<ClockDomain Name="ECSControllerCD" Class="ECS_controller">
+			<iSignal Name="fireZone1" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="fireZone2"  Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="fireZone3"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="fireZone4"     Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="fireZone5"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="fireZone6"           Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="fireZone7"         Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			
+			<iSignal Name="cleanZone1" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="cleanZone2"  Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="cleanZone3"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="cleanZone4"     Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="cleanZone5"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="cleanZone6"           Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="cleanZone7"         Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			
+			<iSignal Name="cutPow" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+			<iSignal Name="pow" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="33333" />
+	
+			<oSignal Name="powerOff" To="ECSPlantCD.powerOff" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30003" />
+			<oSignal Name="roomCleaned" To="ECSPlantCD.roomCleaned" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30003" />
+			<oSignal Name="alarmOff" To="ECSPlantCD.alarmOff" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30003" />
+			<oSignal Name="blindsDown" To="ECSPlantCD.blindsDown" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30003" />
+			<oSignal Name="evacuated" To="ECSPlantCD.evacuated" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30003" />
+			<oSignal Name="safeOpTemp" To="ECSPlantCD.safeOpTemp" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30003" />
+			<oSignal Name="safeOpHumid" To="ECSPlantCD.safeOpHumid" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30003" />
+
+		</ClockDomain>
+
 	</SubSystem>
 
 </System>

@@ -17,8 +17,8 @@ public class POS_Controller extends ClockDomain{
   public Signal orderDoneFlag = new Signal("orderDoneFlag", Signal.OUTPUT);
   private int S102 = 1;
   
-  private int[] ends = new int[3];
-  private int[] tdone = new int[3];
+  private int[] ends = new int[4];
+  private int[] tdone = new int[4];
   
   public void runClockDomain(){
     for(int i=0;i<ends.length;i++){
@@ -69,9 +69,9 @@ public class POS_Controller extends ClockDomain{
   }
 
   public void init(){
-    char [] active1 = {1, 1, 1};
-    char [] paused1 = {0, 0, 0};
-    char [] suspended1 = {0, 0, 0};
+    char [] active1 = {1, 1, 1, 1};
+    char [] paused1 = {0, 0, 0, 0};
+    char [] suspended1 = {0, 0, 0, 0};
     paused = paused1;
     active = active1;
     suspended = suspended1;

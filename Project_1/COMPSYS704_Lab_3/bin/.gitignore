@@ -5,3 +5,5 @@
 /run/
 /POS_Controller.class
 /POS_Plant.class
+/ECS_controller.class
+/ECS_plant.class

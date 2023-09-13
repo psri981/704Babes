@@ -43,6 +43,111 @@
 			<oChannel Name="bottleQuantityOutput"       To="PlantCD.bottleQuantityOutput" />	
 					
 		</ClockDomain>
+		
+				<ClockDomain Name="ECSPlantCD" Class="ECS_plant">
+			<iSignal Name="tempZone1_7" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+			<iSignal Name="tempZone2_3"        Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+			<iSignal Name="tempZone4_5_6"    Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+			<iSignal Name="humidZone1_7"      Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+			<iSignal Name="humidZone2_3"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+			<iSignal Name="humidZone4_5_6"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+
+			<iSignal Name="dust"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+			<iSignal Name="fire"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+			<iSignal Name="time"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+			<iSignal Name="lightInt"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+			<iSignal Name="selectedZone"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+			
+			<iSignal Name="powerOff"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+			<iSignal Name="alarmOff"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+			<iSignal Name="roomCleaned"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+			<iSignal Name="safeOpTemp"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+			<iSignal Name="safeOpHumid"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+			
+			<iSignal Name="run"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="30003" />
+
+			<oSignal Name="fireZone1" To="ECSControllerCD.fireZone1" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="fireZone2"  To="ECSControllerCD.fireZone2"  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="fireZone3"       To="ECSControllerCD.fireZone3"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="fireZone4"     To="ECSControllerCD.fireZone4"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="fireZone5"       To="ECSControllerCD.fireZone5"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="fireZone6"     To="ECSControllerCD.fireZone6"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="fireZone7"       To="ECSControllerCD.fireZone7"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="fireExt"       To="ECSControllerCD.fireExt"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			
+			<oSignal Name="cleanZone1"       To="ECSControllerCD.cleanZone1"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="cleanZone2"       To="ECSControllerCD.cleanZone2"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="cleanZone3"       To="ECSControllerCD.cleanZone3"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="cleanZone4"       To="ECSControllerCD.cleanZone4"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="cleanZone5"       To="ECSControllerCD.cleanZone5"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="cleanZone6"       To="ECSControllerCD.cleanZone6"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="cleanZone7"       To="ECSControllerCD.cleanZone7"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			
+			<oSignal Name="fanOnZone1_7"       To="ECSControllerCD.fanOnZone1_7"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="heatOnZone1_7"       To="ECSControllerCD.heatOnZone1_7"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="airOnZone2_3"       To="ECSControllerCD.airOnZone2_3"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="airOnZone4_5_6"       To="ECSControllerCD.airOnZone4_5_6"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="heatOnZone2_3"       To="ECSControllerCD.heatOnZone2_3"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="heatOnZone4_5_6"       To="ECSControllerCD.heatOnZone4_5_6"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			
+			<oSignal Name="blindsDownZone1_7"       To="ECSControllerCD.blindsDownZone1_7"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="blindsDownZone2_3"       To="ECSControllerCD.blindsDownZone2_3"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="blindsDownZone4_5_6"       To="ECSControllerCD.blindsDownZone4_5_6"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			
+			<oSignal Name="humOnZone1_7"       To="ECSControllerCD.humOnZone1_7"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="humOnZone2_3"       To="ECSControllerCD.humOnZone2_3"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="humOnZone4_5_6"       To="ECSControllerCD.botPos5"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="deHumOnZone1_7"       To="ECSControllerCD.humOnZone2_3"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="deHumOnZone2_3"       To="ECSControllerCD.deHumOnZone2_3"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			<oSignal Name="deHumOnZone4_5_6"       To="ECSControllerCD.deHumOnZone4_5_6"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			
+			<oSignal Name="cutPow"       To="ECSControllerCD.cutPow"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+			
+			<oSignal Name="pow"       To="ECSControllerCD.pow"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="33333" />
+									
+			<oSignal Name="alarmZone1TriggerE" To="UI.alarmZone1TriggerE" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="alarmZone2TriggerE" To="UI.alarmZone2TriggerE" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="alarmZone3TriggerE" To="UI.alarmZone3TriggerE" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="alarmZone4TriggerE" To="UI.alarmZone4TriggerE" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="alarmZone5TriggerE" To="UI.alarmZone5TriggerE" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="alarmZone6TriggerE" To="UI.alarmZone6TriggerE" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="alarmZone7TriggerE" To="UI.alarmZone7TriggerE" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />			
+			
+			<oSignal Name="cleanZone1TriggerE"  To="UI.cleanZone1TriggerE"  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="cleanZone2TriggerE"       To="UI.cleanZone2TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="cleanZone3TriggerE"     To="UI.cleanZone3TriggerE"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="cleanZone4TriggerE"       To="UI.cleanZone4TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="cleanZone5TriggerE"       To="UI.cleanZone5TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="cleanZone6TriggerE"     To="UI.cleanZone6TriggerE"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="cleanZone7TriggerE"       To="UI.cleanZone7TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			
+			<oSignal Name="fanOnZone1_7TriggerE"  To="UI.fanOnZone1_7TriggerE"  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="heatOnZone1_7TriggerE"       To="UI.heatOnZone1_7TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="airOnZone2_3TriggerE"     To="UI.airOnZone2_3TriggerE"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="airOnZone4_5_6TriggerE"       To="UI.airOnZone4_5_6TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="heatOnZone2_3TriggerE"       To="UI.heatOnZone2_3TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="heatOnZone4_5_6TriggerE"     To="UI.heatOnZone4_5_6TriggerE"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+
+			<oSignal Name="humOnZone1_7TriggerE"  To="UI.humOnZone1_7TriggerE"  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="humOnZone2_3TriggerE"       To="UI.humOnZone2_3TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="humOnZone4_5_6TriggerE"     To="UI.humOnZone4_5_6TriggerE"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="deHumOnZone1_7TriggerE"       To="UI.deHumOnZone1_7TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="deHumOnZone2_3TriggerE"       To="UI.deHumOnZone2_3TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="deHumOnZone4_5_6TriggerE"     To="UI.deHumOnZone4_5_6TriggerE"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			
+			<oSignal Name="cutPow_TriggerE"       To="UI.cutPow_TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="fireExtE"       To="UI.fireExtE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			
+			<oSignal Name="lightIntZ1Trigger"   To="UI.lightIntZ1TriggerE"    Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="lightIntZ2Trigger"   To="UI.lightIntZ2TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="lightIntZ3Trigger"   To="UI.lightIntZ3TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="lightIntZ4Trigger"   To="UI.lightIntZ4TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="lightIntZ5Trigger"   To="UI.lightIntZ5TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="lightIntZ6Trigger"   To="UI.lightIntZ6TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			<oSignal Name="lightIntZ7Trigger"   To="UI.lightIntZ7TriggerE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="30000" />
+			
+		</ClockDomain>
+
 	</SubSystem>
 
 </System>

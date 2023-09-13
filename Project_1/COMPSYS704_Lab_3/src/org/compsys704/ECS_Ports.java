@@ -1,0 +1,8 @@
+package org.compsys704;
+
+public class ECS_Ports {
+	public static final String RUN_SIGNAL = "ECSPlantCD.run";
+	public static final int PORT_LOADER_PLANT = 30003;
+	public static final int PORT_LOADER_CONTROLLER = 33333;
+	public static final int PORT_LOADER_VIZ = 30000;
+}
