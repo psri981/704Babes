@@ -1,4 +1,6 @@
 /.DS_Store
+/ACS_Controller.class
+/ACS_Plant.class
 /Controller.class
 /ECS_controller.class
 /ECS_plant.class
@@ -7,5 +9,3 @@
 /Plant.class
 /org/
 /run/
-/ACS_Controller.class
-/ACS_Plant.class

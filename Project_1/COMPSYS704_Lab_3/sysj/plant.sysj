@@ -32,7 +32,101 @@ Plant(
 			liquidMix = (String)#liquidMixOutput;
 			System.out.println("Liquid Mix: " + liquidMix);
 			
-			Integer bottlesDone = 0;			
+			Integer bottlesDone = 0;	
+			///BACKBONE OF MULTIPLE BOTTLES LOGIC/// (needs a little more thought)
+//			if (bottles < 5) { // if there are less than 5 bottles show them one at a time to start
+//				if (bottles == 4) {
+//					emit botPos1;
+//					await(rotate);
+//					emit botPos2;
+//					await(rotate);
+//					emit botPos3;
+//					await(rotate);
+//					emit botPos4(rotate);
+//					await(rotate);
+//				}
+//				else if (bottles == 3) {
+//					emit botPos1;
+//					await(rotate);
+//					emit botPos2;
+//					await(rotate);
+//					emit botPos3;
+//					await(rotate);
+//				}
+//				else if (bottles == 2) {
+//					emit botPos1;
+//					await(rotate);
+//					emit botPos2;
+//					await(rotate);
+//				}
+//				else if (bottles == 1) {
+//					emit botPos1;
+//					await(rotate);
+//				}
+//			}
+//			
+//			else if(bottles > 4) {
+//				int multiples = (bottles-4)/5;
+//				int rem = (bottles-4)%5;
+//				
+//				emit botPos1; // show first four
+//				await(rotate);
+//				emit botPos2;
+//				await(rotate);
+//				emit botPos3;
+//				await(rotate);
+//				emit botPos4(rotate);
+//				await(rotate);
+//				
+//				for(int i = 0 ; i < multiples; i++) {
+//					emit botPos1;
+//					emit botPos2;
+//					emit botPos3;
+//					emit botPos4;
+//					emit botPos5;
+//					await(rotate);
+//				}
+//				
+//				if (rem == 4) {
+//					emit botPos1;
+//					await(rotate);
+//					emit botPos2;
+//					await(rotate);
+//					emit botPos3;
+//					await(rotate);
+//					emit botPos4(rotate);
+//					await(rotate);
+//				}
+//				else if (rem == 3) {
+//					emit botPos1;
+//					await(rotate);
+//					emit botPos2;
+//					await(rotate);
+//					emit botPos3;
+//					await(rotate);
+//				}
+//				else if (rem == 2) {
+//					emit botPos1;
+//					await(rotate);
+//					emit botPos2;
+//					await(rotate);
+//				}
+//				else if (rem == 1) {
+//					emit botPos1;
+//					await(rotate);
+//				}
+//			}
+//			
+//		emit botPos4; // show last four leaving
+//		await(rotate);
+//		emit botPos3;
+//		await(rotate);
+//		emit botPos2;
+//		await(rotate);
+//		emit botPos1(rotate);
+//		await(rotate);
+			
+			
 			
 			while(bottlesDone != bottles){	
 				abort(rotate){
