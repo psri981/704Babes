@@ -166,6 +166,8 @@
 			<iSignal Name="accessOffice"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="40000" />
 			<iSignal Name="accessManu"         Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="40000" />
 			<iSignal Name="fire"      		   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="40000" />
+			<iSignal Name="modeManual"      		   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="40000" />
+			<iSignal Name="modeAutomatic"      		   Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="40000" />
 			
 			<oSignal Name="accessOffice_t"   To="ACS_ControllerCD.person1accessOffice" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="40004" />
 			<oSignal Name="accessManu_t"     To="ACS_ControllerCD.person1accessManu" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="40004" />

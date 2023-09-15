@@ -9,6 +9,12 @@ public class ACS_LoaderVizWorker extends Worker{
 	public void setSignal(boolean status) {
 //		System.out.println(signame+"  "+status);
 		switch(signame){
+		case "modeAutomaticGUI":
+			ACS_States.MODEAUTOMATIC = status;
+			break;
+		case "modeManualGUI":
+			ACS_States.MODEMANUAL = status;
+			break;
 		case "unlock1GUI":
 			ACS_States.DOOR1_UNLOCK = status;
 			break;

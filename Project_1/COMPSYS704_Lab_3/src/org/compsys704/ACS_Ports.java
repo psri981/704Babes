@@ -14,6 +14,8 @@ public class ACS_Ports {
 	public static final String SIGNAL_ZONE_OCC_5 = "ACS_PlantCD.zoneOcc5";
 	public static final String SIGNAL_ZONE_OCC_6 = "ACS_PlantCD.zoneOcc6";
 	public static final String SIGNAL_ZONE_OCC_7 = "ACS_PlantCD.zoneOcc7";
+	public static final String MODEMANUAL = "ACS_PlantCD.modeManual";
+	public static final String MODEAUTOMATIC = "ACS_PlantCD.modeAutomatic";
 	public static final String SIGNAL_FIRE = "ACS_PlantCD.fire";
 	public static final int PORT_LOADER_PLANT = 40000;
 	public static final int PORT_LOADER_CONTROLLER = 40004;

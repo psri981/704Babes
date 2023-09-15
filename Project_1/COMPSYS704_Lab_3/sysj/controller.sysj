@@ -111,7 +111,7 @@ ACS_Controller(
     output signal absResume, absSuspend, proxLaser, unlock1, unlock2, unlock3;
 )
 -> {
-	//MAKING FAKE PEOPLE DONT MIND ME
+	//MAKING FAKE PEOPLE
 	
 	// Declare a 2D integer array with 3 rows and 4 columns
 	int[][] personArray = new int[4][4];
@@ -150,7 +150,7 @@ ACS_Controller(
 	
 	while(true) {
 		System.out.println(personArray[0][2]);
-		
+		//for (int i = 0; i < 4; i++){ // Uncomment when have people ( need to change variables to universal ones such as personArray[i][2] == 1 for person1accessManu, instead of [0] change to [i]). Then it can loop through entire array of workers
 		abort(person1accessManu) { //if they have office access
 				abort(person1accessManu){ //stop once permission changes
 					personArray[0][1] = 0; //log in array
@@ -213,6 +213,7 @@ ACS_Controller(
 				}
 				personArray[0][1] = 0;
 			}
+		//} // end of for loop
 		}
 		pause;
 	}

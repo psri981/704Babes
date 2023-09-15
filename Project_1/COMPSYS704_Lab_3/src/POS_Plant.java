@@ -22,8 +22,8 @@ public class POS_Plant extends ClockDomain{
   public input_Channel orderDoneFlag_in = new input_Channel();
   public output_Channel liquidMixOutput_o = new output_Channel();
   public output_Channel bottleQuantityOutput_o = new output_Channel();
-  private Integer y_thread_10;//sysj\plant.sysj line: 129, column: 5
-  private String x_thread_10;//sysj\plant.sysj line: 130, column: 5
+  private Integer y_thread_10;//sysj\plant.sysj line: 223, column: 5
+  private String x_thread_10;//sysj\plant.sysj line: 224, column: 5
   private int S59674 = 1;
   private int S59263 = 1;
   private int S58991 = 1;
@@ -33,16 +33,16 @@ public class POS_Plant extends ClockDomain{
   private int S58908 = 1;
   private int S58903 = 1;
   
-  private int[] ends = new int[65];
-  private int[] tdone = new int[65];
+  private int[] ends = new int[67];
+  private int[] tdone = new int[67];
   
-  public void thread68312(int [] tdone, int [] ends){
+  public void thread69528(int [] tdone, int [] ends){
         active[11]=0;
     ends[11]=0;
     tdone[11]=1;
   }
 
-  public void thread68311(int [] tdone, int [] ends){
+  public void thread69527(int [] tdone, int [] ends){
         switch(S59263){
       case 0 : 
         active[10]=0;
@@ -57,8 +57,8 @@ public class POS_Plant extends ClockDomain{
               case 0 : 
                 switch(S58864){
                   case 0 : 
-                    if(!bottleQuantityOutput_o.isPartnerPresent() || bottleQuantityOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 135, column: 5
-                      bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 135, column: 5
+                    if(!bottleQuantityOutput_o.isPartnerPresent() || bottleQuantityOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 229, column: 5
+                      bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 229, column: 5
                       S58864=1;
                       active[10]=1;
                       ends[10]=1;
@@ -67,17 +67,17 @@ public class POS_Plant extends ClockDomain{
                     else {
                       switch(S58859){
                         case 0 : 
-                          if(bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 135, column: 5
-                            bottleQuantityOutput_o.setVal(y_thread_10);//sysj\plant.sysj line: 135, column: 5
+                          if(bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 229, column: 5
+                            bottleQuantityOutput_o.setVal(y_thread_10);//sysj\plant.sysj line: 229, column: 5
                             S58859=1;
-                            if(!bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 135, column: 5
-                              bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 135, column: 5
+                            if(!bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 229, column: 5
+                              bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 229, column: 5
                               ends[10]=2;
-                              ;//sysj\plant.sysj line: 135, column: 5
+                              ;//sysj\plant.sysj line: 229, column: 5
                               S58857=1;
                               S58908=0;
-                              if(!liquidMixOutput_o.isPartnerPresent() || liquidMixOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 137, column: 5
-                                liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 137, column: 5
+                              if(!liquidMixOutput_o.isPartnerPresent() || liquidMixOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 231, column: 5
+                                liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 231, column: 5
                                 S58908=1;
                                 active[10]=1;
                                 ends[10]=1;
@@ -85,13 +85,13 @@ public class POS_Plant extends ClockDomain{
                               }
                               else {
                                 S58903=0;
-                                if(liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 137, column: 5
-                                  liquidMixOutput_o.setVal(x_thread_10);//sysj\plant.sysj line: 137, column: 5
+                                if(liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 231, column: 5
+                                  liquidMixOutput_o.setVal(x_thread_10);//sysj\plant.sysj line: 231, column: 5
                                   S58903=1;
-                                  if(!liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 137, column: 5
-                                    liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 137, column: 5
+                                  if(!liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 231, column: 5
+                                    liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 231, column: 5
                                     ends[10]=2;
-                                    ;//sysj\plant.sysj line: 137, column: 5
+                                    ;//sysj\plant.sysj line: 231, column: 5
                                     S58991=1;
                                     active[10]=1;
                                     ends[10]=1;
@@ -124,14 +124,14 @@ public class POS_Plant extends ClockDomain{
                           break;
                         
                         case 1 : 
-                          if(!bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 135, column: 5
-                            bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 135, column: 5
+                          if(!bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 229, column: 5
+                            bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 229, column: 5
                             ends[10]=2;
-                            ;//sysj\plant.sysj line: 135, column: 5
+                            ;//sysj\plant.sysj line: 229, column: 5
                             S58857=1;
                             S58908=0;
-                            if(!liquidMixOutput_o.isPartnerPresent() || liquidMixOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 137, column: 5
-                              liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 137, column: 5
+                            if(!liquidMixOutput_o.isPartnerPresent() || liquidMixOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 231, column: 5
+                              liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 231, column: 5
                               S58908=1;
                               active[10]=1;
                               ends[10]=1;
@@ -139,13 +139,13 @@ public class POS_Plant extends ClockDomain{
                             }
                             else {
                               S58903=0;
-                              if(liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 137, column: 5
-                                liquidMixOutput_o.setVal(x_thread_10);//sysj\plant.sysj line: 137, column: 5
+                              if(liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 231, column: 5
+                                liquidMixOutput_o.setVal(x_thread_10);//sysj\plant.sysj line: 231, column: 5
                                 S58903=1;
-                                if(!liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 137, column: 5
-                                  liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 137, column: 5
+                                if(!liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 231, column: 5
+                                  liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 231, column: 5
                                   ends[10]=2;
-                                  ;//sysj\plant.sysj line: 137, column: 5
+                                  ;//sysj\plant.sysj line: 231, column: 5
                                   S58991=1;
                                   active[10]=1;
                                   ends[10]=1;
@@ -178,8 +178,8 @@ public class POS_Plant extends ClockDomain{
                   case 1 : 
                     S58864=1;
                     S58864=0;
-                    if(!bottleQuantityOutput_o.isPartnerPresent() || bottleQuantityOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 135, column: 5
-                      bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 135, column: 5
+                    if(!bottleQuantityOutput_o.isPartnerPresent() || bottleQuantityOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 229, column: 5
+                      bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 229, column: 5
                       S58864=1;
                       active[10]=1;
                       ends[10]=1;
@@ -187,17 +187,17 @@ public class POS_Plant extends ClockDomain{
                     }
                     else {
                       S58859=0;
-                      if(bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 135, column: 5
-                        bottleQuantityOutput_o.setVal(y_thread_10);//sysj\plant.sysj line: 135, column: 5
+                      if(bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 229, column: 5
+                        bottleQuantityOutput_o.setVal(y_thread_10);//sysj\plant.sysj line: 229, column: 5
                         S58859=1;
-                        if(!bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 135, column: 5
-                          bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 135, column: 5
+                        if(!bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 229, column: 5
+                          bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 229, column: 5
                           ends[10]=2;
-                          ;//sysj\plant.sysj line: 135, column: 5
+                          ;//sysj\plant.sysj line: 229, column: 5
                           S58857=1;
                           S58908=0;
-                          if(!liquidMixOutput_o.isPartnerPresent() || liquidMixOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 137, column: 5
-                            liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 137, column: 5
+                          if(!liquidMixOutput_o.isPartnerPresent() || liquidMixOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 231, column: 5
+                            liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 231, column: 5
                             S58908=1;
                             active[10]=1;
                             ends[10]=1;
@@ -205,13 +205,13 @@ public class POS_Plant extends ClockDomain{
                           }
                           else {
                             S58903=0;
-                            if(liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 137, column: 5
-                              liquidMixOutput_o.setVal(x_thread_10);//sysj\plant.sysj line: 137, column: 5
+                            if(liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 231, column: 5
+                              liquidMixOutput_o.setVal(x_thread_10);//sysj\plant.sysj line: 231, column: 5
                               S58903=1;
-                              if(!liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 137, column: 5
-                                liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 137, column: 5
+                              if(!liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 231, column: 5
+                                liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 231, column: 5
                                 ends[10]=2;
-                                ;//sysj\plant.sysj line: 137, column: 5
+                                ;//sysj\plant.sysj line: 231, column: 5
                                 S58991=1;
                                 active[10]=1;
                                 ends[10]=1;
@@ -250,8 +250,8 @@ public class POS_Plant extends ClockDomain{
               case 1 : 
                 switch(S58908){
                   case 0 : 
-                    if(!liquidMixOutput_o.isPartnerPresent() || liquidMixOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 137, column: 5
-                      liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 137, column: 5
+                    if(!liquidMixOutput_o.isPartnerPresent() || liquidMixOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 231, column: 5
+                      liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 231, column: 5
                       S58908=1;
                       active[10]=1;
                       ends[10]=1;
@@ -260,13 +260,13 @@ public class POS_Plant extends ClockDomain{
                     else {
                       switch(S58903){
                         case 0 : 
-                          if(liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 137, column: 5
-                            liquidMixOutput_o.setVal(x_thread_10);//sysj\plant.sysj line: 137, column: 5
+                          if(liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 231, column: 5
+                            liquidMixOutput_o.setVal(x_thread_10);//sysj\plant.sysj line: 231, column: 5
                             S58903=1;
-                            if(!liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 137, column: 5
-                              liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 137, column: 5
+                            if(!liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 231, column: 5
+                              liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 231, column: 5
                               ends[10]=2;
-                              ;//sysj\plant.sysj line: 137, column: 5
+                              ;//sysj\plant.sysj line: 231, column: 5
                               S58991=1;
                               active[10]=1;
                               ends[10]=1;
@@ -286,10 +286,10 @@ public class POS_Plant extends ClockDomain{
                           break;
                         
                         case 1 : 
-                          if(!liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 137, column: 5
-                            liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 137, column: 5
+                          if(!liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 231, column: 5
+                            liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 231, column: 5
                             ends[10]=2;
-                            ;//sysj\plant.sysj line: 137, column: 5
+                            ;//sysj\plant.sysj line: 231, column: 5
                             S58991=1;
                             active[10]=1;
                             ends[10]=1;
@@ -309,8 +309,8 @@ public class POS_Plant extends ClockDomain{
                   case 1 : 
                     S58908=1;
                     S58908=0;
-                    if(!liquidMixOutput_o.isPartnerPresent() || liquidMixOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 137, column: 5
-                      liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 137, column: 5
+                    if(!liquidMixOutput_o.isPartnerPresent() || liquidMixOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 231, column: 5
+                      liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 231, column: 5
                       S58908=1;
                       active[10]=1;
                       ends[10]=1;
@@ -318,13 +318,13 @@ public class POS_Plant extends ClockDomain{
                     }
                     else {
                       S58903=0;
-                      if(liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 137, column: 5
-                        liquidMixOutput_o.setVal(x_thread_10);//sysj\plant.sysj line: 137, column: 5
+                      if(liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 231, column: 5
+                        liquidMixOutput_o.setVal(x_thread_10);//sysj\plant.sysj line: 231, column: 5
                         S58903=1;
-                        if(!liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 137, column: 5
-                          liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 137, column: 5
+                        if(!liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 231, column: 5
+                          liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 231, column: 5
                           ends[10]=2;
-                          ;//sysj\plant.sysj line: 137, column: 5
+                          ;//sysj\plant.sysj line: 231, column: 5
                           S58991=1;
                           active[10]=1;
                           ends[10]=1;
@@ -353,13 +353,13 @@ public class POS_Plant extends ClockDomain{
           case 1 : 
             S58991=1;
             S58991=0;
-            if(orderStart.getprestatus()){//sysj\plant.sysj line: 128, column: 12
-                                          y_thread_10 = (bottleQuantity.getpreval() == null ? null : ((Integer)bottleQuantity.getpreval()));//sysj\plant.sysj line: 132, column: 5
-              x_thread_10 = (liquidMix.getpreval() == null ? null : ((String)liquidMix.getpreval()));//sysj\plant.sysj line: 133, column: 5
+            if(orderStart.getprestatus()){//sysj\plant.sysj line: 222, column: 12
+                                          y_thread_10 = (bottleQuantity.getpreval() == null ? null : ((Integer)bottleQuantity.getpreval()));//sysj\plant.sysj line: 226, column: 5
+              x_thread_10 = (liquidMix.getpreval() == null ? null : ((String)liquidMix.getpreval()));//sysj\plant.sysj line: 227, column: 5
               S58857=0;
               S58864=0;
-              if(!bottleQuantityOutput_o.isPartnerPresent() || bottleQuantityOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 135, column: 5
-                bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 135, column: 5
+              if(!bottleQuantityOutput_o.isPartnerPresent() || bottleQuantityOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 229, column: 5
+                bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 229, column: 5
                 S58864=1;
                 active[10]=1;
                 ends[10]=1;
@@ -367,17 +367,17 @@ public class POS_Plant extends ClockDomain{
               }
               else {
                 S58859=0;
-                if(bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 135, column: 5
-                  bottleQuantityOutput_o.setVal(y_thread_10);//sysj\plant.sysj line: 135, column: 5
+                if(bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 229, column: 5
+                  bottleQuantityOutput_o.setVal(y_thread_10);//sysj\plant.sysj line: 229, column: 5
                   S58859=1;
-                  if(!bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 135, column: 5
-                    bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 135, column: 5
+                  if(!bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 229, column: 5
+                    bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 229, column: 5
                     ends[10]=2;
-                    ;//sysj\plant.sysj line: 135, column: 5
+                    ;//sysj\plant.sysj line: 229, column: 5
                     S58857=1;
                     S58908=0;
-                    if(!liquidMixOutput_o.isPartnerPresent() || liquidMixOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 137, column: 5
-                      liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 137, column: 5
+                    if(!liquidMixOutput_o.isPartnerPresent() || liquidMixOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 231, column: 5
+                      liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 231, column: 5
                       S58908=1;
                       active[10]=1;
                       ends[10]=1;
@@ -385,13 +385,13 @@ public class POS_Plant extends ClockDomain{
                     }
                     else {
                       S58903=0;
-                      if(liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 137, column: 5
-                        liquidMixOutput_o.setVal(x_thread_10);//sysj\plant.sysj line: 137, column: 5
+                      if(liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 231, column: 5
+                        liquidMixOutput_o.setVal(x_thread_10);//sysj\plant.sysj line: 231, column: 5
                         S58903=1;
-                        if(!liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 137, column: 5
-                          liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 137, column: 5
+                        if(!liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 231, column: 5
+                          liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 231, column: 5
                           ends[10]=2;
-                          ;//sysj\plant.sysj line: 137, column: 5
+                          ;//sysj\plant.sysj line: 231, column: 5
                           S58991=1;
                           active[10]=1;
                           ends[10]=1;
@@ -437,22 +437,22 @@ public class POS_Plant extends ClockDomain{
     }
   }
 
-  public void thread68309(int [] tdone, int [] ends){
+  public void thread69525(int [] tdone, int [] ends){
         active[11]=0;
     ends[11]=0;
     tdone[11]=1;
   }
 
-  public void thread68308(int [] tdone, int [] ends){
+  public void thread69524(int [] tdone, int [] ends){
         S59263=1;
     S58991=0;
-    if(orderStart.getprestatus()){//sysj\plant.sysj line: 128, column: 12
-                  y_thread_10 = (bottleQuantity.getpreval() == null ? null : ((Integer)bottleQuantity.getpreval()));//sysj\plant.sysj line: 132, column: 5
-      x_thread_10 = (liquidMix.getpreval() == null ? null : ((String)liquidMix.getpreval()));//sysj\plant.sysj line: 133, column: 5
+    if(orderStart.getprestatus()){//sysj\plant.sysj line: 222, column: 12
+                  y_thread_10 = (bottleQuantity.getpreval() == null ? null : ((Integer)bottleQuantity.getpreval()));//sysj\plant.sysj line: 226, column: 5
+      x_thread_10 = (liquidMix.getpreval() == null ? null : ((String)liquidMix.getpreval()));//sysj\plant.sysj line: 227, column: 5
       S58857=0;
       S58864=0;
-      if(!bottleQuantityOutput_o.isPartnerPresent() || bottleQuantityOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 135, column: 5
-        bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 135, column: 5
+      if(!bottleQuantityOutput_o.isPartnerPresent() || bottleQuantityOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 229, column: 5
+        bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 229, column: 5
         S58864=1;
         active[10]=1;
         ends[10]=1;
@@ -460,17 +460,17 @@ public class POS_Plant extends ClockDomain{
       }
       else {
         S58859=0;
-        if(bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 135, column: 5
-          bottleQuantityOutput_o.setVal(y_thread_10);//sysj\plant.sysj line: 135, column: 5
+        if(bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 229, column: 5
+          bottleQuantityOutput_o.setVal(y_thread_10);//sysj\plant.sysj line: 229, column: 5
           S58859=1;
-          if(!bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 135, column: 5
-            bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 135, column: 5
+          if(!bottleQuantityOutput_o.isACK()){//sysj\plant.sysj line: 229, column: 5
+            bottleQuantityOutput_o.setREQ(false);//sysj\plant.sysj line: 229, column: 5
             ends[10]=2;
-            ;//sysj\plant.sysj line: 135, column: 5
+            ;//sysj\plant.sysj line: 229, column: 5
             S58857=1;
             S58908=0;
-            if(!liquidMixOutput_o.isPartnerPresent() || liquidMixOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 137, column: 5
-              liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 137, column: 5
+            if(!liquidMixOutput_o.isPartnerPresent() || liquidMixOutput_o.isPartnerPreempted()){//sysj\plant.sysj line: 231, column: 5
+              liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 231, column: 5
               S58908=1;
               active[10]=1;
               ends[10]=1;
@@ -478,13 +478,13 @@ public class POS_Plant extends ClockDomain{
             }
             else {
               S58903=0;
-              if(liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 137, column: 5
-                liquidMixOutput_o.setVal(x_thread_10);//sysj\plant.sysj line: 137, column: 5
+              if(liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 231, column: 5
+                liquidMixOutput_o.setVal(x_thread_10);//sysj\plant.sysj line: 231, column: 5
                 S58903=1;
-                if(!liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 137, column: 5
-                  liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 137, column: 5
+                if(!liquidMixOutput_o.isACK()){//sysj\plant.sysj line: 231, column: 5
+                  liquidMixOutput_o.setREQ(false);//sysj\plant.sysj line: 231, column: 5
                   ends[10]=2;
-                  ;//sysj\plant.sysj line: 137, column: 5
+                  ;//sysj\plant.sysj line: 231, column: 5
                   S58991=1;
                   active[10]=1;
                   ends[10]=1;
@@ -539,39 +539,39 @@ public class POS_Plant extends ClockDomain{
         case 1 : 
           S59674=2;
           S59674=2;
-          new Thread(new POS_GUI()).start();//sysj\plant.sysj line: 124, column: 2
-          thread68308(tdone,ends);
-          thread68309(tdone,ends);
-          int biggest68310 = 0;
-          if(ends[10]>=biggest68310){
-            biggest68310=ends[10];
+          new Thread(new POS_GUI()).start();//sysj\plant.sysj line: 218, column: 2
+          thread69524(tdone,ends);
+          thread69525(tdone,ends);
+          int biggest69526 = 0;
+          if(ends[10]>=biggest69526){
+            biggest69526=ends[10];
           }
-          if(ends[11]>=biggest68310){
-            biggest68310=ends[11];
+          if(ends[11]>=biggest69526){
+            biggest69526=ends[11];
           }
-          if(biggest68310 == 1){
+          if(biggest69526 == 1){
             active[9]=1;
             ends[9]=1;
             break RUN;
           }
         
         case 2 : 
-          thread68311(tdone,ends);
-          thread68312(tdone,ends);
-          int biggest68313 = 0;
-          if(ends[10]>=biggest68313){
-            biggest68313=ends[10];
+          thread69527(tdone,ends);
+          thread69528(tdone,ends);
+          int biggest69529 = 0;
+          if(ends[10]>=biggest69529){
+            biggest69529=ends[10];
           }
-          if(ends[11]>=biggest68313){
-            biggest68313=ends[11];
+          if(ends[11]>=biggest69529){
+            biggest69529=ends[11];
           }
-          if(biggest68313 == 1){
+          if(biggest69529 == 1){
             active[9]=1;
             ends[9]=1;
             break RUN;
           }
           //FINXME code
-          if(biggest68313 == 0){
+          if(biggest69529 == 0){
             S59674=0;
             active[9]=0;
             ends[9]=0;
@@ -584,9 +584,9 @@ public class POS_Plant extends ClockDomain{
   }
 
   public void init(){
-    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     paused = paused1;
     active = active1;
     suspended = suspended1;

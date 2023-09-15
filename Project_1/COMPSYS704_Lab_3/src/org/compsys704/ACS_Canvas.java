@@ -148,10 +148,10 @@ public class ACS_Canvas {
 		frmSecurityAccessControl.getContentPane().add(accessManu);
 		
 		
-		JButton btnNewButton_2_1 = new JButton("Manual");
-		buttonGroup_2.add(btnNewButton_2_1);
-		btnNewButton_2_1.setBounds(148, 407, 85, 21);
-		frmSecurityAccessControl.getContentPane().add(btnNewButton_2_1);
+		JButton Manual = new JButton("Manual");
+		buttonGroup_2.add(Manual);
+		Manual.setBounds(148, 407, 85, 21);
+		frmSecurityAccessControl.getContentPane().add(Manual);
 		
 		JLabel zone4 = new JLabel("Zone4");
 		zone4.setHorizontalAlignment(SwingConstants.CENTER);
@@ -180,10 +180,10 @@ public class ACS_Canvas {
 		lblNewLabel_7.setBounds(305, 290, 133, 33);
 		frmSecurityAccessControl.getContentPane().add(lblNewLabel_7);
 		
-		JButton btnNewButton_2 = new JButton("Automatic");
-		buttonGroup_2.add(btnNewButton_2);
-		btnNewButton_2.setBounds(28, 407, 85, 21);
-		frmSecurityAccessControl.getContentPane().add(btnNewButton_2);
+		JButton Automatic = new JButton("Automatic");
+		buttonGroup_2.add(Automatic);
+		Automatic.setBounds(28, 407, 85, 21);
+		frmSecurityAccessControl.getContentPane().add(Automatic);
 		
 		JButton locZone4 = new JButton("4");
 		locZone4.setEnabled(false);
@@ -438,7 +438,37 @@ public class ACS_Canvas {
 		locZone2.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.SIGNAL_ZONE_OCC_2));
 		locZone1.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.SIGNAL_ZONE_OCC_1));		
 		locZone1.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.SIGNAL_ZONE_OCC_1));	
+		Automatic.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.MODEAUTOMATIC));	
+		Manual.addActionListener(new SignalClient(ACS_Ports.PORT_LOADER_PLANT, ACS_Ports.MODEMANUAL));	
 		
+			Automatic.addActionListener(e -> {
+			if(ACS_States.MODEAUTOMATIC){
+				accessOffice.setEnabled(false);
+				accessManu.setEnabled(false);
+				locZone0.setEnabled(false);
+				locZone1.setEnabled(false);
+				locZone2.setEnabled(false);
+				locZone3.setEnabled(false);
+				locZone4.setEnabled(false);
+				locZone5.setEnabled(false);
+				locZone6.setEnabled(false);
+				locZone7.setEnabled(false);
+				absStatus.setText("ABS ON");
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+		
+		Manual.addActionListener(e -> {
+			if(ACS_States.MODEMANUAL){
+				accessOffice.setEnabled(true);
+				accessManu.setEnabled(true);
+				frmSecurityAccessControl.getContentPane().revalidate();
+				frmSecurityAccessControl.getContentPane().repaint();
+			}
+		});
+//		
+//		
 		locZone0.addActionListener(e -> {
 			if(ACS_States.ROOM0_PRECENSE){
 				zone1.setOpaque(false);
